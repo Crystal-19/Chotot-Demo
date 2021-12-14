@@ -1,7 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Home from "./pages/Home";
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import Home from './pages/Home' 
+
 // import {
 //   Home,
 //   HomeHeader,
@@ -21,7 +22,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

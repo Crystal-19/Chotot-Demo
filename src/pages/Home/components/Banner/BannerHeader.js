@@ -7,4 +7,4 @@ const BannerHeader = () => {
     </div>
   )
 }
-export default BannerHeader;
+export default BannerHeader

@@ -15,17 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "quotes": [2, "single", {"avoidEscape": true}],
-      "semi": [2, "never"]
-    }
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix src"
   },
   "browserslist": {
     "production": [

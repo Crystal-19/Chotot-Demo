@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const BannerFooter = () => {
   return (
@@ -7,4 +7,4 @@ const BannerFooter = () => {
     </div>
   )
 }
-export default BannerFooter;
+export default BannerFooter

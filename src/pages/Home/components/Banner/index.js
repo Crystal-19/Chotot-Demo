@@ -1,6 +1,6 @@
-import React from 'react';
-import BannerHeader from "./BannerHeader";
-import BannerFooter from "./BannerFooter";
+import React from 'react'
+import BannerHeader from './BannerHeader'
+import BannerFooter from './BannerFooter'
 
 
 const Banner = () => {
@@ -11,4 +11,4 @@ const Banner = () => {
     </div>
   )
 }
-export default Banner;
+export default Banner
