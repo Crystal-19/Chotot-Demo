@@ -3,6 +3,7 @@ import BannerHeader from './BannerHeader'
 import BannerFooter from './BannerFooter'
 
 
+
 const Banner = () => {
   return (
     <div>
@@ -12,3 +13,7 @@ const Banner = () => {
   )
 }
 export default Banner
+
+
+// yarn add -D prettier
+// npm install prettier --save-dev

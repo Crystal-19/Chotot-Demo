@@ -1,9 +1,10 @@
 import React from 'react'
+import Test from 'components/Header'
 
 const BannerHeader = () => {
   return (
     <div>
-      Bannerheader
+      <Test />
     </div>
   )
 }

@@ -8,6 +8,7 @@ module.exports = {
   },
   extends: [
     'react-app',
+    'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
@@ -35,4 +36,4 @@ module.exports = {
       version: 'detect',
     },
   },
-};
+}
