@@ -1,0 +1,23 @@
+
+// @font-face {
+//   font-family: 'Poppins-regular';
+//   src: url('../../assets/fonts/Poppins-Regular.ttf');
+// }
+
+// @font-face{
+//   font-family: 'Poppins-black';
+//   src: url('../../assets/fonts/Poppins-Black.ttf');
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,700&family=Roboto:wght@100&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+p {
+  color: $charcoal;
+}
