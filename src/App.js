@@ -3,16 +3,6 @@ import logo from './logo.svg'
 import './App.scss'
 import Home from './pages/Home' 
 
-// import {
-//   Home,
-//   HomeHeader,
-//   HomeHeader1,
-//   HomeHeader2,
-//   HomeHeader3,
-// } from "./pages/Home/index";
-
-// import * as HomeModule from './pages/Home/index';
-
 function App() {
   return (
     <div className="App">

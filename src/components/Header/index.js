@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Index = () => {
+const Header = () => {
   return (
     <div>
       Header test
     </div>
   )
 }
-export default Index
+export default Header

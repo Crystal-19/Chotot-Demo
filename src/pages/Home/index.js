@@ -1,17 +1,8 @@
-import  React from 'react'
-
 import './styles.scss'
 
 import Banner from './components/Banner'
 
-export const useState = () => <p>Home Header</p>
-
-export const HomeHeader1 = () => <p>Home Header1</p>
-
-export const HomeHeader2 = () => <p>Home Header2</p>
-
-export const HomeHeader3 = () => <p>Home Header3</p>
-
+import  React from 'react'
 
 const Home = () => {
   
@@ -25,6 +16,4 @@ const Home = () => {
     </div>
   )
 }
-
-
 export default Home
