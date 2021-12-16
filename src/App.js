@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 
 import Homepgae from 'pages/Home'
 import Newspgae from 'pages/News'
@@ -13,13 +13,13 @@ function App() {
       <nav>
         <ul>
           <li>
-            <a href='/' > Home </a>
+            <Link to='/' > Home </Link>
           </li>
           <li>
-            <a href='/news' > News </a>
+            <Link to='/news' > News </Link>
           </li>
           <li>
-            <a href='/contact' > Contact </a>
+            <Link to='/contact' > Contact </Link>
           </li>
         </ul>
       </nav>
