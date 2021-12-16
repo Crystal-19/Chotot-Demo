@@ -1,18 +1,34 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import Home from './pages/Home' 
-import logo from './logo.svg'
+import Homepgae from 'pages/Home'
+import Newspgae from 'pages/News'
+import Contactpgae from 'pages/Contact'
 
 import './App.scss'
 
 function App() {
   return (
     <div className="App">
-    <Home />
+      <nav>
+        <ul>
+          <li>
+            <a href='/' > Home </a>
+          </li>
+          <li>
+            <a href='/news' > News </a>
+          </li>
+          <li>
+            <a href='/contact' > Contact </a>
+          </li>
+        </ul>
+      </nav>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <Routes>
+        <Route path='/' element={ < Homepgae />} />
+        <Route path='/news' element={ < Newspgae />} />
+        <Route path='/contact' element={ < Contactpgae />} />
+      </Routes>
     </div>
   )
 }
