@@ -1,9 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'assets/scss/global.scss'
+
 import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
+
 
 function App() {
   return (
