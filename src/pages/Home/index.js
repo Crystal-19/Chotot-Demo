@@ -9,6 +9,11 @@ const Home = () => {
     <div className='home-container'>
       <Header />
       <Slider />
+
+      <code>
+        var i = 6;
+        i++;
+      </code>
     </div>
   )
 }
