@@ -1,18 +1,14 @@
-import  React from 'react'
+import React from 'react'
 
-import Banner from './components/Banner'
+import Header from 'components/Header'
 
-import './styles.scss'
+import Slider from './components/Slider'
 
 const Home = () => {
-  
   return (
-    <div>
-      <div className='title'> Almost </div>
-      <Banner />
-      <p> test 1 </p>
-      <h1> test 2 </h1>
-      <h5> test 3 </h5>
+    <div className='home-container'>
+      <Header />
+      <Slider />
     </div>
   )
 }

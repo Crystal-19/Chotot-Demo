@@ -1,36 +1,22 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
-import Homepgae from 'pages/Home'
-import Newspgae from 'pages/News'
-import Contactpgae from 'pages/Contact'
-
-import './App.scss'
+import Home from 'pages/Home'
+import News from 'pages/News'
+import NotFound from 'pages/NotFound'
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <ul>
-          <li>
-            <a href='/' > Home </a>
-          </li>
-          <li>
-            <a href='/news' > News </a>
-          </li>
-          <li>
-            <a href='/contact' > Contact </a>
-          </li>
-        </ul>
-      </nav>
+    <div>
 
-      <Routes>
-        <Route path='/' element={ < Homepgae />} />
-        <Route path='/news' element={ < Newspgae />} />
-        <Route path='/contact' element={ < Contactpgae />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path='*' element={<NotFound />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/news' element={<News />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
-
 export default App
