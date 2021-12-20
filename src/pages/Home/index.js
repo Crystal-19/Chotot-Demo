@@ -1,18 +1,23 @@
-import  React from 'react'
+import React from 'react'
+import { Button } from 'react-bootstrap'
 
-import Banner from './components/Banner'
+import Header from 'components/Header'
+
+import Slider from './components/Slider'
 
 import './styles.scss'
 
 const Home = () => {
-  
   return (
-    <div>
-      <div className='title'> Almost </div>
-      <Banner />
-      <p> test 1 </p>
-      <h1> test 2 </h1>
-      <h5> test 3 </h5>
+    <div className='home-container'>
+      <Header />
+      <Slider />
+      <Button> Button </Button>
+
+      <code>
+        var i = 6;
+        i++;
+      </code>
     </div>
   )
 }

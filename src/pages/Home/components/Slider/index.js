@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Contact = () => {
+const Slider = () => {
   return (
     <div>
-      Contact
+      Slider
     </div>
   )
 }
-export default Contact  
+export default Slider
