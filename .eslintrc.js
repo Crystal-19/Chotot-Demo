@@ -30,6 +30,8 @@ module.exports = {
     'quotes': [2, 'single'],
     'semi': [2, 'never'],
     'no-duplicate-imports': 'error',
+    'no-unused-vars': 1,
+    'react/prop-types': 0,
   },
   settings: {
     react: {

@@ -1,0 +1,74 @@
+@import 'assets/scss';
+
+
+.header-container {
+  @include flex(row, center, space-between);
+  background: $main_yellow;
+  height: 52px;
+
+  .logo-container {
+    @include flex(row, center, flex-start);
+    flex: 0.3 1 auto;
+
+    .logo-img{
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  .items-container {
+    @include flex(row, center, flex-end);
+    flex: 0.7 0 auto;
+    font-size: 1rem;
+
+    .item{
+      @include flex(row, center, center);
+      margin-left: 35px;
+
+      .icon {
+        width: 1em;
+        height: 1em;
+        font-size: 24px;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+
+  .searchbar{
+    flex: 0.6 0 auto;
+
+    .ui.input{
+      width: 100%;
+
+      i.icon{
+        color: $minor_yellow;
+      }
+    }
+  }
+
+  .log{
+    @include flex(row, center, center);
+    margin-right: 35px;
+
+    .log-i {
+      width: 1em;
+      height: 1.2em;
+      font-size: 28px;
+      margin-right: 0.25rem;
+    }
+
+    span{
+      font-weight: bold;
+    }
+  }
+
+  .reg-btn{
+    @include flex(row, center, center);
+    background-color: $minor_yellow;
+    border: none;
+    border-radius: 10px;
+    color: $white;
+  }
+}
+
+

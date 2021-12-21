@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'semantic-ui-css/semantic.min.css'
 import 'assets/scss/global.scss'
 
 import Home from 'pages/Home'

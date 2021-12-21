@@ -11,13 +11,7 @@ const Home = () => {
   return (
     <div className='home-container'>
       <Header />
-      <Slider />
-      <Button> Button </Button>
 
-      <code>
-        var i = 6;
-        i++;
-      </code>
     </div>
   )
 }
