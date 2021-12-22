@@ -1,12 +1,11 @@
 import React from 'react'
-import {Image, Input, Icon} from 'semantic-ui-react'
+import {Image, Input} from 'semantic-ui-react'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
 import {ReactComponent as ChatIcon} from 'assets/images/icons/chat.svg'
 import {ReactComponent as NotiIcon} from 'assets/images/icons/noti.svg'
 import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
-import {ReactComponent as SearchIcon} from 'assets/images/icons/search.svg'
 import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 
