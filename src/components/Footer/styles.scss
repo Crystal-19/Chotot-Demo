@@ -1,0 +1,60 @@
+@import '../../assets/scss/index.scss';
+
+.footer-container{
+  width: 100%;
+  background: $white;
+  border-top: 12px solid $gray;
+
+  .items-container{
+    @include flex(row, flex-start, flex-start);
+    margin-top: 36px;
+
+    .item{
+      @include flex(column, flex-start, flex-start);
+      font-size: 1rem;
+      flex: 1 1 auto;
+
+      .apps-container{
+        @include flex(row, flex-start, flex-start);
+
+        .qrcode{
+          margin-right: 12px;
+        }
+
+        .appitems{
+          @include flex(column, center, center);
+
+          .app{
+            margin-bottom: 12px;
+            margin-right: 16px;
+          }
+        }
+      }
+
+      .med-container{
+        @include flex(row, center, space-between);
+
+        .app{
+          margin-bottom: 12px;
+          margin-right: 16px;
+        }
+      }
+
+      a{
+        text-decoration: none;
+        color: $silver;
+        font-size: 1rem;
+        line-height: 2.25rem;
+      }
+    }
+  }
+
+  .text-footer{
+    @include flex(column, center, center);
+
+    p{
+      color: $silver;
+      font-size: 0.7rem;
+    }
+  }
+}

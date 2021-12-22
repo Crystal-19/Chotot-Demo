@@ -11,7 +11,7 @@ import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 
 import './styles.scss'
 
-const MainHeader = () => {
+const mainHeader = () => {
   return (
     <>
       <div className="general-container header-container">
@@ -63,4 +63,4 @@ const MainHeader = () => {
     </>
   )
 }
-export default MainHeader
+export default mainHeader
