@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,700&family=Roboto:wght@100&display=swap');
+@import './index.scss';
 
 *{
   box-sizing: border-box;
@@ -14,6 +15,18 @@ body {
     width: 65%;
     margin-right: auto;
     margin-left: auto;
+
+    @include responsive(tablet) {
+      width: 96%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include responsive(mobile) {
+      width: 96%;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 

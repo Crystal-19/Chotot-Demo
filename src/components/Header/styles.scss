@@ -13,6 +13,19 @@
     .logo-img{
       width: 50%;
       height: 50%;
+
+      @include responsive(tablet){
+        width: 100%;
+      }
+
+      @include responsive(mobile){
+        width: 30%;
+      }
+    }
+
+    @include responsive (mobile){
+      @include flex(row, center, flex-end);
+      width: 50%;
     }
   }
 
@@ -21,9 +34,15 @@
     flex: 0.7 0 auto;
     font-size: 1rem;
 
+
     .item{
       @include flex(row, center, center);
       margin-left: 35px;
+
+      &:hover{
+        color: $charcoal;
+      }
+      
       .iconhome{
         height: 1.8em;
         width: 1.6rem;
@@ -56,16 +75,31 @@
         margin-right: 0.25rem;
       }
     }
+    .item-hide{
+      display: block;
+
+      @include responsive(mobile){
+        display: none;
+      }
+    }
   }
 
   .searchbar{
     flex: 0.6 0 auto;
+
+    @include responsive(mobile){
+      width: 100%;
+    }
 
     .ui.input{
       width: 100%;
 
       i.icon{
         color: $minor_yellow;
+
+        @include responsive(mobile){
+          display: none;
+        }
       }
     }
   }
@@ -83,6 +117,10 @@
 
     span{
       font-weight: bold;
+    }
+
+    @include responsive(mobile){
+      display: none;
     }
   }
 
@@ -102,6 +140,14 @@
         transform: scale(0.6);
       }
     }
+
+    @include responsive(mobile){
+      display: none;
+    }
+  }
+
+  @include responsive(mobile){
+    @include flex(row, center, center);
   }
 }
 

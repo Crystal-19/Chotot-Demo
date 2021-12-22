@@ -1,6 +1,18 @@
 @import 'assets/scss';
 
+
 .home-container{
   width: 100%;
   background: $main_yellow;
+
+  @include responsive(tablet){
+    width: 100%;
+    background: $main_yellow;
+  }
+
+  @include responsive(mobile){
+    width: 767px;
+    background: $main_yellow;
+  }
 }
+

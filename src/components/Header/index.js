@@ -23,23 +23,23 @@ const MainHeader = () => {
           />
         </div>
         <div className="items-container">
-          <div className="item">
-            <HomeIcon className="iconhome" />
+          <div className="item item-hide">
+            <HomeIcon className=" iconhome" />
             <span> Home Page </span>
           </div>
-          <div className="item">
+          <div className="item item-hide">
             <NewsIcon className="iconnews" />
             <span>News Management</span>
           </div>
           <div className="item">
             <ChatIcon className="iconchat" />
-            <span>Chat</span>
+            <span className='item-hide'>Chat</span>
           </div>
-          <div className="item">
+          <div className="item item-hide">
             <NotiIcon className="iconnoti" />
             <span>Notify</span>
           </div>
-          <div className="item">
+          <div className="item item-hide">
             <MoreIcon className="iconmore" />
             <span>More</span>
           </div>
