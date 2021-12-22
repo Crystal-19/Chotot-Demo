@@ -24,11 +24,35 @@
     .item{
       @include flex(row, center, center);
       margin-left: 35px;
+      .iconhome{
+        height: 1.8em;
+        width: 1.6rem;
+        transform: scale(0.8);
+        margin-right: 0.25rem;
+      }
 
-      .icon {
-        width: 1em;
-        height: 1em;
-        font-size: 24px;
+      .iconnews{
+        height: 1.76em;
+        width: 1.95rem;
+        transform: scale(0.8);
+        margin-right: 0.25rem;
+      }
+      .iconchat {
+        height: 1.7em;
+        width: 2.2rem;
+        transform: scale(0.7);
+        margin-right: 0.25rem;
+      }
+      .iconnoti {
+        height: 1.4em;
+        width: 1.2rem;
+        transform: scale(1);
+        margin-right: 0.25rem;
+      }
+      .iconmore {
+        height: 0.5em;
+        width: 1.7rem;
+        transform: scale(0.9);
         margin-right: 0.25rem;
       }
     }
@@ -51,10 +75,10 @@
     margin-right: 35px;
 
     .log-i {
-      width: 1em;
-      height: 1.2em;
-      font-size: 28px;
-      margin-right: 0.25rem;
+      height: 2.2em;
+      width: 2.2rem;
+      transform: scale(1);
+      margin-right: 0.7rem;
     }
 
     span{
@@ -66,8 +90,18 @@
     @include flex(row, center, center);
     background-color: $minor_yellow;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     color: $white;
+
+    .reg{
+      @include flex(row, center, center);
+
+      .reg-i{
+        height: 1.7em;
+        width: 1.7rem;
+        transform: scale(0.6);
+      }
+    }
   }
 }
 

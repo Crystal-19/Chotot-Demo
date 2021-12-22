@@ -24,23 +24,23 @@ const MainHeader = () => {
         </div>
         <div className="items-container">
           <div className="item">
-            <HomeIcon className="icon" />
+            <HomeIcon className="iconhome" />
             <span> Home Page </span>
           </div>
           <div className="item">
-            <NewsIcon className="icon" />
+            <NewsIcon className="iconnews" />
             <span>News Management</span>
           </div>
           <div className="item">
-            <ChatIcon className="icon" />
+            <ChatIcon className="iconchat" />
             <span>Chat</span>
           </div>
           <div className="item">
-            <NotiIcon className="icon" />
+            <NotiIcon className="iconnoti" />
             <span>Notify</span>
           </div>
           <div className="item">
-            <MoreIcon className="icon" />
+            <MoreIcon className="iconmore" />
             <span>More</span>
           </div>
         </div>
@@ -54,8 +54,8 @@ const MainHeader = () => {
           <span> Log in</span>
         </div>
         <button className='reg-btn'>
-          <div className='log'>
-            <RegisterIcon className="log-i" />
+          <div className='reg'>
+            <RegisterIcon className="reg-i" />
             <span> Register </span>
           </div>
         </button>
