@@ -16,16 +16,8 @@ body {
     margin-right: auto;
     margin-left: auto;
 
-    @include responsive(tablet) {
+    @include multiple-responsive (tablet, mobile) {
       width: 96%;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    @include responsive(mobile) {
-      width: 96%;
-      margin-right: auto;
-      margin-left: auto;
     }
   }
 }

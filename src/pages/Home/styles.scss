@@ -5,17 +5,5 @@
   width: 100%;
   background: $main_yellow;
   padding-bottom: 1px;
-
-
-
-  @include responsive(tablet){
-    width: 100%;
-    background: $main_yellow;
-  }
-
-  @include responsive(mobile){
-    width: 100%;
-    background: $main_yellow;
-  }
 }
 
