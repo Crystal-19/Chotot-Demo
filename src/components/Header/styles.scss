@@ -1,0 +1,241 @@
+@import 'assets/scss';
+
+
+.header-container {
+  @include flex(row, flex-end, space-between);
+  background: $main_yellow;
+  height: 52px;
+  margin-bottom: 15px;
+
+  @include responsive(mobile){
+    @include flex(row, center, center);
+  }
+
+  .logo-container {
+    @include flex(row, center, flex-start);
+    flex: 0.3 1 auto;
+    margin-top: 15px;
+
+    .logo-img{
+      width: 55%;
+      height: 50%;
+
+      @include responsive(tablet){
+        width: 65%;
+      }
+
+      @include responsive(mobile){
+        width: 7.5rem;
+      }
+    }
+
+    @include responsive (mobile){
+      @include flex(row, center, flex-end);
+      width: 50%;
+    }
+  }
+
+  .items-container {
+    @include flex(row, center, flex-end);
+    flex: 0.7 0 auto;
+    font-size: 1.3rem;
+
+    .item{
+      @include flex(row, center, center);
+      margin-left: 50px;
+      text-decoration: none;
+      color: $dark_gray;
+
+      &:hover{
+        opacity: 0.6;
+      }
+
+      @include responsive(tablet){
+        margin-left: 25px;
+      }
+
+      @include responsive(mobile){
+        margin-left: 0;
+      }
+
+      .iconhome{
+        $height: 1.4em;
+        $ratio: 23/25;
+        height: $height;
+        width: $height * $ratio;
+        margin-right: 0.3rem;
+      }
+
+      .iconnews{
+        $height: 1.4em;
+        $ratio: 26.272/24.4;
+        height: $height;
+        width: $height * $ratio;
+        margin-right: 1rem;
+      }
+
+      .iconchat {
+        $height: 1.4em;
+        $ratio: 31/26;
+        height: $height;
+        width: $height * $ratio;
+        margin-right: 1rem;
+
+        @include responsive(mobile){
+          margin-right: 0;
+        }
+      }
+
+      .iconnoti {
+        $height: 1.4em;
+        $ratio: 15.706/19.271;
+        height: $height;
+        width: $height * $ratio;
+        margin-right: 1rem;
+      }
+
+      .iconmore {
+        $height: 0.5em;
+        $ratio: 23.821/6.592;
+        height: $height;
+        width: $height * $ratio;
+        margin-right: 1rem;
+      }
+    }
+
+    .item-hide{
+      display: block;
+
+      @include responsive(tablet) {
+        font-size: 1rem;
+      }
+
+      @include responsive(mobile){
+        display: none;
+      }
+    }
+  }
+
+  &.header-searchbar{
+    @include flex(row, center, space-between);
+
+    .searchbar{
+      flex: 0.87 0 auto;
+      font-size: 1.3rem;
+
+      @include responsive(tablet){
+        font-size: 1rem;
+      }
+
+      @include responsive(mobile){
+        width: 100%;
+      }
+
+      .ui.input{
+        width: 100%;
+
+        input{
+          flex: 0.9 0 auto;
+          border: none;
+
+          @include responsive(mobile){
+            flex: 1 0 auto;
+          }
+        }
+
+        i.icon{
+          color: $minor_yellow;
+          font-size: 1.5em;
+          background: $white;
+          opacity: 1;
+          pointer-events: visible;
+          cursor: pointer;
+
+          @include responsive(mobile){
+            display: none;
+          }
+        }
+      }
+    }
+
+    .log{
+      @include flex(row, center, center);
+      margin-right: 35px;
+      border: none;
+      background-color: $main_yellow;
+
+      &:hover{
+        color: $dark_gray;
+        opacity: 0.6;
+      }
+
+      .log-i {
+        height: 2.7em;
+        width: 2.7rem;
+        margin-right: 0.7rem;
+
+        @include responsive(tablet){
+          height: 2em;
+          width: 2rem;
+        }
+      }
+
+      span{
+        font-weight: bold;
+        font-size: 1.25rem;
+
+        @include responsive(tablet){
+          font-size: 1.2rem;
+        }
+      }
+
+      @include responsive(tablet){
+        margin-right: 18px;
+        margin-left: 20px;
+      }
+
+      @include responsive(mobile){
+        display: none;
+      }
+    }
+
+    .reg-btn{
+      @include flex(row, center, center);
+      background-color: $minor_yellow;
+      border: none;
+      border-radius: 5px;
+      color: $white;
+
+      &:hover{
+        background-color: $dark_yellow;
+      }
+
+      .reg{
+        @include flex(row, center, center);
+        margin: 10px 20px;
+
+        .reg-i{
+          $height: 1.4em;
+          $ratio: 23.228/23.227;
+          height: $height;
+          width: $height * $ratio;
+          margin-right: 10px;
+        }
+
+        span{
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+
+        @include responsive(tablet){
+          margin: 5px 0;
+        }
+      }
+
+      @include responsive(mobile){
+        display: none;
+      }
+    }
+  }
+}
+

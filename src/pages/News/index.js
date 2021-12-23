@@ -4,7 +4,7 @@ import Header from 'components/Header'
 
 const News = () => {
   return (
-    <div className='header-container'>
+    <div className='header-container my-container'>
       <Header />
       <h1> abc </h1>
     </div>
