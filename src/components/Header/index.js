@@ -20,11 +20,12 @@ const MainHeader = () => {
             className='logo-img'
             src="https://static.chotot.com/storage/default/transparent_logo.webp"
             size="tiny"
+            href='https://www.chotot.com/'
           />
         </div>
         <div className="items-container">
           <div className="item item-hide">
-            <HomeIcon className=" iconhome" />
+            <HomeIcon className=" iconhome"/>
             <span> Home Page </span>
           </div>
           <div className="item item-hide">
@@ -45,7 +46,7 @@ const MainHeader = () => {
           </div>
         </div>
       </div>
-      <div className='general-container header-container'>
+      <div className='general-container header-container' id='searchbar'>
         <div className='searchbar'>
           <Input icon='search' placeholder='Search on Cho Tot' />
         </div>

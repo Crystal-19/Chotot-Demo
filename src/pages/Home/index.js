@@ -7,7 +7,7 @@ import './styles.scss'
 const Home = () => {
   return (
     <div className='home-container'>
-      <Header />
+      <Header className='header-container'/>
     </div>
   )
 }

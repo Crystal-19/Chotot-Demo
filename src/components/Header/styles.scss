@@ -17,7 +17,7 @@
       height: 50%;
 
       @include responsive(tablet){
-        width: 100%;
+        width: 65%;
       }
 
       @include responsive(mobile){
@@ -42,7 +42,12 @@
       margin-left: 50px;
 
       &:hover{
-        color: $charcoal;
+        color: $dark_gray;
+        opacity: 0.6;
+      }
+
+      @include responsive(tablet){
+        margin-left: 25px;
       }
 
       .iconhome{
@@ -85,6 +90,9 @@
     .item-hide{
       display: block;
 
+      @include responsive(tablet) {
+        font-size: 1rem;
+      }
       @include responsive(mobile){
         display: none;
       }
@@ -95,6 +103,10 @@
     flex: 0.87 0 auto;
     font-size: 1.3rem;
 
+    @include responsive(tablet){
+      font-size: 1rem;
+    }
+
     @include responsive(mobile){
       width: 100%;
     }
@@ -102,9 +114,18 @@
     .ui.input{
       width: 100%;
 
+      input{
+        flex: 0.9 0 auto;
+      }
       i.icon{
         color: $minor_yellow;
+        background-color: $white;
+        border-top: 1px solid rgba(34,36,38,.15);
+        border-bottom: 1px solid rgba(34,36,38,.15);
+        border-right: 1px solid rgba(34,36,38,.15);
+        opacity: 1;
         font-size: 1.5em;
+        cursor: grab;
 
         @include responsive(mobile){
           display: none;
@@ -117,15 +138,34 @@
     @include flex(row, center, center);
     margin-right: 35px;
 
+    &:hover{
+      color: $dark_gray;
+      opacity: 0.6;
+    }
+
     .log-i {
       height: 2.7em;
       width: 2.7rem;
       margin-right: 0.7rem;
+
+      @include responsive(tablet){
+        height: 2em;
+        width: 2rem;
+      }
     }
 
     span{
       font-weight: bold;
       font-size: 1.5rem;
+
+      @include responsive(tablet){
+        font-size: 1.2rem;
+      }
+    }
+
+    @include responsive(tablet){
+      margin-right: 18px;
+      margin-left: 20px;
     }
 
     @include responsive(mobile){
@@ -139,6 +179,10 @@
     border: none;
     border-radius: 5px;
     color: $white;
+
+    &:hover{
+      background-color: $dark_yellow;
+    }
 
     .reg{
       @include flex(row, center, center);
@@ -155,6 +199,10 @@
         font-weight: bold;
         font-size: 1.5rem;
       }
+
+      @include responsive(tablet){
+        margin: 5px 0;
+      }
     }
 
     @include responsive(mobile){
@@ -167,4 +215,7 @@
   }
 }
 
+#searchbar{
+  @include flex(row, center, space-between);
+}
 
