@@ -4,6 +4,8 @@
 .home-container{
   width: 100%;
   background: $main_yellow;
+  padding-bottom: 3px;
+  padding-top: 3px;
 
   @include responsive(tablet){
     width: 100%;
