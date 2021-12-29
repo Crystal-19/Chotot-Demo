@@ -16,18 +16,15 @@ export const socialData = [
 export const appItems =[
   {
     href: 'https://apps.apple.com/us/app/chotot-vn/id790034666',
-    src: 'https://static.chotot.com/storage/default/ios.svg',
-    id: 1
+    src: 'https://static.chotot.com/storage/default/ios.svg'
   },
   {
     href: 'https://play.google.com/store/apps/details?id=com.chotot.vn',
-    src: 'https://static.chotot.com/storage/default/android.svg',
-    id: 2
+    src: 'https://static.chotot.com/storage/default/android.svg'
   },
   {
     href: 'https://static.chotot.com/storage/default/huawei_app_install.webp',
-    src: 'https://static.chotot.com/storage/default/huawei_app_install.png',
-    id: 3
+    src: 'https://static.chotot.com/storage/default/huawei_app_install.png'
   }
 ]
 export const customerItems = [

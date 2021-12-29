@@ -11,8 +11,8 @@ import {
 
 import './styles.scss'
 
-const mainFooter = () => {
-  const downloadApp = () => {
+const Footer = () => {
+  const renderDownloadApp = () => {
     return (
       <div className="item">
         <p> DOWNLOAD GOOD MARKET APP</p>
@@ -31,7 +31,7 @@ const mainFooter = () => {
     )
   }
 
-  const customerSupport = () => {
+  const renderCustomerSupport = () => {
     return (
       <div className="item">
         <p> CUSTOMER SUPPORT </p>
@@ -43,16 +43,16 @@ const mainFooter = () => {
       </div>
     )
   }
-  const itemsLeft = () => {
+  const renderItemsLeft = () => {
     return (
       <div className="items-left">
-        {downloadApp()}
-        {customerSupport()}
+        {renderDownloadApp()}
+        {renderCustomerSupport()}
       </div>
     )
   }
 
-  const aboutCT = () => {
+  const renderAboutSection = () => {
     return (
       <div className="item">
         <p> ABOUT MARKET TOT </p>
@@ -65,14 +65,14 @@ const mainFooter = () => {
     )
   }
 
-  const linkCT = () => {
+  const renderLinkSection = () => {
     return (
       <div className="item link">
         <p> LINK </p>
         <div className="med-container">
-          {socialData.map(dt => (
+          {socialData.map((dt, index) => (
             <Image
-              key={Math.random()}
+              key={index}
               src={dt.src}
               href={dt.href}
               className="app"
@@ -90,16 +90,16 @@ const mainFooter = () => {
     )
   }
 
-  const itemsRight = () => {
+  const renderItemsRight = () => {
     return (
       <div className="items-right">
-        {aboutCT()}
-        {linkCT()}
+        {renderAboutSection()}
+        {renderLinkSection()}
       </div>
     )
   }
 
-  const textBottom = () => {
+  const renderTextBottom = () => {
     return (
       <div className="general-container text-footer">
         {textFooter.map((dt, index) => (
@@ -108,16 +108,16 @@ const mainFooter = () => {
       </div>
     )
   }
-  
+
   return (
     <div className="footer-container">
       <div className="general-container items-container">
-        {itemsLeft()}
-        {itemsRight()}
+        {renderItemsLeft()}
+        {renderItemsRight()}
       </div>
       <Divider section />
-      {textBottom()}
+      {renderTextBottom()}
     </div>
   )
 }
-export default mainFooter
+export default Footer
