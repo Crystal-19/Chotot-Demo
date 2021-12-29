@@ -6,19 +6,142 @@
   border-top: 12px solid $gray;
 
   .items-container{
-    @include flex(row, flex-start, space-between);
+    @include flex(row, flex-start, flex-start);
     margin-top: 40px;
 
+    @include responsive(mobile){
+      @include flex(column, center, flex-start);
+    }
+
     .items-left{
-      @include flex(row, flex-start, space-between);
+      @include flex(row, flex-start, flex-start);
+      flex: 0.5 0 auto;
 
       .item{
         @include flex(column, flex-start, flex-start);
         font-size: 0.8rem;
-        flex: 0.4 1 auto;
+        margin-left: 20px;
 
-        h3{
-          font-size: 1.2rem;
+        p{
+          font-size: 1.25rem;
+          font-weight: 600;
+
+          @include responsive(tablet){
+            font-size: 1rem;
+          }
+
+          @include responsive (mobile){
+            font-size: 0.8rem;
+          }
+        }
+
+        a{
+          text-decoration: none;
+          color: $silver;
+          font-size: 1.25rem;
+          line-height: 2.8rem;
+
+          @include responsive(tablet){
+            font-size: 1rem;
+          }
+
+          @include responsive(mobile){
+            font-size: 0.8rem;
+          }
+        }
+
+        .apps-container{
+          @include flex(row, flex-start, space-between);
+
+          .qrcode{
+            margin-right: 12px;
+            width: 117px;
+            height: 117px;
+
+            @include responsive(tablet){
+              width: 97px;
+              height: 97px;
+            }
+
+            @include responsive(mobile){
+              width: 67px;
+              height: 67px;
+            }
+          }
+
+          .appitems{
+            @include flex(column, center, center);
+
+            .app{
+              width: 135px;
+              height: 55px;
+              margin-bottom: 12px;
+              margin-right: 16px;
+
+              @include responsive(tablet){
+                width: 110px;
+                height: 40px;
+              }
+
+              @include responsive(mobile){
+                width: 80px;
+                height: 30px;
+              }
+
+              img{
+                width: 135px;
+                height: 55px;
+
+                @include responsive(tablet){
+                  width: 110px;
+                  height: 40px;
+                }
+
+                @include responsive(mobile){
+                  width: 80px;
+                  height: 30px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .items-right{
+      @include flex(row, flex-start, space-between);
+      flex: 0.5 0 auto;
+
+      @include responsive(mobile){
+        @include flex(row, flex-start, space-evenly);
+      }
+
+      .item{
+        @include flex(column, flex-start, flex-start);
+        font-size: 1rem;
+        flex: 0.2 1 auto;
+
+        @include responsive (mobile){
+          margin-left: 20px;
+        }
+
+        &.link{
+          @include responsive (mobile){
+            margin-left: 85px;
+          }
+        }
+
+        p{
+          font-size: 1.25rem;
+          font-weight: 600;
+
+          @include responsive(tablet){
+            font-size: 1rem;
+          }
+
+          @include responsive (mobile){
+            font-size: 0.8rem;
+          }
         }
 
         .apps-container{
@@ -46,70 +169,52 @@
             }
           }
         }
-      }
-    }
 
-    .item{
-      @include flex(column, flex-start, flex-start);
-      font-size: 1rem;
-      flex: 0.2 1 auto;
-
-      h3{
-        font-size: 1.2rem;
-      }
-
-      .apps-container{
-        @include flex(row, flex-start, space-between);
-
-        .qrcode{
-          margin-right: 12px;
-          width: 117px;
-          height: 117px;
-        }
-
-        .appitems{
-          @include flex(column, center, center);
+        .med-container{
+          @include flex(row, center, space-between);
 
           .app{
-            width: 135px;
-            height: 55px;
             margin-bottom: 12px;
             margin-right: 16px;
 
             img{
-              width: 121px;
-              height: 43px;
+              width: 44px;
+              height: 44px;
+
+              @include multiple-responsive(tablet, mobile){
+                width: 25px;
+                height: 25px;
+              }
             }
           }
         }
-      }
 
-      .med-container{
-        @include flex(row, center, space-between);
+        a{
+          text-decoration: none;
+          color: $silver;
+          font-size: 1.25rem;
+          line-height: 2.8rem;
 
-        .app{
-          margin-bottom: 12px;
-          margin-right: 16px;
+          @include responsive(tablet){
+            font-size: 1rem;
+          }
 
-          img{
-            width: 44px;
-            height: 44px;
+          @include responsive(mobile){
+            font-size: 0.8rem;
           }
         }
       }
 
-      a{
-        text-decoration: none;
-        color: $silver;
-        font-size: 1.25rem;
-        line-height: 2.8rem;
-      }
-    }
+      .cert{
+        img{
+          width: 165px;
+          height: 50px;
 
-    .cert{
-      img{
-        width: 165px;
-        height: 50px;
+          @include multiple-responsive(tablet, mobile){
+            width: 120px;
+            height: 40px;
+          }
+        }
       }
     }
   }
@@ -120,6 +225,16 @@
     p{
       color: $silver;
       font-size: 1.115rem;
+    }
+
+    @include responsive(tablet){
+      p{
+        font-size: 0.7rem;
+      }
+    }
+
+    @include responsive(mobile){
+      display: none;
     }
   }
 }
