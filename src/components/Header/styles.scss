@@ -45,6 +45,8 @@
       margin-left: 50px;
       text-decoration: none;
       color: $dark_gray;
+      background-color: $main_yellow;
+      border: none;
 
       &:hover{
         opacity: 0.6;
@@ -101,10 +103,41 @@
         width: $height * $ratio;
         margin-right: 1rem;
       }
+      .dropdown{
+        width: 40px;
+        height: 25px;
+
+        .menu{
+          top: 150%;
+          left: auto;
+          right: -5px;
+          width: 350px;
+          opacity: 1;
+
+          .ui.tiny.image{
+            margin: 24px 0 24px 5px;
+          }
+
+          >.item{
+            background-color: $white;
+            margin-left: 0;
+            font-size: 1.15em;
+
+            &:hover{
+              background-color: $light_gray;
+            }
+
+            >img{
+              width: 40px;
+              height: 40px;
+              max-height: 40px;
+            }
+          }
+        }
+      }
     }
 
     .item-hide{
-      display: block;
 
       @include responsive(tablet) {
         font-size: 1rem;
@@ -120,7 +153,7 @@
     @include flex(row, center, space-between);
 
     .searchbar{
-      flex: 0.87 0 auto;
+      flex: 0.85 0 auto;
       font-size: 1.3rem;
 
       @include responsive(tablet){
