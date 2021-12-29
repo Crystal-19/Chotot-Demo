@@ -21,7 +21,7 @@ const Footer = () => {
             src="https://static.chotot.com/storage/default/group-qr.webp"
             className="qrcode"
           />
-          <div className="appitems">
+          <div className="app-items">
             {appItems.map((dt, index) => (
               <Image key={index} src={dt.src} href={dt.href} className="app" />
             ))}
