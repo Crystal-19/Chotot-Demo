@@ -19,7 +19,7 @@ export const iconsMix = [
 
 export const iconsGold = [
   {
-    image: 'https://static.chotot.com/storage/chotot-icons/svg/escrow-orders.svg',
+    image: 'https://st.chotot.com/storage/chotot-icons/svg/ct-coin.svg',
     content: 'Dong Good Account'
   },
   {

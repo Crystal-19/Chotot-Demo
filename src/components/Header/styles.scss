@@ -1,6 +1,5 @@
 @import 'assets/scss';
 
-
 .header-container {
   @include flex(row, flex-end, space-between);
   background: $main_yellow;
@@ -59,7 +58,7 @@
         margin-left: 0;
       }
 
-      .iconhome{
+      .icon-home{
         $height: 1.4em;
         $ratio: 23/25;
         height: $height;
@@ -67,7 +66,7 @@
         margin-right: 0.3rem;
       }
 
-      .iconnews{
+      .icon-news{
         $height: 1.4em;
         $ratio: 26.272/24.4;
         height: $height;
@@ -75,7 +74,7 @@
         margin-right: 1rem;
       }
 
-      .iconchat {
+      .icon-chat {
         $height: 1.4em;
         $ratio: 31/26;
         height: $height;
@@ -87,7 +86,7 @@
         }
       }
 
-      .iconnoti {
+      .icon-noti {
         $height: 1.4em;
         $ratio: 15.706/19.271;
         height: $height;
@@ -95,43 +94,42 @@
         margin-right: 1rem;
       }
 
-      .iconmore {
+      .icon-more {
         $height: 0.5em;
         $ratio: 23.821/6.592;
         height: $height;
         width: $height * $ratio;
         margin-right: 1rem;
       }
+    }
 
-      .dropdown{
-        width: 40px;
-        height: 25px;
+    .dropdown{
+      height: 25px;
 
-        .menu{
-          top: 150%;
-          left: auto;
-          right: -5px;
-          width: 350px;
-          opacity: 1;
+      .menu{
+        top: 150%;
+        left: auto;
+        right: -5px;
+        width: 350px;
+        opacity: 1;
 
-          .ui.tiny.image{
-            margin: 24px 0 24px 5px;
+        .ui.tiny.image{
+          margin: 24px 0 24px 5px;
+        }
+
+        >.item{
+          background-color: $white;
+          margin-left: 0;
+          font-size: 1.15em;
+
+          &:hover{
+            background-color: $light_gray;
           }
 
-          >.item{
-            background-color: $white;
-            margin-left: 0;
-            font-size: 1.15em;
-
-            &:hover{
-              background-color: $light_gray;
-            }
-
-            >img{
-              width: 40px;
-              height: 40px;
-              max-height: 40px;
-            }
+          >img{
+            width: 40px;
+            height: 40px;
+            max-height: 40px;
           }
         }
       }
@@ -155,7 +153,7 @@
     border-bottom: solid 15px $main_yellow;
     box-sizing: content-box;
 
-    .searchbar{
+    .search-bar{
       flex: 0.85 0 auto;
       font-size: 1.3rem;
 
@@ -200,6 +198,15 @@
       border: none;
       background-color: $main_yellow;
 
+      @include responsive(tablet){
+        margin-right: 18px;
+        margin-left: 20px;
+      }
+
+      @include responsive(mobile){
+        display: none;
+      }
+
       &:hover{
         color: $dark_gray;
         opacity: 0.6;
@@ -224,15 +231,6 @@
           font-size: 1.2rem;
         }
       }
-
-      @include responsive(tablet){
-        margin-right: 18px;
-        margin-left: 20px;
-      }
-
-      @include responsive(mobile){
-        display: none;
-      }
     }
 
     .reg-btn{
@@ -250,6 +248,13 @@
         @include flex(row, center, center);
         margin: 10px 20px;
 
+        @include responsive(tablet){
+          margin: 5px 0;
+        }
+        @include responsive(mobile){
+          display: none;
+        }
+
         .reg-i{
           $height: 1.4em;
           $ratio: 23.228/23.227;
@@ -262,14 +267,6 @@
           font-weight: bold;
           font-size: 1.5rem;
         }
-
-        @include responsive(tablet){
-          margin: 5px 0;
-        }
-      }
-
-      @include responsive(mobile){
-        display: none;
       }
     }
   }
