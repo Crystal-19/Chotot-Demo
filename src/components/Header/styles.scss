@@ -5,7 +5,6 @@
   @include flex(row, flex-end, space-between);
   background: $main_yellow;
   height: 52px;
-  // margin-bottom: 15px;
 
   @include responsive(mobile){
     @include flex(row, center, center);
@@ -103,6 +102,7 @@
         width: $height * $ratio;
         margin-right: 1rem;
       }
+
       .dropdown{
         width: 40px;
         height: 25px;
@@ -154,7 +154,6 @@
     border-top: solid 15px $main_yellow;
     border-bottom: solid 15px $main_yellow;
     box-sizing: content-box;
-
 
     .searchbar{
       flex: 0.85 0 auto;
