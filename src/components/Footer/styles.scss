@@ -13,42 +13,45 @@
       @include flex(column, center, flex-start);
     }
 
+    .item{
+      @include flex(column, flex-start, flex-start);
+      font-size: 0.8rem;
+
+      p{
+        font-size: 1.25rem;
+        font-weight: 600;
+
+        @include responsive(tablet){
+          font-size: 1rem;
+        }
+
+        @include responsive (mobile){
+          font-size: 0.8rem;
+        }
+      }
+
+      a{
+        text-decoration: none;
+        color: $silver;
+        font-size: 1.25rem;
+        line-height: 2.8rem;
+
+        @include responsive(tablet){
+          font-size: 1rem;
+        }
+
+        @include responsive(mobile){
+          font-size: 0.8rem;
+        }
+      }
+    }
+
     .items-left{
       @include flex(row, flex-start, flex-start);
       flex: 0.5 0 auto;
 
       .item{
-        @include flex(column, flex-start, flex-start);
-        font-size: 0.8rem;
         margin-left: 20px;
-
-        p{
-          font-size: 1.25rem;
-          font-weight: 600;
-
-          @include responsive(tablet){
-            font-size: 1rem;
-          }
-
-          @include responsive (mobile){
-            font-size: 0.8rem;
-          }
-        }
-
-        a{
-          text-decoration: none;
-          color: $silver;
-          font-size: 1.25rem;
-          line-height: 2.8rem;
-
-          @include responsive(tablet){
-            font-size: 1rem;
-          }
-
-          @include responsive(mobile){
-            font-size: 0.8rem;
-          }
-        }
 
         .apps-container{
           @include flex(row, flex-start, space-between);
@@ -117,8 +120,6 @@
       }
 
       .item{
-        @include flex(column, flex-start, flex-start);
-        font-size: 1rem;
         flex: 0.2 1 auto;
 
         @include responsive (mobile){
@@ -129,48 +130,21 @@
           @include responsive (mobile){
             margin-left: 85px;
           }
-        }
 
-        p{
-          font-size: 1.25rem;
-          font-weight: 600;
+          .certificate{
+            img{
+              width: 165px;
+              height: 50px;
 
-          @include responsive(tablet){
-            font-size: 1rem;
-          }
-
-          @include responsive (mobile){
-            font-size: 0.8rem;
-          }
-        }
-
-        .apps-container{
-          @include flex(row, flex-start, space-between);
-
-          .qrcode{
-            margin-right: 12px;
-            width: 117px;
-            height: 117px;
-          }
-
-          .appitems{
-            @include flex(column, center, center);
-
-            .app{
-              width: 135px;
-              height: 55px;
-              margin-bottom: 12px;
-              margin-right: 16px;
-
-              img{
-                width: 121px;
-                height: 43px;
+              @include multiple-responsive(tablet, mobile){
+                width: 120px;
+                height: 40px;
               }
             }
           }
         }
 
-        .med-container{
+        .media-container{
           @include flex(row, center, space-between);
 
           .app{
@@ -188,33 +162,6 @@
             }
           }
         }
-
-        a{
-          text-decoration: none;
-          color: $silver;
-          font-size: 1.25rem;
-          line-height: 2.8rem;
-
-          @include responsive(tablet){
-            font-size: 1rem;
-          }
-
-          @include responsive(mobile){
-            font-size: 0.8rem;
-          }
-        }
-      }
-
-      .cert{
-        img{
-          width: 165px;
-          height: 50px;
-
-          @include multiple-responsive(tablet, mobile){
-            width: 120px;
-            height: 40px;
-          }
-        }
       }
     }
   }
@@ -222,19 +169,17 @@
   .text-footer{
     @include flex(column, center, center);
 
+    @include responsive(mobile){
+      display: none;
+    }
+
     p{
       color: $silver;
       font-size: 1.115rem;
-    }
 
-    @include responsive(tablet){
-      p{
+      @include responsive(tablet){
         font-size: 0.7rem;
       }
-    }
-
-    @include responsive(mobile){
-      display: none;
     }
   }
 }

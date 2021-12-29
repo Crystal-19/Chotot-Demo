@@ -69,7 +69,7 @@ const Footer = () => {
     return (
       <div className="item link">
         <p> LINK </p>
-        <div className="med-container">
+        <div className="media-container">
           {socialData.map((dt, index) => (
             <Image
               key={index}
@@ -80,11 +80,11 @@ const Footer = () => {
             />
           ))}
         </div>
-        <p> CERTIFICATIONS</p>
+        <p>CERTIFICATIONS</p>
         <Image
           src="https://static.chotot.com/storage/default/certificate.webp"
           href="http://online.gov.vn/Home/WebDetails/33119"
-          className="cert"
+          className="certificate"
         />
       </div>
     )
