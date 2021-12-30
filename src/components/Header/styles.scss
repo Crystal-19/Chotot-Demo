@@ -104,6 +104,10 @@
     .dropdown{
       height: 25px;
 
+      @include responsive(mobile){
+        display: none;
+      }
+
       .menu{
         top: 150%;
         left: auto;
@@ -235,6 +239,10 @@
       border: none;
       border-radius: 5px;
       color: $white;
+
+      @include responsive (mobile){
+        display: none;
+      }
 
       &:hover{
         background-color: $dark_yellow;
