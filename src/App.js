@@ -9,7 +9,6 @@ import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
 
-
 function App() {
   return (
     <div>
