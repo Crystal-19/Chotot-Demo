@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, Input, Dropdown} from 'semantic-ui-react'
+import { Image, Input } from 'semantic-ui-react'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
@@ -8,8 +8,7 @@ import {ReactComponent as NotiIcon} from 'assets/images/icons/noti.svg'
 import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
 import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
-
-import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
+import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 
 import './styles.scss'
 
@@ -20,36 +19,6 @@ const Header = () => {
       <span>More</span>
     </div>
   )
-  const renderDropdownMore = () => {
-    return (
-      <Dropdown icon="" trigger={trigger}>
-        <Dropdown.Menu>
-          <Image
-            src="https://static.chotot.com/storage/marketplace/common/png/default_user.png"
-            href="https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2F&_ga=2.190840619.1214802101.1640660618-451603730.1639971106"
-            size="tiny"
-          />
-          <span>Log in/sign up</span>
-          <Dropdown.Divider />
-          {iconsMix.map((dt, index) => (
-            <Dropdown.Item key={index} {...dt} />
-          ))}
-          <Dropdown.Divider />
-          {iconsGold.map((dt, index) => (
-            <Dropdown.Item key={index} {...dt} />
-          ))}
-          <Dropdown.Divider />
-          {iconsGreen.map((dt, index) => (
-            <Dropdown.Item key={index} {...dt} />
-          ))}
-          <Dropdown.Divider />
-          {iconsGray.map((dt, index) => (
-            <Dropdown.Item key={index} {...dt} />
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
-    )
-  }
 
   const renderAboveHeader = () => {
     return (
@@ -79,7 +48,7 @@ const Header = () => {
             <NotiIcon className="icon-noti" />
             <span>Notify</span>
           </a>
-          {renderDropdownMore()}
+          <HeaderDropdown trigger={trigger}/>
         </div>
       </div>
     )
