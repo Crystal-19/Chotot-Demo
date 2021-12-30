@@ -14,15 +14,15 @@ import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 import './styles.scss'
 
 const Header = () => {
-  const strigger = (
-    <button className="item item-hide">
+  const trigger = (
+    <div className="item item-hide">
       <MoreIcon className="icon-more" />
       <span>More</span>
-    </button>
+    </div>
   )
   const renderDropdownMore = () => {
     return (
-      <Dropdown icon="" trigger={strigger}>
+      <Dropdown icon="" trigger={trigger}>
         <Dropdown.Menu>
           <Image
             src="https://static.chotot.com/storage/marketplace/common/png/default_user.png"
