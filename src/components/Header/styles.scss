@@ -1,11 +1,9 @@
 @import 'assets/scss';
 
-
 .header-container {
   @include flex(row, flex-end, space-between);
   background: $main_yellow;
   height: 52px;
-  margin-bottom: 15px;
 
   @include responsive(mobile){
     @include flex(row, center, center);
@@ -104,7 +102,6 @@
     }
 
     .item-hide{
-      display: block;
 
       @include responsive(tablet) {
         font-size: 1rem;
@@ -118,6 +115,7 @@
 
   &.header-searchbar{
     @include flex(row, center, space-between);
+    height: 76px;
 
     .searchbar{
       flex: 0.87 0 auto;
