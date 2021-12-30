@@ -149,9 +149,7 @@
 
   &.header-searchbar{
     @include flex(row, center, space-between);
-    border-top: solid 15px $main_yellow;
-    border-bottom: solid 15px $main_yellow;
-    box-sizing: content-box;
+    height: 76px;
 
     .search-bar{
       flex: 0.85 0 auto;
