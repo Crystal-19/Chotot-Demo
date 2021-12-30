@@ -18,7 +18,7 @@
       font-size: 0.8rem;
 
       p{
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 600;
 
         @include responsive(tablet){
@@ -33,7 +33,7 @@
       a{
         text-decoration: none;
         color: $silver;
-        font-size: 1.25rem;
+        font-size: 0.875rem;
         line-height: 2.8rem;
 
         @include responsive(tablet){
@@ -58,8 +58,8 @@
 
           .qrcode{
             margin-right: 12px;
-            width: 117px;
-            height: 117px;
+            width: 85px;
+            height: 85px;
 
             @include responsive(tablet){
               width: 97px;
@@ -76,8 +76,8 @@
             @include flex(column, center, center);
 
             .app{
-              width: 135px;
-              height: 55px;
+              width: 120px;
+              height: 35px;
               margin-bottom: 12px;
               margin-right: 16px;
 
@@ -92,8 +92,8 @@
               }
 
               img{
-                width: 135px;
-                height: 55px;
+                width: 105px;
+                height: 35px;
 
                 @include responsive(tablet){
                   width: 110px;
@@ -175,7 +175,7 @@
 
     p{
       color: $silver;
-      font-size: 1.115rem;
+      font-size: 0.875rem;
 
       @include responsive(tablet){
         font-size: 0.7rem;

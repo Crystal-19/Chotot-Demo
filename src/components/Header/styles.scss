@@ -36,7 +36,7 @@
   .items-container {
     @include flex(row, center, flex-end);
     flex: 0.7 0 auto;
-    font-size: 1.3rem;
+    font-size: 1rem;
 
     .item{
       @include flex(row, center, center);
@@ -225,7 +225,7 @@
 
       span{
         font-weight: bold;
-        font-size: 1.25rem;
+        font-size: 1.15rem;
 
         @include responsive(tablet){
           font-size: 1.2rem;
@@ -269,7 +269,7 @@
 
         span{
           font-weight: bold;
-          font-size: 1.5rem;
+          font-size: 1.25rem;
         }
       }
     }
