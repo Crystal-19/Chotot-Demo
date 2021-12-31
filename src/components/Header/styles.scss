@@ -5,29 +5,29 @@
   background: $main_yellow;
   height: 52px;
 
-  @include responsive(mobile){
+  @include responsive(mobile) {
     @include flex(row, center, center);
   }
-  
+
   .logo-container {
     @include flex(row, center, flex-start);
     flex: 0.3 1 auto;
     margin-top: 15px;
 
-    .logo-img{
+    .logo-img {
       width: 55%;
       height: 50%;
 
-      @include responsive(tablet){
+      @include responsive(tablet) {
         width: 65%;
       }
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         width: 7.5rem;
       }
     }
 
-    @include responsive (mobile){
+    @include responsive (mobile) {
       @include flex(row, center, flex-end);
       width: 50%;
     }
@@ -38,25 +38,42 @@
     flex: 0.7 0 auto;
     font-size: 1.3rem;
 
-    .item{
+    .dropdown {
+      .item {
+        .icon-more {
+          $height: 0.5em;
+          $ratio: 23.821/6.592;
+          height: $height;
+          width: $height * $ratio;
+          margin-right: 1rem;
+          fill: $dark_gray;
+        }
+
+        span {
+          color: $dark_gray;
+        }
+      }
+    }
+
+    .item {
       @include flex(row, center, center);
       margin-left: 50px;
       text-decoration: none;
       color: $dark_gray;
 
-      &:hover{
+      &:hover {
         opacity: 0.6;
       }
 
-      @include responsive(tablet){
+      @include responsive(tablet) {
         margin-left: 25px;
       }
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         margin-left: 0;
       }
 
-      .icon-home{
+      .icon-home {
         $height: 1.4em;
         $ratio: 23/25;
         height: $height;
@@ -64,7 +81,7 @@
         margin-right: 1rem;
       }
 
-      .icon-news{
+      .icon-news {
         $height: 1.4em;
         $ratio: 26.272/24.4;
         height: $height;
@@ -79,7 +96,7 @@
         width: $height * $ratio;
         margin-right: 1rem;
 
-        @include responsive(mobile){
+        @include responsive(mobile) {
           margin-right: 0;
         }
       }
@@ -91,44 +108,36 @@
         width: $height * $ratio;
         margin-right: 1rem;
       }
-
-      .icon-more {
-        $height: 0.5em;
-        $ratio: 23.821/6.592;
-        height: $height;
-        width: $height * $ratio;
-        margin-right: 1rem;
-      }
     }
 
-    .dropdown{
+    .dropdown {
       height: 25px;
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         display: none;
       }
 
-      .menu{
+      .menu {
         top: 150%;
         left: auto;
         right: -5px;
         width: 350px;
         opacity: 1;
 
-        .ui.tiny.image{
+        .ui.tiny.image {
           margin: 24px 0 24px 5px;
         }
 
-        >.item{
+        >.item {
           background-color: $white;
           margin-left: 0;
           font-size: 1.15em;
 
-          &:hover{
+          &:hover {
             background-color: $light_gray;
           }
 
-          >img{
+          >img {
             width: 40px;
             height: 40px;
             max-height: 40px;
@@ -137,47 +146,47 @@
       }
     }
 
-    .item-hide{
+    .item-hide {
 
       @include responsive(tablet) {
         font-size: 1rem;
       }
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         display: none;
       }
     }
   }
 
-  &.header-searchbar{
+  &.header-searchbar {
     @include flex(row, center, space-between);
     height: 76px;
 
-    .search-bar{
+    .search-bar {
       flex: 0.85 0 auto;
       font-size: 1.3rem;
 
-      @include responsive(tablet){
+      @include responsive(tablet) {
         font-size: 1rem;
       }
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         width: 100%;
       }
 
-      .ui.input{
+      .ui.input {
         width: 100%;
 
-        input{
+        input {
           flex: 0.9 0 auto;
           border: none;
 
-          @include responsive(mobile){
+          @include responsive(mobile) {
             flex: 1 0 auto;
           }
         }
 
-        i.icon{
+        i.icon {
           color: $minor_yellow;
           font-size: 1.5em;
           background: $white;
@@ -185,29 +194,29 @@
           pointer-events: visible;
           cursor: pointer;
 
-          @include responsive(mobile){
+          @include responsive(mobile) {
             display: none;
           }
         }
       }
     }
 
-    .log{
+    .log {
       @include flex(row, center, center);
       margin-right: 35px;
       border: none;
       background-color: $main_yellow;
 
-      @include responsive(tablet){
+      @include responsive(tablet) {
         margin-right: 18px;
         margin-left: 20px;
       }
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         display: none;
       }
 
-      &:hover{
+      &:hover {
         color: $dark_gray;
         opacity: 0.6;
       }
@@ -217,49 +226,50 @@
         width: 2.7rem;
         margin-right: 0.7rem;
 
-        @include responsive(tablet){
+        @include responsive(tablet) {
           height: 2em;
           width: 2rem;
         }
       }
 
-      span{
+      span {
         font-weight: bold;
         font-size: 1.25rem;
 
-        @include responsive(tablet){
+        @include responsive(tablet) {
           font-size: 1.2rem;
         }
       }
     }
 
-    .reg-btn{
+    .reg-btn {
       @include flex(row, center, center);
       background-color: $minor_yellow;
       border: none;
       border-radius: 5px;
       color: $white;
 
-      @include responsive (mobile){
+      @include responsive (mobile) {
         display: none;
       }
 
-      &:hover{
+      &:hover {
         background-color: $dark_yellow;
       }
 
-      .reg{
+      .reg {
         @include flex(row, center, center);
         margin: 10px 20px;
 
-        @include responsive(tablet){
+        @include responsive(tablet) {
           margin: 5px 0;
         }
-        @include responsive(mobile){
+
+        @include responsive(mobile) {
           display: none;
         }
 
-        .reg-i{
+        .reg-i {
           $height: 1.4em;
           $ratio: 23.228/23.227;
           height: $height;
@@ -267,7 +277,7 @@
           margin-right: 10px;
         }
 
-        span{
+        span {
           font-weight: bold;
           font-size: 1.5rem;
         }
@@ -275,4 +285,3 @@
     }
   }
 }
-
