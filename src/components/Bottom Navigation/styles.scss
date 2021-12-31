@@ -7,8 +7,8 @@
   left: 0;
   background-color: $white;
   width: 100%;
-  border-top: solid 1px $light_gray;
-  padding-top: 5px;
+  height: 8%;
+  box-shadow: 0px 0px 2px 0px $medium_gray;
 
   @include multiple-responsive(desktop, tablet) {
     display: none;
@@ -22,7 +22,7 @@
       $ratio: 23/25;
       height: $height;
       width: $height * $ratio;
-      color: $main_yellow;
+      color: $minor_yellow;
     }
 
     .icon-news {
@@ -33,12 +33,41 @@
       fill: $medium_gray;
     }
 
-    .icon-post {
-      $height: 1.8em;
-      $ratio: 23.228/23.227;
-      height: $height;
-      width: $height * $ratio;
-      color: $dark_gray;
+    .ui.image {
+      position: absolute;
+      bottom: 59px;
+    }
+
+    &.post{
+      margin-left: 35px;
+      margin-right: 35px;
+    }
+
+    .post-container {
+      background-color: $main_yellow;
+      border: solid 2px $white;
+      border-radius: 50%;
+      position: absolute;
+      height: 85px;
+      width: 85px;
+      bottom: -12px;
+
+      .icon-post {
+        $height: 1.8em;
+        $ratio: 23.228/23.227;
+        height: $height;
+        width: $height * $ratio;
+        color: $dark_gray;
+        position: absolute;
+        top: 19px;
+        left: 30px;
+      }
+
+      p {
+        position: absolute;
+        top: 45px;
+        left: 28px;
+      }
     }
 
     .icon-noti {
@@ -49,31 +78,8 @@
       color: $medium_gray;
     }
 
-    .icon-more {
-      height: 1.8em;
-      width: 2.16817em;
-      fill: $medium_gray;
-    }
-
     p {
       color: $medium_gray;
     }
-  }
-
-  .ui.image{
-    position: absolute;
-    bottom: 51px;
-    z-index: -2;
-  }
-
-  .post-container{
-    background-color: $main_yellow;
-    border: solid 2px $white;
-    border-radius: 100%;
-    position: absolute;
-    height: 150%;
-    width: 80px;
-    margin-left: 2px;
-    z-index: -1;
   }
 }

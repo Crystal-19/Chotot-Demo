@@ -27,11 +27,12 @@ module.exports = {
   plugins: [],
   root: true,
   rules: {
-    'quotes': [2, 'single'],
     'semi': [2, 'never'],
     'no-duplicate-imports': 'error',
     'no-unused-vars': 1,
     'react/prop-types': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
   settings: {
     react: {

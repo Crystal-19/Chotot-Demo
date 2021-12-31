@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import 'semantic-ui-css/semantic.min.css'
 import 'assets/scss/global.scss'
@@ -15,9 +15,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='*' element={<NotFound />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/news' element={<News />} />
+          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route path="/news" element={<News />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,10 +1,23 @@
 @import 'assets/scss';
 
-.ui.dropdown {
+.ui.upward.dropdown {
+  display: flex;
+
+  .item {
+    .icon-more {
+      fill: $medium_gray;
+    }
+
+    span {
+      color: $medium_gray;
+    }
+  }
+
   >.menu {
     width: 100vw;
-    left: -340px;
-    max-height: calc(100vh - 188px);
+    left: -333px;
+    height: calc(100vh - 176px);
+    max-height: calc(100vh - 103px);
     overflow-y: scroll;
 
     .content-container {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Input } from 'semantic-ui-react'
+import {Image, Input} from 'semantic-ui-react'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
@@ -22,7 +22,7 @@ const Header = () => {
 
   const renderAboveHeader = () => {
     return (
-      <div className="header-container">
+      <div className='header-container'>
         <div className="logo-container">
           <Image
             className="logo-img"
@@ -48,7 +48,7 @@ const Header = () => {
             <NotiIcon className="icon-noti" />
             <span>Notify</span>
           </a>
-          <HeaderDropdown trigger={trigger}/>
+          <HeaderDropdown trigger={trigger} />
         </div>
       </div>
     )
@@ -56,7 +56,7 @@ const Header = () => {
 
   const renderBelowHeader = () => {
     return (
-      <div className="header-container header-searchbar">
+      <div className='header-container header-searchbar'>
         <div className="search-bar">
           <Input icon="search" placeholder="Search on Cho Tot" />
         </div>

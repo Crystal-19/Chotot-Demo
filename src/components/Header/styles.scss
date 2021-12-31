@@ -8,7 +8,7 @@
   @include responsive(mobile){
     @include flex(row, center, center);
   }
-
+  
   .logo-container {
     @include flex(row, center, flex-start);
     flex: 0.3 1 auto;

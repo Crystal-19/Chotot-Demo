@@ -14,7 +14,7 @@ import './styles.scss'
 
 const BottomNav = () => {
   const trigger = (
-    <div className="item item-hide">
+    <div className="item">
       <MoreIcon className="icon-more" />
       <span>More</span>
     </div>
@@ -31,23 +31,20 @@ const BottomNav = () => {
         <p>News</p>
       </a>
       <a className="items-container post" href="/post">
-        <PostIcon className="icon-post" />
-        <p>Post</p>
+        <Image
+          className="top-rounder"
+          src="https://static.chotot.com/storage/default/combined-shape.svg"
+        />
+        <div className="post-container">
+          <PostIcon className="icon-post" />
+          <p>Post</p>
+        </div>
       </a>
       <a className="items-container" href="/notify">
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
       </a>
       <BottomPopup trigger={trigger} />
-      {/* <a className='items-container' href='/more'>
-        <MoreIcon className='icon-more'/>
-        <p>More</p>
-      </a> */}
-      <Image
-        className="top-rounder"
-        src="https://static.chotot.com/storage/default/combined-shape.svg"
-      />
-      <div className="post-container"></div>
     </div>
   )
 }
