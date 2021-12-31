@@ -8,6 +8,7 @@ import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
+import BottomNav from 'components/Bottom Navigation'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      <BottomNav />
     </div>
   )
 }

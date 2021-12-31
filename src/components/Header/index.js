@@ -33,7 +33,7 @@ const Header = () => {
         </div>
         <div className="items-container">
           <a href="/" className="item item-hide">
-            <HomeIcon className=" icon-home" />
+            <HomeIcon className="icon-home" />
             <span>Home Page</span>
           </a>
           <a href="/news" className="item item-hide">

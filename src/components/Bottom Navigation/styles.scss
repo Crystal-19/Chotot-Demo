@@ -1,0 +1,79 @@
+@import '../../assets/scss/index.scss';
+
+.nav-container {
+  @include flex(row, center, space-evenly);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+  width: 100%;
+  border-top: solid 1px $light_gray;
+  padding-top: 5px;
+
+  @include multiple-responsive(desktop, tablet) {
+    display: none;
+  }
+
+  .items-container {
+    @include flex(column, center, space-between);
+
+    .icon-home {
+      $height: 2em;
+      $ratio: 23/25;
+      height: $height;
+      width: $height * $ratio;
+      color: $main_yellow;
+    }
+
+    .icon-news {
+      $height: 1.8em;
+      $ratio: 26.272/24.4;
+      height: $height;
+      width: $height * $ratio;
+      fill: $medium_gray;
+    }
+
+    .icon-post {
+      $height: 1.8em;
+      $ratio: 23.228/23.227;
+      height: $height;
+      width: $height * $ratio;
+      color: $dark_gray;
+    }
+
+    .icon-noti {
+      $height: 1.8em;
+      $ratio: 15.706/19.271;
+      height: $height;
+      width: $height * $ratio;
+      color: $medium_gray;
+    }
+
+    .icon-more {
+      height: 1.8em;
+      width: 2.16817em;
+      fill: $medium_gray;
+    }
+
+    p {
+      color: $medium_gray;
+    }
+  }
+
+  .ui.image{
+    position: absolute;
+    bottom: 51px;
+    z-index: -2;
+  }
+
+  .post-container{
+    background-color: $main_yellow;
+    border: solid 2px $white;
+    border-radius: 100%;
+    position: absolute;
+    height: 150%;
+    width: 80px;
+    margin-left: 2px;
+    z-index: -1;
+  }
+}
