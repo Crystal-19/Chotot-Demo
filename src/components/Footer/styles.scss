@@ -4,6 +4,7 @@
   width: 100%;
   background: $white;
   border-top: 12px solid $gray;
+  z-index: 10;
 
   .items-container{
     @include flex(row, flex-start, flex-start);

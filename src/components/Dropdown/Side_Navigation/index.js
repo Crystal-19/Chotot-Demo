@@ -4,14 +4,14 @@ import ContentDropdown from '../ContentDropdown'
 
 import './styles.scss'
 
-const BottomPopup = ({showBottomPopup}) => {
+const SideNavigation = ({showBottomPopup}) => {
   return (
     <div
       className={
-        showBottomPopup === true ? 'bottom-popup-container' : 'deactive'
+        showBottomPopup === true ? 'side-navigation-container' : 'deactive'
       }>
       <ContentDropdown />
     </div>
   )
 }
-export default BottomPopup
+export default SideNavigation

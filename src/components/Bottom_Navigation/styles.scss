@@ -33,9 +33,10 @@
       fill: $medium_gray;
     }
 
-    .ui.image {
+    .top-rounder {
       position: absolute;
       bottom: 3.7em;
+      z-index: 10;
     }
 
     &.post {
@@ -50,6 +51,7 @@
       height: 5.4rem;
       width: 5.4rem;
       bottom: -12px;
+      z-index: 10;
 
       .icon-post {
         $height: 1.6em;

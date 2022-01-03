@@ -8,11 +8,11 @@ import {ReactComponent as PostIcon} from 'assets/images/icons/post.svg'
 import {ReactComponent as NotiIcon} from 'assets/images/icons/noti.svg'
 import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
 
-import BottomPopup from 'components/Dropdown/BottomPopup'
+import BottomPopup from 'components/Dropdown/Side_Navigation'
 
 import './styles.scss'
 
-const BottomNav = () => {
+const SideNav = () => {
   const [showBottomPopup, setShowBottomPopup] = useState(false)
 
   const toggleBottomPopup = () => {
@@ -50,4 +50,4 @@ const BottomNav = () => {
     </div>
   )
 }
-export default BottomNav
+export default SideNav

@@ -4,6 +4,7 @@
   @include flex(row, flex-end, space-between);
   background: $main_yellow;
   height: 52px;
+  z-index: 10;
 
   @include responsive(mobile) {
     @include flex(row, center, center);

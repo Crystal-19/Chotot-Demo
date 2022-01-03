@@ -6,6 +6,10 @@
 
   .ava-container {
     @include flex(row, center, flex-start);
+
+    .ava-image {
+      margin-right: 15px;
+    }
   }
 
   .dividerDropdown {
@@ -13,7 +17,6 @@
     height: 0.1rem;
     background-color: $light_gray;
     margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
   }
 
   .items-container {
