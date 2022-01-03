@@ -1,51 +1,31 @@
 @import 'assets/scss';
 
-.ui.dropdown {
+.bottom-popup-container {
   display: flex;
+  position: absolute;
+  width: 100vw;
+  background: $white;
+  bottom: 55px;
+  right: 0;
+  height: calc(100vh - 176px);
+  max-height: calc(100vh - 103px);
+  overflow-y: scroll;
+  z-index: -1;
 
-  .item {
-    .icon-more {
-      fill: $medium_gray;
-    }
+  .content-container {
+    width: 100%;
+    margin: 10px 0 0 15px;
 
-    span {
-      color: $medium_gray;
-      font-size: 0.8rem;
-    }
-  }
+    .items-container {
+      @include flex(row, center, flex-start);
 
-  >.menu {
-    width: 100vw;
-    left: -333px;
-    height: calc(100vh - 176px);
-    max-height: calc(100vh - 103px);
-    overflow-y: scroll;
-
-    .content-container {
-      margin-left: 15px;
-
-      .ava-container {
-        .ava-image {
-          position: relative;
-          bottom: 0;
-          z-index: 0;
-          margin-right: 10px;
-          width: 60px;
-          height: 60px;
-        }
-
-      }
-
-      .items-container {
-        @include flex(row, center, flex-start);
-
-        .icon-image {
-          position: relative;
-          bottom: 0;
-          z-index: 0;
-        }
+      .ui.image {
+        position: unset;
       }
     }
-
   }
+}
+
+.deactive {
+  display: none;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {Image} from 'semantic-ui-react'
 
@@ -13,13 +13,11 @@ import BottomPopup from 'components/Dropdown/BottomPopup'
 import './styles.scss'
 
 const BottomNav = () => {
-  const trigger = (
-    <div className="item">
-      <MoreIcon className="icon-more" />
-      <span>More</span>
-    </div>
-  )
+  const [showBottomPopup, setShowBottomPopup] = useState(false)
 
+  const toggleBottomPopup = () => {
+    setShowBottomPopup(!showBottomPopup)
+  }
   return (
     <div className="nav-container">
       <a className="items-container active" href="/">
@@ -44,7 +42,11 @@ const BottomNav = () => {
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
       </a>
-      <BottomPopup trigger={trigger} />
+      <div onClick={() => toggleBottomPopup()} className="items-container">
+        <MoreIcon className="icon-more" />
+        <p>More</p>
+      </div>
+      <BottomPopup showBottomPopup={showBottomPopup} />
     </div>
   )
 }
