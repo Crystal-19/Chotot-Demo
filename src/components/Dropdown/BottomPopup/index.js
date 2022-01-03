@@ -7,7 +7,7 @@ import './styles.scss'
 
 const BottomPopup = ({trigger}) => {
   return (
-    <Dropdown icon="" trigger={trigger}>
+    <Dropdown icon='' trigger={trigger}>
       <Dropdown.Menu>
         <ContentDropdown />
       </Dropdown.Menu>
