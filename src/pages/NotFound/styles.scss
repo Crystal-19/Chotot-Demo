@@ -1,12 +1,20 @@
 @import 'assets/scss';
 
-.not-found{
-  @include flex(column, center, center);
-  background-color: $link_water;
-  width: 100%;
-  height: 100vh;
-}
-.back{
-  color: $silver;
-  text-decoration: none;
+.notfound-container {
+  .header-nf-container {
+    width: 100%;
+    background: $main_yellow;
+  }
+
+  .not-found {
+    @include flex(column, center, center);
+    background-color: $link_water;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .back {
+    color: $silver;
+    text-decoration: none;
+  }
 }
