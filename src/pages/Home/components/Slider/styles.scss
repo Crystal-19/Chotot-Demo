@@ -6,7 +6,7 @@
     padding: 10px;
 
     .carousel .slider-wrapper {
-      width: 100.3%;
+      width: 100.4%;
     }
 
     .carousel.carousel-slider {
@@ -15,6 +15,15 @@
 
     .carousel .control-dots {
       bottom: 8px;
+
+      .dot {
+        @include responsive(tablet) {
+          width: 6px;
+          height: 6px;
+          background-color: $medium_gray;
+          opacity: 0.3;
+        }
+      }
     }
 
     .carousel {
@@ -43,6 +52,10 @@
     background-color: $white;
     flex: 1;
 
+    @include responsive(tablet) {
+      margin-top: 15px;
+    }
+
     .items-container {
       @include flex(column, center, center);
       text-align: center;
@@ -51,10 +64,20 @@
       .icon-image {
         height: 2.5rem;
         width: 2.5rem;
+
+        @include responsive(tablet) {
+          height: 2rem;
+          width: 2rem;
+          padding-top: 5px;
+        }
       }
 
       span {
         font-size: 1rem;
+
+        @include responsive(tablet){
+          font-size: 0.7rem;
+        }
       }
     }
   }
