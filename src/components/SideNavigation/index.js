@@ -7,9 +7,8 @@ import './styles.scss'
 const SideNavigation = ({visibleSideNav}) => {
   return (
     <div
-      className='side-navigation-container'
-      style={{'left': visibleSideNav ===  true ? 0 : '100vw'}}
-      >
+      className="side-navigation-container"
+      style={{width: visibleSideNav ? '100vw' : 0}}>
       <ContentDropdown />
     </div>
   )

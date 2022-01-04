@@ -1,20 +1,21 @@
 @import 'assets/scss';
 
 .side-navigation-container {
-  display: flex;
   position: fixed;
   top: 127px;
+  right: 0;
   bottom: 0;
   width: 100vw;
   background: $white;
   height: calc(100vh - 181px);
   max-height: calc(100vh - 181px);
   overflow-y: scroll;
+  overflow-x: hidden;
   z-index: 9;
-  transition: 1s;
+  transition: 0.5s;
 
   .content-container {
-    width: 100%;
+    min-width: 100vw;
     margin: 10px 0 0 15px;
 
     .items-container {
