@@ -1,24 +1,61 @@
 @import 'assets/scss';
 
-.carousel-root {
-  background: $white;
-  padding: 10px;
+.general-container {
+  .carousel-root {
+    background: $white;
+    padding: 10px;
 
-  .carousel .control-dots {
-    bottom: 35px;
+    .carousel .slider-wrapper {
+      width: 100.3%;
+    }
+
+    .carousel.carousel-slider {
+      height: 232px;
+    }
+
+    .carousel .control-dots {
+      bottom: 8px;
+    }
+
+    .carousel {
+      .thumbs-wrapper {
+        display: none;
+      }
+    }
+
+    .control-arrow {
+      display: none;
+    }
+
+    .carousel-status {
+      display: none;
+    }
+
+    .slider-container {
+      .slider-image {
+        display: block;
+      }
+    }
   }
 
-  .control-arrow {
-    display: none;
-  }
+  .slider-bar-container {
+    @include flex(row, flex-start, center);
+    background-color: $white;
+    flex: 1;
 
-  .carousel-status {
-    display: none;
-  }
+    .items-container {
+      @include flex(column, center, center);
+      text-align: center;
+      flex: 1;
 
-  .slider-container {
-    .slider-image {
-      display: block;
+      .icon-image {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+
+      span {
+        font-size: 1rem;
+      }
     }
   }
 }
