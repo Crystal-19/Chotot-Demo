@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, Input } from 'semantic-ui-react'
+import {Image, Input} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
@@ -28,27 +29,27 @@ const Header = () => {
             className="logo-img"
             src="https://static.chotot.com/storage/default/transparent_logo.webp"
             size="tiny"
-            href="https://www.chotot.com/"
+            to="https://www.chotot.com/"
           />
         </div>
         <div className="items-container">
-          <a href="/" className="item item-hide">
-            <HomeIcon className=" icon-home" />
+          <Link to="/" className="item item-hide">
+            <HomeIcon className="icon-home" />
             <span>Home Page</span>
-          </a>
-          <a href="/news" className="item item-hide">
+          </Link>
+          <Link to="/news" className="item item-hide">
             <NewsIcon className="icon-news" />
             <span>News Management</span>
-          </a>
-          <a href="/chat" className="item">
+          </Link>
+          <Link to="/chat" className="item">
             <ChatIcon className="icon-chat" />
             <span className="item-hide">Chat</span>
-          </a>
-          <a href="/notify" className="item item-hide">
+          </Link>
+          <Link to="/notify" className="item item-hide">
             <NotiIcon className="icon-noti" />
             <span>Notify</span>
-          </a>
-          <HeaderDropdown trigger={trigger}/>
+          </Link>
+          <HeaderDropdown trigger={trigger} />
         </div>
       </div>
     )
