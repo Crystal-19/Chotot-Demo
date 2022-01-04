@@ -1,0 +1,24 @@
+@import 'assets/scss';
+
+.carousel-root {
+  background: $white;
+  padding: 10px;
+
+  .carousel .control-dots {
+    bottom: 35px;
+  }
+
+  .control-arrow {
+    display: none;
+  }
+
+  .carousel-status {
+    display: none;
+  }
+
+  .slider-container {
+    .slider-image {
+      display: block;
+    }
+  }
+}
