@@ -8,7 +8,7 @@ import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
-import SideNav from 'components/Bottom_Navigation'
+import SideNav from 'components/BottomNavigation'
 
 function App() {
   return (
@@ -16,10 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
         </Routes>
         <Footer />

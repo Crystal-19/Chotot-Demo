@@ -8,16 +8,17 @@ import {ReactComponent as PostIcon} from 'assets/images/icons/post.svg'
 import {ReactComponent as NotiIcon} from 'assets/images/icons/noti.svg'
 import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
 
-import BottomPopup from 'components/Dropdown/Side_Navigation'
+import SideNav from 'components/SideNavigation'
 
 import './styles.scss'
 
-const SideNav = () => {
-  const [showBottomPopup, setShowBottomPopup] = useState(false)
+const BottomNav = () => {
+  const [visibleSideNav, setVisibleSideNav] = useState(false)
 
-  const toggleBottomPopup = () => {
-    setShowBottomPopup(!showBottomPopup)
+  const toggleVisibleSideNav = () => {
+    setVisibleSideNav(!visibleSideNav)
   }
+  
   return (
     <div className="nav-container">
       <a className="items-container active" href="/">
@@ -42,12 +43,12 @@ const SideNav = () => {
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
       </a>
-      <div onClick={() => toggleBottomPopup()} className="items-container">
+      <div onClick={() => toggleVisibleSideNav()} className="items-container">
         <MoreIcon className="icon-more" />
         <p>More</p>
       </div>
-      <BottomPopup showBottomPopup={showBottomPopup} />
+      <SideNav visibleSideNav={visibleSideNav} />
     </div>
   )
 }
-export default SideNav
+export default BottomNav
