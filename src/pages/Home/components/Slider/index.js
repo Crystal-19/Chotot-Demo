@@ -9,7 +9,7 @@ import './styles.scss'
 
 const Slider = () => {
   return (
-    <nav className="general-container">
+    <nav className="general-container mobile-container">
       <Carousel infiniteLoop>
         {SliderImage.map((dt, index) => (
           <div className="slider-container " key={index}>

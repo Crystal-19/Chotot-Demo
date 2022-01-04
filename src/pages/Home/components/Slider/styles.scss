@@ -1,9 +1,20 @@
 @import 'assets/scss';
 
 .general-container {
+
+  &.mobile-container {
+    @include responsive(mobile) {
+      width: 100% !important;
+    }
+  }
+
   .carousel-root {
     background: $white;
     padding: 10px;
+
+    @include responsive(mobile) {
+      padding: 0;
+    }
 
     .carousel .slider-wrapper {
       width: 100.4%;
@@ -11,13 +22,17 @@
 
     .carousel.carousel-slider {
       height: 232px;
+
+      @include responsive(mobile) {
+        height: 137px;
+      }
     }
 
     .carousel .control-dots {
       bottom: 8px;
 
       .dot {
-        @include responsive(tablet) {
+        @include multiple-responsive(tablet, mobile) {
           width: 6px;
           height: 6px;
           background-color: $medium_gray;
@@ -56,10 +71,25 @@
       margin-top: 15px;
     }
 
+    @include responsive(mobile) {
+      @include flex(row, flex-start, space-around);
+      overflow-x: auto;
+      flex: 0 0 90px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
+
     .items-container {
       @include flex(column, center, center);
       text-align: center;
       flex: 1;
+
+      @include responsive(mobile) {
+        flex: 0 0 90px;
+      }
 
       .icon-image {
         height: 2.5rem;
@@ -75,7 +105,7 @@
       span {
         font-size: 1rem;
 
-        @include responsive(tablet){
+        @include multiple-responsive(tablet, mobile) {
           font-size: 0.7rem;
         }
       }
