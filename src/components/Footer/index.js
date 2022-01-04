@@ -110,14 +110,14 @@ const Footer = () => {
   }
 
   return (
-    <div className="footer-container">
+    <footer className="footer-container">
       <div className="general-container items-container">
         {renderItemsLeft()}
         {renderItemsRight()}
       </div>
       <Divider section />
       {renderTextBottom()}
-    </div>
+    </footer>
   )
 }
 export default Footer

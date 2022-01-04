@@ -7,7 +7,7 @@ import './styles.scss'
 
 const ContentDropdown = () => {
   return (
-    <div className="content-container">
+    <nav className="content-container">
       <div className="ava-container">
         <Image
           src="https://static.chotot.com/storage/marketplace/common/png/default_user.png"
@@ -17,35 +17,35 @@ const ContentDropdown = () => {
         />
         <span>Log in/sign up</span>
       </div>
-      <div className="dividerDropdown"></div>
+      <hr className="dividerDropdown" />
       {iconsMix.map((dt, index) => (
         <div key={index} className="items-container">
           <Image src={dt.image} className="icon-image" />
           <span>{dt.content}</span>
         </div>
       ))}
-      <div className="dividerDropdown"></div>
+      <hr className="dividerDropdown" />
       {iconsGold.map((dt, index) => (
         <div key={index} className="items-container">
           <Image src={dt.image} className="icon-image" />
           <span>{dt.content}</span>
         </div>
       ))}
-      <div className="dividerDropdown"></div>
+      <hr className="dividerDropdown" />
       {iconsGreen.map((dt, index) => (
         <div key={index} className="items-container">
           <Image src={dt.image} className="icon-image" />
           <span>{dt.content}</span>
         </div>
       ))}
-      <div className="dividerDropdown"></div>
+      <hr className="dividerDropdown" />
       {iconsGray.map((dt, index) => (
         <div key={index} className="items-container item-bottom">
           <Image src={dt.image} className="icon-image" />
           <span>{dt.content}</span>
         </div>
       ))}
-    </div>
+    </nav>
   )
 }
 export default ContentDropdown

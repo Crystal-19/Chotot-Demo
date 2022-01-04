@@ -18,9 +18,9 @@ const BottomNav = () => {
   const toggleVisibleSideNav = () => {
     setVisibleSideNav(!visibleSideNav)
   }
-  
+
   return (
-    <div className="nav-container">
+    <nav className="nav-container">
       <a className="items-container active" href="/">
         <BottomHomeIcon className="icon-home" />
         <p>Home</p>
@@ -48,7 +48,7 @@ const BottomNav = () => {
         <p>More</p>
       </div>
       <SideNav visibleSideNav={visibleSideNav} />
-    </div>
+    </nav>
   )
 }
 export default BottomNav
