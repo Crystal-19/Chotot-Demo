@@ -31,6 +31,10 @@
     .carousel .control-dots {
       bottom: 8px;
 
+      @include responsive(mobile) {
+        z-index: 0;
+      }
+
       .dot {
         background-color: $medium_gray;
         width: 6px;
