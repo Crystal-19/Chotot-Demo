@@ -24,7 +24,7 @@
       height: 232px;
 
       @include responsive(mobile) {
-        height: 137px;
+        height: 140px;
       }
     }
 
@@ -32,12 +32,9 @@
       bottom: 8px;
 
       .dot {
-        @include multiple-responsive(tablet, mobile) {
-          width: 6px;
-          height: 6px;
-          background-color: $medium_gray;
-          opacity: 0.3;
-        }
+        background-color: $medium_gray;
+        width: 6px;
+        height: 6px;
       }
     }
 
@@ -72,9 +69,8 @@
     }
 
     @include responsive(mobile) {
-      @include flex(row, flex-start, space-around);
-      overflow-x: auto;
-      flex: 0 0 90px;
+      @include flex(row);
+      overflow-x: scroll;
 
       &::-webkit-scrollbar {
         display: none;

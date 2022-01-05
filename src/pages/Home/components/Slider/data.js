@@ -40,44 +40,43 @@ export const SliderBottomBar = [
     content: 'Special offers',
   },
   {
-    src:
-      'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fcdn.chotot.com%2Fadmincentre%2F1pkj4vR7nto7mylZk1icdGtxGHjQRh284klzCSc0wng%2Fpreset%3Araw%2Fplain%2F8ea00fd4d9776024bda578f5d27c5d29-2741459081111273199.jpg&w=256&q=95',
+    src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fcdn.chotot.com%2Fadmincentre%2F1pkj4vR7nto7mylZk1icdGtxGHjQRh284klzCSc0wng%2Fpreset%3Araw%2Fplain%2F8ea00fd4d9776024bda578f5d27c5d29-2741459081111273199.jpg&w=256&q=95',
     url: 'https://accounts.chotot.com/?continue=https://www.chotot.com/escrow/my-orders/buyer',
     content: 'Deposit Order',
   },
   {
     src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fcdn.chotot.com%2Fadmincentre%2FoSGk967qPHY-nv-1ft5Wdcn3X6qxzEYzm3kNGLaOhxI%2Fpreset%3Araw%2Fplain%2F52b8fb7dca04f27c62c2abad660646cb-2741459116428099311.jpg&w=256&q=95',
     url: 'https://accounts.chotot.com/?continue=https%3A%2F%2Fwww.chotot.com%2Fdang-tin%3Fgiveaway%3Dtrue%26service%3Dflashad&service=flashad',
-    content: 'Post news for gifts'
+    content: 'Post news for gifts',
   },
   {
     src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fcdn.chotot.com%2Fadmincentre%2Fhadg4Gt-jHd-C-UPrd4u8HQO9AGEuh8MJ4w_f-d135U%2Fpreset%3Araw%2Fplain%2F2e8e3059413923e58db92c9ed6f650b9-2703896927645658245.jpg&w=256&q=95',
     url: 'https://xe.chotot.com/mua-ban-oto?util_key=price_suggestion&_ga=2.185865321.1199906486.1641186251-451603730.1639971106',
-    content: 'Vehicle Sales Valuation'
+    content: 'Vehicle Sales Valuation',
   },
   {
     src: 'https://st.chotot.com/storage/chotot-icons/svg/ct-coin.svg',
     url: 'https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2Fdashboard%2Fbalances&service=menu',
-    content: 'Deposit Good Coins'
+    content: 'Deposit Good Coins',
   },
   {
     src: 'https://st.chotot.com/storage/chotot-icons/svg/reward.svg',
     url: 'https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2Fdashboard%2Fbalances&service=menu',
-    content: 'Good Market Offers'
+    content: 'Good Market Offers',
   },
   {
     src: 'https://static.chotot.com/storage/chotot-icons/svg/menu-saved-ad.svg',
     url: 'https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2Fdashboard%2Fbalances&service=menu',
-    content: 'Post saved'
+    content: 'Post saved',
   },
   {
     src: 'https://st.chotot.com/storage/chotot-icons/svg/green-wheel.svg',
     url: 'https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2Fdashboard%2Fbalances&service=menu',
-    content: 'Rotation luck'
+    content: 'Rotation luck',
   },
   {
     src: 'https://static.chotot.com/storage/chotot-icons/svg/menu-saved-search.svg',
     url: 'https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2Fdashboard%2Fbalances&service=menu',
-    content: 'Search saved'
+    content: 'Search saved',
   },
 ]

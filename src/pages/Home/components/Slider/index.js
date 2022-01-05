@@ -9,23 +9,23 @@ import './styles.scss'
 
 const Slider = () => {
   return (
-    <nav className="general-container mobile-container">
-      <Carousel infiniteLoop>
+    <div className="general-container mobile-container">
+      <Carousel infiniteLoop autoPlay>
         {SliderImage.map((dt, index) => (
           <div className="slider-container " key={index}>
             <Image className="slider-image" src={dt.src} href={dt.url} />
           </div>
         ))}
       </Carousel>
-      <div className="slider-bar-container">
+      <nav className="slider-bar-container">
         {SliderBottomBar.map((dt, index) => (
           <div key={index} className="items-container">
             <Image className="icon-image" src={dt.src} href={dt.url} />
             <span>{dt.content}</span>
           </div>
         ))}
-      </div>
-    </nav>
+      </nav>
+    </div>
   )
 }
 export default Slider
