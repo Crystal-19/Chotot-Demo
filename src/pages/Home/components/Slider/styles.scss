@@ -1,0 +1,114 @@
+@import 'assets/scss';
+
+.general-container {
+
+  &.mobile-container {
+    @include responsive(mobile) {
+      width: 100% !important;
+    }
+  }
+
+  .carousel-root {
+    background: $white;
+    padding: 10px;
+
+    @include responsive(mobile) {
+      padding: 0;
+    }
+
+    .carousel .slider-wrapper {
+      width: 100.4%;
+    }
+
+    .carousel.carousel-slider {
+      height: 232px;
+
+      @include responsive(mobile) {
+        height: 140px;
+      }
+    }
+
+    .carousel .control-dots {
+      bottom: 8px;
+
+      @include responsive(mobile) {
+        z-index: 0;
+      }
+
+      .dot {
+        background-color: $medium_gray;
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    .carousel {
+      .thumbs-wrapper {
+        display: none;
+      }
+    }
+
+    .control-arrow {
+      display: none;
+    }
+
+    .carousel-status {
+      display: none;
+    }
+
+    .slider-container {
+      .slider-image {
+        display: block;
+      }
+    }
+  }
+
+  .slider-bar-container {
+    @include flex(row, flex-start, center);
+    background-color: $white;
+    flex: 1;
+
+    @include responsive(tablet) {
+      margin-top: 15px;
+    }
+
+    @include responsive(mobile) {
+      @include flex(row);
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
+
+    .items-container {
+      @include flex(column, center, center);
+      text-align: center;
+      flex: 1;
+
+      @include responsive(mobile) {
+        flex: 0 0 90px;
+      }
+
+      .icon-image {
+        height: 2.5rem;
+        width: 2.5rem;
+
+        @include responsive(tablet) {
+          height: 2rem;
+          width: 2rem;
+          padding-top: 5px;
+        }
+      }
+
+      span {
+        font-size: 1rem;
+
+        @include multiple-responsive(tablet, mobile) {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
