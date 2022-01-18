@@ -69,24 +69,24 @@ export const data = [
         id: 12,
         src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F9000.png&w=256&q=95',
         href: 'https://www.chotot.com/mua-ban-tu-lanh-may-lanh-may-giat-ha-noi',
-        catalog: '',
+        catalog: 'Refrigerator, air conditioner...',
     },
     {
         id: 13,
         src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F3000.png&w=256&q=95',
         href: 'https://www.chotot.com/mua-ban-thoi-trang-do-dung-ca-nhan-ha-noi',
-        catalog: '',
+        catalog: 'Fashion, personal...',
     },
     {
         id: 14,
         src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F8000.png&w=256&q=95',
         href: 'https://www.chotot.com/mua-ban-do-dung-van-phong-cong-nong-nghiep-ha-noi',
-        catalog: '',
+        catalog: 'Office supplies, agricultural',
     },
     {
         id: 15,
         src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2Fcho-tang-mien-phi.png&w=256&q=95',
         href: 'https://www.chotot.com/mua-ban-ha-noi?giveaway=true',
-        catalog: '',
+        catalog: 'Free giveaways',
     },
 ]
