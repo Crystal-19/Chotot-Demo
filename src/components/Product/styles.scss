@@ -4,7 +4,7 @@
   background-color: $white;
   margin: 15px 0;
 
-  h3{
+  h3 {
     padding: 10px 0 0 10px;
     font-weight: bold;
   }
@@ -39,6 +39,20 @@
           font-size: 7pt;
         }
       }
+    }
+  }
+
+  .see-more{
+    @include flex(row, center, center);
+    background-color: $pale_gray;
+    height: 44px;
+    color: $light_blue;
+    font-size: 12pt;
+    cursor: pointer;
+
+    p{
+      margin-bottom: 0;
+      font-weight: bold;
     }
   }
 }
