@@ -11,7 +11,8 @@
   .catalog-container {
     @include flex(row, flex-start, center);
     flex-wrap: wrap;
-    overflow-x: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
 
     .items-container {
       @include flex(column, center, center);
@@ -19,16 +20,29 @@
       min-width: 138px;
       padding-bottom: 10px;
 
+      @include responsive(tablet) {
+        min-width: 100px;
+      }
+
       .catalog-img {
         img {
           min-width: 84px;
           height: 84px;
+
+          @include responsive(tablet) {
+            min-width: 60px;
+            height: 60px;
+          }
         }
       }
 
       p {
         text-align: center;
         font-size: 11pt;
+
+        @include responsive(tablet) {
+          font-size: 8pt;
+        }
       }
     }
   }
