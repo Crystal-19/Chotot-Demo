@@ -1,0 +1,92 @@
+export const data = [
+    {
+        id: 1,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F1000.png&w=256&q=95',
+        href: 'https://nha.chotot.com/?_ga=2.198099119.1006435902.1642412994-1352724562.1642412994',
+        catalog: 'Real estate',
+    },
+    {
+        id: 2,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F2000.png&w=256&q=95',
+        href: 'https://xe.chotot.com/?_ga=2.198099119.1006435902.1642412994-1352724562.1642412994',
+        catalog: 'Vehicle',
+    },
+    {
+        id: 3,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F5000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-do-dien-tu-ha-noi',
+        catalog: 'Electronic device',
+    },
+    {
+        id: 4,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F14000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-do-gia-dung-noi-that-cay-canh-ha-noi',
+        catalog: 'Household appliances',
+    },
+    {
+        id: 5,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F4000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-giai-tri-the-thao-so-thich-ha-noi',
+        catalog: 'Leisure, Sports, Hobbies',
+    },
+    {
+        id: 6,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F11000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-do-dung-me-va-be-ha-noi',
+        catalog: 'Mother and baby',
+    },
+    {
+        id: 7,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F6000.png&w=256&q=95',
+        href: 'https://www.chotot.com/dich-vu-du-lich-ha-noi',
+        catalog: 'Travel services',
+    },
+    // {
+    //     id: 8,
+    //     src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2Ftat-ca-danh-muc.png&w=256&q=95',
+    //     href: 'https://www.chotot.com/mua-ban-ha-noi',
+    //     catalog: 'All of the files',
+    // },
+    {
+        id: 9,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F13000.png&w=256&q=95',
+        href: 'https://www.vieclamtot.com/?ctfp=a1c6776c-a039-454c-89ba-dc7df0f07a73&_ga=2.131032207.1006435902.1642412994-1352724562.1642412994',
+        catalog: 'Job',
+    },
+    {
+        id: 10,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F12000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-thu-cung-ha-noi',
+        catalog: 'Pet',
+    },
+    {
+        id: 11,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F7000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-do-an-thuc-pham-va-cac-loai-khac-ha-noi',
+        catalog: 'Food, food and others',
+    },
+    {
+        id: 12,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F9000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-tu-lanh-may-lanh-may-giat-ha-noi',
+        catalog: '',
+    },
+    {
+        id: 13,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F3000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-thoi-trang-do-dung-ca-nhan-ha-noi',
+        catalog: '',
+    },
+    {
+        id: 14,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F8000.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-do-dung-van-phong-cong-nong-nghiep-ha-noi',
+        catalog: '',
+    },
+    {
+        id: 15,
+        src: 'https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2Fcho-tang-mien-phi.png&w=256&q=95',
+        href: 'https://www.chotot.com/mua-ban-ha-noi?giveaway=true',
+        catalog: '',
+    },
+]
