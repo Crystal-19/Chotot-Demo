@@ -2,7 +2,7 @@ import React from 'react'
 
 import Header from 'components/Header'
 import Slider from './components/Slider'
-import Product from 'pages/Home/components/Product'
+import Product from 'pages/Home/components/ProductList'
 
 import './styles.scss'
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import { Icon } from 'semantic-ui-react'
 import {data} from './data'
-import ProductCard from 'components/Product_Card'
+import ProductCard from 'components/ProductCard'
 
 import './styles.scss'
 
@@ -19,7 +19,7 @@ const Product = () => {
       <h3>New Post</h3>
       <div className="products-container">
         {dataShow.map(dt => (
-          <ProductCard key={dt.id} dt={dt} />
+          <ProductCard key={dt.id} product={dt} />
         ))}
       </div>
       <div onClick={onShowMore} className="see-more">

@@ -20,9 +20,10 @@
   }
 
   .product-img {
-    width: 180px;
+    width: 100%;
     height: 180px;
     border-radius: 2px;
+    object-fit: cover;
   }
 
   p {
@@ -42,8 +43,9 @@
       height: 1.3rem;
     }
 
-    span {
+    li {
       font-size: 7pt;
+      margin: 5px;
     }
   }
 }
