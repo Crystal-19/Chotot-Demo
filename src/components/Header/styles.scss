@@ -1,5 +1,12 @@
 @import 'assets/scss';
 
+.support-container{
+  &.general-container{
+    @include responsive (mobile){
+      width: 96%;
+    }
+  }
+
 .header-container {
   @include flex(row, flex-end, space-between);
   background: $main_yellow;
@@ -286,4 +293,5 @@
       }
     }
   }
+}
 }

@@ -76,7 +76,7 @@ const Header = () => {
   }
 
   return (
-    <header className="general-container">
+    <header className="general-container support-container">
       {renderAboveHeader()}
       {renderBelowHeader()}
     </header>

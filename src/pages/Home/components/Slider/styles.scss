@@ -2,12 +2,6 @@
 
 .general-container {
 
-  &.mobile-container {
-    @include responsive(mobile) {
-      width: 100% !important;
-    }
-  }
-
   .carousel-root {
     background: $white;
     padding: 10px;
