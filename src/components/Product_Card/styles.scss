@@ -1,0 +1,49 @@
+@import 'assets/scss';
+
+.product-container {
+  width: 20%;
+  height: 315px;
+  padding: 10px;
+  border-top: solid 0.2px $light_gray;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  @include responsive(tablet) {
+    width: 25%;
+  }
+
+  @include responsive(mobile) {
+    width: 50%;
+  }
+
+  .product-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 2px;
+  }
+
+  p {
+    line-height: 1.2rem;
+  }
+
+  .price {
+    color: $red;
+    font-weight: bold;
+  }
+
+  .address {
+    @include flex(row, center, flex-start);
+    color: $medium_gray;
+
+    i.icon {
+      height: 1.3rem;
+    }
+
+    span {
+      font-size: 7pt;
+    }
+  }
+}

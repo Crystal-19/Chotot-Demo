@@ -1,0 +1,30 @@
+@import 'assets/scss';
+
+.container {
+  background-color: $white;
+  margin: 15px 0;
+
+  h3 {
+    padding: 10px 0 0 10px;
+    font-weight: bold;
+  }
+
+  .products-container {
+    @include flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+  }
+
+  .see-more {
+    @include flex(row, center, center);
+    background-color: $pale_gray;
+    height: 44px;
+    color: $light_blue;
+    font-size: 12pt;
+    cursor: pointer;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  }
+}

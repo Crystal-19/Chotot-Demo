@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 
-import {Image, Icon} from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import {data} from './data'
+import ProductCard from 'components/Product_Card'
 
 import './styles.scss'
 
@@ -18,15 +19,7 @@ const Product = () => {
       <h3>New Post</h3>
       <div className="products-container">
         {dataShow.map(dt => (
-          <div key={dt.id} className="product-container">
-            <Image className="product-img" src={dt.src} />
-            <p>{dt.info}</p>
-            <p className="price">{dt.price}</p>
-            <div className="address">
-              <Icon name={dt.icon} />
-              <span>{dt.address}</span>
-            </div>
-          </div>
+          <ProductCard key={dt.id} dt={dt} />
         ))}
       </div>
       <div onClick={onShowMore} className="see-more">
