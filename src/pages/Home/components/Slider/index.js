@@ -8,8 +8,8 @@ import {SliderImage, SliderBottomBar} from './data'
 import './styles.scss'
 
 const Slider = () => {
-  return (
-    <div className="general-container mobile-container">
+  const renderSlide = () => {
+    return (
       <Carousel infiniteLoop autoPlay>
         {SliderImage.map((dt, index) => (
           <div className="slider-container " key={index}>
@@ -17,6 +17,11 @@ const Slider = () => {
           </div>
         ))}
       </Carousel>
+    )
+  }
+
+  const renderSliderBar = () => {
+    return (
       <nav className="slider-bar-container">
         {SliderBottomBar.map((dt, index) => (
           <div key={index} className="items-container">
@@ -25,6 +30,13 @@ const Slider = () => {
           </div>
         ))}
       </nav>
+    )
+  }
+  
+  return (
+    <div className="general-container mobile-container">
+      {renderSlide()}
+      {renderSliderBar()}
     </div>
   )
 }
