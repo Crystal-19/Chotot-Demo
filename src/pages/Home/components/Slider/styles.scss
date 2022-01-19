@@ -1,6 +1,11 @@
 @import 'assets/scss';
 
 .general-container {
+  .header-base-container {
+    width: 100%;
+    height: 130px;
+  }
+
   .carousel-root {
     background: $white;
     padding: 10px;

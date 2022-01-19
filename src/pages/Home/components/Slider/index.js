@@ -8,6 +8,10 @@ import {SliderImage, SliderBottomBar} from './data'
 import './styles.scss'
 
 const Slider = () => {
+  const renderHeaderBase = () => {
+    return <div className="header-base-container"></div>
+  }
+
   const renderSlide = () => {
     return (
       <Carousel infiniteLoop autoPlay>
@@ -38,7 +42,8 @@ const Slider = () => {
   }
 
   return (
-    <div className="general-container mobile-container">
+    <div className="general-container">
+      {renderHeaderBase()}
       {renderSlide()}
       {renderSliderBar()}
     </div>

@@ -11,17 +11,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  .general-container{
+  .general-container {
     width: 1000px;
     margin-right: auto;
     margin-left: auto;
 
-    @include responsive (tablet) {
+    @include multiple-responsive(tablet, mobile) {
       width: 96%;
-    }
-
-    @include responsive (mobile){
-      width: 100%;
     }
   }
 }
@@ -30,4 +26,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
