@@ -1,7 +1,6 @@
 @import 'assets/scss';
 
 .general-container {
-
   .carousel-root {
     background: $white;
     padding: 10px;
@@ -61,6 +60,7 @@
     @include flex(row, flex-start, center);
     background-color: $white;
     flex: 1;
+    padding-top: 10px;
 
     @include responsive(tablet) {
       margin-top: 15px;
@@ -73,7 +73,6 @@
       &::-webkit-scrollbar {
         display: none;
       }
-
     }
 
     .items-container {
