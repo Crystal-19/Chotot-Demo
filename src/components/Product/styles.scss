@@ -14,7 +14,7 @@
     flex-wrap: wrap;
 
     .product-container {
-      width: 200px;
+      width: 20%;
       height: 315px;
       padding: 10px;
       border-top: solid 0.2px $light_gray;
@@ -25,17 +25,21 @@
       }
 
       @include responsive(tablet) {
-        width: 184px;
+        width: 25%;
       }
 
       @include responsive(mobile) {
-        width: 207px;
+        width: 50%;
       }
 
       .product-img {
         width: 180px;
-        height: 165px;
+        height: 180px;
         border-radius: 2px;
+      }
+
+      p{
+        line-height: 1.2rem;
       }
 
       .price {

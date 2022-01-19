@@ -9,8 +9,8 @@ export const data = [
     },
     {
         id: 2,
-        src: 'https://cdn.chotot.com/2N8bjXfnfUCgVRfV0aQBjOjQyXX59tWCOR8_0twMTEk/preset:view/plain/a560ce282bd172296e681b1149996601-2755040164381394653.jpg',
-        info: 'Dell Inspiron 14 7415 Ryzen 7/16/512 new',
+        src: 'https://cdn.chotot.com/hWaoqe3XlzaC_6jKBPphlVqRgqH0Yybpfuq9lUSwXvM/preset:listing/plain/da154407a907067388f8ee005b2e1648-2755659105511245026.jpg',
+        info: 'Ab Fi,bs65 beautiful zin',
         price: '19,500,000 VND',
         icon: 'meh outline',
         address: 'Hanoi',
