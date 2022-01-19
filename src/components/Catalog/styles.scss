@@ -3,11 +3,17 @@
 .container {
   background: $white;
   margin: 10px 0;
+  
+  &.general-container {
+    @include responsive(mobile) {
+      width: 100% !important;
+    }
+  }
 
   h3 {
     padding: 10px 0 0 15px;
   }
-  
+
   .scroll-container {
     background: $white;
     overflow-x: scroll;

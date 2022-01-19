@@ -1,0 +1,59 @@
+@import 'assets/scss';
+
+.container {
+  background-color: $white;
+  margin: 15px 0;
+
+  h3 {
+    padding: 10px 0 0 10px;
+    font-weight: bold;
+  }
+
+  .products-container {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+
+    .product-container {
+      width: 200px;
+      height: 315px;
+      padding: 10px;
+      border-top: solid 0.2px $light_gray;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 1px 7px 0 rgba(51, 51, 51, 0.24);
+      }
+
+      .product-img {
+        width: 180px;
+        height: 165px;
+      }
+
+      .price {
+        color: $red;
+        font-weight: bold;
+      }
+
+      .address {
+        color: $medium_gray;
+        span {
+          font-size: 7pt;
+        }
+      }
+    }
+  }
+
+  .see-more {
+    @include flex(row, center, center);
+    background-color: $pale_gray;
+    height: 44px;
+    color: $light_blue;
+    font-size: 12pt;
+    cursor: pointer;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  }
+}
