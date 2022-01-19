@@ -1,287 +1,307 @@
 @import 'assets/scss';
 
-.header-container {
-  @include flex(row, flex-end, space-between);
-  background: $main_yellow;
-  height: 52px;
+.support-container {
+  position: sticky;
+  top: 0;
   z-index: 10;
+  left: 2%;
+  right: 2%;
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $main_yellow;
 
-  @include responsive(mobile) {
-    @include flex(row, center, center);
+  @include responsive(tablet) {
+    width: 96%;
   }
 
-  .logo-container {
-    @include flex(row, center, flex-start);
-    flex: 0.3 1 auto;
-    margin-top: 15px;
+  @include responsive(mobile) {
+    padding: 0 2% 0 2%;
+    width: 100%;
+  }
 
-    .logo-img {
-      width: 55%;
-      height: 50%;
+  .header-container {
+    @include flex(row, flex-end, space-between);
+    background: $main_yellow;
+    height: 53px;
+    z-index: 10;
 
-      @include responsive(tablet) {
-        width: 65%;
+    @include responsive(mobile) {
+      @include flex(row, center, center);
+    }
+
+    .logo-container {
+      @include flex(row, center, flex-start);
+      flex: 0.3 1 auto;
+      margin-top: 15px;
+
+      .logo-img {
+        width: 55%;
+        height: 50%;
+
+        @include responsive(tablet) {
+          width: 65%;
+        }
+
+        @include responsive(mobile) {
+          width: 7.5rem;
+        }
       }
 
       @include responsive(mobile) {
-        width: 7.5rem;
+        @include flex(row, center, flex-end);
+        width: 50%;
       }
     }
 
-    @include responsive (mobile) {
+    .items-container {
       @include flex(row, center, flex-end);
-      width: 50%;
-    }
-  }
+      flex: 0.7 0 auto;
+      font-size: 1rem;
 
-  .items-container {
-    @include flex(row, center, flex-end);
-    flex: 0.7 0 auto;
-    font-size: 1rem;
+      .dropdown {
+        .item {
+          .icon-more {
+            $height: 0.5em;
+            $ratio: 23.821/6.592;
+            height: $height;
+            width: $height * $ratio;
+            margin-right: 1rem;
+            fill: $dark_gray;
+          }
 
-    .dropdown {
+          span {
+            color: $dark_gray;
+          }
+        }
+      }
+
       .item {
-        .icon-more {
-          $height: 0.5em;
-          $ratio: 23.821/6.592;
+        @include flex(row, center, center);
+        margin-left: 50px;
+        text-decoration: none;
+        color: $dark_gray;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        @include responsive(tablet) {
+          margin-left: 25px;
+        }
+
+        @include responsive(mobile) {
+          margin-left: 0;
+        }
+
+        .icon-home {
+          $height: 1.4em;
+          $ratio: 23/25;
           height: $height;
           width: $height * $ratio;
           margin-right: 1rem;
-          fill: $dark_gray;
         }
 
-        span {
-          color: $dark_gray;
+        .icon-news {
+          $height: 1.4em;
+          $ratio: 26.272/24.4;
+          height: $height;
+          width: $height * $ratio;
+          margin-right: 1rem;
+        }
+
+        .icon-chat {
+          $height: 1.4em;
+          $ratio: 31/26;
+          height: $height;
+          width: $height * $ratio;
+          margin-right: 1rem;
+
+          @include responsive(mobile) {
+            margin-right: 0;
+          }
+        }
+
+        .icon-noti {
+          $height: 1.4em;
+          $ratio: 15.706/19.271;
+          height: $height;
+          width: $height * $ratio;
+          margin-right: 1rem;
         }
       }
-    }
 
-    .item {
-      @include flex(row, center, center);
-      margin-left: 50px;
-      text-decoration: none;
-      color: $dark_gray;
-
-      &:hover {
-        opacity: 0.6;
-      }
-
-      @include responsive(tablet) {
-        margin-left: 25px;
-      }
-
-      @include responsive(mobile) {
-        margin-left: 0;
-      }
-
-      .icon-home {
-        $height: 1.4em;
-        $ratio: 23/25;
-        height: $height;
-        width: $height * $ratio;
-        margin-right: 1rem;
-      }
-
-      .icon-news {
-        $height: 1.4em;
-        $ratio: 26.272/24.4;
-        height: $height;
-        width: $height * $ratio;
-        margin-right: 1rem;
-      }
-
-      .icon-chat {
-        $height: 1.4em;
-        $ratio: 31/26;
-        height: $height;
-        width: $height * $ratio;
-        margin-right: 1rem;
+      .dropdown {
+        height: 25px;
 
         @include responsive(mobile) {
-          margin-right: 0;
-        }
-      }
-
-      .icon-noti {
-        $height: 1.4em;
-        $ratio: 15.706/19.271;
-        height: $height;
-        width: $height * $ratio;
-        margin-right: 1rem;
-      }
-    }
-
-    .dropdown {
-      height: 25px;
-
-      @include responsive(mobile) {
-        display: none;
-      }
-
-      .menu {
-        top: 150%;
-        left: auto;
-        right: -5px;
-        width: 350px;
-        opacity: 1;
-
-        .ui.tiny.image {
-          margin: 24px 0 24px 5px;
+          display: none;
         }
 
-        >.item {
-          background-color: $white;
-          margin-left: 0;
-          font-size: 1.15em;
-
-          &:hover {
-            background-color: $light_gray;
-          }
-
-          >img {
-            width: 40px;
-            height: 40px;
-            max-height: 40px;
-          }
-        }
-      }
-    }
-
-    .item-hide {
-
-      @include responsive(tablet) {
-        font-size: 1rem;
-      }
-
-      @include responsive(mobile) {
-        display: none;
-      }
-    }
-  }
-
-  &.header-searchbar {
-    @include flex(row, center, space-between);
-    height: 76px;
-
-    .search-bar {
-      flex: 0.85 0 auto;
-      font-size: 1.3rem;
-
-      @include responsive(tablet) {
-        font-size: 1rem;
-      }
-
-      @include responsive(mobile) {
-        width: 100%;
-        font-size: 1rem;
-      }
-
-      .ui.input {
-        width: 100%;
-
-        input {
-          flex: 0.9 0 auto;
-          border: none;
-
-          @include responsive(mobile) {
-            flex: 1 0 auto;
-          }
-        }
-
-        i.icon {
-          color: $minor_yellow;
-          font-size: 1.5em;
-          background: $white;
+        .menu {
+          top: 150%;
+          left: auto;
+          right: -5px;
+          width: 350px;
           opacity: 1;
-          pointer-events: visible;
-          cursor: pointer;
 
-          @include responsive(mobile) {
-            display: none;
+          .ui.tiny.image {
+            margin: 24px 0 24px 5px;
+          }
+
+          > .item {
+            background-color: $white;
+            margin-left: 0;
+            font-size: 1.15em;
+
+            &:hover {
+              background-color: $light_gray;
+            }
+
+            > img {
+              width: 40px;
+              height: 40px;
+              max-height: 40px;
+            }
           }
         }
       }
-    }
 
-    .log {
-      @include flex(row, center, center);
-      margin-right: 35px;
-      border: none;
-      background-color: $main_yellow;
-
-      @include responsive(tablet) {
-        margin-right: 18px;
-        margin-left: 20px;
-      }
-
-      @include responsive(mobile) {
-        display: none;
-      }
-
-      &:hover {
-        color: $dark_gray;
-        opacity: 0.6;
-      }
-
-      .log-i {
-        height: 2.7em;
-        width: 2.7rem;
-        margin-right: 0.7rem;
-
+      .item-hide {
         @include responsive(tablet) {
-          height: 2em;
-          width: 2rem;
+          font-size: 1rem;
         }
-      }
 
-      span {
-        font-weight: bold;
-        font-size: 1.15rem;
-
-        @include responsive(tablet) {
-          font-size: 1.2rem;
+        @include responsive(mobile) {
+          display: none;
         }
       }
     }
 
-    .reg-btn {
-      @include flex(row, center, center);
-      background-color: $minor_yellow;
-      border: none;
-      border-radius: 5px;
-      color: $white;
+    &.header-search-bar {
+      @include flex(row, center, space-between);
+      height: 76px;
 
-      @include responsive (mobile) {
-        display: none;
+      .search-bar {
+        flex: 0.85 0 auto;
+        font-size: 1.3rem;
+
+        @include responsive(tablet) {
+          font-size: 1rem;
+        }
+
+        @include responsive(mobile) {
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        .ui.input {
+          width: 100%;
+
+          input {
+            flex: 0.9 0 auto;
+            border: none;
+
+            @include responsive(mobile) {
+              flex: 1 0 auto;
+            }
+          }
+
+          i.icon {
+            color: $minor_yellow;
+            font-size: 1.5em;
+            background: $white;
+            opacity: 1;
+            pointer-events: visible;
+            cursor: pointer;
+
+            @include responsive(mobile) {
+              display: none;
+            }
+          }
+        }
       }
 
-      &:hover {
-        background-color: $dark_yellow;
-      }
-
-      .reg {
+      .log {
         @include flex(row, center, center);
-        margin: 10px 20px;
+        margin-right: 35px;
+        border: none;
+        background-color: $main_yellow;
 
         @include responsive(tablet) {
-          margin: 5px 0;
+          margin-right: 18px;
+          margin-left: 20px;
         }
 
         @include responsive(mobile) {
           display: none;
         }
 
-        .reg-i {
-          $height: 1.4em;
-          $ratio: 23.228/23.227;
-          height: $height;
-          width: $height * $ratio;
-          margin-right: 10px;
+        &:hover {
+          color: $dark_gray;
+          opacity: 0.6;
+        }
+
+        .log-i {
+          height: 2.7em;
+          width: 2.7rem;
+          margin-right: 0.7rem;
+
+          @include responsive(tablet) {
+            height: 2em;
+            width: 2rem;
+          }
         }
 
         span {
           font-weight: bold;
-          font-size: 1.25rem;
+          font-size: 1.15rem;
+
+          @include responsive(tablet) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .reg-btn {
+        @include flex(row, center, center);
+        background-color: $minor_yellow;
+        border: none;
+        border-radius: 5px;
+        color: $white;
+
+        @include responsive(mobile) {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $dark_yellow;
+        }
+
+        .reg {
+          @include flex(row, center, center);
+          margin: 10px 20px;
+
+          @include responsive(tablet) {
+            margin: 5px 0;
+          }
+
+          @include responsive(mobile) {
+            display: none;
+          }
+
+          .reg-i {
+            $height: 1.4em;
+            $ratio: 23.228/23.227;
+            height: $height;
+            width: $height * $ratio;
+            margin-right: 10px;
+          }
+
+          span {
+            font-weight: bold;
+            font-size: 1.25rem;
+          }
         }
       }
     }
