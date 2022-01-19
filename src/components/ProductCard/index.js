@@ -12,8 +12,8 @@ const ProductCard = ({product}) => {
       <p className="price">{product.price}</p>
       <div className="address">
         <Icon name={product.icon} />
-        <li>1 minute ago</li>
-        <li>{product.address}</li>
+        <span>1 minute ago</span>
+        <span>{product.address}</span>
       </div>
     </div>
   )

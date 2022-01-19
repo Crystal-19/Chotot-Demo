@@ -38,14 +38,23 @@
   .address {
     @include flex(row, center, flex-start);
     color: $medium_gray;
+    padding-left: 0;
 
     i.icon {
       height: 1.3rem;
     }
 
-    li {
+    span {
       font-size: 7pt;
-      margin: 2px;
+      margin: 0 5px 0 5px;
+
+      &::before {
+        content: '\B7';
+        font-size: 13pt;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
     }
   }
 }
