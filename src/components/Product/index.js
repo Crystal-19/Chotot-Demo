@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
-import { Image, Icon } from 'semantic-ui-react'
-import { data } from './data'
+import {Image, Icon} from 'semantic-ui-react'
+import {data} from './data'
 
 import './styles.scss'
 
 const Product = () => {
-    const [limit, setLimit] = useState(20)
-    let dataShow = data.filter((dt, index) => index < limit)
+  const [limit, setLimit] = useState(20)
+  let dataShow = data.filter((dt, index) => index < limit)
 
-    const onShowMore = () => {
-        setLimit(limit+10)
-        dataShow = data.filter((dt, index) => index < limit)
-    }
+  const onShowMore = () => {
+    setLimit(limit + 10)
+  }
 
   return (
     <div className="general-container container">
