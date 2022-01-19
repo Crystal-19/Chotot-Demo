@@ -5,8 +5,20 @@
   z-index: 10;
   left: 2%;
   right: 2%;
-  @include responsive(mobile) {
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $main_yellow;
+
+  @include responsive(tablet) {
     width: 96%;
+  }
+
+  @include responsive(mobile) {
+    padding: 2%;
+    width: 100%;
+    left: 0;
+    right: 0;
   }
 
   .header-container {
@@ -167,9 +179,13 @@
       }
     }
 
-    &.header-searchbar {
+    &.header-search-bar {
       @include flex(row, center, space-between);
       height: 76px;
+
+      @include responsive(mobile) {
+        height: 55px;
+      }
 
       .search-bar {
         flex: 0.85 0 auto;
