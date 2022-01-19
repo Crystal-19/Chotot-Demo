@@ -8,15 +8,10 @@ import './styles.scss'
 
 const Product = () => {
   const [limit, setLimit] = useState(20)
-  const [seeMore, setSeeMore] = useState(true)
   let dataShow = data.filter((dt, index) => index < limit)
 
   const onShowMore = () => {
     setLimit(limit + 10)
-
-    if (limit === data.length) {
-      setSeeMore(!seeMore)
-    }
   }
 
   return (
@@ -29,8 +24,8 @@ const Product = () => {
       </div>
       <div
         onClick={onShowMore}
-        className={seeMore ? 'see-more' : 'hide-see-more'}>
-        <p>see more</p>
+        className={dataShow.length !== data.length ? 'see-more' : 'hide-see-more'}>
+        <p>See more</p>
         <Icon name="angle down" />
       </div>
     </div>
