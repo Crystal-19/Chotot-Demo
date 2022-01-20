@@ -1,0 +1,46 @@
+@import 'assets/scss';
+
+.container {
+  background: $white;
+  margin: 10px 0;
+
+  h3 {
+    padding: 10px 0 0 15px;
+  }
+
+  .scroll-container {
+    background: $white;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .catalog-container {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+      width: 1000px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      .items-container {
+        @include flex(column, center, center);
+        flex: 1;
+        min-width: 138px;
+        padding-bottom: 10px;
+
+        .catalog-img {
+          img {
+            min-width: 84px;
+            height: 84px;
+          }
+        }
+
+        p {
+          text-align: center;
+          font-size: 11pt;
+        }
+      }
+    }
+  }
+}
