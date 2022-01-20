@@ -8,13 +8,17 @@
     padding: 15px 15px 15px 20px;
     background-color: $white;
 
-		a{
-			color: $light_blue;
-		}
+    @include responsive(tablet) {
+      padding: 15px 15px 15px 40px;
+    }
 
-		i{
-			color: $light_blue;
-		}
+    a {
+      color: $light_blue;
+    }
+
+    i {
+      color: $light_blue;
+    }
   }
 
   .content-container {
@@ -29,6 +33,10 @@
 
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      @include responsive(tablet) {
+        width: 90%;
       }
 
       h3 {
@@ -82,7 +90,7 @@
           list-style: none;
           margin: 10px;
           padding: 5px 10px;
-					cursor: pointer;
+          cursor: pointer;
         }
       }
 
@@ -118,6 +126,10 @@
       width: 35%;
       margin-left: 10px;
       border-top: solid 1px $medium_gray;
+
+      @include responsive(tablet) {
+        display: none;
+      }
 
       .ava-container {
         margin-top: 10px;
@@ -158,10 +170,10 @@
           @include flex(column, center, center);
           color: $medium_gray;
 
-					a{
-						color: $medium_gray;
-						text-decoration: underline;
-					}
+          a {
+            color: $medium_gray;
+            text-decoration: underline;
+          }
 
           .stars-container {
             @include flex(row, center, center);
@@ -175,13 +187,13 @@
         padding: 10px 10px;
         border-radius: 5px;
         margin-top: 10px;
-				border: none;
-				width: 100%;
-				cursor: pointer;
+        border: none;
+        width: 100%;
+        cursor: pointer;
 
-				&:hover{
-					background-color: $dark_green;
-				}
+        &:hover {
+          background-color: $dark_green;
+        }
 
         img {
           width: 24px;
@@ -198,9 +210,9 @@
           background-color: $white;
           border: solid 1px $green;
 
-					&:hover{
-						background-color: $light_gray;
-					}
+          &:hover {
+            background-color: $light_gray;
+          }
 
           span {
             color: $green;
@@ -227,9 +239,24 @@
   }
 
   .products-container {
-    background-color: $white;
-
     @include flex(row, flex-start, flex-start);
+    background-color: $white;
     flex-wrap: wrap;
+
+    .product-container {
+      @include responsive(tablet) {
+        width: 20%;
+        height: 350px;
+      }
+
+      .address {
+        span {
+          @include responsive(tablet) {
+            font-size: 5pt;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
   }
 }
