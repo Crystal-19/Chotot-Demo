@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import {Icon} from 'semantic-ui-react'
-import {data} from './data'
+import {data} from 'components/Data'
 import ProductCard from 'components/ProductCard'
 
 import './styles.scss'

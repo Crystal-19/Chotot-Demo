@@ -1,10 +1,14 @@
 import React from 'react'
 
 import {Image, Icon} from 'semantic-ui-react'
+import {data} from 'components/Data'
+import ProductCard from 'components/ProductCard'
 
 import './styles.scss'
 
 const ProductDetail = () => {
+  const dataShow = data.splice(0, 10)
+
   return (
     <div className="general-container product-detail-container">
       <div className="header-container">
@@ -69,10 +73,22 @@ const ProductDetail = () => {
           </ul>
           <h4>Share this post with your friends:</h4>
           <div className="media-container">
-            <Image src="https://static.chotot.com/storage/chotot-icons/svg/circle-facebook.svg" />
-            <Image src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg" />
-            <Image src="https://static.chotot.com/storage/chotot-icons/svg/circle-zalo.svg" />
-            <Image src="https://static.chotot.com/storage/chotot-icons/svg/circle-copylink.svg" />
+            <Image
+              href="https://www.facebook.com/login.php?skip_api_login=1&api_key=221564734660253&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv5.0%2Fdialog%2Fshare%3Fchannel%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df2c9084e9f061f8%2526domain%253Dwww.chotot.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.chotot.com%25252Ff320c5aa2c7d37%2526relation%253Dopener%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df2114c912a37bac%2526domain%253Dwww.chotot.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.chotot.com%25252Ff320c5aa2c7d37%2526relation%253Dopener%2526frame%253Df397c713a31a254%2526result%253D%252522xxRESULTTOKENxx%252522%26display%3Dpopup%26href%3Dhttps%253A%252F%252Fwww.chotot.com%252Fmua-ban-may-tinh-bang-quan-ninh-kieu-can-tho%252F91626625.htm%253Futm_source%253Dad_view%2526utm_medium%253Dshare_buttons%2526utm_campaign%253Dshare_ad_via_facebook%26client_id%3D221564734660253%26ret%3Dlogin%26sdk%3Djoey%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.chotot.com%252Fmua-ban-may-tinh-bang-quan-ninh-kieu-can-tho%252F91626625.htm&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2114c912a37bac%26domain%3Dwww.chotot.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.chotot.com%252Ff320c5aa2c7d37%26relation%3Dopener%26frame%3Df397c713a31a254%26result%3D%257B%2522error_code%2522%253A4201%252C%2522error_message%2522%253A%2522User%2Bcanceled%2Bthe%2BDialog%2Bflow%2522%257D%26error_code%3D4201%26error_message%3DUser%2Bcanceled%2Bthe%2BDialog%2Bflow%26e2e%3D%257B%257D&display=popup&locale=en_GB"
+              src="https://static.chotot.com/storage/chotot-icons/svg/circle-facebook.svg"
+            />
+            <Image
+              href="https://www.facebook.com/login.php?api_key=221564734660253&skip_api_login=1&display=popup&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df234da11466d6a4%26domain%3Dwww.chotot.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.chotot.com%252Ff320c5aa2c7d37%26relation%3Dopener%26frame%3Df5ee5a10d42244%26result%3D%2522xxRESULTTOKENxx%2522&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fsend%3F_path%3Dsend%26app_id%3D221564734660253%26client_id%3D221564734660253%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df234da11466d6a4%2526domain%253Dwww.chotot.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.chotot.com%25252Ff320c5aa2c7d37%2526relation%253Dopener%2526frame%253Df5ee5a10d42244%2526result%253D%252522xxRESULTTOKENxx%252522%26sdk%3Djoey%26display%3Dpopup%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df1374416baf526c%2526domain%253Dwww.chotot.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.chotot.com%25252Ff320c5aa2c7d37%2526relation%253Dopener%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.chotot.com%252Fmua-ban-may-tinh-bang-quan-ninh-kieu-can-tho%252F91626625.htm%26link%3Dhttps%253A%252F%252Fwww.chotot.com%252Fmua-ban-may-tinh-bang-quan-ninh-kieu-can-tho%252F91626625.htm%253Futm_source%253Dad_view%2526utm_medium%253Dshare_buttons%2526utm_campaign%253Dshare_ad_via_messenger%26locale%3Den_US%26version%3Dv2.9%26from_login%3D1"
+              src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg"
+            />
+            <Image
+              href="https://www.chotot.com/mua-ban-may-tinh-bang-quan-ninh-kieu-can-tho/91626625.htm?utm_source=ad_view&utm_medium=share_buttons&utm_campaign=share_ad_via_copylink#px=SR-copylink-[PO-1][PL-default]"
+              src="https://static.chotot.com/storage/chotot-icons/svg/circle-zalo.svg"
+            />
+            <Image
+              href="https://www.chotot.com/mua-ban-may-tinh-bang-quan-ninh-kieu-can-tho/91626625.htm?utm_source=ad_view&utm_medium=share_buttons&utm_campaign=share_ad_via_copylink#px=SR-copylink-[PO-1][PL-default]"
+              src="https://static.chotot.com/storage/chotot-icons/svg/circle-copylink.svg"
+            />
           </div>
           <div className="report-container">
             <Image src="https://static.chotot.com/storage/marketplace/shield-iconx4.png" />
@@ -99,7 +115,9 @@ const ProductDetail = () => {
               <Image src="https://static.chotot.com/storage/chotot-icons/png/pro-grey-icon.png" />
             </div>
             <div className="section">
-              <p>Evaluate</p>
+              <a href="https://www.chotot.com/user/6fa4dfc10050a1cf4ef804f1fd912b51#xtatc=INT-10-[Adview]">
+                Evaluate
+              </a>
               <div className="stars-container">
                 <Image src="https://static.chotot.com/storage/marketplace/common/pf_rating_active_icon.svg" />
                 <Image src="https://static.chotot.com/storage/marketplace/common/pf_rating_active_icon.svg" />
@@ -113,14 +131,14 @@ const ProductDetail = () => {
               <p>85%</p>
             </div>
           </div>
-          <div className="contact-container">
+          <button className="contact-container">
             <Image src="https://static.chotot.com/storage/chotot-icons/svg/white-phone.svg" />
             <span>01234*** Click to display numbers</span>
-          </div>
-          <div className="contact-container chat-container">
+          </button>
+          <button className="contact-container chat-container">
             <Image src="https://static.chotot.com/storage/chotot-icons/png/chat_green.png" />
             <span>Chat with seller</span>
-          </div>
+          </button>
           <div className="tip-container">
             <Image src="https://static.chotot.com/storage/images/tips/6_mobile.png" />
             <span>
@@ -129,6 +147,12 @@ const ProductDetail = () => {
             </span>
           </div>
         </div>
+      </div>
+      <h3 className="title">Hello everyone else ad</h3>
+      <div className="products-container">
+        {dataShow.map(dt => (
+          <ProductCard key={dt.id} product={dt} />
+        ))}
       </div>
     </div>
   )
