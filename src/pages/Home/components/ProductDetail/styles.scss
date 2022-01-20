@@ -8,7 +8,7 @@
     padding: 15px 15px 15px 20px;
     background-color: $white;
 
-    @include responsive(tablet) {
+    @include multiple-responsive(tablet, mobile) {
       padding: 15px 15px 15px 40px;
     }
 
@@ -35,7 +35,7 @@
         display: none;
       }
 
-      @include responsive(tablet) {
+      @include multiple-responsive(tablet, mobile) {
         width: 90%;
       }
 
@@ -127,7 +127,7 @@
       margin-left: 10px;
       border-top: solid 1px $medium_gray;
 
-      @include responsive(tablet) {
+      @include multiple-responsive(tablet, mobile) {
         display: none;
       }
 
