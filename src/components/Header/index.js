@@ -57,7 +57,7 @@ const Header = () => {
 
   const renderBelowHeader = () => {
     return (
-      <div className="header-container header-searchbar">
+      <div className="header-container header-search-bar">
         <div className="search-bar">
           <Input icon="search" placeholder="Search on Cho Tot" />
         </div>
@@ -76,7 +76,7 @@ const Header = () => {
   }
 
   return (
-    <header className="general-container">
+    <header className="support-container">
       {renderAboveHeader()}
       {renderBelowHeader()}
     </header>
