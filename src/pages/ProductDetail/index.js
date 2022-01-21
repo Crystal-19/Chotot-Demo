@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Image, Icon} from 'semantic-ui-react'
+import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
 import {data} from 'components/Data'
 import ProductCard from 'components/ProductCard'
 
@@ -12,19 +12,13 @@ const ProductDetail = () => {
   const renderHeader = () => {
     return (
       <div className="header-container">
-        <div className="ui mini breadcrumb">
-          <a href="a" className="section">
-            Good Market
-          </a>
+        <Breadcrumb size="mini">
+          <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <a href="a" className="section">
-            Tablet
-          </a>
+          <Breadcrumb.Section link>Tablet</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <a href="a" className="section">
-            Samsung
-          </a>
-        </div>
+          <Breadcrumb.Section link>Samsung</Breadcrumb.Section>
+        </Breadcrumb>
       </div>
     )
   }
@@ -160,12 +154,12 @@ const ProductDetail = () => {
 
   const renderRateInfo = () => {
     return (
-      <div className="ui breadcrumb">
-        <div className="section">
+      <Breadcrumb>
+        <Breadcrumb.Section link>
           <p>Semi-professional</p>
           <Image src="https://static.chotot.com/storage/chotot-icons/png/pro-grey-icon.png" />
-        </div>
-        <div className="section">
+        </Breadcrumb.Section>
+        <Breadcrumb.Section link>
           <a href="https://www.chotot.com/user/6fa4dfc10050a1cf4ef804f1fd912b51#xtatc=INT-10-[Adview]">
             Evaluate
           </a>
@@ -176,15 +170,15 @@ const ProductDetail = () => {
             <Image src="https://static.chotot.com/storage/marketplace/common/pf_rating_active_icon.svg" />
             <Image src="https://static.chotot.com/storage/marketplace/common/pf_rating_active_icon.svg" />
           </div>
-        </div>
-        <div className="section">
+        </Breadcrumb.Section>
+        <Breadcrumb.Section link>
           <p>Chat feedback</p>
           <p>85%</p>
-        </div>
-      </div>
+        </Breadcrumb.Section>
+      </Breadcrumb>
     )
   }
-	
+
   const renderRightBody = () => {
     return (
       <div className="right-section-container">
