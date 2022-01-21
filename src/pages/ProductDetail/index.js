@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
-import {data} from 'components/Data'
+import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
 
 import './styles.scss'
