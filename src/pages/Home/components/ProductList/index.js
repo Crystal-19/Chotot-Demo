@@ -24,7 +24,9 @@ const Product = () => {
       </div>
       <div
         onClick={onShowMore}
-        className={dataShow.length !== data.length ? 'see-more' : 'hide-see-more'}>
+        className={
+          dataShow.length !== data.length ? 'see-more' : 'hide-see-more'
+        }>
         <p>See more</p>
         <Icon name="angle down" />
       </div>
