@@ -4,7 +4,7 @@ import Header from 'components/Header'
 import Slider from './components/Slider'
 import Catalog from 'components/Catalog'
 import Product from 'pages/Home/components/ProductList'
-import ProductDetail from './components/ProductDetail'
+import ProductDetail from '../ProductDetail'
 
 
 import './styles.scss'
