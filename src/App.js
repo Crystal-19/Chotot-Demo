@@ -9,6 +9,7 @@ import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
 import SideNav from 'components/BottomNavigation'
+import ProductDetail from 'pages/ProductDetail'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
+          <Route path="/detail" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>
