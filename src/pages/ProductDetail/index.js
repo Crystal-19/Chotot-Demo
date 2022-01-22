@@ -9,7 +9,7 @@ import Footer from 'components/Footer'
 import './styles.scss'
 
 const ProductDetail = () => {
-  const dataShow = data.splice(0, 10)
+  const dataShow = data.filter((dt, index) => index < 10)
 
   const renderHeader = () => {
     return (
