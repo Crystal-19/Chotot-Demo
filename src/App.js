@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
       <SideNav />
     </div>
