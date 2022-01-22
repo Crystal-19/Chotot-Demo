@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Image, Icon} from 'semantic-ui-react'
 
 import './styles.scss'
