@@ -1,14 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import Header from 'components/Header'
-
 import './styles.scss'
 
 const NotFound = () => {
   return (
     <div className="notfound-container">
-      <Header />
       <div className="not-found">
         <h1> Page Not Found </h1>
         <button variant="primary">

@@ -3,7 +3,6 @@ import React from 'react'
 import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
 import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
-import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 import './styles.scss'
@@ -207,7 +206,6 @@ const ProductDetail = () => {
 
   return (
     <div className="background-container">
-      <Header />
       <div className="general-container product-detail-container">
         {renderHeader()}
         <div className="content-container">

@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import 'assets/scss/global.scss'
 
+import Header from 'components/Header'
 import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
@@ -14,6 +15,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
