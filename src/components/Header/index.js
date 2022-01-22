@@ -61,10 +61,10 @@ const Header = () => {
         <div className="search-bar">
           <Input icon="search" placeholder="Search on Cho Tot" />
         </div>
-        <button className="log">
+        <Link to="/login" className="log">
           <LogInIcon className="log-i" />
           <span>Log in</span>
-        </button>
+        </Link>
         <button className="reg-btn">
           <div className="reg">
             <RegisterIcon className="reg-i" />

@@ -8,15 +8,17 @@ import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import SideNav from 'components/BottomNavigation'
+import LogIn from 'pages/LogIn'
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter>       
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
+          <Route path='/login' element={<LogIn />} />
         </Routes>
       </BrowserRouter>
       <SideNav />

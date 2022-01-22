@@ -227,6 +227,7 @@
         margin-right: 35px;
         border: none;
         background-color: $main_yellow;
+        color: $black;
 
         @include responsive(tablet) {
           margin-right: 18px;
