@@ -1,5 +1,7 @@
 @import 'assets/scss';
 
+.background-container{
+  background-color: $pale_gray;
 .product-detail-container {
   .header-container {
     @include flex(row, center, flex-start);
@@ -259,4 +261,5 @@
       }
     }
   }
+}
 }
