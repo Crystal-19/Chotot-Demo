@@ -2,6 +2,10 @@
 
 .home-container{
   width: 100%;
-  background: $main_yellow;
+  background-image: url("https://static.chotot.com/storage/banner/theme_tet_v1.png");
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
 }
 

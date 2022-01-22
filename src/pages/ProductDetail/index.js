@@ -4,6 +4,7 @@ import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
 import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
 import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 import './styles.scss'
 
@@ -207,19 +208,20 @@ const ProductDetail = () => {
   return (
     <div className="background-container">
       <Header />
-    <div className="general-container product-detail-container">
-      {renderHeader()}
-      <div className="content-container">
-        {renderLeftBody()}
-        {renderRightBody()}
+      <div className="general-container product-detail-container">
+        {renderHeader()}
+        <div className="content-container">
+          {renderLeftBody()}
+          {renderRightBody()}
+        </div>
+        <h3 className="title">Hello everyone else ad</h3>
+        <div className="products-container">
+          {dataShow.map(dt => (
+            <ProductCard key={dt.id} product={dt} />
+          ))}
+        </div>
       </div>
-      <h3 className="title">Hello everyone else ad</h3>
-      <div className="products-container">
-        {dataShow.map(dt => (
-          <ProductCard key={dt.id} product={dt} />
-        ))}
-      </div>
-    </div>
+      <Footer />
     </div>
   )
 }

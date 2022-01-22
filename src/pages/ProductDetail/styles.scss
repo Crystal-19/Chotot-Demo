@@ -1,265 +1,266 @@
 @import 'assets/scss';
 
-.background-container{
+.background-container {
   background-color: $pale_gray;
-.product-detail-container {
-  .header-container {
-    @include flex(row, center, flex-start);
-    width: 100%;
-    height: 50px;
-    padding: 15px 15px 15px 20px;
-    background-color: $white;
 
-    @include multiple-responsive(tablet, mobile) {
-      padding: 15px 15px 15px 40px;
-    }
-
-    a {
-      color: $light_blue;
-    }
-
-    i {
-      color: $light_blue;
-    }
-  }
-
-  .content-container {
-    @include flex(row, flex-start, center);
-    background-color: $white;
-    margin: 0;
-
-    .left-section-container {
-      width: 60%;
-      overflow-y: scroll;
-      line-height: 1.5rem;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
+  .product-detail-container {
+    .header-container {
+      @include flex(row, center, flex-start);
+      width: 100%;
+      height: 50px;
+      padding: 15px 15px 15px 20px;
+      background-color: $white;
 
       @include multiple-responsive(tablet, mobile) {
-        width: 90%;
-      }
-
-      h3 {
-        font-weight: bold;
-
-        &.price {
-          color: $red;
-        }
+        padding: 15px 15px 15px 40px;
       }
 
       a {
-        text-decoration: underline;
+        color: $light_blue;
       }
 
-      .info-list-container {
-        @include flex(row, center, space-between);
-
-        .list-container {
-          .item-container {
-            @include flex(row, center, flex-start);
-            margin: 15px 0;
-
-            img {
-              width: 24px;
-              height: 24px;
-              margin-right: 10px;
-            }
-          }
-        }
+      i {
+        color: $light_blue;
       }
+    }
 
-      h4 {
-        font-weight: 1000;
-        color: $main_gray;
-      }
+    .content-container {
+      @include flex(row, flex-start, center);
+      background-color: $white;
+      margin: 0;
 
-      ul.questions-container {
-        @include flex(row, center, space-between);
-        overflow-x: auto;
-        white-space: nowrap;
-        border-top: solid 1.5px $medium_gray;
-        padding-left: 0;
+      .left-section-container {
+        width: 60%;
+        overflow-y: scroll;
+        line-height: 1.5rem;
 
         &::-webkit-scrollbar {
-          height: 5px;
+          display: none;
         }
 
-        li {
-          border-radius: 20px;
-          border: solid 1px $minor_yellow;
-          list-style: none;
-          margin: 10px;
-          padding: 5px 10px;
-          cursor: pointer;
+        @include multiple-responsive(tablet, mobile) {
+          width: 90%;
         }
-      }
 
-      .media-container {
-        @include flex(row, center, flex-start);
-        border-top: solid 0.5px $medium_gray;
-        border-bottom: solid 0.5px $medium_gray;
+        h3 {
+          font-weight: bold;
 
-        img {
-          @include flex(row, center, center);
-          width: 40px;
-          height: 40px;
-          margin: 10px;
-        }
-      }
-
-      .report-container {
-        @include flex(row, center, flex-start);
-        margin: 10px 0;
-
-        img {
-          width: 40px;
+          &.price {
+            color: $red;
+          }
         }
 
         a {
-          text-decoration: none;
-          color: $orange;
+          text-decoration: underline;
+        }
+
+        .info-list-container {
+          @include flex(row, center, space-between);
+
+          .list-container {
+            .item-container {
+              @include flex(row, center, flex-start);
+              margin: 15px 0;
+
+              img {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        h4 {
+          font-weight: 1000;
+          color: $main_gray;
+        }
+
+        ul.questions-container {
+          @include flex(row, center, space-between);
+          overflow-x: auto;
+          white-space: nowrap;
+          border-top: solid 1.5px $medium_gray;
+          padding-left: 0;
+
+          &::-webkit-scrollbar {
+            height: 5px;
+          }
+
+          li {
+            border-radius: 20px;
+            border: solid 1px $minor_yellow;
+            list-style: none;
+            margin: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+          }
+        }
+
+        .media-container {
+          @include flex(row, center, flex-start);
+          border-top: solid 0.5px $medium_gray;
+          border-bottom: solid 0.5px $medium_gray;
+
+          img {
+            @include flex(row, center, center);
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+          }
+        }
+
+        .report-container {
+          @include flex(row, center, flex-start);
+          margin: 10px 0;
+
+          img {
+            width: 40px;
+          }
+
+          a {
+            text-decoration: none;
+            color: $orange;
+          }
+        }
+      }
+
+      .right-section-container {
+        width: 35%;
+        margin-left: 10px;
+        border-top: solid 1px $medium_gray;
+
+        @include multiple-responsive(tablet, mobile) {
+          display: none;
+        }
+
+        .ava-container {
+          margin-top: 10px;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+
+          .name-container {
+            h4 {
+              margin-top: 5px;
+              margin-bottom: 5px;
+              margin-left: 10px;
+            }
+
+            p {
+              margin: 0;
+              margin-left: 10px;
+              font-size: 9pt;
+              display: flex;
+              color: $medium_gray;
+
+              &::before {
+                content: '\B7';
+                font-size: 40pt;
+              }
+            }
+          }
+        }
+
+        .ui.breadcrumb {
+          @include flex(row, flex-start, center);
+          margin: 10px 0 20px 0;
+
+          .section {
+            @include flex(column, center, center);
+            color: $medium_gray;
+
+            a {
+              color: $medium_gray;
+              text-decoration: underline;
+            }
+
+            .stars-container {
+              @include flex(row, center, center);
+            }
+          }
+        }
+
+        button.contact-container {
+          @include flex(row, center, space-between);
+          background-color: $green;
+          padding: 10px 10px;
+          border-radius: 5px;
+          margin-top: 10px;
+          border: none;
+          width: 100%;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $dark_green;
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          span {
+            color: $white;
+            font-weight: bold;
+            font-size: 13pt;
+          }
+
+          &.chat-container {
+            background-color: $white;
+            border: solid 1px $green;
+
+            &:hover {
+              background-color: $light_gray;
+            }
+
+            span {
+              color: $green;
+            }
+          }
+        }
+
+        .tip-container {
+          @include flex(row, flex-end, space-between);
+
+          span {
+            font-size: 8pt;
+            font-style: italic;
+          }
         }
       }
     }
 
-    .right-section-container {
-      width: 35%;
-      margin-left: 10px;
-      border-top: solid 1px $medium_gray;
+    .title {
+      margin: 10px 0;
+      background-color: $white;
+      width: 100%;
+      padding: 12px;
+    }
 
-      @include multiple-responsive(tablet, mobile) {
-        display: none;
-      }
+    .products-container {
+      @include flex(row, flex-start, flex-start);
+      background-color: $white;
+      flex-wrap: wrap;
 
-      .ava-container {
-        margin-top: 10px;
-
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
+      .product-container {
+        @include responsive(tablet) {
+          width: 20%;
+          height: 350px;
         }
 
-        .name-container {
-          h4 {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-left: 10px;
-          }
-
-          p {
-            margin: 0;
-            margin-left: 10px;
-            font-size: 9pt;
-            display: flex;
-            color: $medium_gray;
-
-            &::before {
-              content: '\B7';
-              font-size: 40pt;
+        .address {
+          span {
+            @include responsive(tablet) {
+              font-size: 5pt;
+              white-space: nowrap;
             }
           }
         }
       }
-
-      .ui.breadcrumb {
-        @include flex(row, flex-start, center);
-        margin: 10px 0 20px 0;
-
-        .section {
-          @include flex(column, center, center);
-          color: $medium_gray;
-
-          a {
-            color: $medium_gray;
-            text-decoration: underline;
-          }
-
-          .stars-container {
-            @include flex(row, center, center);
-          }
-        }
-      }
-
-      button.contact-container {
-        @include flex(row, center, space-between);
-        background-color: $green;
-        padding: 10px 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        border: none;
-        width: 100%;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $dark_green;
-        }
-
-        img {
-          width: 24px;
-          height: 24px;
-        }
-
-        span {
-          color: $white;
-          font-weight: bold;
-          font-size: 13pt;
-        }
-
-        &.chat-container {
-          background-color: $white;
-          border: solid 1px $green;
-
-          &:hover {
-            background-color: $light_gray;
-          }
-
-          span {
-            color: $green;
-          }
-        }
-      }
-
-      .tip-container {
-        @include flex(row, flex-end, space-between);
-
-        span {
-          font-size: 8pt;
-          font-style: italic;
-        }
-      }
     }
   }
-
-  .title {
-    margin: 10px 0;
-    background-color: $white;
-    width: 100%;
-    padding: 12px;
-  }
-
-  .products-container {
-    @include flex(row, flex-start, flex-start);
-    background-color: $white;
-    flex-wrap: wrap;
-
-    .product-container {
-      @include responsive(tablet) {
-        width: 20%;
-        height: 350px;
-      }
-
-      .address {
-        span {
-          @include responsive(tablet) {
-            font-size: 5pt;
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-}
 }

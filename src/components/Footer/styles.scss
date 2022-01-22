@@ -5,6 +5,7 @@
   background: $white;
   border-top: 12px solid $gray;
   z-index: 10;
+  padding-bottom: 20px;
 
   .items-container{
     @include flex(row, flex-start, flex-start);

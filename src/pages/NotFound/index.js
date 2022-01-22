@@ -8,9 +8,7 @@ import './styles.scss'
 const NotFound = () => {
   return (
     <div className="notfound-container">
-      <div className="header-nf-container">
-        <Header />
-      </div>
+      <Header />
       <div className="not-found">
         <h1> Page Not Found </h1>
         <button variant="primary">
