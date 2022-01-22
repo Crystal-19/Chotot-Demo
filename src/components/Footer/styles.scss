@@ -1,108 +1,108 @@
 @import 'assets/scss';
 
-.footer-container{
+.footer-container {
   width: 100%;
   background: $white;
   border-top: 12px solid $gray;
   z-index: 10;
   padding-bottom: 20px;
 
-  .items-container{
+  .items-container {
     @include flex(row, flex-start, flex-start);
     margin-top: 40px;
 
-    @include responsive(mobile){
+    @include responsive(mobile) {
       @include flex(column, center, flex-start);
     }
 
-    .item{
+    .item {
       @include flex(column, flex-start, flex-start);
       font-size: 0.8rem;
 
-      p{
+      p {
         font-size: 1rem;
         font-weight: 600;
 
-        @include responsive(tablet){
+        @include responsive(tablet) {
           font-size: 1rem;
         }
 
-        @include responsive (mobile){
+        @include responsive(mobile) {
           font-size: 0.8rem;
         }
       }
 
-      a{
+      a {
         text-decoration: none;
         color: $silver;
         font-size: 0.875rem;
         line-height: 2.8rem;
 
-        @include responsive(tablet){
+        @include responsive(tablet) {
           font-size: 1rem;
         }
 
-        @include responsive(mobile){
+        @include responsive(mobile) {
           font-size: 0.8rem;
         }
       }
     }
 
-    .items-left{
+    .items-left {
       @include flex(row, flex-start, flex-start);
       flex: 0.5 0 auto;
 
-      .item{
+      .item {
         margin-left: 20px;
 
-        .apps-container{
+        .apps-container {
           @include flex(row, flex-start, space-between);
 
-          .qrcode{
+          .qrcode {
             margin-right: 12px;
             width: 85px;
             height: 85px;
 
-            @include responsive(tablet){
+            @include responsive(tablet) {
               width: 97px;
               height: 97px;
             }
 
-            @include responsive(mobile){
+            @include responsive(mobile) {
               width: 67px;
               height: 67px;
             }
           }
 
-          .app-items{
+          .app-items {
             @include flex(column, center, center);
 
-            .app{
+            .app {
               width: 120px;
               height: 35px;
               margin-bottom: 12px;
               margin-right: 16px;
 
-              @include responsive(tablet){
+              @include responsive(tablet) {
                 width: 110px;
                 height: 40px;
               }
 
-              @include responsive(mobile){
+              @include responsive(mobile) {
                 width: 80px;
                 height: 30px;
               }
 
-              img{
+              img {
                 width: 105px;
                 height: 35px;
 
-                @include responsive(tablet){
+                @include responsive(tablet) {
                   width: 110px;
                   height: 40px;
                 }
 
-                @include responsive(mobile){
+                @include responsive(mobile) {
                   width: 80px;
                   height: 30px;
                 }
@@ -113,32 +113,32 @@
       }
     }
 
-    .items-right{
+    .items-right {
       @include flex(row, flex-start, space-between);
       flex: 0.5 0 auto;
 
-      @include responsive(mobile){
+      @include responsive(mobile) {
         @include flex(row, flex-start, space-evenly);
       }
 
-      .item{
+      .item {
         flex: 0.2 1 auto;
 
-        @include responsive (mobile){
+        @include responsive(mobile) {
           margin-left: 20px;
         }
 
-        &.link{
-          @include responsive (mobile){
+        &.link {
+          @include responsive(mobile) {
             margin-left: 85px;
           }
 
-          .certificate{
-            img{
+          .certificate {
+            img {
               width: 165px;
               height: 50px;
 
-              @include multiple-responsive(tablet, mobile){
+              @include multiple-responsive(tablet, mobile) {
                 width: 120px;
                 height: 40px;
               }
@@ -146,18 +146,18 @@
           }
         }
 
-        .media-container{
+        .media-container {
           @include flex(row, center, space-between);
 
-          .app{
+          .app {
             margin-bottom: 12px;
             margin-right: 16px;
 
-            img{
+            img {
               width: 44px;
               height: 44px;
 
-              @include multiple-responsive(tablet, mobile){
+              @include multiple-responsive(tablet, mobile) {
                 width: 25px;
                 height: 25px;
               }
@@ -168,18 +168,18 @@
     }
   }
 
-  .text-footer{
+  .text-footer {
     @include flex(column, center, center);
 
-    @include responsive(mobile){
+    @include responsive(mobile) {
       display: none;
     }
 
-    p{
+    p {
       color: $silver;
       font-size: 0.875rem;
 
-      @include responsive(tablet){
+      @include responsive(tablet) {
         font-size: 0.7rem;
       }
     }
