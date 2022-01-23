@@ -11,17 +11,19 @@ const renderBreadcrumb = () => {
     <Breadcrumb>
       <Breadcrumb.Section link>Home page</Breadcrumb.Section>
       <Icon name="angle double right" />
-      <Breadcrumb.Section active>Log in</Breadcrumb.Section>
+      <Breadcrumb.Section link>Log in</Breadcrumb.Section>
+      <Icon name="angle double right" />
+      <Breadcrumb.Section active>Registration</Breadcrumb.Section>
     </Breadcrumb>
   )
 }
 
-const renderLogInTitle = () => {
+const renderSignUpTitle = () => {
   return (
-    <div className="log-in-title">
-      <div className="log-in-text">
-        <h2>Log in</h2>
-        <h5>Hi back</h5>
+    <div className="sign-up-title">
+      <div className="sign-up-text">
+        <h2>Registration</h2>
+        <h5>Create a Cho Tot account now</h5>
       </div>
       <Image
         src="https://static.chotot.com/storage/assets/LOGIN/logo.svg"
@@ -35,23 +37,26 @@ const renderInputSection = () => {
   return (
     <>
       <input placeholder="Enter your email" />
-      <input placeholder="Enter your password" type="password" />
+      <input
+        placeholder="Create a password with at least 5 characters"
+        type="password"
+      />
       <button>Log in</button>
       <div className="register-container">
-        <p>No account?</p>
-        <Link to="/signup">register now</Link>
+        <p>Do you already have an account?</p>
+        <Link to="/login">Log in</Link>
       </div>
     </>
   )
 }
 
-const LogIn = () => {
+const SignUp = () => {
   return (
     <div className="background-img">
       <div className="general-container structure-container">
         {renderBreadcrumb()}
-        <div className="log-in-container">
-          {renderLogInTitle()}
+        <div className="sign-up-container">
+          {renderSignUpTitle()}
           {renderInputSection()}
         </div>
       </div>
@@ -59,4 +64,4 @@ const LogIn = () => {
     </div>
   )
 }
-export default LogIn
+export default SignUp

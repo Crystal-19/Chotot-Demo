@@ -65,12 +65,12 @@ const Header = () => {
           <LogInIcon className="log-i" />
           <span>Log in</span>
         </Link>
-        <button className="reg-btn">
+        <Link to="/signup" className="reg-btn">
           <div className="reg">
             <RegisterIcon className="reg-i" />
             <span>Register</span>
           </div>
-        </button>
+        </Link>
       </div>
     )
   }

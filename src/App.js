@@ -9,6 +9,7 @@ import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import SideNav from 'components/BottomNavigation'
 import LogIn from 'pages/LogIn'
+import SignUp from 'pages/SignUp'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
           <Route path='/login' element={<LogIn />} />
+          <Route path='/signup' element={<SignUp />} />
         </Routes>
       </BrowserRouter>
       <SideNav />
