@@ -4,11 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  left: 2%;
-  right: 2%;
-  width: 1000px;
-  margin-right: auto;
-  margin-left: auto;
+  width: 100%;
   background-color: $main_yellow;
 
   @include responsive(tablet) {
@@ -25,6 +21,12 @@
     background: $main_yellow;
     height: 53px;
     z-index: 10;
+    left: 2%;
+    right: 2%;
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: $main_yellow;
 
     @include responsive(mobile) {
       @include flex(row, center, center);
