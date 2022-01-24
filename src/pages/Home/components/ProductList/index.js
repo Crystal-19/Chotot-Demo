@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import {Icon} from 'semantic-ui-react'
-import {data} from './data'
+import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
 
 import './styles.scss'
@@ -24,7 +24,9 @@ const Product = () => {
       </div>
       <div
         onClick={onShowMore}
-        className={dataShow.length !== data.length ? 'see-more' : 'hide-see-more'}>
+        className={
+          dataShow.length !== data.length ? 'see-more' : 'hide-see-more'
+        }>
         <p>See more</p>
         <Icon name="angle down" />
       </div>
