@@ -1,0 +1,13 @@
+@import 'assets/scss';
+
+.ui.breadcrumb {
+  margin: 15px 0 15px 0;
+
+  &:first-child {
+    margin-top: 15px;
+  }
+
+  @include responsive(mobile) {
+    margin: 15px 0 15px 10px;
+  }
+}

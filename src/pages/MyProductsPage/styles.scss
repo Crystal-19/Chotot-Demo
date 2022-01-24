@@ -4,14 +4,6 @@
   background-color: $pale_gray;
 
   .general-container {
-    .ui.breadcrumb {
-      margin: 15px 0 15px 0;
-
-      @include responsive(mobile) {
-        margin: 15px 0 15px 10px;
-      }
-    }
-
     .info-container {
       @include flex(row, flex-start, flex-start);
       background: $white;

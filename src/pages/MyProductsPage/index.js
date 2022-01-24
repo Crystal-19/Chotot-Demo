@@ -1,22 +1,19 @@
 import React from 'react'
 
-import {Breadcrumb, Image, Icon, Divider} from 'semantic-ui-react'
+import {Image, Icon, Divider} from 'semantic-ui-react'
 
 import {ReactComponent as PostImage} from 'assets/images/post.svg'
+import BreadcrumbCustom from 'components/Breadcrumb'
 
 import './styles.scss'
 
 const MyProductsPage = () => {
-  const BreadcrumdHeader = () => {
-    return (
-      <Breadcrumb>
-        <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
-        <Breadcrumb.Divider icon="angle double right" />
-        <Breadcrumb.Section active>
-          Tran Kim Ngan&#8217; personal page
-        </Breadcrumb.Section>
-      </Breadcrumb>
-    )
+  const BreadcrumbHeader = () => {
+    const data = [
+      {title: 'Good Market'},
+      {title: "Tran Kim Ngan' personal page"},
+    ]
+    return <BreadcrumbCustom data={data} />
   }
 
   const LeftInfo = () => {
@@ -115,7 +112,7 @@ const MyProductsPage = () => {
   return (
     <div className="gray-background">
       <div className="general-container">
-        {BreadcrumdHeader()}
+        {BreadcrumbHeader()}
         <div className="info-container">
           {LeftInfo()}
           {RightInfo()}

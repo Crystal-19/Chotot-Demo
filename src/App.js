@@ -11,6 +11,7 @@ import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import SideNav from 'components/BottomNavigation'
 import ProductDetail from 'pages/ProductDetail'
+import MyProductPgae from 'pages/MyProductsPage'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
+          <Route path="/my-products" element={<MyProductPgae />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
