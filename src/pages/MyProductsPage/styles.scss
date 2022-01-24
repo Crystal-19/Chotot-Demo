@@ -102,11 +102,11 @@
       }
     }
 
-    .shared-container {
+    .posts-container {
       background-color: $white;
       margin: 15px 0 15px 0;
 
-      .shared-title {
+      .post-title {
         @include flex(row, center, flex-start);
         margin-right: 10px;
         padding: 10px;
@@ -124,7 +124,7 @@
         margin: 0 10px 0 10px;
       }
 
-      .shared-content {
+      .post-content {
         @include flex(column, center, center);
 
         p {

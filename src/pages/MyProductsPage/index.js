@@ -8,7 +8,7 @@ import BreadcrumbCustom from 'components/Breadcrumb'
 import './styles.scss'
 
 const MyProductsPage = () => {
-  const BreadcrumbHeader = () => {
+  const renderBreadcrumb = () => {
     const data = [
       {title: 'Good Market'},
       {title: "Tran Kim Ngan' personal page"},
@@ -16,7 +16,7 @@ const MyProductsPage = () => {
     return <BreadcrumbCustom data={data} />
   }
 
-  const LeftInfo = () => {
+  const renderLeftInfo = () => {
     return (
       <div className="left-info-container">
         <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
@@ -37,7 +37,7 @@ const MyProductsPage = () => {
     )
   }
 
-  const RightItem = (src, title, content) => {
+  const renderRightItem = (src, title, content) => {
     return (
       <li>
         <Image src={src} />
@@ -48,7 +48,7 @@ const MyProductsPage = () => {
     )
   }
 
-  const LastRightItem = () => {
+  const renderLastRightItem = () => {
     return (
       <li>
         <Image src="https://www.chotot.com/user/static/img/check.png" />
@@ -64,46 +64,46 @@ const MyProductsPage = () => {
     )
   }
 
-  const RightInfo = () => {
+  const renderRightInfo = () => {
     return (
       <ul className="right-info-container">
-        {RightItem(
+        {renderRightItem(
           'https://static.chotot.com/storage/marketplace/common/pf_rating_icon.svg',
           'Evaluate',
           'There are no reviews yet',
         )}
-        {RightItem(
+        {renderRightItem(
           'https://www.chotot.com/user/static/img/calendar.png',
           'Join Date',
           '20/08/2020',
         )}
-        {RightItem(
+        {renderRightItem(
           'https://www.chotot.com/user/static/img/location.png',
           'Address',
           'No provided yet',
         )}
-        {RightItem(
+        {renderRightItem(
           'https://www.chotot.com/user/static/img/chat.png',
           'Chat feedback',
           'No information',
         )}
-        {LastRightItem()}
+        {renderLastRightItem()}
       </ul>
     )
   }
 
-  const SharedContent = (title, news, content, buttonContent) => {
+  const renderPosts = (title, news, content, buttonContent) => {
     return (
-      <div className="shared-container">
-        <div className="shared-title">
-          <h3>{title}</h3>
-          <span>{news}</span>
+      <div className="posts-container">
+        <div className="post-title">
+          <h3>Posting</h3>
+          <span>news - 0 news</span>
         </div>
         <Divider section />
-        <div className="shared-content">
+        <div className="post-content">
           <PostImage />
-          <p>{content}</p>
-          <button>{buttonContent}</button>
+          <p>You don&#8217;t have any personal listings for sale, try posting them now.</p>
+          <button>POST</button>
         </div>
       </div>
     )
@@ -112,23 +112,12 @@ const MyProductsPage = () => {
   return (
     <div className="gray-background">
       <div className="general-container">
-        {BreadcrumbHeader()}
+        {renderBreadcrumb()}
         <div className="info-container">
-          {LeftInfo()}
-          {RightInfo()}
+          {renderLeftInfo()}
+          {renderRightInfo()}
         </div>
-        {SharedContent(
-          'Posting',
-          'news - 0 news',
-          "You don't have any personal listings for sale, try posting them now.",
-          'POST',
-        )}
-        {SharedContent(
-          'Job application',
-          '',
-          'You do not have a resume yet.',
-          'CREATE A JOB APPLICATION',
-        )}
+        {renderPosts()}
       </div>
     </div>
   )
