@@ -1,11 +1,6 @@
 @import 'assets/scss';
 
 .notfound-container {
-  .header-nf-container {
-    width: 100%;
-    background: $main_yellow;
-  }
-
   .not-found {
     @include flex(column, center, center);
     background-color: $link_water;
