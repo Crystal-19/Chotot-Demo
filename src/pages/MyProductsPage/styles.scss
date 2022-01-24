@@ -2,15 +2,23 @@
 
 .gray-background {
   background-color: $pale_gray;
-  
+
   .general-container {
     .ui.breadcrumb {
       margin: 15px 0 15px 0;
+
+      @include responsive(mobile) {
+        margin: 15px 0 15px 10px;
+      }
     }
 
     .info-container {
       @include flex(row, flex-start, flex-start);
       background: $white;
+
+      @include responsive(mobile) {
+        @include flex(column, flex-start, flex-start);
+      }
 
       .left-info-container {
         @include flex(row, flex-start, flex-start);
@@ -28,6 +36,10 @@
           .follow-container {
             .follower {
               margin-right: 100px;
+
+              @include responsive(mobile) {
+                margin-right: 50px;
+              }
             }
           }
 
@@ -130,6 +142,10 @@
           color: $brown;
           text-align: center;
           padding: 10px;
+
+          @include responsive(mobile) {
+            width: 90%;
+          }
         }
 
         button {
@@ -139,6 +155,10 @@
           background: $white;
           height: 32px;
           margin: 10px 0 50px 0;
+
+          @include responsive(mobile) {
+            width: 90%;
+          }
         }
       }
     }
