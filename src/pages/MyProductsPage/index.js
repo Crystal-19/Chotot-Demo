@@ -51,7 +51,7 @@ const MyProductsPage = () => {
     )
   }
 
-  const LastItem = () => {
+  const LastRightItem = () => {
     return (
       <li>
         <Image src="https://www.chotot.com/user/static/img/check.png" />
@@ -90,7 +90,7 @@ const MyProductsPage = () => {
           'Chat feedback',
           'No information',
         )}
-        {LastItem()}
+        {LastRightItem()}
       </ul>
     )
   }
