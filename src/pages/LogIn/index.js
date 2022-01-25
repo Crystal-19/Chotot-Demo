@@ -8,7 +8,7 @@ const LogIn = () => {
   const password = 'Enter your password'
   const buttonContent = 'Log in'
   const text = 'No account?'
-  const path = '/login'
+  const path = '/signup'
   const link = 'register now'
   
   return (

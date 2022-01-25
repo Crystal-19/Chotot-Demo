@@ -8,9 +8,9 @@ const SignUp = () => {
   const password = 'Create a password with at lease 5 characters'
   const buttonContent = 'Registration'
   const text = 'Do you already have an account?'
-  const path = '/signup'
+  const path = '/login'
   const link = 'Log in'
-  
+ 
   return (
     <LogSign 
       title={title}
