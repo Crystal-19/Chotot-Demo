@@ -7,26 +7,20 @@
   width: 100%;
   background-color: $main_yellow;
 
-  @include responsive(tablet) {
-    width: 96%;
-  }
-
-  @include responsive(mobile) {
-    padding: 0 2% 0 2%;
-    width: 100%;
-  }
-
   .header-container {
     @include flex(row, flex-end, space-between);
     background: $main_yellow;
     height: 53px;
     z-index: 10;
-    left: 2%;
-    right: 2%;
     width: 1000px;
     margin-right: auto;
     margin-left: auto;
     background-color: $main_yellow;
+
+    @include multiple-responsive(tablet, mobile) {
+      width: auto;
+      margin: 0 2%;
+    }
 
     @include responsive(mobile) {
       @include flex(row, center, center);
@@ -286,7 +280,7 @@
           margin: 10px 20px;
 
           @include responsive(tablet) {
-            margin: 5px 0;
+            margin: 5px;
           }
 
           @include responsive(mobile) {
