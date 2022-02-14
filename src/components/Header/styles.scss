@@ -7,10 +7,6 @@
   width: 100%;
   background-color: $main_yellow;
 
-  @include responsive(tablet) {
-    width: 96%;
-  }
-
   @include responsive(mobile) {
     padding: 0 2% 0 2%;
     width: 100%;
@@ -27,6 +23,10 @@
     margin-right: auto;
     margin-left: auto;
     background-color: $main_yellow;
+
+    @include multiple-responsive(tablet, mobile) {
+      width: 96%;
+    }
 
     @include responsive(mobile) {
       @include flex(row, center, center);
