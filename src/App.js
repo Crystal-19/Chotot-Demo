@@ -10,6 +10,8 @@ import Home from 'pages/Home'
 import News from 'pages/News'
 import NotFound from 'pages/NotFound'
 import SideNav from 'components/BottomNavigation'
+import LogIn from 'pages/LogIn'
+import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPgae from 'pages/MyProductsPage'
 
@@ -23,6 +25,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<News />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path="/my-products" element={<MyProductPgae />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
