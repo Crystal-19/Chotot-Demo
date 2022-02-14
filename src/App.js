@@ -13,10 +13,11 @@ import SideNav from 'components/BottomNavigation'
 import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
+import MyProductPgae from 'pages/MyProductsPage'
 
 function App() {
   return (
-    <div>     
+    <div>
       <BrowserRouter>
         <ScrollToTop />
         <Header />
@@ -26,6 +27,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path='/login' element={<LogIn />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path="/my-products" element={<MyProductPgae />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>

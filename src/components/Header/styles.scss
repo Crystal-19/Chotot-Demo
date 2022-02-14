@@ -7,6 +7,11 @@
   width: 100%;
   background-color: $main_yellow;
 
+  @include responsive(mobile) {
+    padding: 0 2% 0 2%;
+    width: 100%;
+  }
+
   .header-container {
     @include flex(row, flex-end, space-between);
     background: $main_yellow;
@@ -18,8 +23,7 @@
     background-color: $main_yellow;
 
     @include multiple-responsive(tablet, mobile) {
-      width: auto;
-      margin: 0 2%;
+      width: 96%;
     }
 
     @include responsive(mobile) {
