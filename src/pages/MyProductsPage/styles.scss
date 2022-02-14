@@ -1,0 +1,158 @@
+@import 'assets/scss';
+
+.gray-background {
+  background-color: $pale_gray;
+
+  .general-container {
+    .info-container {
+      @include flex(row, flex-start, flex-start);
+      background: $white;
+
+      @include responsive(mobile) {
+        @include flex(column, flex-start, flex-start);
+      }
+
+      .left-info-container {
+        @include flex(row, flex-start, flex-start);
+        padding: 15px 20px 20px 20px;
+        flex: 1;
+
+        img {
+          width: 80px;
+          height: 80px;
+        }
+
+        .personal-info-container {
+          margin-left: 20px;
+
+          .follow-container {
+            .follower {
+              margin-right: 100px;
+
+              @include responsive(mobile) {
+                margin-right: 50px;
+              }
+            }
+          }
+
+          .edit-container {
+            @include flex(row, center, flex-start);
+            margin-top: 10px;
+
+            button {
+              padding: 5px 10px;
+              border-radius: 20px;
+              border: solid 1px $medium_gray;
+              background-color: $white;
+              font-size: 13pt;
+              width: 150px;
+              height: 35px;
+              margin-right: 10px;
+            }
+
+            .three-dot-container {
+              @include flex(row, center, center);
+              border-radius: 50%;
+              border: solid 1px $medium_gray;
+              width: 30px;
+              height: 30px;
+
+              i.icon {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+
+      ul.right-info-container {
+        flex: 1;
+        padding-top: 15px;
+        margin-top: 0;
+
+        li {
+          @include flex(row, center, flex-start);
+          list-style: none;
+          padding-bottom: 20px;
+
+          img {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+          }
+
+          h3 {
+            @include flex(row, center, space-between);
+            color: $medium_gray;
+            margin-top: 0;
+            font-weight: 500;
+
+            span {
+              color: $black;
+              margin-left: 5px;
+            }
+
+            img {
+              width: 26px;
+              height: 26px;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .posts-container {
+      background-color: $white;
+      margin: 15px 0 15px 0;
+
+      .post-title {
+        @include flex(row, center, flex-start);
+        margin-right: 10px;
+        padding: 10px;
+
+        h3 {
+          margin: 0 10px 0 0;
+        }
+
+        span {
+          color: $medium_gray;
+        }
+      }
+
+      .ui.section.divider {
+        margin: 0 10px 0 10px;
+      }
+
+      .post-content {
+        @include flex(column, center, center);
+
+        p {
+          width: 40%;
+          border: solid 1px $pale_orange;
+          background: $pale_yellow;
+          color: $brown;
+          text-align: center;
+          padding: 10px;
+
+          @include responsive(mobile) {
+            width: 90%;
+          }
+        }
+
+        button {
+          width: 40%;
+          color: $orange;
+          border: solid 1px $orange;
+          background: $white;
+          height: 32px;
+          margin: 10px 0 50px 0;
+
+          @include responsive(mobile) {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
