@@ -17,22 +17,29 @@
     }
 
     .catalog-container {
-      @include flex(row, flex-start, center);
+      @include flex(row, flex-start, flex-start);
       flex-wrap: wrap;
-      width: 1000px;
       overflow-x: scroll;
       overflow-y: hidden;
+
+      @include responsive(mobile) {
+        @include flex(row, flex-start, center);
+      }
 
       .items-container {
         @include flex(column, center, center);
         flex: 1;
         min-width: 138px;
+        max-width: 142px;
         padding-bottom: 10px;
 
         .catalog-img {
-          img {
-            min-width: 84px;
-            height: 84px;
+          height: 84px;
+          max-width: 63%;
+
+          &.ui.placeholder {
+            width: 63%;
+            border-radius: 20px;
           }
         }
 

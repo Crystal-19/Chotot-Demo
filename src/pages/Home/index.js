@@ -1,8 +1,8 @@
 import React from 'react'
 
 import Slider from './components/Slider'
-import Catalog from 'components/Catalog'
-import Product from 'pages/Home/components/ProductList'
+import Catalog from 'components/Category'
+// import Product from 'pages/Home/components/ProductList'
 import Footer from 'components/Footer'
 
 import './styles.scss'
@@ -12,7 +12,7 @@ const Home = () => {
     <div className="home-container">
       <Slider />
       <Catalog />
-      <Product />
+      {/* <Product /> */}
       <Footer />
     </div>
   )
