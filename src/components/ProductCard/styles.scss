@@ -21,6 +21,7 @@
 
   p {
     margin-bottom: 5px;
+    color: $black;
   }
 
   .product-img {
@@ -35,18 +36,19 @@
     font-weight: bold;
   }
 
-  .address {
+  .location {
     @include flex(row, center, flex-start);
     color: $medium_gray;
     padding-left: 0;
 
     i.icon {
-      height: 1.3rem;
+      display: none;
     }
 
     span {
       font-size: 6pt;
       margin: 0 5px 0 5px;
+      color: $black;
 
       &::before {
         content: '\B7';

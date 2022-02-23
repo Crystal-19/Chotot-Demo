@@ -3,11 +3,12 @@ import * as productRequest from '../api/productApi'
 
 export const getProduct = () => ({
   type: productTypes.GET_PRODUCT,
+  payload: {isLoading: true}
 })
 
 export const getProductSuccess = (productList) => ({
   type: productTypes.GET_PRODUCT_SUCCESS,
-  productList,
+  payload: {productList},
 })
 
 export const getProductFailure = () => ({
@@ -17,8 +18,8 @@ export const getProductFailure = () => ({
 export const loadProduct = () => async(dispatch) => {
   try {
     dispatch(getProduct())
-    const productList = await productRequest.getProductListRequest()
-    dispatch(getProductSuccess(productList))
+    const response = await productRequest.getProductListRequest()
+    dispatch(getProductSuccess(response.data.data))
   }catch(error){
     dispatch(getProductFailure())
   }
