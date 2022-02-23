@@ -3,7 +3,7 @@ import * as categoryRequest from '../api/categoryApi'
 
 export const getCategory = () => ({
   type: categoryTypes.GET_CATEGORY,
-  payload: {isLoading: 'please wait for a while'},
+  payload: {isLoading: true},
 })
 
 export const getCategorySuccess = category => ({

@@ -36,6 +36,11 @@
         .catalog-img {
           height: 84px;
           max-width: 63%;
+
+          &.ui.placeholder {
+            width: 63%;
+            border-radius: 20px;
+          }
         }
 
         p {
