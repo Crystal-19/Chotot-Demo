@@ -2,7 +2,7 @@ import React from 'react'
 
 import Slider from './components/Slider'
 import Catalog from 'components/Catagory'
-import Product from 'pages/Home/components/ProductList'
+// import Product from 'pages/Home/components/ProductList'
 import Footer from 'components/Footer'
 
 import './styles.scss'
@@ -12,7 +12,7 @@ const Home = () => {
     <div className="home-container">
       <Slider />
       <Catalog />
-      <Product />
+      {/* <Product /> */}
       <Footer />
     </div>
   )

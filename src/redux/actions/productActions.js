@@ -1,5 +1,5 @@
 import * as productTypes from '../actionTypes/productTypes'
-import productRequest from '../api/productApi'
+import * as productRequest from '../api/productApi'
 
 export const getProduct = () => ({
   type: productTypes.GET_PRODUCT,
@@ -17,7 +17,7 @@ export const getProductFailure = () => ({
 export const loadProduct = () => async(dispatch) => {
   try {
     dispatch(getProduct())
-    const productList = await productRequest()
+    const productList = await productRequest.getProductListRequest()
     dispatch(getProductSuccess(productList))
   }catch(error){
     dispatch(getProductFailure())

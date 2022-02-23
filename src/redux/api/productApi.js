@@ -1,8 +1,3 @@
-import axios from 'axios'
+import API from './API'
 
-const productListRequest = async() => {
-  const productList = await axios.get('https://chotot.herokuapp.com/api/v1/products')
-
-  return productList.json()
-}
-export default productListRequest
+export const getProductListRequest = () =>  API.get('https://chotot.herokuapp.com/api/v1/products')

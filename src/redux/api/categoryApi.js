@@ -1,4 +1,3 @@
-import axios from 'axios'
+import API from './API'
 
-export const getCategoryRequest = () =>
-  axios.get(`${process.env.REACT_APP_BASE_URL}/categories`)    //axios.get('') = promise
+export const getCategoryRequest = () => API.get('/categories') //axios.get('') = promise
