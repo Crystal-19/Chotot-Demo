@@ -1,14 +1,21 @@
-import React, {useState} from 'react'
-
+import React, {useState, useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import {Icon} from 'semantic-ui-react'
-import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
+import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
 const Product = () => {
+  const productList = useSelector(state => state.Product.productList)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(productActions.loadProduct())
+  }, [dispatch])
+
   const [limit, setLimit] = useState(20)
-  let dataShow = data.filter((dt, index) => index < limit)
+  let productShow = productList.filter((dt, index) => index < limit)
 
   const onShowMore = () => {
     setLimit(limit + 10)
@@ -18,14 +25,14 @@ const Product = () => {
     <div className="general-container container">
       <h3>New Post</h3>
       <div className="products-container">
-        {dataShow.map(dt => (
+        {productShow.map(dt => (
           <ProductCard key={dt.id} product={dt} />
         ))}
       </div>
       <div
         onClick={onShowMore}
         className={
-          dataShow.length !== data.length ? 'see-more' : 'hide-see-more'
+          productShow.length !== productList.length ? 'see-more' : 'hide-see-more'
         }>
         <p>See more</p>
         <Icon name="angle down" />
