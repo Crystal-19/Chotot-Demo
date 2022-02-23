@@ -1,8 +1,4 @@
 import axios from 'axios'
 
-export const getCategoryRequest = async () => {
-  const response = await axios('https://chotot.herokuapp.com/api/v1/categories')
-
-  return response.data
-}
-
+export const getCategoryRequest = () =>
+  axios.get('https://chotot.herokuapp.com/api/v1/categories')    //axios.get('') = promise 

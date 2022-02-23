@@ -18,8 +18,8 @@ export const getCategoryFailure = () => ({
 export const loadCategory = () => async dispatch => {
   try {
     dispatch(getCategory())
-    const category = await categoryRequest.getCategoryRequest()
-    dispatch(getCategorySuccess(category))
+    const response = await categoryRequest.getCategoryRequest()
+    dispatch(getCategorySuccess(response.data))
   } catch (error) {
     dispatch(getCategoryFailure())
   }
