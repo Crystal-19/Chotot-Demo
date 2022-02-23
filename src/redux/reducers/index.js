@@ -3,6 +3,6 @@ import {combineReducers} from 'redux'
 import productReducer from './productReducer'
 
 const rootReducer = combineReducers({
-  productReducer
+  Product: productReducer
 })
 export default rootReducer
