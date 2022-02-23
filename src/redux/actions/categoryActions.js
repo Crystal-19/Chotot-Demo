@@ -1,5 +1,5 @@
 import * as categoryTypes from '../actionTypes/categoryTypes'
-import categoryRequest from '../api/categoryApi'
+import * as categoryRequest from '../api/categoryApi'
 
 export const getCategory = () => ({
   type: categoryTypes.GET_CATEGORY,
@@ -18,10 +18,9 @@ export const getCategoryFailure = () => ({
 export const loadCategory = () => async dispatch => {
   try {
     dispatch(getCategory())
-    const category = await categoryRequest()
+    const category = await categoryRequest.getCategoryRequest()
     dispatch(getCategorySuccess(category))
   } catch (error) {
     dispatch(getCategoryFailure())
-    console.log('error', error)
   }
 }
