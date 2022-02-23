@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Slider from './components/Slider'
-import Catalog from 'components/Catalog'
+import Catalog from 'components/Catagory'
 import Product from 'pages/Home/components/ProductList'
 import Footer from 'components/Footer'
 
