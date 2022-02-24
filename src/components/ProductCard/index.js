@@ -8,8 +8,8 @@ import * as helpers from 'utils/helpers'
 import './styles.scss'
 
 const ProductCard = ({product}) => {
-  const {_id, imageUrl, name, price, icon, location} = product
-
+  const {_id, imageUrl, name, price, icon, location, createdAt} = product
+  
   return (
     <Link to={`/product/${_id}`} className="product-container">
       <Image className="product-img" src={imageUrl} />
