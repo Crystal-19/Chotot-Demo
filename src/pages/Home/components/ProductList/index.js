@@ -26,7 +26,7 @@ const Product = () => {
   }
 
   const renderProductPlaceholder = () => {
-    const productPlaceholder = Array.from({length: 10})
+    const productPlaceholder = Array.from({length: 5})
     return (
       <div className="products-container">
         {productPlaceholder.map((_, index) => (
@@ -51,8 +51,8 @@ const Product = () => {
   return (
     <div className="general-container container">
       <h3>New Post</h3>
-      {loading && renderProductPlaceholder()}
       {renderProductItems()}
+      {loading && renderProductPlaceholder()}
       <div
         onClick={onShowMore}
         className={page < totalPages ? 'see-more' : 'hide-see-more'}>
