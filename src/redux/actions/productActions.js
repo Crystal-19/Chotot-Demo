@@ -15,10 +15,11 @@ export const getProductFailure = () => ({
   type: productTypes.GET_PRODUCT_FAILURE,
 })
 
-export const loadProduct = () => async(dispatch) => {
+export const loadProduct = (pageNumber) => async(dispatch) => {
+  console.log('action', pageNumber)
   try {
     dispatch(getProduct())
-    const response = await productRequest.getProductListRequest()
+    const response = await productRequest.getProductListRequest(pageNumber)
     dispatch(getProductSuccess(response.data.data))
   }catch(error){
     dispatch(getProductFailure())

@@ -1,3 +1,3 @@
 import API from './API'
 
-export const getProductListRequest = () =>  API.get('/products')
+export const getProductListRequest = (pageNumber) =>  API.get(`/products?page=${pageNumber}`)
