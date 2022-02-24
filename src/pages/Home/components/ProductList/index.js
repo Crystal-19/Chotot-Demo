@@ -24,9 +24,9 @@ const Product = () => {
   const renderProductPlaceholder = () => {
     const productPlaceholder = Array.from({length: 10})
     return (
-      <div className="product-container">
+      <div className="products-container">
         {productPlaceholder.map((_, index) => (
-          <div key={index}>{renderPlaceholder()}</div>
+          <div className="product-container" key={index}>{renderPlaceholder()}</div>
         ))}
       </div>
     )
