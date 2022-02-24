@@ -53,7 +53,7 @@ const Product = () => {
       {renderProductItems()}
       <div
         onClick={onShowMore}
-        className={pageNumber <= 3 ? 'see-more' : 'hide-see-more'}>
+        className={pageNumber < 3 ? 'see-more' : 'hide-see-more'}>
         <p>See more</p>
         <Icon name="angle down" />
       </div>
