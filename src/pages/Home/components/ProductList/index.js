@@ -22,7 +22,13 @@ const Product = () => {
   }
 
   const renderPlaceholder = () => {
-    return <Placeholder className="product-img" />
+    return (
+      <Placeholder>
+        <Placeholder className="product-img" />
+        <Placeholder.Line length="very long" />
+        <Placeholder.Line length="medium" />
+      </Placeholder>
+    )
   }
 
   const renderProductPlaceholder = () => {
