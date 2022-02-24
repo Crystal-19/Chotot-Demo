@@ -7,9 +7,8 @@ import * as productActions from 'redux/actions/productActions'
 import './styles.scss'
 
 const Product = () => {
-  const productList = useSelector(state => state.Product.productList)
-  const {page, totalPages} = useSelector(state => state.Product.pagination)
-  const loading = useSelector(state => state.Product.isLoading)
+  const {productList, pagination, isLoading} = useSelector(state => state.Product)
+  const {page, totalPages} = pagination
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -58,7 +57,7 @@ const Product = () => {
     <div className="general-container container">
       <h3>New Post</h3>
       {renderProductItems()}
-      {loading && renderProductPlaceholder()}
+      {isLoading && renderProductPlaceholder()}
       <div
         onClick={onShowMore}
         className={page < totalPages ? 'see-more' : 'hide-see-more'}>
