@@ -3,16 +3,18 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Image, Icon} from 'semantic-ui-react'
 
+import * as helpers from 'utils/helpers'
+
 import './styles.scss'
 
 const ProductCard = ({product}) => {
-  const {_id, imageUrl, description, price, icon, location} = product
+  const {_id, imageUrl, name, price, icon, location} = product
 
   return (
     <Link to={`/product/${_id}`} className="product-container">
       <Image className="product-img" src={imageUrl} />
-      <p>{description}</p>
-      <p className="price">{price}</p>
+      <p>{name}</p>
+      <p className="price">{helpers.formatPrice(price)}</p>
       <div className="location">
         <Icon name={icon} />
         <span>1 minute ago</span>
