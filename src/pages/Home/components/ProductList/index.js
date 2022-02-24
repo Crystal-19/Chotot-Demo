@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Icon, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
@@ -8,14 +8,18 @@ import './styles.scss'
 
 const Product = () => {
   const productList = useSelector(state => state.Product.productList)
+  const {page, totalPages} = useSelector(state => state.Product.pagination)
   const loading = useSelector(state => state.Product.isLoading)
   const dispatch = useDispatch()
-  const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
-    dispatch(productActions.loadProduct(pageNumber))
+    dispatch(productActions.loadProduct(1))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, pageNumber])
+  }, [dispatch])
+
+  const onShowMore = () => {
+    dispatch(productActions.loadProduct(page + 1))
+  }
 
   const renderPlaceholder = () => {
     return <Placeholder className="product-img" />
@@ -26,7 +30,9 @@ const Product = () => {
     return (
       <div className="products-container">
         {productPlaceholder.map((_, index) => (
-          <div className="product-container" key={index}>{renderPlaceholder()}</div>
+          <div className="product-container" key={index}>
+            {renderPlaceholder()}
+          </div>
         ))}
       </div>
     )
@@ -42,10 +48,6 @@ const Product = () => {
     )
   }
 
-  const onShowMore = () => {
-    setPageNumber(pageNumber + 1)
-  }
-
   return (
     <div className="general-container container">
       <h3>New Post</h3>
@@ -53,7 +55,7 @@ const Product = () => {
       {renderProductItems()}
       <div
         onClick={onShowMore}
-        className={pageNumber < 3 ? 'see-more' : 'hide-see-more'}>
+        className={page < totalPages ? 'see-more' : 'hide-see-more'}>
         <p>See more</p>
         <Icon name="angle down" />
       </div>
