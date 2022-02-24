@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Icon, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
@@ -11,24 +11,16 @@ const Product = () => {
   const loading = useSelector(state => state.Product.isLoading)
   const dispatch = useDispatch()
 
-  console.log('loading', loading)
   useEffect(() => {
     dispatch(productActions.loadProduct())
   }, [dispatch])
-
-  const [limit, setLimit] = useState(20)
-  const productShow = productList.filter((_, index) => index < limit)
-
-  const onShowMore = () => {
-    setLimit(limit + 10)
-  }
 
   const renderPlaceholder = () => {
     return <Placeholder className="product-img" />
   }
 
   const renderProductPlaceholder = () => {
-    const productPlaceholder = Array.from({length: productShow.length})
+    const productPlaceholder = Array.from({length: 10})
     return (
       <div className="product-container">
         {productPlaceholder.map((_, index) => (
@@ -41,7 +33,7 @@ const Product = () => {
   const renderProductItems = () => {
     return (
       <div className="products-container">
-        {productShow.map(pd => (
+        {productList.map(pd => (
           <ProductCard key={pd._id} product={pd} />
         ))}
       </div>
@@ -54,12 +46,9 @@ const Product = () => {
       {loading && renderProductPlaceholder()}
       {renderProductItems()}
       <div
-        onClick={onShowMore}
-        className={
-          productShow.length !== productList.length
-            ? 'see-more'
-            : 'hide-see-more'
-        }>
+        // onClick={onShowMore}
+        // className={true ? 'see-more' : 'hide-see-more'}>
+        className='see-more'>
         <p>See more</p>
         <Icon name="angle down" />
       </div>
