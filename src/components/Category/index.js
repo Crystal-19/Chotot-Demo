@@ -1,16 +1,14 @@
 import React, {useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 import {Image, Placeholder} from 'semantic-ui-react'
 import * as categoryActions from 'redux/actions/categoryActions'
 
 import './styles.scss'
 
-const Catalog = () => {
+const Catalog = ({dispatch}) => {
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(categoryActions.loadCategory())

@@ -13,7 +13,7 @@ import SideNav from 'components/BottomNavigation'
 import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
-import MyProductPgae from 'pages/MyProductsPage'
+import MyProductPage from 'pages/MyProductsPage'
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path='/login' element={<LogIn />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path="/my-products" element={<MyProductPgae />} />
+          <Route path="/my-products" element={<MyProductPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>

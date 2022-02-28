@@ -3,23 +3,27 @@ import * as productRequest from '../api/productApi'
 
 export const getProduct = () => ({
   type: productTypes.GET_PRODUCT,
+  payload: {isLoading: true},
 })
 
-export const getProductSuccess = (productList) => ({
+export const getProductSuccess = (productList, pagination) => ({
   type: productTypes.GET_PRODUCT_SUCCESS,
-  productList,
+  payload: {productList, pagination},
 })
 
 export const getProductFailure = () => ({
   type: productTypes.GET_PRODUCT_FAILURE,
 })
 
-export const loadProduct = () => async(dispatch) => {
+export const loadProduct = pageNumber => async dispatch => {
   try {
     dispatch(getProduct())
-    const productList = await productRequest.getProductListRequest()
-    dispatch(getProductSuccess(productList))
-  }catch(error){
+    const response = await productRequest.getProductListRequest(pageNumber)
+
+    const {data, pagination} = response.data
+
+    dispatch(getProductSuccess(data, pagination))
+  } catch (error) {
     dispatch(getProductFailure())
   }
 }
