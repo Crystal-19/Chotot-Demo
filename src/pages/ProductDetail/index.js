@@ -1,14 +1,30 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {useParams} from 'react-router-dom'
 
 import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
-import {data} from 'utils/mockData'
+// import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
+import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
+const data = []
+
 const ProductDetail = () => {
+  const {id} = useParams()
   const dataShow = data.filter((dt, index) => index < 10)
+  const imageUrl = useSelector(state => state.Product.imageUrl)
+  const name = useSelector(state => state.Product.name)
+  const description = useSelector(state => state.Product.description)
+  const price = useSelector(state => state.Product.price)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(productActions.loadProductDetail(id))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch])
 
   const renderHeader = () => {
     return (
@@ -62,10 +78,10 @@ const ProductDetail = () => {
   const renderMainProductInfo = () => {
     return (
       <>
-        <Image src="http://newstimber.com/wp-content/uploads/2021/08/1-9.jpg" />
-        <h3>galaxy j4 plus man is 98% beautiful like new tab</h3>
-        <h3 className="price">990,000 VND</h3>
-        <p>galaxy j4 plus man is 98% beautiful like new tab</p>
+        <Image src={imageUrl} />
+        <h3>{name}</h3>
+        <h3 className="price">{price}</h3>
+        <p>{description}</p>
         <a href="/">Click to show number: 056394 ***</a>
         {renderInfoList()}
       </>

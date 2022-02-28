@@ -34,6 +34,11 @@
         overflow-y: scroll;
         line-height: 1.5rem;
 
+        img{
+          width: 600px;
+          height: 60ƒ0px;
+        }
+
         &::-webkit-scrollbar {
           display: none;
         }
