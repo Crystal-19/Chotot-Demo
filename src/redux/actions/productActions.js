@@ -27,9 +27,11 @@ export const getProductDetailSuccess = (
   name,
   description,
   price,
+  email,
+  createdAt,
 ) => ({
   type: productDetailTypes.GET_PRODUCT_DETAIL_SUCCESS,
-  payload: {imageUrl, _id, name, description, price},
+  payload: {imageUrl, _id, name, description, price, email, createdAt},
 })
 
 export const getProductDetailFailure = () => ({
@@ -53,9 +55,20 @@ export const loadProductDetail = id => async dispatch => {
   try {
     dispatch(getProductDetail())
     const response = await productDetailRequest.getProductDetailRequest(id)
-    console.log('response', response)
     const {imageUrl, _id, name, description, price} = response.data
-    dispatch(getProductDetailSuccess(imageUrl, _id, name, description, price))
+    const {email} = response.data.author
+    const {createdAt} = response.data.author
+    dispatch(
+      getProductDetailSuccess(
+        imageUrl,
+        _id,
+        name,
+        description,
+        price,
+        email,
+        createdAt,
+      ),
+    )
   } catch (error) {
     dispatch(getProductDetailFailure())
     console.log('error', error)

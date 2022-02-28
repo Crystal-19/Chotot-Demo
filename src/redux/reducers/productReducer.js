@@ -11,6 +11,8 @@ const initialState = {
   name: '',
   description: '',
   price: 0,
+  email: '',
+  createdAt: null,
 }
 const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action
@@ -40,6 +42,8 @@ const ProductReducer = (state = initialState, action) => {
         name: payload.name,
         description: payload.description,
         price: payload.price,
+        email: payload.email,
+        createdAt: payload.createdAt,
       }
 
     case productDetailTypes.GET_PRODUCT_DETAIL_FAILURE:

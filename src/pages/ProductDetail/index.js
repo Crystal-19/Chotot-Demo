@@ -19,6 +19,8 @@ const ProductDetail = () => {
   const name = useSelector(state => state.Product.name)
   const description = useSelector(state => state.Product.description)
   const price = useSelector(state => state.Product.price)
+  const userEmail = useSelector(state => state.Product.email)
+  const joinDate = useSelector(state => state.Product.createdAt)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -162,8 +164,8 @@ const ProductDetail = () => {
       <div className="ava-container">
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
-          <h4>Ngan</h4>
-          <p>Active 2 hours ago</p>
+          <h4>{userEmail}</h4>
+          <p>Join date: {joinDate}</p>
         </div>
       </div>
     )
