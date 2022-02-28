@@ -14,10 +14,8 @@ const Product = () => {
   // const {page, totalPages} = pagination
   // @NOTE: MUST NOT use destructuring here to avoid rerender unnecessary
   const productList = useSelector(state => state.Product.productList)
-  const pagination = useSelector(state => state.Product.pagination)
+  const {page, totalPages} = useSelector(state => state.Product.pagination)
   const isLoading = useSelector(state => state.Product.isLoading)
-  const {page} = pagination
-  const {totalPages} = pagination
   const dispatch = useDispatch()
 
   useEffect(() => {
