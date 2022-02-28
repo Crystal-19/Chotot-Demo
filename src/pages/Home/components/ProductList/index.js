@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {Icon, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
 import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
-const Product = () => {
+const Product = ({dispatch}) => {
   // const someState = useSelector(state => state.Product)
   // const {productList, pagination, isLoading} = someState
   // console.log('someState', someState)
@@ -16,7 +16,6 @@ const Product = () => {
   const productList = useSelector(state => state.Product.productList)
   const {page, totalPages} = useSelector(state => state.Product.pagination)
   const isLoading = useSelector(state => state.Product.isLoading)
-  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(productActions.loadProduct(1))
