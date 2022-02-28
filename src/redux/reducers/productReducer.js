@@ -3,8 +3,9 @@ import * as productTypes from '../actionTypes/productTypes'
 const initialState = {
   productList: [],
   isLoading: false,
-  isError: false,
+  // isError: false,
   pagination: {},
+  counter: 0,
 }
 const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action

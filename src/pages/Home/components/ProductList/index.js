@@ -7,8 +7,16 @@ import * as productActions from 'redux/actions/productActions'
 import './styles.scss'
 
 const Product = () => {
-  const {productList, pagination, isLoading} = useSelector(state => state.Product)
-  const {page, totalPages} = pagination
+  // const someState = useSelector(state => state.Product)
+  // const {productList, pagination, isLoading} = someState
+  // console.log('someState', someState)
+  // const {productList, pagination, isLoading} = useSelector(state => state.Product)
+  // const {page, totalPages} = pagination    // => must not use destructuring here to avoid rerender unnecessary
+  const productList = useSelector(state => state.Product.productList)
+  const pagination = useSelector(state => state.Product.pagination)
+  const isLoading = useSelector(state => state.Product.isLoading)
+  const page = pagination.page
+  const totalPages = pagination.totalPages
   const dispatch = useDispatch()
 
   useEffect(() => {

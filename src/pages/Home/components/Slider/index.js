@@ -10,7 +10,7 @@ import './styles.scss'
 const Slider = () => {
   const renderSlide = () => {
     return (
-      <Carousel infiniteLoop autoPlay>
+      <Carousel infiniteLoop autoPlay showThumbs={false}>
         {SliderImage.map((dt, index) => (
           <div className="slider-container " key={index}>
             <Image className="slider-image" src={dt.src} href={dt.url} />
