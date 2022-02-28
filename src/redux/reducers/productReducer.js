@@ -3,7 +3,7 @@ import * as productTypes from '../actionTypes/productTypes'
 const initialState = {
   productList: [],
   isLoading: false,
-  // isError: false,
+  isError: false,
   pagination: {},
   counter: 0,
 }

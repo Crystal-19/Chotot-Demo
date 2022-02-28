@@ -11,12 +11,13 @@ const Product = () => {
   // const {productList, pagination, isLoading} = someState
   // console.log('someState', someState)
   // const {productList, pagination, isLoading} = useSelector(state => state.Product)
-  // const {page, totalPages} = pagination    // => must not use destructuring here to avoid rerender unnecessary
+  // const {page, totalPages} = pagination
+  // @NOTE: MUST NOT use destructuring here to avoid rerender unnecessary
   const productList = useSelector(state => state.Product.productList)
   const pagination = useSelector(state => state.Product.pagination)
   const isLoading = useSelector(state => state.Product.isLoading)
-  const page = pagination.page
-  const totalPages = pagination.totalPages
+  const {page} = pagination
+  const {totalPages} = pagination
   const dispatch = useDispatch()
 
   useEffect(() => {
