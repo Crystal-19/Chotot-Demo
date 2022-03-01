@@ -19,6 +19,7 @@ const initialState = {
 
 const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action
+
   switch (type) {
     case productTypes.GET_PRODUCT:
       return {...state, isLoading: payload.isLoading, isError: false}
@@ -27,9 +28,10 @@ const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        productList: payload.loadMore
-          ? state.productList.concat(payload.productList)
-          : payload.productList,
+        productList:
+          payload.pagination.page !== 1
+            ? state.productList.concat(payload.productList)
+            : payload.productList,
         pagination: payload.pagination,
         isError: false,
       }

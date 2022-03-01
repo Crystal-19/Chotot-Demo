@@ -95,7 +95,6 @@ const ProductDetail = () => {
         <h3>{name}</h3>
         <h3 className="price">{helpers.formatPrice(price)}</h3>
         <p>{description}</p>
-        <a href="/">Click to show number: 056394 ***</a>
         {renderInfoList()}
       </>
     )

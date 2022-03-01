@@ -23,7 +23,7 @@ const Product = ({dispatch}) => {
   }, [dispatch])
 
   const onShowMore = () => {
-    dispatch(productActions.loadProduct(page + 1, true))
+    dispatch(productActions.loadProduct(page + 1))
   }
 
   const renderPlaceholder = () => {

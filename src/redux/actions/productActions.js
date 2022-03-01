@@ -57,14 +57,14 @@ export const getProductRelatedFailure = () => ({
   type: productTypes.GET_PRODUCT_RELATED_FAILURE,
 })
 
-export const loadProduct = (pageNumber, loadMore) => async dispatch => {
+export const loadProduct = (pageNumber) => async dispatch => {
   try {
     dispatch(getProduct())
     const response = await productRequest.getProductListRequest(pageNumber)
 
     const {data, pagination} = response.data
 
-    dispatch(getProductSuccess(data, pagination, loadMore))
+    dispatch(getProductSuccess(data, pagination))
   } catch (error) {
     dispatch(getProductFailure())
   }
