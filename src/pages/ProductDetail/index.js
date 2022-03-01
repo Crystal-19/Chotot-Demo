@@ -8,15 +8,15 @@ import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'
 import * as productActions from 'redux/actions/productActions'
+import * as categoryActions from 'redux/actions/categoryActions'
 
 import './styles.scss'
 
 const ProductDetail = () => {
   const {id} = useParams()
   const productRelated = useSelector(state => state.Product.productRelated)
-  const {imageUrl, name, description, price, email, createdAt} = useSelector(
-    state => state.Product.productDetail,
-  )
+  const {imageUrl, name, description, price, email, createdAt, categoryName} =
+    useSelector(state => state.Product.productDetail)
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const {isLoading} = useSelector(state => state.Product)
@@ -27,6 +27,7 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(productActions.loadProductDetail(id))
     dispatch(productActions.loadProductRelated(id))
+    dispatch(categoryActions.loadCategory())
   }, [dispatch, id])
 
   const renderHeader = () => {
@@ -35,9 +36,9 @@ const ProductDetail = () => {
         <Breadcrumb size="mini">
           <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>Tablet</Breadcrumb.Section>
+          <Breadcrumb.Section link>{categoryName}</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>Samsung</Breadcrumb.Section>
+          <Breadcrumb.Section link>{name}</Breadcrumb.Section>
         </Breadcrumb>
       </div>
     )

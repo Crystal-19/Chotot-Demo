@@ -15,6 +15,7 @@ const initialState = {
     price: 0,
     email: '',
     createdAt: null,
+    categoryName: '',
   },
   productRelated: [],
 }
@@ -44,13 +45,7 @@ const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         productDetail: {
-          imageUrl: payload.imageUrl,
-          _id: payload._id,
-          name: payload.name,
-          description: payload.description,
-          price: payload.price,
-          email: payload.email,
-          createdAt: payload.createdAt,
+          ...payload,
         },
         isLoading: false,
       }
