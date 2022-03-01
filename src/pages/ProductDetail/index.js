@@ -18,7 +18,7 @@ const ProductDetail = () => {
     useSelector(state => state.Product.productDetail)
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
-  const {isLoading} = useSelector(state => state.Product)
+  const isLoading = useSelector(state => state.Product.isLoading)
 
   const isError = useSelector(state => state.Product.isError)
 
