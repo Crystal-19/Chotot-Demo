@@ -19,8 +19,7 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(productActions.loadProductDetail(id))
     dispatch(productActions.loadProductRelated(id))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch])
+  }, [dispatch, id])
 
   const renderHeader = () => {
     return (
