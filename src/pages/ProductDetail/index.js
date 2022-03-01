@@ -16,14 +16,6 @@ const ProductDetail = () => {
   const {id} = useParams()
   const dataShow = data.filter((dt, index) => index < 10)
   const {imageUrl, name, description, price, email, createdAt} = useSelector(state => state.Product.productDetail)
-  // const imageUrl = useSelector(state => state.Product.productDetail.imageUrl)
-  // const name = useSelector(state => state.Product.productDetail.name)
-  // const description = useSelector(
-  //   state => state.Product.productDetail.description,
-  // )
-  // const price = useSelector(state => state.Product.productDetail.price)
-  // const userEmail = useSelector(state => state.Product.productDetail.email)
-  // const joinDate = useSelector(state => state.Product.productDetail.createdAt)
 
   const dispatch = useDispatch()
   useEffect(() => {
