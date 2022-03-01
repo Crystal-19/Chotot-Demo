@@ -6,9 +6,9 @@ export const getProduct = () => ({
   payload: {isLoading: true},
 })
 
-export const getProductSuccess = (productList, pagination, loadMore) => ({
+export const getProductSuccess = (productList, pagination) => ({
   type: productTypes.GET_PRODUCT_SUCCESS,
-  payload: {productList, pagination, loadMore},
+  payload: {productList, pagination},
 })
 
 export const getProductFailure = () => ({

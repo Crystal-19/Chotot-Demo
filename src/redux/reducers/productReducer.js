@@ -19,7 +19,6 @@ const initialState = {
 
 const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action
-
   switch (type) {
     case productTypes.GET_PRODUCT:
       return {...state, isLoading: payload.isLoading, isError: false}
