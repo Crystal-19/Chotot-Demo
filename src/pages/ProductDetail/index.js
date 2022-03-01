@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
+import dayjs from 'dayjs'
 
 import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
@@ -16,6 +17,8 @@ const ProductDetail = () => {
   const {imageUrl, name, description, price, email, createdAt} = useSelector(
     state => state.Product.productDetail,
   )
+
+  const joinDate = dayjs(createdAt).format('MM-YYYY')
   const {isLoading} = useSelector(state => state.Product)
 
   const isError = useSelector(state => state.Product.isError)
@@ -171,7 +174,7 @@ const ProductDetail = () => {
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
           <h4>{email}</h4>
-          <p>Join date: {createdAt}</p>
+          <p>Join date: {joinDate}</p>
         </div>
       </div>
     )
