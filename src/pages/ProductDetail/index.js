@@ -231,28 +231,35 @@ const ProductDetail = () => {
     )
   }
 
+  const renderFullProductDetail = () => {
+    return (
+      <div className="general-container product-detail-container">
+        {renderHeader()}
+        <div className="content-container">
+          {renderLeftBody()}
+          {renderRightBody()}
+        </div>
+        <h3 className="title">Hello everyone else ad</h3>
+        <div className="products-container">
+          {productRelated.map(dt => (
+            <ProductCard key={dt._id} product={dt} />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  const renderProductError = () => {
+    return (
+      <div className="no-exist">
+        <Image src="https://thuvienmamnon.com/wp-content/uploads/2020/06/rau-mat-nyhu-meo.jpg" />
+        <h3>this product does not exist</h3>
+      </div>
+    )
+  }
   return (
     <div className="background-container">
-      {isError ? (
-        <div className="no-exist">
-          <Image src="https://thuvienmamnon.com/wp-content/uploads/2020/06/rau-mat-nyhu-meo.jpg" />
-          <h3>this product does not exist</h3>
-        </div>
-      ) : (
-        <div className="general-container product-detail-container">
-          {renderHeader()}
-          <div className="content-container">
-            {renderLeftBody()}
-            {renderRightBody()}
-          </div>
-          <h3 className="title">Hello everyone else ad</h3>
-          <div className="products-container">
-            {productRelated.map(dt => (
-              <ProductCard key={dt._id} product={dt} />
-            ))}
-          </div>
-        </div>
-      )}
+      {isError ? renderProductError() : renderFullProductDetail()}
       <Footer />
     </div>
   )
