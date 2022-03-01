@@ -39,12 +39,12 @@ export const getProductDetailFailure = () => ({
 })
 
 export const getProductRelated = () => ({
-  type: productRelatedTypes.GET_PRODUCT_RELATED
+  type: productRelatedTypes.GET_PRODUCT_RELATED,
 })
 
-export const getProductRelatedSuccess = (productRelated) => ({
+export const getProductRelatedSuccess = productRelated => ({
   type: productRelatedTypes.GET_PRODUCT_RELATED_SUCCESS,
-  payload: {productRelated}
+  payload: {productRelated},
 })
 
 export const getProductRelatedFailure = () => ({
@@ -89,11 +89,11 @@ export const loadProductDetail = id => async dispatch => {
 }
 
 export const loadProductRelated = id => async dispatch => {
-  try{
+  try {
     dispatch(getProductRelated())
     const response = await productRequest.getProductRelatedRequest(id)
     dispatch(getProductRelatedSuccess(response.data))
-  }catch(error){
+  } catch (error) {
     dispatch(getProductRelatedFailure())
     console.log(error)
   }

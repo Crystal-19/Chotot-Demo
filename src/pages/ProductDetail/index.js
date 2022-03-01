@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 
-import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
+import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'
@@ -13,8 +13,12 @@ import './styles.scss'
 const ProductDetail = () => {
   const {id} = useParams()
   const productRelated = useSelector(state => state.Product.productRelated)
-  const {imageUrl, _id, name, description, price, email, createdAt} =
-    useSelector(state => state.Product.productDetail)
+  const {imageUrl, name, description, price, email, createdAt} = useSelector(
+    state => state.Product.productDetail,
+  )
+  const {isLoading} = useSelector(state => state.Product)
+
+  const isError = useSelector(state => state.Product.isError)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -71,9 +75,17 @@ const ProductDetail = () => {
     )
   }
 
+  const renderImagePlaceholder = () => {
+    return (
+      <Placeholder>
+        <Placeholder.Image square />
+      </Placeholder>
+    )
+  }
   const renderMainProductInfo = () => {
     return (
       <>
+        {isLoading && renderImagePlaceholder()}
         <Image src={imageUrl} />
         <h3>{name}</h3>
         <h3 className="price">{helpers.formatPrice(price)}</h3>
@@ -218,7 +230,7 @@ const ProductDetail = () => {
 
   return (
     <div className="background-container">
-      {id !== _id ? (
+      {isError ? (
         <div className="no-exist">
           <Image src="https://thuvienmamnon.com/wp-content/uploads/2020/06/rau-mat-nyhu-meo.jpg" />
           <h3>this product does not exist</h3>

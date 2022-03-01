@@ -23,7 +23,7 @@ const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action
   switch (type) {
     case productTypes.GET_PRODUCT:
-      return {...state, isLoading: payload.isLoading}
+      return {...state, isLoading: payload.isLoading, isError: false}
 
     case productTypes.GET_PRODUCT_SUCCESS:
       return {
@@ -31,13 +31,14 @@ const ProductReducer = (state = initialState, action) => {
         isLoading: false,
         productList: state.productList.concat(payload.productList),
         pagination: payload.pagination,
+        isError: false,
       }
 
     case productTypes.GET_PRODUCT_FAILURE:
-      return {...state, isLoading: false, isError: true}
+      return {...state, isLoading: false, isError: false}
 
     case productDetailTypes.GET_PRODUCT_DETAIL:
-      return {...state, isLoading: true}
+      return {...state, isLoading: true, isError: false}
 
     case productDetailTypes.GET_PRODUCT_DETAIL_SUCCESS:
       return {
@@ -50,20 +51,25 @@ const ProductReducer = (state = initialState, action) => {
           price: payload.price,
           email: payload.email,
           createdAt: payload.createdAt,
-        }
+        },
+        isLoading: false,
       }
 
     case productDetailTypes.GET_PRODUCT_DETAIL_FAILURE:
-      return {...state, isError: true}
+      return {...state, isError: true, isLoading: false}
 
     case productRelatedTypes.GET_PRODUCT_RELATED:
       return {...state, isLoading: true}
 
     case productRelatedTypes.GET_PRODUCT_RELATED_SUCCESS:
-      return {...state, productRelated: payload.productRelated}
+      return {
+        ...state,
+        productRelated: payload.productRelated,
+        isLoading: false,
+      }
 
     case productRelatedTypes.GET_PRODUCT_RELATED_FAILURE:
-      return {...state, isError: true}
+      return {...state, isLoading: false}
 
     default:
       return state

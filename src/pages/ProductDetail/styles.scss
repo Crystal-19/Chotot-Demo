@@ -3,12 +3,12 @@
 .background-container {
   background-color: $pale_gray;
 
-  .no-exist{
+  .no-exist {
     @include flex(column, center, center);
     height: 40vh;
     background-color: $gray;
 
-    img{
+    img {
       height: 200px;
       width: 320px;
     }
@@ -45,9 +45,15 @@
         overflow-y: scroll;
         line-height: 1.5rem;
 
-        img{
+        .ui.placeholder{
           width: 600px;
-          height: 60ƒ0px;
+          max-width: 600px;
+          height: 600px;
+        }
+
+        img {
+          width: 600px;
+          height: 600px;
         }
 
         &::-webkit-scrollbar {
