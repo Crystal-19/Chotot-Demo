@@ -13,7 +13,8 @@ import './styles.scss'
 const ProductDetail = () => {
   const {id} = useParams()
   const productRelated = useSelector(state => state.Product.productRelated)
-  const {imageUrl, name, description, price, email, createdAt} = useSelector(state => state.Product.productDetail)
+  const {imageUrl, _id, name, description, price, email, createdAt} =
+    useSelector(state => state.Product.productDetail)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -217,19 +218,26 @@ const ProductDetail = () => {
 
   return (
     <div className="background-container">
-      <div className="general-container product-detail-container">
-        {renderHeader()}
-        <div className="content-container">
-          {renderLeftBody()}
-          {renderRightBody()}
+      {id !== _id ? (
+        <div className="no-exist">
+          <Image src="https://thuvienmamnon.com/wp-content/uploads/2020/06/rau-mat-nyhu-meo.jpg" />
+          <h3>this product does not exist</h3>
         </div>
-        <h3 className="title">Hello everyone else ad</h3>
-        <div className="products-container">
-          {productRelated.map(dt => (
-            <ProductCard key={dt._id} product={dt} />
-          ))}
+      ) : (
+        <div className="general-container product-detail-container">
+          {renderHeader()}
+          <div className="content-container">
+            {renderLeftBody()}
+            {renderRightBody()}
+          </div>
+          <h3 className="title">Hello everyone else ad</h3>
+          <div className="products-container">
+            {productRelated.map(dt => (
+              <ProductCard key={dt._id} product={dt} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <Footer />
     </div>
   )

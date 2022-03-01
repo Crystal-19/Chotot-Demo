@@ -44,7 +44,7 @@ const ProductReducer = (state = initialState, action) => {
         ...state,
         productDetail: {
           imageUrl: payload.imageUrl,
-          _id: payload.id,
+          _id: payload._id,
           name: payload.name,
           description: payload.description,
           price: payload.price,
