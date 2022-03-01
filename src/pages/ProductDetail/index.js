@@ -89,8 +89,7 @@ const ProductDetail = () => {
   const renderMainProductInfo = () => {
     return (
       <>
-        {isLoading && renderImagePlaceholder()}
-        <Image src={imageUrl} />
+        {isLoading ? renderImagePlaceholder() : <Image src={imageUrl} />}
         <h3>{name}</h3>
         <h3 className="price">{helpers.formatPrice(price)}</h3>
         <p>{description}</p>
