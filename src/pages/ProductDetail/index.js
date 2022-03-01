@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 
 import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
-// import {data} from 'utils/mockData'
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
 import * as productActions from 'redux/actions/productActions'
@@ -15,12 +14,15 @@ const data = []
 const ProductDetail = () => {
   const {id} = useParams()
   const dataShow = data.filter((dt, index) => index < 10)
-  const imageUrl = useSelector(state => state.Product.imageUrl)
-  const name = useSelector(state => state.Product.name)
-  const description = useSelector(state => state.Product.description)
-  const price = useSelector(state => state.Product.price)
-  const userEmail = useSelector(state => state.Product.email)
-  const joinDate = useSelector(state => state.Product.createdAt)
+  const {imageUrl, name, description, price, email, createdAt} = useSelector(state => state.Product.productDetail)
+  // const imageUrl = useSelector(state => state.Product.productDetail.imageUrl)
+  // const name = useSelector(state => state.Product.productDetail.name)
+  // const description = useSelector(
+  //   state => state.Product.productDetail.description,
+  // )
+  // const price = useSelector(state => state.Product.productDetail.price)
+  // const userEmail = useSelector(state => state.Product.productDetail.email)
+  // const joinDate = useSelector(state => state.Product.productDetail.createdAt)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -164,8 +166,8 @@ const ProductDetail = () => {
       <div className="ava-container">
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
-          <h4>{userEmail}</h4>
-          <p>Join date: {joinDate}</p>
+          <h4>{email}</h4>
+          <p>Join date: {createdAt}</p>
         </div>
       </div>
     )

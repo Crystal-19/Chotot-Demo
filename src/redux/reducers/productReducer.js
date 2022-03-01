@@ -6,13 +6,15 @@ const initialState = {
   isLoading: false,
   isError: false,
   pagination: {},
-  _id: '',
-  imageUrl: '',
-  name: '',
-  description: '',
-  price: 0,
-  email: '',
-  createdAt: null,
+  productDetail: {
+    _id: '',
+    imageUrl: '',
+    name: '',
+    description: '',
+    price: 0,
+    email: '',
+    createdAt: null,
+  },
 }
 const ProductReducer = (state = initialState, action) => {
   const {type, payload} = action
@@ -32,18 +34,21 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: false, isError: true}
 
     case productDetailTypes.GET_PRODUCT_DETAIL:
+      console.log('state', state.productDetail)
       return {...state, isLoading: true}
 
     case productDetailTypes.GET_PRODUCT_DETAIL_SUCCESS:
       return {
         ...state,
-        imageUrl: payload.imageUrl,
-        _id: payload.id,
-        name: payload.name,
-        description: payload.description,
-        price: payload.price,
-        email: payload.email,
-        createdAt: payload.createdAt,
+        productDetail: {
+          imageUrl: payload.imageUrl,
+          _id: payload.id,
+          name: payload.name,
+          description: payload.description,
+          price: payload.price,
+          email: payload.email,
+          createdAt: payload.createdAt,
+        }
       }
 
     case productDetailTypes.GET_PRODUCT_DETAIL_FAILURE:
