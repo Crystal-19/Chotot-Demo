@@ -10,16 +10,15 @@ import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
-const data = []
-
 const ProductDetail = () => {
   const {id} = useParams()
-  const dataShow = data.filter((dt, index) => index < 10)
+  const productRelated = useSelector(state => state.Product.productRelated)
   const {imageUrl, name, description, price, email, createdAt} = useSelector(state => state.Product.productDetail)
 
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(productActions.loadProductDetail(id))
+    dispatch(productActions.loadProductRelated(id))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
 
@@ -227,8 +226,8 @@ const ProductDetail = () => {
         </div>
         <h3 className="title">Hello everyone else ad</h3>
         <div className="products-container">
-          {dataShow.map(dt => (
-            <ProductCard key={dt.id} product={dt} />
+          {productRelated.map(dt => (
+            <ProductCard key={dt._id} product={dt} />
           ))}
         </div>
       </div>
