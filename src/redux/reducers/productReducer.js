@@ -11,9 +11,8 @@ const initialState = {
     name: '',
     description: '',
     price: 0,
-    email: '',
-    createdAt: null,
-    categoryName: '',
+    author: {},
+    category: {},
   },
   productRelated: [],
 }

@@ -14,8 +14,9 @@ import './styles.scss'
 const ProductDetail = () => {
   const {id} = useParams()
   const productRelated = useSelector(state => state.Product.productRelated)
-  const {imageUrl, name, description, price, email, createdAt, categoryName} =
-    useSelector(state => state.Product.productDetail)
+  const {imageUrl, name, price, description, author, category} = useSelector(state => state.Product.productDetail)
+  const {email, createdAt} = author
+  const categoryName = category.name
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
