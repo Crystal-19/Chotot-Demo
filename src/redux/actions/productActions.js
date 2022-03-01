@@ -1,7 +1,6 @@
 import * as productTypes from '../actionTypes/productTypes'
 import * as productRequest from '../api/productApi'
 import * as productDetailTypes from '../actionTypes/productDetailTypes'
-import * as productDetailRequest from '../api/productDetailApi'
 
 export const getProduct = () => ({
   type: productTypes.GET_PRODUCT,
@@ -54,7 +53,7 @@ export const loadProduct = pageNumber => async dispatch => {
 export const loadProductDetail = id => async dispatch => {
   try {
     dispatch(getProductDetail())
-    const response = await productDetailRequest.getProductDetailRequest(id)
+    const response = await productRequest.getProductDetailRequest(id)
     const {imageUrl, _id, name, description, price} = response.data
     const {email} = response.data.author
     const {createdAt} = response.data.author
