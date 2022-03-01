@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom'
 import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
+import * as helpers from 'utils/helpers'
 import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
@@ -84,7 +85,7 @@ const ProductDetail = () => {
       <>
         <Image src={imageUrl} />
         <h3>{name}</h3>
-        <h3 className="price">{price}</h3>
+        <h3 className="price">{helpers.formatPrice(price)}</h3>
         <p>{description}</p>
         <a href="/">Click to show number: 056394 ***</a>
         {renderInfoList()}
