@@ -6,9 +6,9 @@ export const getProduct = () => ({
   payload: {isLoading: true},
 })
 
-export const getProductSuccess = (productList, pagination) => ({
+export const getProductSuccess = (productList, pagination, loadMore) => ({
   type: productTypes.GET_PRODUCT_SUCCESS,
-  payload: {productList, pagination},
+  payload: {productList, pagination, loadMore},
 })
 
 export const getProductFailure = () => ({
@@ -30,14 +30,14 @@ export const getProductDetailSuccess = (
 ) => ({
   type: productTypes.GET_PRODUCT_DETAIL_SUCCESS,
   payload: {
-      imageUrl,
-      _id,
-      name,
-      description,
-      price,
-      author,
-      category,
-    },
+    imageUrl,
+    _id,
+    name,
+    description,
+    price,
+    author,
+    category,
+  },
 })
 
 export const getProductDetailFailure = () => ({
@@ -57,14 +57,14 @@ export const getProductRelatedFailure = () => ({
   type: productTypes.GET_PRODUCT_RELATED_FAILURE,
 })
 
-export const loadProduct = pageNumber => async dispatch => {
+export const loadProduct = (pageNumber, loadMore) => async dispatch => {
   try {
     dispatch(getProduct())
     const response = await productRequest.getProductListRequest(pageNumber)
 
     const {data, pagination} = response.data
 
-    dispatch(getProductSuccess(data, pagination))
+    dispatch(getProductSuccess(data, pagination, loadMore))
   } catch (error) {
     dispatch(getProductFailure())
   }
@@ -74,9 +74,20 @@ export const loadProductDetail = id => async dispatch => {
   try {
     dispatch(getProductDetail())
     const response = await productRequest.getProductDetailRequest(id)
-    const {imageUrl, _id, name, description, price, author, category} = response.data
+    const {imageUrl, _id, name, description, price, author, category} =
+      response.data
 
-    dispatch(getProductDetailSuccess(imageUrl, _id, name, description, price, author, category))
+    dispatch(
+      getProductDetailSuccess(
+        imageUrl,
+        _id,
+        name,
+        description,
+        price,
+        author,
+        category,
+      ),
+    )
   } catch (error) {
     dispatch(getProductDetailFailure())
   }

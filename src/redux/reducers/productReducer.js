@@ -27,7 +27,9 @@ const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        productList: state.productList.concat(payload.productList),
+        productList: payload.loadMore
+          ? state.productList.concat(payload.productList)
+          : payload.productList,
         pagination: payload.pagination,
         isError: false,
       }

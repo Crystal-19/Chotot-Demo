@@ -14,7 +14,9 @@ import './styles.scss'
 const ProductDetail = () => {
   const {id} = useParams()
   const productRelated = useSelector(state => state.Product.productRelated)
-  const {imageUrl, name, price, description, author, category} = useSelector(state => state.Product.productDetail)
+  const {imageUrl, name, price, description, author, category} = useSelector(
+    state => state.Product.productDetail,
+  )
   const {email, createdAt} = author
   const categoryName = category.name
 
@@ -24,6 +26,7 @@ const ProductDetail = () => {
   const isError = useSelector(state => state.Product.isError)
 
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(productActions.loadProductDetail(id))
     dispatch(productActions.loadProductRelated(id))
