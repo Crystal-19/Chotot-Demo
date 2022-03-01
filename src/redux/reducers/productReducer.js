@@ -1,6 +1,4 @@
 import * as productTypes from '../actionTypes/productTypes'
-import * as productDetailTypes from '../actionTypes/productDetailTypes'
-import * as productRelatedTypes from '../actionTypes/productRelatedTypes'
 
 const initialState = {
   productList: [],
@@ -38,10 +36,10 @@ const ProductReducer = (state = initialState, action) => {
     case productTypes.GET_PRODUCT_FAILURE:
       return {...state, isLoading: false, isError: false}
 
-    case productDetailTypes.GET_PRODUCT_DETAIL:
+    case productTypes.GET_PRODUCT_DETAIL:
       return {...state, isLoading: true, isError: false}
 
-    case productDetailTypes.GET_PRODUCT_DETAIL_SUCCESS:
+    case productTypes.GET_PRODUCT_DETAIL_SUCCESS:
       return {
         ...state,
         productDetail: {
@@ -50,20 +48,20 @@ const ProductReducer = (state = initialState, action) => {
         isLoading: false,
       }
 
-    case productDetailTypes.GET_PRODUCT_DETAIL_FAILURE:
+    case productTypes.GET_PRODUCT_DETAIL_FAILURE:
       return {...state, isError: true, isLoading: false}
 
-    case productRelatedTypes.GET_PRODUCT_RELATED:
+    case productTypes.GET_PRODUCT_RELATED:
       return {...state, isLoading: true}
 
-    case productRelatedTypes.GET_PRODUCT_RELATED_SUCCESS:
+    case productTypes.GET_PRODUCT_RELATED_SUCCESS:
       return {
         ...state,
         productRelated: payload.productRelated,
         isLoading: false,
       }
 
-    case productRelatedTypes.GET_PRODUCT_RELATED_FAILURE:
+    case productTypes.GET_PRODUCT_RELATED_FAILURE:
       return {...state, isLoading: false}
 
     default:

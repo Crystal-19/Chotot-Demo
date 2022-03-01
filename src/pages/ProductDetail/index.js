@@ -8,7 +8,6 @@ import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'
 import * as productActions from 'redux/actions/productActions'
-import * as categoryActions from 'redux/actions/categoryActions'
 
 import './styles.scss'
 
@@ -27,7 +26,6 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(productActions.loadProductDetail(id))
     dispatch(productActions.loadProductRelated(id))
-    dispatch(categoryActions.loadCategory())
   }, [dispatch, id])
 
   const renderHeader = () => {

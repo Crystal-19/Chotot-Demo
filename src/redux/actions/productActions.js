@@ -1,7 +1,5 @@
 import * as productTypes from '../actionTypes/productTypes'
 import * as productRequest from '../api/productApi'
-import * as productDetailTypes from '../actionTypes/productDetailTypes'
-import * as productRelatedTypes from '../actionTypes/productRelatedTypes'
 
 export const getProduct = () => ({
   type: productTypes.GET_PRODUCT,
@@ -18,7 +16,7 @@ export const getProductFailure = () => ({
 })
 
 export const getProductDetail = () => ({
-  type: productDetailTypes.GET_PRODUCT_DETAIL,
+  type: productTypes.GET_PRODUCT_DETAIL,
 })
 
 export const getProductDetailSuccess = (
@@ -31,7 +29,7 @@ export const getProductDetailSuccess = (
   createdAt,
   categoryName,
 ) => ({
-  type: productDetailTypes.GET_PRODUCT_DETAIL_SUCCESS,
+  type: productTypes.GET_PRODUCT_DETAIL_SUCCESS,
   payload: {
     imageUrl,
     _id,
@@ -45,20 +43,20 @@ export const getProductDetailSuccess = (
 })
 
 export const getProductDetailFailure = () => ({
-  type: productDetailTypes.GET_PRODUCT_DETAIL_FAILURE,
+  type: productTypes.GET_PRODUCT_DETAIL_FAILURE,
 })
 
 export const getProductRelated = () => ({
-  type: productRelatedTypes.GET_PRODUCT_RELATED,
+  type: productTypes.GET_PRODUCT_RELATED,
 })
 
 export const getProductRelatedSuccess = productRelated => ({
-  type: productRelatedTypes.GET_PRODUCT_RELATED_SUCCESS,
+  type: productTypes.GET_PRODUCT_RELATED_SUCCESS,
   payload: {productRelated},
 })
 
 export const getProductRelatedFailure = () => ({
-  type: productRelatedTypes.GET_PRODUCT_RELATED_FAILURE,
+  type: productTypes.GET_PRODUCT_RELATED_FAILURE,
 })
 
 export const loadProduct = pageNumber => async dispatch => {
