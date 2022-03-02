@@ -14,7 +14,7 @@ import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
-import ProductFilterByCategory from 'pages/productFilterByCategory'
+import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 
 function App() {
   return (
