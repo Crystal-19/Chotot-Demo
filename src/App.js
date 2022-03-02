@@ -31,7 +31,7 @@ function App() {
           <Route path="/my-products" element={<MyProductPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route
-            path="/filter/:categoryId"
+            path="/:categoryName/:categoryId"
             element={<ProductFilterByCategory />}
           />
         </Routes>

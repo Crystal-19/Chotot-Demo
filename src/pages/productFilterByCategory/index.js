@@ -10,6 +10,7 @@ import './styles.scss'
 
 const ProductFilterByCategory = () => {
   const {categoryId} = useParams()
+  const {categoryName} = useParams()
   const productListFilterByCategory = useSelector(
     state => state.Product.productFilterByCategory.data,
   )
@@ -22,6 +23,7 @@ const ProductFilterByCategory = () => {
   return (
     <div className="general-container container">
       <Slider />
+      <h2>{categoryName}</h2>
       <div className="products-container">
         {productListFilterByCategory.map(pd => (
           <ProductCard key={pd._id} product={pd} />
