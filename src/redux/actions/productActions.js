@@ -104,18 +104,15 @@ export const loadProductRelated = id => async dispatch => {
   }
 }
 
-export const loadProductFilterByCategory =
-  (pageNumber, categoryId) => async dispatch => {
-    try {
-      dispatch(getProductFilterByCategory())
+export const loadProductFilterByCategory = categoryId => async dispatch => {
+  try {
+    dispatch(getProductFilterByCategory())
 
-      const response = await productRequest.getProductFilterByCategoryRequest(
-        pageNumber,
-        categoryId,
-      )
-      console.log('response', response)
-      dispatch(getProductFilterByCategorySuccess(response.data))
-    } catch {
-      dispatch(getProductFilterByCategoryFailure())
-    }
+    const response = await productRequest.getProductFilterByCategoryRequest(
+      categoryId,
+    )
+    dispatch(getProductFilterByCategorySuccess(response.data))
+  } catch {
+    dispatch(getProductFilterByCategoryFailure())
   }
+}

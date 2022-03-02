@@ -7,5 +7,5 @@ export const getProductDetailRequest = id => API.get(`products/${id}`)
 
 export const getProductRelatedRequest = id => API.get(`products/${id}/related`)
 
-export const getProductFilterByCategoryRequest = (pageNumber, categoryId) =>
-  API.get(`/products?page=${pageNumber}&category=${categoryId}`)
+export const getProductFilterByCategoryRequest = (categoryId) =>
+  API.get(`/products?page=1&category=${categoryId}`)

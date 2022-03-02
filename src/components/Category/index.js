@@ -4,27 +4,20 @@ import {Link} from 'react-router-dom'
 
 import {Image, Placeholder} from 'semantic-ui-react'
 import * as categoryActions from 'redux/actions/categoryActions'
-import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
 const Catalog = ({dispatch}) => {
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
-  const {page} = useSelector(state => state.Product.pagination)
 
+  console.log('category', categories)
   useEffect(() => {
     dispatch(categoryActions.loadCategory())
   }, [dispatch])
 
   const renderPlaceHolder = () => {
     return <Placeholder className="catalog-img" />
-  }
-
-  const onFilterProductByCategory = index => {
-    dispatch(
-      productActions.loadProductFilterByCategory(page, categories[index]._id),
-    )
   }
 
   const renderPlaceholderList = () => {
@@ -45,17 +38,17 @@ const Catalog = ({dispatch}) => {
   const renderCategoryItems = () => {
     return (
       <div className="scroll-container">
-        <Link to='/products-filter-by-category' className="catalog-container scroll-container">
+        <div className="catalog-container scroll-container">
           {categories.map((item, index) => (
-            <div
+            <Link
+              to={`/filter/${categories[index]._id}`}
               key={item._id}
-              className="items-container"
-              onClick={() => onFilterProductByCategory(index)}>
+              className="items-container">
               <Image className="catalog-img" src={item.imageUrl} />
               <p>{item.name}</p>
-            </div>
+            </Link>
           ))}
-        </Link>
+        </div>
       </div>
     )
   }
