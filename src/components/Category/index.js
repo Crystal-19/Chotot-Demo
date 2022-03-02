@@ -11,7 +11,6 @@ const Catalog = ({dispatch}) => {
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
 
-  console.log('category', categories)
   useEffect(() => {
     dispatch(categoryActions.loadCategory())
   }, [dispatch])
@@ -41,7 +40,7 @@ const Catalog = ({dispatch}) => {
         <div className="catalog-container scroll-container">
           {categories.map((item, index) => (
             <Link
-              to={`/${categories[index].name}/${categories[index]._id}`}
+              to={`/filter/${categories[index]._id}`}
               key={item._id}
               className="items-container">
               <Image className="catalog-img" src={item.imageUrl} />
