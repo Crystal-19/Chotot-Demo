@@ -1,0 +1,11 @@
+@import 'assets/scss';
+
+.container {
+  background-color: $white;
+  margin: 15px 0;
+
+  .products-container {
+    @include flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+  }
+}
