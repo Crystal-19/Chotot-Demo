@@ -3,12 +3,14 @@ import {useSelector} from 'react-redux'
 
 import {Image, Placeholder} from 'semantic-ui-react'
 import * as categoryActions from 'redux/actions/categoryActions'
+import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
 const Catalog = ({dispatch}) => {
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
+  const {page} = useSelector(state => state.Product.pagination)
 
   useEffect(() => {
     dispatch(categoryActions.loadCategory())
@@ -16,6 +18,12 @@ const Catalog = ({dispatch}) => {
 
   const renderPlaceHolder = () => {
     return <Placeholder className="catalog-img" />
+  }
+
+  const onFilterProductByCategory = index => {
+    dispatch(
+      productActions.loadProductFilterByCategory(page, categories[index]._id),
+    )
   }
 
   const renderPlaceholderList = () => {
@@ -37,8 +45,11 @@ const Catalog = ({dispatch}) => {
     return (
       <div className="scroll-container">
         <div className="catalog-container scroll-container">
-          {categories.map(item => (
-            <div key={item._id} className="items-container">
+          {categories.map((item, index) => (
+            <div
+              key={item._id}
+              className="items-container"
+              onClick={() => onFilterProductByCategory(index)}>
               <Image className="catalog-img" src={item.imageUrl} />
               <p>{item.name}</p>
             </div>

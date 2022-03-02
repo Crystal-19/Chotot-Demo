@@ -13,10 +13,13 @@ const Product = ({dispatch}) => {
   // const {productList, pagination, isLoading} = useSelector(state => state.Product)
   // const {page, totalPages} = pagination
   // @NOTE: MUST NOT use destructuring here to avoid rerender unnecessary
-  const productList = useSelector(state => state.Product.productList)
+  const productList = useSelector(
+    state => state.Product.productFilterByCategory.data,
+  )
   const {page, totalPages} = useSelector(state => state.Product.pagination)
   const isLoading = useSelector(state => state.Product.isLoading)
 
+  console.log('product list', productList)
   useEffect(() => {
     dispatch(productActions.loadProduct(1))
     // eslint-disable-next-line react-hooks/exhaustive-deps

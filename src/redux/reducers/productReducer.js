@@ -15,6 +15,7 @@ const initialState = {
     category: {},
   },
   productRelated: [],
+  productFilterByCategory: {data: []},
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -33,6 +34,12 @@ const ProductReducer = (state = initialState, action) => {
             : payload.productList,
         pagination: payload.pagination,
         isError: false,
+        productFilterByCategory: {
+          data:
+            payload.pagination.page !== 1
+              ? state.productList.concat(payload.productList)
+              : payload.productList,
+        },
       }
 
     case productTypes.GET_PRODUCT_FAILURE:
@@ -64,6 +71,19 @@ const ProductReducer = (state = initialState, action) => {
       }
 
     case productTypes.GET_PRODUCT_RELATED_FAILURE:
+      return {...state, isLoading: false}
+
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY:
+      return {...state, isLoading: false}
+
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        productFilterByCategory: payload.productFilterByCategory,
+        isLoading: false,
+      }
+
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE:
       return {...state, isLoading: false}
 
     default:
