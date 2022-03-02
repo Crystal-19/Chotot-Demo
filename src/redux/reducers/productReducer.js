@@ -19,7 +19,7 @@ const initialState = {
   productCategoryInfo: {
     name: '',
     imageUrl: '',
-  }
+  },
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -83,16 +83,6 @@ const ProductReducer = (state = initialState, action) => {
 
     case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE:
       return {...state, isLoading: false}
-
-    case productTypes.GET_PRODUCT_CATEGORY_INFO:
-      return {...state, isLoading: true}
-
-    case productTypes.GET_PRODUCT_CATEGORY_INFO_SUCCESS:
-      return {...state, productCategoryInfo: {...payload}}
-
-    case productTypes.GET_PRODUCT_CATEGORY_INFO_FAILURE:
-      return {...state, isLoading: false}
-
     default:
       return state
   }

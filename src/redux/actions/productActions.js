@@ -70,19 +70,6 @@ export const getProductFilterByCategoryFailure = () => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE,
 })
 
-export const getProductCategoryInfo = () => ({
-  type: productTypes.GET_PRODUCT_CATEGORY_INFO,
-})
-
-export const getProductCategoryInfoSuccess = (productCategoryInfo) => ({
-  type: productTypes.GET_PRODUCT_CATEGORY_INFO_SUCCESS,
-  payload: productCategoryInfo
-})
-
-export const getProductCategoryInfoFailure = () => ({
-  type: productTypes.GET_PRODUCT_CATEGORY_INFO_FAILURE
-})
-
 export const loadProduct = pageNumber => async dispatch => {
   try {
     dispatch(getProduct())
@@ -127,19 +114,5 @@ export const loadProductFilterByCategory = categoryId => async dispatch => {
     dispatch(getProductFilterByCategorySuccess(response.data))
   } catch {
     dispatch(getProductFilterByCategoryFailure())
-  }
-}
-
-export const loadProductCategoryInfo = categoryId => async dispatch => {
-  try{
-    dispatch(getProductCategoryInfo())
-
-    const response = await productRequest.getProductCategoryInfoRequest(
-      categoryId,
-    )
-
-    dispatch(getProductCategoryInfoSuccess(response.data))
-  }catch{
-    dispatch(getProductCategoryInfoFailure())
   }
 }

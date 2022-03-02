@@ -4,6 +4,10 @@ const initialState = {
   category: [],
   isLoading: false,
   isError: false,
+  productCategoryInfo: {
+    name: '',
+    imageUrl: '',
+  },
 }
 const categoryReducer = (state = initialState, action) => {
   const {type, payload} = action
@@ -17,6 +21,14 @@ const categoryReducer = (state = initialState, action) => {
     case categoryTypes.GET_CATEGORY_FAILURE:
       return {...state, isLoading: false, isError: true}
 
+    case categoryTypes.GET_PRODUCT_CATEGORY_INFO:
+      return {...state, isLoading: true}
+
+    case categoryTypes.GET_PRODUCT_CATEGORY_INFO_SUCCESS:
+      return {...state, productCategoryInfo: {...payload}}
+
+    case categoryTypes.GET_PRODUCT_CATEGORY_INFO_FAILURE:
+      return {...state, isLoading: false}
     default:
       return state
   }

@@ -15,6 +15,19 @@ export const getCategoryFailure = () => ({
   type: categoryTypes.GET_CATEGORY_FAILURE,
 })
 
+export const getProductCategoryInfo = () => ({
+  type: categoryTypes.GET_PRODUCT_CATEGORY_INFO,
+})
+
+export const getProductCategoryInfoSuccess = productCategoryInfo => ({
+  type: categoryTypes.GET_PRODUCT_CATEGORY_INFO_SUCCESS,
+  payload: productCategoryInfo,
+})
+
+export const getProductCategoryInfoFailure = () => ({
+  type: categoryTypes.GET_PRODUCT_CATEGORY_INFO_FAILURE,
+})
+
 export const loadCategory = () => async dispatch => {
   try {
     dispatch(getCategory())
@@ -22,5 +35,19 @@ export const loadCategory = () => async dispatch => {
     dispatch(getCategorySuccess(response.data))
   } catch (error) {
     dispatch(getCategoryFailure())
+  }
+}
+
+export const loadProductCategoryInfo = categoryId => async dispatch => {
+  try {
+    dispatch(getProductCategoryInfo())
+
+    const response = await categoryRequest.getProductCategoryInfoRequest(
+      categoryId,
+    )
+
+    dispatch(getProductCategoryInfoSuccess(response.data))
+  } catch {
+    dispatch(getProductCategoryInfoFailure())
   }
 }

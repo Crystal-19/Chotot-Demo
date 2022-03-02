@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
 import Slider from '../Home/components/Slider'
 import ProductCard from 'components/ProductCard'
+import * as categoryActions from 'redux/actions/categoryActions'
 import * as productActions from 'redux/actions/productActions'
 import Footer from 'components/Footer'
 
@@ -18,13 +19,13 @@ const ProductFilterByCategory = () => {
   const categoryName = useSelector(
     state => state.Product.productCategoryInfo.name,
   )
-  const {imageUrl} = useSelector(state => state.Product.productCategoryInfo)
+  const {imageUrl} = useSelector(state => state.Category.productCategoryInfo)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(productActions.loadProductFilterByCategory(categoryId))
-    dispatch(productActions.loadProductCategoryInfo(categoryId))
+    dispatch(categoryActions.loadProductCategoryInfo(categoryId))
   }, [dispatch])
 
   return (
