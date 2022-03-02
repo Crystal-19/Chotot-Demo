@@ -1,14 +1,36 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {useParams} from 'react-router-dom'
+import dayjs from 'dayjs'
 
-import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
-import {data} from 'utils/mockData'
+import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
+import * as helpers from 'utils/helpers'
+import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
 const ProductDetail = () => {
-  const dataShow = data.filter((dt, index) => index < 10)
+  const {id} = useParams()
+  const productRelated = useSelector(state => state.Product.productRelated)
+  const {imageUrl, name, price, description, author, category} = useSelector(
+    state => state.Product.productDetail,
+  )
+  const {email, createdAt} = author
+  const categoryName = category.name
+
+  const joinDate = dayjs(createdAt).format('MM-YYYY')
+  const isLoading = useSelector(state => state.Product.isLoading)
+
+  const isError = useSelector(state => state.Product.isError)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(productActions.loadProductDetail(id))
+    dispatch(productActions.loadProductRelated(id))
+  }, [dispatch, id])
 
   const renderHeader = () => {
     return (
@@ -16,9 +38,9 @@ const ProductDetail = () => {
         <Breadcrumb size="mini">
           <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>Tablet</Breadcrumb.Section>
+          <Breadcrumb.Section link>{categoryName}</Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>Samsung</Breadcrumb.Section>
+          <Breadcrumb.Section link>{name}</Breadcrumb.Section>
         </Breadcrumb>
       </div>
     )
@@ -59,14 +81,20 @@ const ProductDetail = () => {
     )
   }
 
+  const renderImagePlaceholder = () => {
+    return (
+      <Placeholder>
+        <Placeholder.Image square />
+      </Placeholder>
+    )
+  }
   const renderMainProductInfo = () => {
     return (
       <>
-        <Image src="http://newstimber.com/wp-content/uploads/2021/08/1-9.jpg" />
-        <h3>galaxy j4 plus man is 98% beautiful like new tab</h3>
-        <h3 className="price">990,000 VND</h3>
-        <p>galaxy j4 plus man is 98% beautiful like new tab</p>
-        <a href="/">Click to show number: 056394 ***</a>
+        {isLoading ? renderImagePlaceholder() : <Image src={imageUrl} />}
+        <h3>{name}</h3>
+        <h3 className="price">{helpers.formatPrice(price)}</h3>
+        <p>{description}</p>
         {renderInfoList()}
       </>
     )
@@ -146,8 +174,8 @@ const ProductDetail = () => {
       <div className="ava-container">
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
-          <h4>Ngan</h4>
-          <p>Active 2 hours ago</p>
+          <h4>{email}</h4>
+          <p>Join date: {joinDate}</p>
         </div>
       </div>
     )
@@ -204,8 +232,8 @@ const ProductDetail = () => {
     )
   }
 
-  return (
-    <div className="background-container">
+  const renderFullProductDetail = () => {
+    return (
       <div className="general-container product-detail-container">
         {renderHeader()}
         <div className="content-container">
@@ -214,11 +242,25 @@ const ProductDetail = () => {
         </div>
         <h3 className="title">Hello everyone else ad</h3>
         <div className="products-container">
-          {dataShow.map(dt => (
-            <ProductCard key={dt.id} product={dt} />
+          {productRelated.map(dt => (
+            <ProductCard key={dt._id} product={dt} />
           ))}
         </div>
       </div>
+    )
+  }
+
+  const renderProductError = () => {
+    return (
+      <div className="no-exist">
+        <Image src="https://thuvienmamnon.com/wp-content/uploads/2020/06/rau-mat-nyhu-meo.jpg" />
+        <h3>this product does not exist</h3>
+      </div>
+    )
+  }
+  return (
+    <div className="background-container">
+      {isError ? renderProductError() : renderFullProductDetail()}
       <Footer />
     </div>
   )

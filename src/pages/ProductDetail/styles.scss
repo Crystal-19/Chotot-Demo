@@ -3,6 +3,17 @@
 .background-container {
   background-color: $pale_gray;
 
+  .no-exist {
+    @include flex(column, center, center);
+    height: 40vh;
+    background-color: $gray;
+
+    img {
+      height: 200px;
+      width: 320px;
+    }
+  }
+
   .product-detail-container {
     .header-container {
       @include flex(row, center, flex-start);
@@ -33,6 +44,17 @@
         width: 60%;
         overflow-y: scroll;
         line-height: 1.5rem;
+
+        .ui.placeholder{
+          width: 600px;
+          max-width: 600px;
+          height: 600px;
+        }
+
+        img {
+          width: 600px;
+          height: 600px;
+        }
 
         &::-webkit-scrollbar {
           display: none;
