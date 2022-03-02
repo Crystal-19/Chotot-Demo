@@ -14,7 +14,7 @@ const Product = ({dispatch}) => {
   // const {page, totalPages} = pagination
   // @NOTE: MUST NOT use destructuring here to avoid rerender unnecessary
   const productList = useSelector(
-    state => state.Product.productFilterByCategory.data,
+    state => state.Product.productList,
   )
   const {page, totalPages} = useSelector(state => state.Product.pagination)
   const isLoading = useSelector(state => state.Product.isLoading)

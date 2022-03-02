@@ -34,12 +34,6 @@ const ProductReducer = (state = initialState, action) => {
             : payload.productList,
         pagination: payload.pagination,
         isError: false,
-        productFilterByCategory: {
-          data:
-            payload.pagination.page !== 1
-              ? state.productList.concat(payload.productList)
-              : payload.productList,
-        },
       }
 
     case productTypes.GET_PRODUCT_FAILURE:
