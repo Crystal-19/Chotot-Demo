@@ -40,7 +40,7 @@ const Catalog = ({dispatch}) => {
         <div className="catalog-container scroll-container">
           {categories.map((item, index) => (
             <Link
-              to={`/filter/${categories[index]._id}`}
+              to={`/category/${categories[index]._id}/products`}
               key={item._id}
               className="items-container">
               <Image className="catalog-img" src={item.imageUrl} />
