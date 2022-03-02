@@ -68,7 +68,7 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: false}
 
     case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY:
-      return {...state, isLoading: false}
+      return {...state, isLoading: false, productFilterByCategory: {data: []}}
 
     case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_SUCCESS:
       return {

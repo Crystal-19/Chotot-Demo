@@ -1,8 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {Icon, Placeholder} from 'semantic-ui-react'
+import Slider from '../../pages/Home/components/Slider'
 import ProductCard from 'components/ProductCard'
-import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
@@ -13,6 +12,7 @@ const ProductFilterByCategory = () => {
 
   return (
     <div className="general-container container">
+      <Slider />
       <div className="products-container">
         {productListFilterByCategory.map(pd => (
           <ProductCard key={pd._id} product={pd} />

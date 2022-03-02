@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 import {Image, Placeholder} from 'semantic-ui-react'
 import * as categoryActions from 'redux/actions/categoryActions'
@@ -44,7 +45,7 @@ const Catalog = ({dispatch}) => {
   const renderCategoryItems = () => {
     return (
       <div className="scroll-container">
-        <div className="catalog-container scroll-container">
+        <Link to='/products-filter-by-category' className="catalog-container scroll-container">
           {categories.map((item, index) => (
             <div
               key={item._id}
@@ -54,7 +55,7 @@ const Catalog = ({dispatch}) => {
               <p>{item.name}</p>
             </div>
           ))}
-        </div>
+        </Link>
       </div>
     )
   }

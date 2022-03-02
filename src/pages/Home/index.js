@@ -5,7 +5,6 @@ import {useDispatch} from 'react-redux'
 import Slider from './components/Slider'
 import Catalog from 'components/Category'
 import Product from 'pages/Home/components/ProductList'
-import ProductFilterByCategory from './components/productFilterByCategory'
 import Footer from 'components/Footer'
 
 import './styles.scss'
@@ -18,7 +17,6 @@ const Home = () => {
       <Slider />
       <Catalog dispatch={dispatch} />
       <Product dispatch={dispatch} />
-      <ProductFilterByCategory dispatch={dispatch} />
       <Footer />
     </div>
   )

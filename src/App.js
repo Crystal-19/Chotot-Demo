@@ -14,6 +14,7 @@ import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
+import ProductFilterByCategory from 'components/productFilterByCategory'
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/my-products" element={<MyProductPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route
+            path="/products-filter-by-category"
+            element={<ProductFilterByCategory />}
+          />
         </Routes>
       </BrowserRouter>
       <SideNav />
