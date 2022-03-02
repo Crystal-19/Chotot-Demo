@@ -23,4 +23,23 @@
     @include flex(row, flex-start, flex-start);
     flex-wrap: wrap;
   }
+
+  .see-more {
+    @include flex(row, center, center);
+    background-color: $pale_gray;
+    height: 44px;
+    color: $light_blue;
+    font-size: 12pt;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  }
+
+  .hide-see-more {
+    display: none;
+  }
 }

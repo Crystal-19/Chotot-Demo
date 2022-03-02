@@ -2,7 +2,7 @@
 import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image} from 'semantic-ui-react'
+import {Image, Icon} from 'semantic-ui-react'
 import Slider from '../Home/components/Slider'
 import ProductCard from 'components/ProductCard'
 import * as categoryActions from 'redux/actions/categoryActions'
@@ -16,6 +16,7 @@ const ProductFilterByCategory = () => {
   const productListFilterByCategory = useSelector(
     state => state.Product.productFilterByCategory.data,
   )
+  const {page, totalPages} = useSelector(state => state.Product.pagination)
   const categoryName = useSelector(
     state => state.Product.productCategoryInfo.name,
   )
@@ -26,7 +27,12 @@ const ProductFilterByCategory = () => {
   useEffect(() => {
     dispatch(productActions.loadProductFilterByCategory(categoryId))
     dispatch(categoryActions.loadProductCategoryInfo(categoryId))
+    dispatch(productActions.loadProduct(1))
   }, [dispatch.apply, categoryId])
+
+  const onShowMore = () => {
+    dispatch(productActions.loadProduct(page + 1))
+  }
 
   return (
     <div className="general-container container">
@@ -39,6 +45,12 @@ const ProductFilterByCategory = () => {
         {productListFilterByCategory.map(pd => (
           <ProductCard key={pd._id} product={pd} />
         ))}
+      </div>
+      <div
+        onClick={onShowMore}
+        className={page < totalPages ? 'see-more' : 'hide-see-more'}>
+        <p>See more</p>
+        <Icon name="angle down" />
       </div>
       <Footer />
     </div>
