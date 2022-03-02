@@ -26,7 +26,7 @@ const ProductFilterByCategory = () => {
   useEffect(() => {
     dispatch(productActions.loadProductFilterByCategory(categoryId))
     dispatch(categoryActions.loadProductCategoryInfo(categoryId))
-  }, [dispatch])
+  }, [dispatch.apply, categoryId])
 
   return (
     <div className="general-container container">
