@@ -6,6 +6,7 @@ import {Image} from 'semantic-ui-react'
 import Slider from '../Home/components/Slider'
 import ProductCard from 'components/ProductCard'
 import * as productActions from 'redux/actions/productActions'
+import Footer from 'components/Footer'
 
 import './styles.scss'
 
@@ -38,6 +39,7 @@ const ProductFilterByCategory = () => {
           <ProductCard key={pd._id} product={pd} />
         ))}
       </div>
+      <Footer />
     </div>
   )
 }
