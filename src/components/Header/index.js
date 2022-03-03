@@ -20,10 +20,15 @@ const Header = () => {
   const productFilterByName = useSelector(
     state => state.Product.productFilterByName.data,
   )
-
+console.log('productFilterByName', productFilterByName)
   const onChangeInputSearch = e => {
-    console.log('value', e.target.value)
-    dispatch(productActions.loadProductFilterByName(e.target.value))
+    if(e.target.value === ''){
+      dispatch(productActions.loadProductFilterByName(undefined))
+    }else{
+      dispatch(productActions.loadProductFilterByName(e.target.value))
+    }
+
+
   }
 
   const renderSearchDropdown = () => {
