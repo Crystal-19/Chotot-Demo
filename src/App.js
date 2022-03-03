@@ -15,6 +15,7 @@ import SignUp from 'pages/SignUp'
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
+import ProductFilterByName from 'pages/ProductFilterByName'
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
           <Route
             path="/category/:categoryId/products"
             element={<ProductFilterByCategory />}
+          />
+          <Route
+            path="/name/:words/products"
+            element={<ProductFilterByName />}
           />
         </Routes>
       </BrowserRouter>

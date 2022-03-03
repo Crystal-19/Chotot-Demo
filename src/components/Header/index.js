@@ -1,6 +1,6 @@
 import React from 'react'
 import {Image, Input} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
@@ -17,18 +17,26 @@ import './styles.scss'
 
 const Header = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const productFilterByName = useSelector(
     state => state.Product.productFilterByName.data,
   )
-console.log('productFilterByName', productFilterByName)
+
   const onChangeInputSearch = e => {
-    if(e.target.value === ''){
+    if (e.target.value === '') {
       dispatch(productActions.loadProductFilterByName(undefined))
-    }else{
+    } else {
       dispatch(productActions.loadProductFilterByName(e.target.value))
     }
+  }
 
-
+  const onEnterSearch = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault()
+      console.log('navigate', navigate)
+      navigate('/name/:words/products')
+    }
   }
 
   const renderSearchDropdown = () => {
@@ -94,6 +102,7 @@ console.log('productFilterByName', productFilterByName)
             icon="search"
             placeholder="Search on Cho Tot"
             onChange={e => onChangeInputSearch(e)}
+            onKeyDown={e => onEnterSearch(e)}
           />
           {renderSearchDropdown()}
         </div>
