@@ -25,10 +25,10 @@ const Header = () => {
 
   const onChangeInputSearch = e => {
     if (e.target.value === '') {
-      return  dispatch(productActions.loadProductFilterByName(undefined))
+      return dispatch(productActions.loadProductFilterByName(undefined))
     }
 
-    return  dispatch(productActions.loadProductFilterByName(e.target.value))
+    return dispatch(productActions.loadProductFilterByName(e.target.value))
   }
 
   const onEnterSearch = e => {
@@ -43,7 +43,10 @@ const Header = () => {
       return (
         <ul className="product-dropdown">
           {productFilterByName.map(pd => (
-            <li key={pd._id}>{pd.name}</li>
+            <li key={pd._id} className="output-container">
+              <Image src={pd.imageUrl} />
+              <span>{pd.name}</span>
+            </li>
           ))}
         </ul>
       )

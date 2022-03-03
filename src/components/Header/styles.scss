@@ -196,16 +196,23 @@
           font-size: 1rem;
         }
 
-        ul.product-dropdown{
+        ul.product-dropdown {
           position: absolute;
           background: $white;
           width: 656px;
           padding-left: 10px;
           margin: 2px 0 0 0;
 
-          li{
+          li {
+            @include flex(row, center, flex-start);
             list-style: none;
-            line-height: 3rem;
+            margin-top: 2em;
+
+            img {
+              width: 50px;
+              height: 50px;
+              margin-right: 1em;
+            }
           }
         }
 
