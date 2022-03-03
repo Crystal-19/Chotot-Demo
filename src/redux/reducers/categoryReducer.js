@@ -4,10 +4,7 @@ const initialState = {
   category: [],
   isLoading: false,
   isError: false,
-  productCategoryInfo: {
-    name: '',
-    imageUrl: '',
-  },
+  productCategoryInfo: {},
 }
 const categoryReducer = (state = initialState, action) => {
   const {type, payload} = action
