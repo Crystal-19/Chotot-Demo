@@ -30,7 +30,7 @@ const ProductFilterByCategory = () => {
     dispatch(productActions.loadProductFilterByCategory(categoryId))
     dispatch(categoryActions.loadProductCategoryInfo(categoryId))
     dispatch(productActions.loadProduct(1))
-  }, [dispatch.apply, categoryId])
+  }, [dispatch, categoryId])
 
   const onShowMore = () => {
     dispatch(productActions.loadProduct(page + 1))
