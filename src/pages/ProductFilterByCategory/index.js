@@ -3,11 +3,13 @@ import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Icon} from 'semantic-ui-react'
-import Slider from '../Home/components/Slider'
+
 import ProductCard from 'components/ProductCard'
 import * as categoryActions from 'redux/actions/categoryActions'
 import * as productActions from 'redux/actions/productActions'
 import Footer from 'components/Footer'
+
+import Slider from '../Home/components/Slider'
 
 import './styles.scss'
 
