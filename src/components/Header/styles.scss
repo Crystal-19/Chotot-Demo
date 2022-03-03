@@ -185,6 +185,7 @@
       .search-bar {
         flex: 0.85 0 auto;
         font-size: 1.3rem;
+        // position: relative;
 
         @include responsive(tablet) {
           font-size: 1rem;
@@ -193,6 +194,19 @@
         @include responsive(mobile) {
           width: 100%;
           font-size: 1rem;
+        }
+
+        ul.product-dropdown{
+          position: absolute;
+          background: $white;
+          width: 656px;
+          padding-left: 10px;
+          margin: 2px 0 0 0;
+
+          li{
+            list-style: none;
+            line-height: 3rem;
+          }
         }
 
         .ui.input {

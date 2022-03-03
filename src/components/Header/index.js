@@ -29,7 +29,7 @@ const Header = () => {
   const renderSearchDropdown = () => {
     if (productFilterByName !== undefined) {
       return (
-        <ul className="search-bar">
+        <ul className="product-dropdown">
           {productFilterByName.map(pd => (
             <li key={pd._id}>{pd.name}</li>
           ))}
@@ -90,6 +90,7 @@ const Header = () => {
             placeholder="Search on Cho Tot"
             onChange={e => onChangeInputSearch(e)}
           />
+          {renderSearchDropdown()}
         </div>
         <Link to="/login" className="log">
           <LogInIcon className="log-i" />
@@ -106,13 +107,10 @@ const Header = () => {
   }
 
   return (
-    <div>
-      <header className="support-container">
-        {renderAboveHeader()}
-        {renderBelowHeader()}
-      </header>
-      {renderSearchDropdown()}
-    </div>
+    <header className="support-container">
+      {renderAboveHeader()}
+      {renderBelowHeader()}
+    </header>
   )
 }
 export default Header
