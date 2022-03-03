@@ -21,6 +21,7 @@
       flex-wrap: wrap;
       overflow-x: scroll;
       overflow-y: hidden;
+      cursor: pointer;
 
       @include responsive(mobile) {
         @include flex(row, flex-start, center);
@@ -32,6 +33,7 @@
         min-width: 138px;
         max-width: 142px;
         padding-bottom: 10px;
+        cursor: pointer;
 
         .catalog-img {
           height: 84px;
@@ -46,6 +48,7 @@
         p {
           text-align: center;
           font-size: 11pt;
+          color: $black;
         }
       }
     }

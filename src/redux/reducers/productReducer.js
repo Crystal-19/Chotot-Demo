@@ -15,6 +15,11 @@ const initialState = {
     category: {},
   },
   productRelated: [],
+  productFilterByCategory: {data: []},
+  productCategoryInfo: {
+    name: '',
+    imageUrl: '',
+  },
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -66,6 +71,18 @@ const ProductReducer = (state = initialState, action) => {
     case productTypes.GET_PRODUCT_RELATED_FAILURE:
       return {...state, isLoading: false}
 
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY:
+      return {...state, isLoading: false, productFilterByCategory: {data: []}}
+
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        productFilterByCategory: payload.productFilterByCategory,
+        isLoading: false,
+      }
+
+    case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE:
+      return {...state, isLoading: false}
     default:
       return state
   }

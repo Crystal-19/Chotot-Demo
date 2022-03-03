@@ -11,7 +11,7 @@ import './styles.scss'
 
 const Home = () => {
   const dispatch = useDispatch()
-  
+
   return (
     <div className="home-container">
       <Slider />
