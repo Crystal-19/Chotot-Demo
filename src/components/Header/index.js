@@ -25,16 +25,15 @@ const Header = () => {
 
   const onChangeInputSearch = e => {
     if (e.target.value === '') {
-      dispatch(productActions.loadProductFilterByName(undefined))
-    } else {
-      dispatch(productActions.loadProductFilterByName(e.target.value))
+      return  dispatch(productActions.loadProductFilterByName(undefined))
     }
+
+    return  dispatch(productActions.loadProductFilterByName(e.target.value))
   }
 
   const onEnterSearch = e => {
     if (e.keyCode === 13) {
       e.preventDefault()
-      console.log('navigate', navigate)
       navigate('/name/:words/products')
     }
   }
