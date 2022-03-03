@@ -61,16 +61,29 @@ export const getProductFilterByCategory = () => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_CATEGORY,
 })
 
-export const getProductFilterByCategorySuccess = productFilterByCategory => ({
+export const getProductFilterByCategorySuccess = (productFilterByCategory) => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_SUCCESS,
-  payload: {productFilterByCategory},
+  payload: {productFilterByCategory}
 })
 
 export const getProductFilterByCategoryFailure = () => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE,
 })
 
-export const loadProduct = pageNumber => async dispatch => {
+export const getProductFilterByName = () => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME,
+})
+
+export const getProductFilterByNameSuccess = (productFilterByName) => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME_SUCCESS,
+  payload: {productFilterByName}
+})
+
+export const getProductFilterByNameFailure = () => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME_FAILURE,
+})
+
+export const loadProduct = (pageNumber) => async dispatch => {
   try {
     dispatch(getProduct())
     const response = await productRequest.getProductListRequest(pageNumber)
@@ -105,14 +118,25 @@ export const loadProductRelated = id => async dispatch => {
 }
 
 export const loadProductFilterByCategory = categoryId => async dispatch => {
-  try {
+  try{
     dispatch(getProductFilterByCategory())
 
-    const response = await productRequest.getProductFilterByCategoryRequest(
-      categoryId,
-    )
+    const response = await productRequest.getProductFilterByCategoryRequest(categoryId)
+
     dispatch(getProductFilterByCategorySuccess(response.data))
-  } catch {
+  }catch{
     dispatch(getProductFilterByCategoryFailure())
+  }
+}
+
+export const loadProductFilterByName = name => async dispatch => {
+  try{
+    dispatch(getProductFilterByName())
+
+    const response = await productRequest.getProductFilterByNameRequest(name)
+
+    dispatch(getProductFilterByNameSuccess(response.data))
+  }catch{
+    dispatch(getProductFilterByNameFailure())
   }
 }

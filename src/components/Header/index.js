@@ -1,6 +1,7 @@
 import React from 'react'
 import {Image, Input} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
@@ -10,10 +11,35 @@ import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
 import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
+import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const productFilterByName = useSelector(
+    state => state.Product.productFilterByName.data,
+  )
+
+  const onChangeInputSearch = e => {
+    console.log('value', e.target.value)
+    dispatch(productActions.loadProductFilterByName(e.target.value))
+  }
+
+  const renderSearchDropdown = () => {
+    if (productFilterByName !== undefined) {
+      return (
+        <ul className="search-bar">
+          {productFilterByName.map(pd => (
+            <li key={pd._id}>{pd.name}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    return ''
+  }
+
   const trigger = (
     <div className="item item-hide">
       <MoreIcon className="icon-more" />
@@ -59,7 +85,11 @@ const Header = () => {
     return (
       <div className="header-container header-search-bar">
         <div className="search-bar">
-          <Input icon="search" placeholder="Search on Cho Tot" />
+          <Input
+            icon="search"
+            placeholder="Search on Cho Tot"
+            onChange={e => onChangeInputSearch(e)}
+          />
         </div>
         <Link to="/login" className="log">
           <LogInIcon className="log-i" />
@@ -76,10 +106,13 @@ const Header = () => {
   }
 
   return (
-    <header className="support-container">
-      {renderAboveHeader()}
-      {renderBelowHeader()}
-    </header>
+    <div>
+      <header className="support-container">
+        {renderAboveHeader()}
+        {renderBelowHeader()}
+      </header>
+      {renderSearchDropdown()}
+    </div>
   )
 }
 export default Header
