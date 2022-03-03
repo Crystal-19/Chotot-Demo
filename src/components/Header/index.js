@@ -41,14 +41,16 @@ const Header = () => {
   const renderSearchDropdown = () => {
     if (productFilterByName !== undefined) {
       return (
-        <ul className="product-dropdown">
-          {productFilterByName.map(pd => (
-            <li key={pd._id} className="output-container">
-              <Image src={pd.imageUrl} />
-              <span>{pd.name}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="product-dropdown-container">
+          <ul className="product-dropdown">
+            {productFilterByName.map(pd => (
+              <li key={pd._id} className="output-container">
+                <Image src={pd.imageUrl} />
+                <span>{pd.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       )
     }
 
