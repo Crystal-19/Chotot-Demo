@@ -20,7 +20,7 @@ const ProductFilterByCategory = () => {
   )
   const {page, totalPages} = useSelector(state => state.Product.pagination)
   const categoryName = useSelector(
-    state => state.Product.productCategoryInfo.name,
+    state => state.Category.productCategoryInfo.name
   )
   const {imageUrl} = useSelector(state => state.Category.productCategoryInfo)
 
