@@ -28,7 +28,7 @@ const ProductFilterByName = () => {
     <div className="general-container container">
       <Slider />
       <div className="category-title"></div>
-      {productFilterByName.length === 0
+      {Array.isArray(productFilterByName) && productFilterByName.length === 0
         ? renderNotFound()
         : renderProductFilterByName()}
       <Footer />

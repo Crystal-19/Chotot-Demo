@@ -258,6 +258,7 @@ const ProductDetail = () => {
       </div>
     )
   }
+
   return (
     <div className="background-container">
       {isError ? renderProductError() : renderFullProductDetail()}

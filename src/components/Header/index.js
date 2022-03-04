@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Image, Input} from 'semantic-ui-react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {ReactComponent as HomeIcon} from 'assets/images/icons/home.svg'
@@ -41,15 +41,16 @@ const Header = () => {
 
   const onFocusOutSearch = () => {
     setHideDropdown(true)
-    navigate('/name/:words/products')
   }
 
   const onFocusInSearch = () => {
     setHideDropdown(false)
   }
 
-  const onSetInputValue = name => {
+  const onSetInputValue = (name, id) => {
+    console.log('id', id)
     setValue(name)
+    navigate(`/product/${id}`)
   }
 
   console.log('value', value)
@@ -66,7 +67,7 @@ const Header = () => {
               <div
                 key={pd._id}
                 className="output-container"
-                onMouseDown={() => onSetInputValue(pd.name)}>
+                onMouseDown={() => onSetInputValue(pd.name, pd._id)}>
                 <Image src={pd.imageUrl} />
                 <span>{pd.name}</span>
               </div>
