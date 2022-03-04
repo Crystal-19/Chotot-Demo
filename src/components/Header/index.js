@@ -58,7 +58,9 @@ const Header = () => {
       return (
         <div
           className={
-            hideDropdown ? 'dropdown-none' : 'product-dropdown-container'
+            hideDropdown || value === ''
+              ? 'dropdown-none'
+              : 'product-dropdown-container'
           }>
           <div className="product-dropdown">
             {productFilterByName.map(pd => (
