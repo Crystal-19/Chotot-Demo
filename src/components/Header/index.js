@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Image, Input} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
@@ -19,15 +19,15 @@ const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const [value, setValue] = useState('')
+  const [hideDropdown, setHideDropdown] = useState(false)
+
   const productFilterByName = useSelector(
     state => state.Product.productFilterByName.data,
   )
 
   const onChangeInputSearch = e => {
-    if (e.target.value === '') {
-      return dispatch(productActions.loadProductFilterByName(undefined))
-    }
-
+    setValue(e.target.value)
     return dispatch(productActions.loadProductFilterByName(e.target.value))
   }
 
@@ -35,21 +35,43 @@ const Header = () => {
     if (e.keyCode === 13) {
       e.preventDefault()
       navigate('/name/:words/products')
+      setValue('')
     }
   }
+
+  const onFocusOutSearch = () => {
+    setHideDropdown(true)
+    navigate('/name/:words/products')
+  }
+
+  const onFocusInSearch = () => {
+    setHideDropdown(false)
+  }
+
+  const onSetInputValue = name => {
+    setValue(name)
+  }
+
+  console.log('value', value)
 
   const renderSearchDropdown = () => {
     if (productFilterByName !== undefined) {
       return (
-        <div className="product-dropdown-container">
-          <ul className="product-dropdown">
+        <div
+          className={
+            hideDropdown ? 'dropdown-none' : 'product-dropdown-container'
+          }>
+          <div className="product-dropdown">
             {productFilterByName.map(pd => (
-              <li key={pd._id} className="output-container">
+              <div
+                key={pd._id}
+                className="output-container"
+                onMouseDown={() => onSetInputValue(pd.name)}>
                 <Image src={pd.imageUrl} />
                 <span>{pd.name}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )
     }
@@ -107,6 +129,9 @@ const Header = () => {
             placeholder="Search on Cho Tot"
             onChange={e => onChangeInputSearch(e)}
             onKeyDown={e => onEnterSearch(e)}
+            value={value}
+            onBlur={onFocusOutSearch}
+            onFocus={onFocusInSearch}
           />
           {renderSearchDropdown()}
         </div>

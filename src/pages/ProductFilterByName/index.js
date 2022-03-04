@@ -24,7 +24,6 @@ const ProductFilterByName = () => {
     )
   }
 
-  console.log('productFilterByName', productFilterByName)
   return (
     <div className="general-container container">
       <Slider />
