@@ -15,13 +15,10 @@ const ProductFilterByName = () => {
     state => state.Product.productFilterByName.data,
   )
 
-  console.log('words', words)
   useEffect(() => {
-    console.log('words', words)
     dispatch(productActions.loadProductFilterByName(words))
   }, [dispatch, words])
 
-  console.log('ProductFilterByName', productFilterByName)
   const renderNotFound = () => {
     return <h1>Product Is Not Found</h1>
   }
