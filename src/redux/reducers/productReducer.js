@@ -16,7 +16,7 @@ const initialState = {
   },
   productRelated: [],
   productFilterByCategory: {data: []},
-  productFilterByName: [],
+  productFilterByName: {data: []},
 }
 
 const ProductReducer = (state = initialState, action) => {

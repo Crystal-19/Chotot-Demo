@@ -211,7 +211,6 @@
           .product-dropdown {
             background: $white;
             width: 66%;
-            padding-left: 10px;
             margin: 0;
 
             @include responsive(mobile) {
@@ -221,13 +220,18 @@
             .output-container {
               @include flex(row, center, flex-start);
               list-style: none;
-              margin-bottom: 2em;
+              padding-bottom: 0.5em;
+              padding-top: 0.5em;
+              border-bottom: solid 0.5px $black;
+              border-radius: 2px;
+              box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
               cursor: pointer;
 
               img {
                 width: 50px;
                 height: 50px;
                 margin-right: 1em;
+                margin-left: 1em;
               }
             }
           }

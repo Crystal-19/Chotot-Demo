@@ -28,14 +28,15 @@ const Header = () => {
 
   const onChangeInputSearch = e => {
     setValue(e.target.value)
-    return dispatch(productActions.loadProductFilterByName(e.target.value))
+    dispatch(productActions.loadProductFilterByName(e.target.value))
   }
 
   const onEnterSearch = e => {
     if (e.keyCode === 13) {
       e.preventDefault()
-      navigate('/name/:words/products')
+      navigate(`/name/${e.target.value}/products`)
       setValue('')
+      setHideDropdown(true)
     }
   }
 
@@ -47,7 +48,7 @@ const Header = () => {
     setHideDropdown(false)
   }
 
-  const onSetInputValue = (id) => {
+  const onSetInputValue = id => {
     setValue('')
     navigate(`/product/${id}`)
   }
