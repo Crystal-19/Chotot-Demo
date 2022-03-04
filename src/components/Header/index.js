@@ -20,7 +20,7 @@ const Header = () => {
   const navigate = useNavigate()
 
   const [value, setValue] = useState('')
-  const [hideDropdown, setHideDropdown] = useState(false)
+  const [showDropDown, setShowDropDown] = useState(false)
 
   const productFilterByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -36,16 +36,16 @@ const Header = () => {
       e.preventDefault()
       navigate(`/name/${e.target.value}/products`)
       setValue('')
-      setHideDropdown(true)
+      setShowDropDown(true)
     }
   }
 
   const onFocusOutSearch = () => {
-    setHideDropdown(true)
+    setShowDropDown(true)
   }
 
   const onFocusInSearch = () => {
-    setHideDropdown(false)
+    setShowDropDown(false)
   }
 
   const onSetInputValue = id => {
@@ -58,7 +58,7 @@ const Header = () => {
       return (
         <div
           className={
-            hideDropdown || value === ''
+            showDropDown || value === ''
               ? 'dropdown-none'
               : 'product-dropdown-container'
           }>
