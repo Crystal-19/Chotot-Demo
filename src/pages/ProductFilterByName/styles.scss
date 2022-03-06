@@ -1,12 +1,20 @@
 @import 'assets/scss';
 
-.container{
-  .name-title{
+.container {
+  .name-title {
     font-size: 1.5em;
     margin-top: 1em;
 
-    span{
+    span {
       font-weight: bold;
+    }
+  }
+  .name-not-found-container {
+    @include flex(column, center, center);
+    margin: 100px 0;
+    img {
+      width: 236px;
+      height: 314px;
     }
   }
 }

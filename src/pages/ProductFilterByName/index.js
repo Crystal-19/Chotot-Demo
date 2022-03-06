@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useParams} from 'react-router-dom'
+import {Image} from 'semantic-ui-react'
 
 import ProductCard from 'components/ProductCard'
 import Slider from '../Home/components/Slider'
@@ -22,7 +23,12 @@ const ProductFilterByName = () => {
   }, [dispatch, words])
 
   const renderNotFound = () => {
-    return <h1>Product Is Not Found</h1>
+    return (
+      <div className="name-not-found-container">
+        <h1>Product Is Not Found</h1>
+        <Image src='https://i.pinimg.com/236x/e4/21/92/e42192b0682ede9d80d92260fb5e17cd.jpg' />
+      </div>
+    )
   }
 
   const renderProductFilterByName = () => {
