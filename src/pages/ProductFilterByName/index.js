@@ -7,6 +7,8 @@ import Slider from '../Home/components/Slider'
 import * as productActions from 'redux/actions/productActions'
 import Footer from 'components/Footer'
 
+import './styles.scss'
+
 const ProductFilterByName = () => {
   const {words} = useParams()
   const dispatch = useDispatch()
@@ -36,7 +38,7 @@ const ProductFilterByName = () => {
   return (
     <div className="general-container container">
       <Slider />
-      <div className="category-title"></div>
+      <p className='name-title'>Search results for <span>{words}</span></p>
       {Array.isArray(productFilterByName) && productFilterByName.length === 0
         ? renderNotFound()
         : renderProductFilterByName()}
