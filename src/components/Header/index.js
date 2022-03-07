@@ -15,7 +15,7 @@ import * as productActions from 'redux/actions/productActions'
 
 import './styles.scss'
 
-const Header = () => {
+const Header = ({token}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -112,7 +112,7 @@ const Header = () => {
             <NotiIcon className="icon-noti" />
             <span>Notify</span>
           </Link>
-          <HeaderDropdown trigger={trigger} />
+          <HeaderDropdown trigger={trigger} token={token}/>
         </div>
       </div>
     )

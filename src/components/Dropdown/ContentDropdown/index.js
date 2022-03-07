@@ -1,11 +1,15 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
 
+import useAuth from 'hooks/useAuth'
+
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 
 import './styles.scss'
 
 const ContentDropdown = () => {
+  const {token, onLogout, onLogin} = useAuth()
+
   return (
     <nav className="content-container">
       <div className="ava-container">
@@ -15,7 +19,10 @@ const ContentDropdown = () => {
           size="tiny"
           className="ava-image"
         />
-        <span>Log in/sign up</span>
+        <span>
+          {token && <div onClick={onLogout}>Sign out</div>}
+          {!token && <div onClick={onLogin}>Log in</div>}
+        </span>
       </div>
       <hr className="dividerDropdown" />
       {iconsMix.map((dt, index) => (

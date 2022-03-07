@@ -16,17 +16,26 @@ import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
+import AuthProvider from 'components/AuthProvider'
+import ProtectedRoute from 'components/ProtectedRoute'
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <ScrollToTop />
         <Header />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="/news" element={<News />} />
+          <Route
+            path="/news"
+            element={
+              <ProtectedRoute>
+                <News />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/my-products" element={<MyProductPage />} />
@@ -40,9 +49,9 @@ function App() {
             element={<ProductFilterByName />}
           />
         </Routes>
-      </BrowserRouter>
-      <SideNav />
-    </div>
+        <SideNav />
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 export default App

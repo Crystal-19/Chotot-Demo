@@ -21,12 +21,12 @@ const renderLogSignTitle = ({title, content}) => {
   )
 }
 
-const renderInputSection = ({password, buttonContent, text, path, link}) => {
+const renderInputSection = ({password, buttonContent, text, path, link, onClickFunction}) => {
   return (
     <>
       <input placeholder="Enter your email" />
       <input placeholder={password} type="password" />
-      <button>{buttonContent}</button>
+      <button onClick={onClickFunction}>{buttonContent}</button>
       <div className="register-container">
         <p>{text}</p>
         <Link to={path}>{link}</Link>
@@ -35,13 +35,13 @@ const renderInputSection = ({password, buttonContent, text, path, link}) => {
   )
 }
 
-const LogSign = ({title, content, password, buttonContent, text, link, path}) => {
+const LogSign = ({title, content, password, buttonContent, text, link, onClickFunction, path}) => {
   return (
     <div className="background-img">
       <div className="general-container structure-container">
         <div className="log-sign-container">
           {renderLogSignTitle({title, content})}
-          {renderInputSection({password, buttonContent, text, path, link})}
+          {renderInputSection({password, buttonContent, text, path, link, onClickFunction})}
         </div>
       </div>
       <Footer />

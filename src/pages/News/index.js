@@ -1,12 +1,12 @@
 import React from 'react'
-
-import Header from 'components/Header'
+import useAuth from 'hooks/useAuth.js'
 
 const News = () => {
+  const {token} = useAuth()
+
   return (
     <div className='header-container my-container'>
-      <Header />
-      <h1> abc </h1>
+      <h1> Authenticated as {token} </h1>
     </div>
   )
 }
