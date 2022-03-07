@@ -14,7 +14,7 @@ const ProductFilterByName = () => {
   const {words} = useParams()
   const dispatch = useDispatch()
 
-  const productFilterByName = useSelector(
+  const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
   )
 
@@ -34,7 +34,7 @@ const ProductFilterByName = () => {
   const renderProductFilterByName = () => {
     return (
       <div className="products-container">
-        {productFilterByName.map(pd => (
+        {filteredProductsByName.map(pd => (
           <ProductCard key={pd._id} product={pd} />
         ))}
       </div>
@@ -45,7 +45,7 @@ const ProductFilterByName = () => {
     <div className="general-container container">
       <Slider />
       <p className='name-title'>Search results for <span>{words}</span></p>
-      {Array.isArray(productFilterByName) && productFilterByName.length === 0
+      {Array.isArray(filteredProductsByName) && filteredProductsByName.length === 0
         ? renderNotFound()
         : renderProductFilterByName()}
       <Footer />
