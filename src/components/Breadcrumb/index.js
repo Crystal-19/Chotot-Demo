@@ -1,6 +1,7 @@
 import React from 'react'
 
-import {Breadcrumb, Link} from 'semantic-ui-react'
+import {Breadcrumb} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 import './styles.scss'
 
@@ -17,8 +18,8 @@ const BreadcrumbCustom = ({data}) => {
               key={dt.title}
               link={!isLastItem}
               active={isLastItem}
-              as={Link}
-              href={dt?.link}>
+              as={!isLastItem ? Link : ''}
+              to={dt?.link}>
               {dt.title}
             </Breadcrumb.Section>
             <Breadcrumb.Divider

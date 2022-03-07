@@ -38,7 +38,7 @@ const ProductDetail = () => {
   const data = [
     {title: 'Good Market', link: '/'},
     {title: categoryName, link: `/category/${categoryId}/products`},
-    {title: name},
+    {title: name, link: ''},
   ]
   const renderHeader = () => {
     return (
