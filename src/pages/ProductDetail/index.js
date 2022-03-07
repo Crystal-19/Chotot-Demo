@@ -2,8 +2,8 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import dayjs from 'dayjs'
-
 import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
+
 import ProductCard from 'components/ProductCard'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'

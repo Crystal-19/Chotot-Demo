@@ -4,9 +4,9 @@ import {useParams} from 'react-router-dom'
 import {Image} from 'semantic-ui-react'
 
 import ProductCard from 'components/ProductCard'
-import Slider from '../Home/components/Slider'
 import * as productActions from 'redux/actions/productActions'
 import Footer from 'components/Footer'
+import Slider from '../Home/components/Slider'
 
 import './styles.scss'
 
