@@ -48,7 +48,7 @@ const Header = () => {
     setShowDropDown(false)
   }
 
-  const onSetInputValue = id => {
+  const onClickProduct = id => {
     setValue('')
     navigate(`/product/${id}`)
   }
@@ -67,7 +67,7 @@ const Header = () => {
               <div
                 key={pd._id}
                 className="output-container"
-                onMouseDown={() => onSetInputValue(pd._id)}>
+                onMouseDown={() => onClickProduct(pd._id)}>
                 <Image src={pd.imageUrl} />
                 <span>{pd.name}</span>
               </div>
