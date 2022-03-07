@@ -22,7 +22,7 @@ const Header = () => {
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
 
-  const productFilterByName = useSelector(
+  const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
   )
 
@@ -62,7 +62,7 @@ const Header = () => {
             : 'product-dropdown-container'
         }>
         <div className="product-dropdown">
-          {productFilterByName.map(pd => (
+          {filteredProductsByName.map(pd => (
             <div
               key={pd._id}
               className="output-container"
@@ -130,7 +130,7 @@ const Header = () => {
             onBlur={onFocusOutSearch}
             onFocus={onFocusInSearch}
           />
-          {productFilterByName !== undefined && renderSearchDropdown()}
+          {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
         <Link to="/login" className="log">
           <LogInIcon className="log-i" />
