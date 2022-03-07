@@ -91,7 +91,7 @@ const Header = () => {
             className="logo-img"
             src="https://static.chotot.com/storage/default/transparent_logo.webp"
             size="tiny"
-            to="https://www.chotot.com/"
+            href="/"
           />
         </div>
         <div className="items-container">

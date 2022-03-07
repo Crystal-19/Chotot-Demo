@@ -36,7 +36,7 @@ const ProductDetail = () => {
     return (
       <div className="header-container">
         <Breadcrumb size="mini">
-          <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
+          <Breadcrumb.Section link href='/'>Good Market</Breadcrumb.Section>
           <Icon name="angle double right" />
           <Breadcrumb.Section link>{categoryName}</Breadcrumb.Section>
           <Icon name="angle double right" />
