@@ -87,12 +87,13 @@ const Header = () => {
     return (
       <div className="header-container">
         <div className="logo-container">
-          <Image
-            className="logo-img"
-            src="https://static.chotot.com/storage/default/transparent_logo.webp"
-            size="tiny"
-            href="/"
-          />
+          <Link to="/">
+            <Image
+              className="logo-img"
+              src="https://static.chotot.com/storage/default/transparent_logo.webp"
+              size="tiny"
+            />
+          </Link>
         </div>
         <div className="items-container">
           <Link to="/" className="item item-hide">
