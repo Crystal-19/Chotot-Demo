@@ -4,6 +4,18 @@
   background-color: $white;
   margin: 15px 0;
 
+  .category-breadcrumb-container {
+    margin-top: 1em;
+
+    a.section {
+      font-size: 1.5em;
+    }
+
+    i.icon {
+      color: $light_blue;
+    }
+  }
+
   .category-title {
     @include flex(row, center, flex-start);
     margin: 50px 0 50px 0;
