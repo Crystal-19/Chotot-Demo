@@ -11,14 +11,12 @@ const BreadcrumbCustom = ({data}) => {
     <Breadcrumb>
       {data.map((dt, index) => {
         const isLastItem = index === data.length - 1
-        const firstItem = index === 0
         return (
           <>
             <Breadcrumb.Section
               key={dt.title}
               link={!isLastItem}
-              active={isLastItem}
-              href={firstItem ? "/" : ""}>
+              active={isLastItem}>
               {dt.title}
             </Breadcrumb.Section>
             <Breadcrumb.Divider

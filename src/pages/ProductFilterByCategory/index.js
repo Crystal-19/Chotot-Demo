@@ -2,11 +2,12 @@
 import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image, Icon, Breadcrumb} from 'semantic-ui-react'
+import {Image, Icon} from 'semantic-ui-react'
 
 import ProductCard from 'components/ProductCard'
 import * as categoryActions from 'redux/actions/categoryActions'
 import * as productActions from 'redux/actions/productActions'
+import BreadCrumb from 'components/Breadcrumb'
 import Footer from 'components/Footer'
 
 import Slider from '../Home/components/Slider'
@@ -36,22 +37,16 @@ const ProductFilterByCategory = () => {
     dispatch(productActions.loadProduct(page + 1))
   }
 
+  const data = [{title: 'GoodMarket'}, {title: categoryName}]
+
   const renderBreadCrumb = () => {
     return (
       <div className="category-breadcrumb-container">
-        <Breadcrumb size="mini">
-          <Breadcrumb.Section link href="/">
-            Good Market
-          </Breadcrumb.Section>
-          <Icon name="angle double right" />
-          <Breadcrumb.Section link href={`/category/${categoryId}/products`}>
-            {categoryName}
-          </Breadcrumb.Section>
-        </Breadcrumb>
+        <BreadCrumb data={data} />
       </div>
     )
   }
-  
+
   return (
     <div className="general-container container">
       <Slider />

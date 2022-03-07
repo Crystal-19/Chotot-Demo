@@ -7,6 +7,10 @@
     margin-top: 15px;
   }
 
+  .section{
+    font-size: 1.25em;
+  }
+
   @include responsive(mobile) {
     margin: 15px 0 15px 10px;
   }
