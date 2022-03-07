@@ -4,7 +4,7 @@ import {Breadcrumb, Link} from 'semantic-ui-react'
 
 import './styles.scss'
 
-const BreadcrumbCustom = ({data, link}) => {
+const BreadcrumbCustom = ({data}) => {
   //Note: data sample: data = [{title: 'Home'}, {title: 'Log in'}]
 
   return (
