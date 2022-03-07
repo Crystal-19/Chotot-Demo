@@ -13,19 +13,18 @@ const BreadcrumbCustom = ({data}) => {
       {data.map((dt, index) => {
         const isLastItem = index === data.length - 1
         return (
-          <>
+          <div key={index} className='breadcrumb-container'>
             <Breadcrumb.Section
-              key={dt.title}
               link={!isLastItem}
               active={isLastItem}
               as={!isLastItem ? Link : ''}
-              to={dt?.link}>
+              to={dt.link}>
               {dt.title}
             </Breadcrumb.Section>
             <Breadcrumb.Divider
               icon={!isLastItem ? 'angle double right' : ''}
             />
-          </>
+          </div>
         )
       })}
     </Breadcrumb>

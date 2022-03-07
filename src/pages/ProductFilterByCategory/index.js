@@ -37,14 +37,11 @@ const ProductFilterByCategory = () => {
     dispatch(productActions.loadProduct(page + 1))
   }
 
-  const data = [{title: 'Good Market', link: '/'}, {title: categoryName, link:''}]
+  const data = [{title: 'Good Market', link: '/'}, {title: categoryName}]
+  // console.log('categoryName', categoryName)
 
   const renderBreadCrumb = () => {
-    return (
-      <div className="category-breadcrumb-container">
-        <BreadCrumb data={data} />
-      </div>
-    )
+    return <BreadCrumb data={data} />
   }
 
   return (

@@ -20,8 +20,7 @@ const ProductDetail = () => {
     state => state.Product.productDetail,
   )
   const {email, createdAt} = author
-  const categoryName = category.name
-  const categoryId = category._id
+  const {name: categoryName, _id: categoryId} = category
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
@@ -38,14 +37,11 @@ const ProductDetail = () => {
   const data = [
     {title: 'Good Market', link: '/'},
     {title: categoryName, link: `/category/${categoryId}/products`},
-    {title: name, link: ''},
+    {title: name},
   ]
+
   const renderHeader = () => {
-    return (
-      <div className="header-container">
-        <BreadCrumb data={data} />
-      </div>
-    )
+    return <BreadCrumb data={data} />
   }
 
   const renderInfoList = () => {

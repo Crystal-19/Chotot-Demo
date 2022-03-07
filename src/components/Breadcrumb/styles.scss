@@ -1,21 +1,20 @@
 @import 'assets/scss';
 
 .ui.breadcrumb {
-  margin: 15px 0 15px 0;
+  @include flex(row, center, flex-start);
 
-  &:first-child {
-    margin-top: 15px;
-  }
+  .breadcrumb-container {
+    margin: 15px 0;
+    .section {
+      font-size: 1.125em;
 
-  .section{
-    font-size: 1.125em;
-
-    &.active{
-      font-weight: 400;
+      &.active {
+        font-weight: 400;
+      }
     }
-  }
 
-  @include responsive(mobile) {
-    margin: 15px 0 15px 10px;
+    @include responsive(mobile) {
+      margin: 15px 0 15px 10px;
+    }
   }
 }
