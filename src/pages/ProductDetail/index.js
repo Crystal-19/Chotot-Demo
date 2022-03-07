@@ -13,12 +13,14 @@ import './styles.scss'
 
 const ProductDetail = () => {
   const {id} = useParams()
+
   const productRelated = useSelector(state => state.Product.productRelated)
   const {imageUrl, name, price, description, author, category} = useSelector(
     state => state.Product.productDetail,
   )
   const {email, createdAt} = author
   const categoryName = category.name
+  const categoryId = category._id
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
@@ -36,11 +38,17 @@ const ProductDetail = () => {
     return (
       <div className="header-container">
         <Breadcrumb size="mini">
-          <Breadcrumb.Section link href='/'>Good Market</Breadcrumb.Section>
+          <Breadcrumb.Section link href="/">
+            Good Market
+          </Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>{categoryName}</Breadcrumb.Section>
+          <Breadcrumb.Section link href={`/category/${categoryId}/products`}>
+            {categoryName}
+          </Breadcrumb.Section>
           <Icon name="angle double right" />
-          <Breadcrumb.Section link>{name}</Breadcrumb.Section>
+          <Breadcrumb.Section link href={`/product/${id}`}>
+            {name}
+          </Breadcrumb.Section>
         </Breadcrumb>
       </div>
     )
