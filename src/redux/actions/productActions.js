@@ -70,6 +70,19 @@ export const getProductFilterByCategoryFailure = () => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE,
 })
 
+export const getProductFilterByName = () => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME,
+})
+
+export const getProductFilterByNameSuccess = productFilterByName => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME_SUCCESS,
+  payload: {productFilterByName},
+})
+
+export const getProductFilterByNameFailure = () => ({
+  type: productTypes.GET_PRODUCT_FILTER_BY_NAME_FAILURE,
+})
+
 export const loadProduct = pageNumber => async dispatch => {
   try {
     dispatch(getProduct())
@@ -111,8 +124,21 @@ export const loadProductFilterByCategory = categoryId => async dispatch => {
     const response = await productRequest.getProductFilterByCategoryRequest(
       categoryId,
     )
+
     dispatch(getProductFilterByCategorySuccess(response.data))
   } catch {
     dispatch(getProductFilterByCategoryFailure())
+  }
+}
+
+export const loadProductFilterByName = name => async dispatch => {
+  try {
+    dispatch(getProductFilterByName())
+
+    const response = await productRequest.getProductFilterByNameRequest(name)
+
+    dispatch(getProductFilterByNameSuccess(response.data))
+  } catch {
+    dispatch(getProductFilterByNameFailure())
   }
 }

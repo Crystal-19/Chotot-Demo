@@ -183,7 +183,7 @@
       height: 76px;
 
       .search-bar {
-        flex: 0.85 0 auto;
+        width: 66%;
         font-size: 1.3rem;
 
         @include responsive(tablet) {
@@ -193,6 +193,53 @@
         @include responsive(mobile) {
           width: 100%;
           font-size: 1rem;
+        }
+
+        .product-dropdown-container {
+          position: absolute;
+          width: 1000px;
+          margin-top: 5px;
+
+          @include responsive(tablet) {
+            width: 96%;
+          }
+
+          @include responsive(mobile) {
+            width: 92%;
+          }
+
+          .product-dropdown {
+            background: $white;
+            width: 66%;
+            margin: 0;
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+
+            @include responsive(mobile) {
+              width: 100%;
+            }
+
+            .output-container {
+              @include flex(row, center, flex-start);
+              list-style: none;
+              padding-bottom: 0.5em;
+              padding-top: 0.5em;
+              border-bottom: solid 0.5px $light_gray;
+              border-radius: 2px;
+              cursor: pointer;
+
+              img {
+                width: 50px;
+                height: 50px;
+                margin-right: 1em;
+                margin-left: 1em;
+                border-radius: 2px;
+              }
+            }
+          }
+        }
+
+        .dropdown-none {
+          display: none;
         }
 
         .ui.input {

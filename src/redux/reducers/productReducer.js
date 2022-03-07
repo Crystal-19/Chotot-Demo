@@ -16,10 +16,7 @@ const initialState = {
   },
   productRelated: [],
   productFilterByCategory: {data: []},
-  productCategoryInfo: {
-    name: '',
-    imageUrl: '',
-  },
+  productFilterByName: {data: []},
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -83,6 +80,20 @@ const ProductReducer = (state = initialState, action) => {
 
     case productTypes.GET_PRODUCT_FILTER_BY_CATEGORY_FAILURE:
       return {...state, isLoading: false}
+
+    case productTypes.GET_PRODUCT_FILTER_BY_NAME:
+      return {...state, isLoading: true}
+
+    case productTypes.GET_PRODUCT_FILTER_BY_NAME_SUCCESS:
+      return {
+        ...state,
+        productFilterByName: payload.productFilterByName,
+        isLoading: false,
+      }
+
+    case productTypes.GET_PRODUCT_FILTER_BY_NAME_FAILURE:
+      return {...state, isLoading: false}
+
     default:
       return state
   }

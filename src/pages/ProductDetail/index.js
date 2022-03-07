@@ -2,9 +2,10 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import dayjs from 'dayjs'
+import {Image, Breadcrumb, Placeholder} from 'semantic-ui-react'
 
-import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
+import BreadCrumb from 'components/Breadcrumb'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'
 import * as productActions from 'redux/actions/productActions'
@@ -13,12 +14,13 @@ import './styles.scss'
 
 const ProductDetail = () => {
   const {id} = useParams()
+
   const productRelated = useSelector(state => state.Product.productRelated)
   const {imageUrl, name, price, description, author, category} = useSelector(
     state => state.Product.productDetail,
   )
   const {email, createdAt} = author
-  const categoryName = category.name
+  const {name: categoryName, _id: categoryId} = category
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
@@ -32,18 +34,14 @@ const ProductDetail = () => {
     dispatch(productActions.loadProductRelated(id))
   }, [dispatch, id])
 
+  const data = [
+    {title: 'Good Market', link: '/'},
+    {title: categoryName, link: `/category/${categoryId}/products`},
+    {title: name},
+  ]
+
   const renderHeader = () => {
-    return (
-      <div className="header-container">
-        <Breadcrumb size="mini">
-          <Breadcrumb.Section link>Good Market</Breadcrumb.Section>
-          <Icon name="angle double right" />
-          <Breadcrumb.Section link>{categoryName}</Breadcrumb.Section>
-          <Icon name="angle double right" />
-          <Breadcrumb.Section link>{name}</Breadcrumb.Section>
-        </Breadcrumb>
-      </div>
-    )
+    return <BreadCrumb data={data} />
   }
 
   const renderInfoList = () => {
@@ -258,6 +256,7 @@ const ProductDetail = () => {
       </div>
     )
   }
+
   return (
     <div className="background-container">
       {isError ? renderProductError() : renderFullProductDetail()}

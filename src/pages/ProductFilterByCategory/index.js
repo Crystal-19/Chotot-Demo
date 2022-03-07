@@ -7,6 +7,7 @@ import {Image, Icon} from 'semantic-ui-react'
 import ProductCard from 'components/ProductCard'
 import * as categoryActions from 'redux/actions/categoryActions'
 import * as productActions from 'redux/actions/productActions'
+import BreadCrumb from 'components/Breadcrumb'
 import Footer from 'components/Footer'
 
 import Slider from '../Home/components/Slider'
@@ -20,7 +21,7 @@ const ProductFilterByCategory = () => {
   )
   const {page, totalPages} = useSelector(state => state.Product.pagination)
   const categoryName = useSelector(
-    state => state.Category.productCategoryInfo.name
+    state => state.Category.productCategoryInfo.name,
   )
   const {imageUrl} = useSelector(state => state.Category.productCategoryInfo)
 
@@ -36,9 +37,17 @@ const ProductFilterByCategory = () => {
     dispatch(productActions.loadProduct(page + 1))
   }
 
+  const data = [{title: 'Good Market', link: '/'}, {title: categoryName}]
+  // console.log('categoryName', categoryName)
+
+  const renderBreadCrumb = () => {
+    return <BreadCrumb data={data} />
+  }
+
   return (
     <div className="general-container container">
       <Slider />
+      {renderBreadCrumb()}
       <div className="category-title">
         <Image src={imageUrl} />
         <h1>Explore the category of {categoryName}</h1>
