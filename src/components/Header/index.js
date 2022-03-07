@@ -54,30 +54,26 @@ const Header = () => {
   }
 
   const renderSearchDropdown = () => {
-    if (productFilterByName !== undefined) {
-      return (
-        <div
-          className={
-            showDropDown || value === ''
-              ? 'dropdown-none'
-              : 'product-dropdown-container'
-          }>
-          <div className="product-dropdown">
-            {productFilterByName.map(pd => (
-              <div
-                key={pd._id}
-                className="output-container"
-                onMouseDown={() => onClickProduct(pd._id)}>
-                <Image src={pd.imageUrl} />
-                <span>{pd.name}</span>
-              </div>
-            ))}
-          </div>
+    return (
+      <div
+        className={
+          showDropDown || value === ''
+            ? 'dropdown-none'
+            : 'product-dropdown-container'
+        }>
+        <div className="product-dropdown">
+          {productFilterByName.map(pd => (
+            <div
+              key={pd._id}
+              className="output-container"
+              onMouseDown={() => onClickProduct(pd._id)}>
+              <Image src={pd.imageUrl} />
+              <span>{pd.name}</span>
+            </div>
+          ))}
         </div>
-      )
-    }
-
-    return ''
+      </div>
+    )
   }
 
   const trigger = (
@@ -134,7 +130,7 @@ const Header = () => {
             onBlur={onFocusOutSearch}
             onFocus={onFocusInSearch}
           />
-          {renderSearchDropdown()}
+          {productFilterByName !== undefined && renderSearchDropdown()}
         </div>
         <Link to="/login" className="log">
           <LogInIcon className="log-i" />
