@@ -21,6 +21,7 @@ const ProductDetail = () => {
   )
   const {email, createdAt} = author
   const categoryName = category.name
+  const categoryId = category._id
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
@@ -34,7 +35,11 @@ const ProductDetail = () => {
     dispatch(productActions.loadProductRelated(id))
   }, [dispatch, id])
 
-  const data = [{title: 'Good Market'}, {title: categoryName}, {title: name}]
+  const data = [
+    {title: 'Good Market', link: '/'},
+    {title: categoryName, link: `/category/${categoryId}/products`},
+    {title: name},
+  ]
   const renderHeader = () => {
     return (
       <div className="header-container">

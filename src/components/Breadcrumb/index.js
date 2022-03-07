@@ -1,10 +1,10 @@
 import React from 'react'
 
-import {Breadcrumb} from 'semantic-ui-react'
+import {Breadcrumb, Link} from 'semantic-ui-react'
 
 import './styles.scss'
 
-const BreadcrumbCustom = ({data}) => {
+const BreadcrumbCustom = ({data, link}) => {
   //Note: data sample: data = [{title: 'Home'}, {title: 'Log in'}]
 
   return (
@@ -16,7 +16,9 @@ const BreadcrumbCustom = ({data}) => {
             <Breadcrumb.Section
               key={dt.title}
               link={!isLastItem}
-              active={isLastItem}>
+              active={isLastItem}
+              as={Link}
+              href={dt?.link}>
               {dt.title}
             </Breadcrumb.Section>
             <Breadcrumb.Divider

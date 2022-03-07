@@ -37,7 +37,7 @@ const ProductFilterByCategory = () => {
     dispatch(productActions.loadProduct(page + 1))
   }
 
-  const data = [{title: 'GoodMarket'}, {title: categoryName}]
+  const data = [{title: 'GoodMarket', link: '/'}, {title: categoryName}]
 
   const renderBreadCrumb = () => {
     return (
