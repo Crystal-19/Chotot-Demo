@@ -2,9 +2,10 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import dayjs from 'dayjs'
-import {Image, Icon, Breadcrumb, Placeholder} from 'semantic-ui-react'
+import {Image, Breadcrumb, Placeholder} from 'semantic-ui-react'
 
 import ProductCard from 'components/ProductCard'
+import BreadCrumb from 'components/Breadcrumb'
 import Footer from 'components/Footer'
 import * as helpers from 'utils/helpers'
 import * as productActions from 'redux/actions/productActions'
@@ -20,7 +21,6 @@ const ProductDetail = () => {
   )
   const {email, createdAt} = author
   const categoryName = category.name
-  const categoryId = category._id
 
   const joinDate = dayjs(createdAt).format('MM-YYYY')
   const isLoading = useSelector(state => state.Product.isLoading)
@@ -34,22 +34,11 @@ const ProductDetail = () => {
     dispatch(productActions.loadProductRelated(id))
   }, [dispatch, id])
 
+  const data = [{title: 'Good Market'}, {title: categoryName}, {title: name}]
   const renderHeader = () => {
     return (
       <div className="header-container">
-        <Breadcrumb size="mini">
-          <Breadcrumb.Section link href="/">
-            Good Market
-          </Breadcrumb.Section>
-          <Icon name="angle double right" />
-          <Breadcrumb.Section link href={`/category/${categoryId}/products`}>
-            {categoryName}
-          </Breadcrumb.Section>
-          <Icon name="angle double right" />
-          <Breadcrumb.Section link href={`/product/${id}`}>
-            {name}
-          </Breadcrumb.Section>
-        </Breadcrumb>
+        <BreadCrumb data={data} />
       </div>
     )
   }

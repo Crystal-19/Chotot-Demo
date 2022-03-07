@@ -8,7 +8,11 @@
   }
 
   .section{
-    font-size: 1.25em;
+    font-size: 1.125em;
+
+    &.active{
+      font-weight: 400;
+    }
   }
 
   @include responsive(mobile) {
