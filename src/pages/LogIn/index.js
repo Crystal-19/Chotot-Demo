@@ -66,7 +66,10 @@ const LogIn = () => {
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
-        <button>Log in</button>
+        <button
+          className={email.length > 0 && password.length > 5 ? 'active' : ''}>
+          Log in
+        </button>
         <div className="register-container">
           <p>No account?</p>
           <Link to="/signup">register now</Link>
