@@ -14,11 +14,11 @@ export const getLoginInfoFailure = () => ({
   type: authTypes.GET_LOGIN_INFO_FAILURE,
 })
 
-export const postLoginInfo = () => async dispatch => {
+export const postLoginInfo = (login) => async dispatch => {
   try {
     dispatch(getLoginInfo())
 
-    const response = await authRequest.loginRequest()
+    const response = await authRequest.loginRequest(login)
     dispatch(getLoginInfoSuccess(response.data))
   } catch {
     dispatch(getLoginInfoFailure())

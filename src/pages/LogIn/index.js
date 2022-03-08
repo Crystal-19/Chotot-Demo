@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
@@ -7,40 +7,67 @@ import * as authActions from 'redux/actions/authActions'
 
 const LogIn = () => {
   const dispatch = useDispatch()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const loginInfo = useSelector(state => state.Auth)
+  const accessToken = useSelector(state => state.Auth.login.access_token)
 
-  const onLogin = () => {
-    dispatch(authActions.postLoginInfo())
+  const getUserName = e => {
+    setEmail(e.target.value)
   }
 
-const renderLoginTitle = () => {
-  return (
-    <div className="log-sign-title">
-      <div className="log-sign-text">
-        <h2>Log in</h2>
-        <h5>Hi back</h5>
+  const getPassword = e => {
+    setPassword(e.target.value)
+  }
+
+  const login = {email, password}
+
+  const onLogin = e => {
+    e.preventDefault()
+    dispatch(authActions.postLoginInfo(login))
+    localStorage.setItem('accessToken', accessToken)
+  }
+
+  const renderLoginTitle = () => {
+    return (
+      <div className="log-sign-title">
+        <div className="log-sign-text">
+          <h2>Log in</h2>
+          <h5>Hi back</h5>
+        </div>
+        <Image
+          src="https://static.chotot.com/storage/assets/LOGIN/logo.svg"
+          className="chotot-img"
+        />
       </div>
-      <Image
-        src="https://static.chotot.com/storage/assets/LOGIN/logo.svg"
-        className="chotot-img"
-      />
-    </div>
-  )
-}
-const renderInputSection = () => {
-  return (
-    <>
-      <input placeholder="Enter your email" />
-      <input placeholder='Enter your password' type="password" />
-      <button onClick={onLogin}>Log in</button>
-      <div className="register-container">
-        <p>No account?</p>
-        <Link to='/signup'>register now</Link>
-      </div>
-    </>
-  )
-}
+    )
+  }
+
+  const renderInputSection = () => {
+    return (
+      <form onSubmit={onLogin}>
+        <input
+          value={email}
+          placeholder="Enter your email"
+          onChange={e => getUserName(e)}
+          type="email"
+          required
+        />
+        <input
+          value={password}
+          placeholder="Enter your password"
+          type="password"
+          onChange={e => getPassword(e)}
+          required
+        />
+        <button>Log in</button>
+        <div className="register-container">
+          <p>No account?</p>
+          <Link to="/signup">register now</Link>
+        </div>
+      </form>
+    )
+  }
 
   return (
     <div className="background-img">
@@ -53,5 +80,5 @@ const renderInputSection = () => {
       <Footer />
     </div>
   )
-  }
+}
 export default LogIn

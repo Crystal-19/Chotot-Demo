@@ -1,3 +1,3 @@
 import API from './API'
 
-export const loginRequest = () => API.post('/auth/login')
+export const loginRequest = (login) => API.post('/auth/login', login)
