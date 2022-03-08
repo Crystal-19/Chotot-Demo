@@ -5,12 +5,15 @@ import {Link} from 'react-router-dom'
 import Footer from 'components/Footer'
 import * as authActions from 'redux/actions/authActions'
 
+import './styles.scss'
+
 const LogIn = () => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const accessToken = useSelector(state => state.Auth.login.access_token)
+  const isError = useSelector(state => state.Auth.isError)
 
   const getUserName = e => {
     setEmail(e.target.value)
@@ -60,6 +63,9 @@ const LogIn = () => {
           onChange={e => getPassword(e)}
           required
         />
+        {isError && (
+          <p className="wrong-info">Your email or password is incorrect</p>
+        )}
         <button>Log in</button>
         <div className="register-container">
           <p>No account?</p>
@@ -72,7 +78,7 @@ const LogIn = () => {
   return (
     <div className="background-img">
       <div className="general-container structure-container">
-        <div className="log-sign-container">
+        <div className="log-in-container">
           {renderLoginTitle()}
           {renderInputSection()}
         </div>

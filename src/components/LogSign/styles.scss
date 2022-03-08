@@ -4,10 +4,6 @@
   background-image: url('https://static.chotot.com/storage/assets/LOGIN/login_desktop_background.webp');
   width: 100%;
 
-  // @include multiple-responsive(tablet, mobile){
-  //   width: 1000px;
-  // }
-
   .structure-container {
     @include flex(row, flex-start, center);
     padding-top: 20px;
