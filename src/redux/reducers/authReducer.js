@@ -1,7 +1,7 @@
 import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
-  login: {},
+  currentUser: {},
   isLoading: false,
   isError: false,
 }
@@ -13,7 +13,7 @@ const authReducer = (state = initialState, action) => {
     case authTypes.GET_LOGIN_INFO:
       return {...state}
     case authTypes.GET_LOGIN_INFO_SUCCESS:
-      return {...state, login: payload.login}
+      return {...state, login: payload.currentUser}
     case authTypes.GET_LOGIN_INFO_FAILURE:
       return {...state, isError: true}
     default:

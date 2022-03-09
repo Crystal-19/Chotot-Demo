@@ -5,9 +5,9 @@ export const getLoginInfo = () => ({
   type: authTypes.GET_LOGIN_INFO,
 })
 
-export const getLoginInfoSuccess = login => ({
+export const getLoginInfoSuccess = currentUser => ({
   type: authTypes.GET_LOGIN_INFO_SUCCESS,
-  payload: {login},
+  payload: {currentUser},
 })
 
 export const getLoginInfoFailure = () => ({
@@ -20,7 +20,7 @@ export const postLoginInfo = (login) => async dispatch => {
 
     const response = await authRequest.loginRequest(login)
     dispatch(getLoginInfoSuccess(response.data))
-    
+
     const accessToken = response.data.access_token
     localStorage.setItem('accessToken', accessToken)
   } catch {
