@@ -1,11 +1,20 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
+import {useNavigate} from 'react-router-dom'
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 
 import './styles.scss'
 
 const ContentDropdown = () => {
+  const navigate = useNavigate()
+  const handleLogOut = () => {
+    localStorage.setItem('accessToken', undefined)
+    navigate('/')
+  }
+  const test = localStorage.getItem('accessToken')
+  console.log('test', test)
+
   return (
     <nav className="content-container">
       <div className="ava-container">
@@ -16,6 +25,7 @@ const ContentDropdown = () => {
           className="ava-image"
         />
         <span>Log in/sign up</span>
+        <button onClick={handleLogOut}>Log out</button>
       </div>
       <hr className="dividerDropdown" />
       {iconsMix.map((dt, index) => (

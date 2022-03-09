@@ -21,8 +21,8 @@ export const postLoginInfo = (login) => async dispatch => {
     const response = await authRequest.loginRequest(login)
     dispatch(getLoginInfoSuccess(response.data))
 
-    const accessToken = response.data.access_token
-    localStorage.setItem('accessToken', accessToken)
+    // const accessToken = response.data.access_token
+    // localStorage.setItem('accessToken', accessToken)
   } catch {
     dispatch(getLoginInfoFailure())
   }
