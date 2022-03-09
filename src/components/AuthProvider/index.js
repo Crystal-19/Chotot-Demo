@@ -1,5 +1,5 @@
 import React, {createContext} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
@@ -10,8 +10,7 @@ const AuthProvider = ({children}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const accessToken = useSelector(state => state.Auth.currentUser.access_token)
-  console.log('authP', accessToken)
+  const accessToken = localStorage.getItem('accessToken')
 
   const onLogin = login => {
     dispatch(authActions.postLoginInfo(login))

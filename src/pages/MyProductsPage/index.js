@@ -17,7 +17,7 @@ const MyProductsPage = () => {
   const renderBreadcrumb = () => {
     const data = [
       {title: 'Good Market', link: ''},
-      {title: "Tran Kim Ngan' personal page", link: ''},
+      {title: `${email}'s personal page`, link: ''},
     ]
     return <BreadcrumbCustom data={data} />
   }
