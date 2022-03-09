@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const accessToken = useSelector(state => state.Auth.currentUser.access_token)
+  const accessToken = useSelector(state => state.Auth.access_token)
 
   const onLogin = login => {
     dispatch(authActions.postLoginInfo(login))
