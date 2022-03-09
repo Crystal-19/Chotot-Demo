@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
@@ -15,6 +15,10 @@ const LogIn = () => {
   const accessToken = useSelector(state => state.Auth.login.access_token)
   const isError = useSelector(state => state.Auth.isError)
 
+  useEffect(() => {
+    localStorage.setItem('accessToken', accessToken)
+  }, [accessToken])
+
   const getUserName = e => {
     setEmail(e.target.value)
   }
@@ -28,7 +32,6 @@ const LogIn = () => {
   const onLogin = e => {
     e.preventDefault()
     dispatch(authActions.postLoginInfo(login))
-    localStorage.setItem('accessToken', accessToken)
   }
 
   const renderLoginTitle = () => {
