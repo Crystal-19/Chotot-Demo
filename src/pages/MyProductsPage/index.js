@@ -2,12 +2,18 @@ import React from 'react'
 
 import {Image, Icon, Divider} from 'semantic-ui-react'
 
+import {useSelector} from 'react-redux'
+import dayjs from 'dayjs'
+
 import {ReactComponent as PostImage} from 'assets/images/post.svg'
 import BreadcrumbCustom from 'components/Breadcrumb'
 
 import './styles.scss'
 
 const MyProductsPage = () => {
+  const {email, createdAt} = useSelector(state => state.Auth.currentUser.user)
+  const joinedDate = dayjs(createdAt).format('MM-YYYY')
+
   const renderBreadcrumb = () => {
     const data = [
       {title: 'Good Market', link: ''},
@@ -21,7 +27,7 @@ const MyProductsPage = () => {
       <div className="left-info-container">
         <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
         <div className="personal-info-container">
-          <h2>Tran Kim Ngan</h2>
+          <h2>{email}</h2>
           <div className="follow-container">
             <span className="follower">0 Followers</span>
             <span>0 Following</span>
@@ -75,7 +81,7 @@ const MyProductsPage = () => {
         {renderRightItem(
           'https://www.chotot.com/user/static/img/calendar.png',
           'Join Date',
-          '20/08/2020',
+          joinedDate,
         )}
         {renderRightItem(
           'https://www.chotot.com/user/static/img/location.png',
@@ -102,7 +108,10 @@ const MyProductsPage = () => {
         <Divider section />
         <div className="post-content">
           <PostImage />
-          <p>You don&#8217;t have any personal listings for sale, try posting them now.</p>
+          <p>
+            You don&#8217;t have any personal listings for sale, try posting
+            them now.
+          </p>
           <button>POST</button>
         </div>
       </div>
