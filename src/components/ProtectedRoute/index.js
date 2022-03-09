@@ -1,9 +1,8 @@
 import React from 'react'
 import {Navigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
 
 const ProtectedRoute = ({children}) => {
-  const accessToken = useSelector(state => state.Auth.currentUser.access_token)
+  const accessToken = localStorage.getItem('accessToken')
 
   if(!accessToken){
     return <Navigate to='/login' replace />
