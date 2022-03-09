@@ -13,17 +13,8 @@ const LogIn = () => {
   const [password, setPassword] = useState('')
   const navigate  = useNavigate()
 
-  const accessToken = useSelector(state => state.Auth.login.access_token)
   const isError = useSelector(state => state.Auth.isError)
-
-  useEffect(() => {
-    localStorage.setItem('accessToken', accessToken)
-    
-    if(accessToken){
-      navigate('/')
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken])
+  const login = {email, password}
 
   const getUserName = e => {
     setEmail(e.target.value)
@@ -33,11 +24,11 @@ const LogIn = () => {
     setPassword(e.target.value)
   }
 
-  const login = {email, password}
-
   const onLogin = e => {
     e.preventDefault()
     dispatch(authActions.postLoginInfo(login))
+
+    navigate('/')
   }
 
   const renderLoginTitle = () => {
@@ -76,7 +67,7 @@ const LogIn = () => {
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
         <button
-          className={(email.length > 0 && password.length > 5) && 'active'}>
+          className={(email.length > 0 && password.length > 5) ? 'active' : ''}>
           Log in
         </button>
         <div className="register-container">
