@@ -12,15 +12,19 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const {accessToken} = useAuth()
 
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
+
+  const email = useSelector(state => state.Auth.currentUser.user.email)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -133,10 +137,17 @@ const Header = () => {
           />
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
-        <Link to="/login" className="log">
-          <LogInIcon className="log-i" />
-          <span>Log in</span>
-        </Link>
+        {accessToken ? (
+          <div className="log">
+            <Image className='log-ava' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU" />
+            <span>{email}</span>
+          </div>
+        ) : (
+          <Link to="/login" className="log">
+            <LogInIcon className="log-i" />
+            <span>Log in</span>
+          </Link>
+        )}
         <Link to="/signup" className="reg-btn">
           <div className="reg">
             <RegisterIcon className="reg-i" />

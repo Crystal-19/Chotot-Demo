@@ -1,7 +1,11 @@
 import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
-  currentUser: {},
+  currentUser: {
+    user: {
+      email: '',
+    }
+  },
   isLoading: false,
   isError: false,
 }

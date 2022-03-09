@@ -271,7 +271,6 @@
 
       .log {
         @include flex(row, center, center);
-        margin-right: 35px;
         border: none;
         background-color: $main_yellow;
         color: $black;
@@ -299,6 +298,13 @@
             height: 2em;
             width: 2rem;
           }
+        }
+
+        .log-ava{
+          height: 2.7em;
+          width: 2.7rem;
+          border-radius: 50%;
+          margin: 0 5px;
         }
 
         span {
