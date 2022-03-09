@@ -4,7 +4,6 @@ import {Image} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 import Footer from 'components/Footer'
 import * as authActions from 'redux/actions/authActions'
-import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
@@ -12,10 +11,7 @@ const LogIn = () => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const navigate  = useNavigate()
-  const {onLogin} = useAuth()
-
-  // console.log('onLogin', onLogin)
+  const navigate = useNavigate()
 
   const isError = useSelector(state => state.Auth.isError)
   const login = {email, password}
@@ -23,17 +19,17 @@ const LogIn = () => {
   const getUserName = e => {
     setEmail(e.target.value)
   }
-console.log('useAuth', useAuth())
+
   const getPassword = e => {
     setPassword(e.target.value)
   }
 
-  // const onLogin = e => {
-  //   e.preventDefault()
-  //   dispatch(authActions.postLoginInfo(login))
+  const onLogin = e => {
+    e.preventDefault()
+    dispatch(authActions.postLoginInfo(login))
 
-  //   navigate('/')
-  // }
+    navigate('/')
+  }
 
   const renderLoginTitle = () => {
     return (
@@ -52,7 +48,7 @@ console.log('useAuth', useAuth())
 
   const renderInputSection = () => {
     return (
-      <form onSubmit={(e) => onLogin(e, login)}>
+      <form onSubmit={onLogin}>
         <input
           value={email}
           placeholder="Enter your email"
@@ -71,7 +67,7 @@ console.log('useAuth', useAuth())
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
         <button
-          className={(email.length > 0 && password.length > 5) ? 'active' : ''}>
+          className={email.length > 0 && password.length > 5 ? 'active' : ''}>
           Log in
         </button>
         <div className="register-container">

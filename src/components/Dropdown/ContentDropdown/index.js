@@ -8,12 +8,11 @@ import './styles.scss'
 
 const ContentDropdown = () => {
   const navigate = useNavigate()
+  
   const handleLogOut = () => {
-    localStorage.setItem('accessToken', undefined)
+    localStorage.removeItem('accessToken')
     navigate('/')
   }
-  const test = localStorage.getItem('accessToken')
-  console.log('test', test)
 
   return (
     <nav className="content-container">

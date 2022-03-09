@@ -17,12 +17,11 @@ import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
 import ProtectedRoute from 'components/ProtectedRoute'
-import AuthProvider from 'components/AuthProvider'
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
+      {/* <AuthProvider> */}
         <ScrollToTop />
         <Header />
         <Routes>
@@ -50,7 +49,7 @@ function App() {
           />
         </Routes>
         <SideNav />
-      </AuthProvider>
+      {/* </AuthProvider> */}
     </BrowserRouter>
   )
 }
