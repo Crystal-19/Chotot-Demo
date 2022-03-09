@@ -1,18 +1,12 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
-import {useNavigate} from 'react-router-dom'
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
-
+import useAuth from 'hooks/useAuth'
 import './styles.scss'
 
 const ContentDropdown = () => {
-  const navigate = useNavigate()
-  
-  const handleLogOut = () => {
-    localStorage.removeItem('accessToken')
-    navigate('/')
-  }
+  const {accessToken, onLogin, onLogout} = useAuth()
 
   return (
     <nav className="content-container">
@@ -23,8 +17,11 @@ const ContentDropdown = () => {
           size="tiny"
           className="ava-image"
         />
-        <span>Log in/sign up</span>
-        <button onClick={handleLogOut}>Log out</button>
+        {accessToken ? (
+          <span onClick={onLogout}>Log out</span>
+        ) : (
+          <span onClick={onLogin}>Log in</span>
+        )}
       </div>
       <hr className="dividerDropdown" />
       {iconsMix.map((dt, index) => (
