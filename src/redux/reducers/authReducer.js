@@ -13,7 +13,7 @@ const authReducer = (state = initialState, action) => {
     case authTypes.GET_LOGIN_INFO:
       return {...state}
     case authTypes.GET_LOGIN_INFO_SUCCESS:
-      return {...state, login: payload.currentUser}
+      return {...state, currentUser: payload.currentUser}
     case authTypes.GET_LOGIN_INFO_FAILURE:
       return {...state, isError: true}
     default:

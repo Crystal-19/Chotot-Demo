@@ -16,6 +16,7 @@ import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
+import ProtectedRoute from 'components/ProtectedRoute'
 
 function App() {
   return (
@@ -29,7 +30,14 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/my-products" element={<MyProductPage />} />
+          <Route
+            path="/my-products"
+            element={
+              <ProtectedRoute>
+                <MyProductPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route
             path="/category/:categoryId/products"
