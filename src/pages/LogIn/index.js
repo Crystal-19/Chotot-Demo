@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Footer from 'components/Footer'
 import * as authActions from 'redux/actions/authActions'
 
@@ -11,12 +11,18 @@ const LogIn = () => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate  = useNavigate()
 
   const accessToken = useSelector(state => state.Auth.login.access_token)
   const isError = useSelector(state => state.Auth.isError)
 
   useEffect(() => {
     localStorage.setItem('accessToken', accessToken)
+    
+    if(accessToken){
+      navigate('/')
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken])
 
   const getUserName = e => {
