@@ -10,8 +10,8 @@ import './styles.scss'
 const MyProductsPage = () => {
   const renderBreadcrumb = () => {
     const data = [
-      {title: 'Good Market'},
-      {title: "Tran Kim Ngan' personal page"},
+      {title: 'Good Market', link: ''},
+      {title: "Tran Kim Ngan' personal page", link: ''},
     ]
     return <BreadcrumbCustom data={data} />
   }

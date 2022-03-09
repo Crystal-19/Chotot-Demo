@@ -100,9 +100,9 @@ const Header = () => {
             <HomeIcon className="icon-home" />
             <span>Home Page</span>
           </Link>
-          <Link to="/news" className="item item-hide">
+          <Link to="/my-products" className="item item-hide">
             <NewsIcon className="icon-news" />
-            <span>News Management</span>
+            <span>My products</span>
           </Link>
           <Link to="/chat" className="item">
             <ChatIcon className="icon-chat" />
