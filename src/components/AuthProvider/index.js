@@ -11,6 +11,7 @@ const AuthProvider = ({children}) => {
   const navigate = useNavigate()
 
   const accessToken = useSelector(state => state.Auth.currentUser.access_token)
+  console.log('authP', accessToken)
 
   const onLogin = login => {
     dispatch(authActions.postLoginInfo(login))

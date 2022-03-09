@@ -4,6 +4,7 @@ import useAuth from 'hooks/useAuth'
 
 const ProtectedRoute = ({children}) => {
   const {accessToken} = useAuth()
+  console.log('protect', accessToken)
 
   if (!accessToken) {
     return <Navigate to="/login" replace />
