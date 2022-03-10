@@ -14,6 +14,10 @@ export const getLoginInfoFailure = () => ({
   type: authTypes.GET_LOGIN_INFO_FAILURE,
 })
 
+export const logout = () => ({
+  type: authTypes.LOG_OUT
+})
+
 export const postLoginInfo = login => async dispatch => {
   try {
     dispatch(getLoginInfo())
