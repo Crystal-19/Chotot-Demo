@@ -4,6 +4,7 @@ const initialState = {
   userInfo: {},
   accessToken: '',
   email: '',
+  createdAt: '',
   isLoading: false,
   isError: false,
 }
@@ -20,6 +21,7 @@ const authReducer = (state = initialState, action) => {
         userInfo: payload.userInfo,
         accessToken: payload.userInfo.access_token,
         email: payload.userInfo.user.email,
+        createdAt: payload.userInfo.user.createdAt,
       }
     case authTypes.GET_LOGIN_INFO_FAILURE:
       return {...state, isError: true}

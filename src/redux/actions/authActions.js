@@ -5,9 +5,9 @@ export const getLoginInfo = () => ({
   type: authTypes.GET_LOGIN_INFO,
 })
 
-export const getLoginInfoSuccess = (userInfo, accessToken, email) => ({
+export const getLoginInfoSuccess = (userInfo, accessToken, email, createdAt) => ({
   type: authTypes.GET_LOGIN_INFO_SUCCESS,
-  payload: {userInfo, accessToken, email},
+  payload: {userInfo, accessToken, email, createdAt},
 })
 
 export const getLoginInfoFailure = () => ({

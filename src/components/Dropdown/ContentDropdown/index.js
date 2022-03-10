@@ -1,13 +1,16 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 import './styles.scss'
 
 const ContentDropdown = () => {
   const navigate = useNavigate()
-  const accessToken = localStorage.getItem('accessToken')
+  const {accessToken} = useSelector(state => state.Auth)
+
+  console.log('logout', accessToken)
 
   const onLogout = () => {
     localStorage.removeItem('accessToken')
