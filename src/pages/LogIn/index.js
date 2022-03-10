@@ -19,13 +19,11 @@ const LogIn = () => {
   const login = {email, password}
   const accessToken = useSelector(state => state.Auth.accessToken)
 
-  console.log('isError', isError)
-
   useEffect(() => {
     if (accessToken) {
       navigate('/')
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken])
 
   const setUserName = e => {

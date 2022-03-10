@@ -2,9 +2,6 @@ import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
   userInfo: {},
-  accessToken: '',
-  email: '',
-  createdAt: '',
   isLoading: false,
   isError: false,
 }
@@ -24,7 +21,7 @@ const authReducer = (state = initialState, action) => {
         email: payload.userInfo.user.email,
         createdAt: payload.userInfo.user.createdAt,
       }
-      
+
     case authTypes.LOG_OUT:
       return {...state, accessToken: ''}
 
