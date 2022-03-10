@@ -18,12 +18,10 @@ import './styles.scss'
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const accessToken = localStorage.getItem('accessToken')
-
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
 
-  const email = useSelector(state => state.Auth.currentUser.user.email)
+  const {accessToken, email} = useSelector(state => state.Auth)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,

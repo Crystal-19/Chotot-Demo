@@ -5,16 +5,16 @@ export const getLoginInfo = () => ({
   type: authTypes.GET_LOGIN_INFO,
 })
 
-export const getLoginInfoSuccess = currentUser => ({
+export const getLoginInfoSuccess = (userInfo, accessToken, email) => ({
   type: authTypes.GET_LOGIN_INFO_SUCCESS,
-  payload: {currentUser},
+  payload: {userInfo, accessToken, email},
 })
 
 export const getLoginInfoFailure = () => ({
   type: authTypes.GET_LOGIN_INFO_FAILURE,
 })
 
-export const postLoginInfo = (login) => async dispatch => {
+export const postLoginInfo = login => async dispatch => {
   try {
     dispatch(getLoginInfo())
 
