@@ -10,7 +10,7 @@ import './styles.scss'
 const ContentDropdown = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const accessToken = useSelector(state => state.Auth.accessToken)
+  const accessToken = useSelector(state => state.Profile.accessToken)
 
   const onLogout = () => {
     localStorage.removeItem('accessToken')
