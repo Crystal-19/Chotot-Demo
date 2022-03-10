@@ -18,6 +18,7 @@ const LogIn = () => {
   const isError = useSelector(state => state.Auth.isError)
   const login = {email, password}
   const accessToken = useSelector(state => state.Profile.accessToken)
+  console.log('isError', isError)
 
   useEffect(() => {
     if (accessToken) {
