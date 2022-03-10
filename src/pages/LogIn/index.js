@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
@@ -17,12 +17,22 @@ const LogIn = () => {
 
   const isError = useSelector(state => state.Auth.isError)
   const login = {email, password}
+  const accessToken = useSelector(state => state.Auth.accessToken)
 
-  const getUserName = e => {
+  console.log('isError', isError)
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/')
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [accessToken])
+
+  const setUserName = e => {
     setEmail(e.target.value)
   }
 
-  const getPassword = e => {
+  const setUserPassword = e => {
     setPassword(e.target.value)
   }
 
@@ -44,7 +54,6 @@ const LogIn = () => {
   const onLogin = e => {
     e.preventDefault()
     dispatch(authActions.postLoginInfo(login))
-    navigate('/')
   }
 
   const renderInputSection = () => {
@@ -53,7 +62,7 @@ const LogIn = () => {
         <input
           value={email}
           placeholder="Enter your email"
-          onChange={e => getUserName(e)}
+          onChange={e => setUserName(e)}
           type="email"
           required
         />
@@ -61,7 +70,7 @@ const LogIn = () => {
           value={password}
           placeholder="Enter your password"
           type="password"
-          onChange={e => getPassword(e)}
+          onChange={e => setUserPassword(e)}
           required
         />
         {isError && (

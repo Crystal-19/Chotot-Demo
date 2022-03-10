@@ -24,12 +24,13 @@ const authReducer = (state = initialState, action) => {
         email: payload.userInfo.user.email,
         createdAt: payload.userInfo.user.createdAt,
       }
+      
     case authTypes.LOG_OUT:
       return {...state, accessToken: ''}
 
     case authTypes.GET_LOGIN_INFO_FAILURE:
       return {...state, isError: true}
-      
+
     default:
       return state
   }

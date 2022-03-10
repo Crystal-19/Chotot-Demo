@@ -10,7 +10,7 @@ import './styles.scss'
 const ContentDropdown = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {accessToken} = useSelector(state => state.Auth)
+  const accessToken = useSelector(state => state.Auth.accessToken)
 
   const onLogout = () => {
     localStorage.removeItem('accessToken')
@@ -49,7 +49,7 @@ const ContentDropdown = () => {
       </>
     )
   }
-  
+
   return (
     <nav className="content-container">
       <div className="ava-container">
