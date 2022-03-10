@@ -1,3 +1,6 @@
+import {persistReducer} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
@@ -32,4 +35,11 @@ const authReducer = (state = initialState, action) => {
       return state
   }
 }
-export default authReducer
+
+const persistConfig = {
+  key: 'auth',
+  storage,
+  blacklist: ['isError']
+}
+
+export default persistReducer(persistConfig, authReducer)
