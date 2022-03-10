@@ -1,25 +1,27 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
-import useAuth from 'hooks/useAuth'
 import './styles.scss'
 
 const ContentDropdown = () => {
   const navigate = useNavigate()
-  const {accessToken, onLogout} = useAuth()
-  const accessState = useSelector(state => state.Auth.currentUser.access_token)
+  const accessToken = localStorage.getItem('accessToken')
 
-  const handleLogin = () => {
+  const onLogout = () => {
+    localStorage.removeItem('accessToken')
+    navigate('/')
+  }
+
+  const onLogin = () => {
     navigate('login')
   }
 
   return (
     <nav className="content-container">
       <div className="ava-container">
-        {accessToken || accessState ? (
+        {accessToken ? (
           <>
             <Image
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
@@ -37,7 +39,7 @@ const ContentDropdown = () => {
               size="tiny"
               className="ava-image"
             />
-            <span onClick={handleLogin}>Log in</span>
+            <span onClick={onLogin}>Log in</span>
           </>
         )}
       </div>

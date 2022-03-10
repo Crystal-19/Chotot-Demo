@@ -1,17 +1,19 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {Image} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
+import * as authActions from 'redux/actions/authActions'
 
 import Footer from 'components/Footer'
-import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
 const LogIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const {onLogin} = useAuth()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const isError = useSelector(state => state.Auth.isError)
   const login = {email, password}
@@ -39,13 +41,15 @@ const LogIn = () => {
     )
   }
 
+  const onLogin = e => {
+    e.preventDefault()
+    dispatch(authActions.postLoginInfo(login))
+    navigate('/')
+  }
+
   const renderInputSection = () => {
     return (
-      <form
-        onSubmit={e => {
-          e.preventDefault()
-          onLogin(login)
-        }}>
+      <form onSubmit={onLogin}>
         <input
           value={email}
           placeholder="Enter your email"

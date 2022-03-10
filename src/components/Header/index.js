@@ -12,15 +12,13 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
-import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {accessToken} = useAuth()
-  const accessState = useSelector(state => state.Auth.currentUser.access_token)
+  const accessToken = localStorage.getItem('accessToken')
 
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
@@ -138,7 +136,7 @@ const Header = () => {
           />
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
-        {accessToken || accessState ? (
+        {accessToken ? (
           <div className="log">
             <Image
               className="log-ava"
