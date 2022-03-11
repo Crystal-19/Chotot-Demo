@@ -9,13 +9,13 @@ const authReducer = (state = initialState, action) => {
   const {type} = action
 
   switch (type) {
-    case authTypes.GET_LOGIN_INFO:
+    case authTypes.GET_ACCESS_TOKEN:
       return {...state, isError: false}
 
-    case authTypes.GET_LOGIN_INFO_SUCCESS:
+    case authTypes.GET_ACCESS_TOKEN_SUCCESS:
       return {...state, isError: false}
 
-    case authTypes.GET_LOGIN_INFO_FAILURE:
+    case authTypes.GET_ACCESS_TOKEN_FAILURE:
       return {...state, isError: true}
 
     default:

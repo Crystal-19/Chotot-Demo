@@ -8,10 +8,10 @@ const profileReducer = (state = initialState, action) => {
   const {type, payload} = action
 
   switch (type) {
-    case authTypes.GET_LOGIN_INFO:
+    case authTypes.GET_ACCESS_TOKEN:
       return {...state}
 
-    case authTypes.GET_LOGIN_INFO_SUCCESS:
+    case authTypes.GET_ACCESS_TOKEN_SUCCESS:
       return {
         ...state,
         userInfo: payload.userInfo,
