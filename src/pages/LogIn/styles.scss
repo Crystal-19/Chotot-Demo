@@ -1,0 +1,84 @@
+@import 'assets/scss';
+
+.background-img {
+  background-image: url('https://static.chotot.com/storage/assets/LOGIN/login_desktop_background.webp');
+  width: 100%;
+
+  .structure-container {
+    @include flex(row, flex-start, center);
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .log-in-container {
+      width: 340px;
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+      padding: 40px 30px 40px 30px;
+      background-color: $white;
+
+      @include responsive(mobile) {
+        margin: 20px 0 0 0;
+      }
+
+      p.wrong-info {
+        text-align: center;
+        color: $red;
+      }
+
+      .log-sign-title {
+        @include flex(row, center, space-between);
+        margin-bottom: 20px;
+
+        .log-sign-text {
+          h2 {
+            color: $main_yellow;
+            margin-bottom: 0;
+          }
+
+          h5 {
+            color: $medium_gray;
+            margin-top: 0;
+          }
+        }
+      }
+
+      input {
+        border: solid 1px $button_gray;
+        color: $black;
+        width: 100%;
+        margin-bottom: 30px;
+        height: 32px;
+        border-radius: 5px;
+        font-size: 10pt;
+      }
+
+      button {
+        background-color: $button_gray;
+        width: 100%;
+        margin-bottom: 30px;
+        height: 32px;
+        border: none;
+        color: $white;
+        border-radius: 5px;
+
+        &.active {
+          background: $light_blue;
+        }
+      }
+
+      .register-container {
+        @include flex(row, center, center);
+        font-size: 10pt;
+
+        p {
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+  }
+
+  .footer-container {
+    @include responsive(mobile) {
+      display: none;
+    }
+  }
+}

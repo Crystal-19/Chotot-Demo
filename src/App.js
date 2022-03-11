@@ -16,33 +16,36 @@ import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
+import ProtectedRoute from 'components/ProtectedRoute'
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Header />
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/my-products" element={<MyProductPage />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route
-            path="/category/:categoryId/products"
-            element={<ProductFilterByCategory />}
-          />
-          <Route
-            path="/name/:words/products"
-            element={<ProductFilterByName />}
-          />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Header />
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/my-products"
+          element={
+            <ProtectedRoute>
+              <MyProductPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route
+          path="/category/:categoryId/products"
+          element={<ProductFilterByCategory />}
+        />
+        <Route path="/name/:words/products" element={<ProductFilterByName />} />
+      </Routes>
       <SideNav />
-    </div>
+    </BrowserRouter>
   )
 }
 export default App

@@ -18,9 +18,11 @@ import './styles.scss'
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
+
+  const accessToken = useSelector(state => state.Profile.accessToken)
+  const email = useSelector(state => state.Profile.email)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -100,9 +102,9 @@ const Header = () => {
             <HomeIcon className="icon-home" />
             <span>Home Page</span>
           </Link>
-          <Link to="/news" className="item item-hide">
+          <Link to="/my-products" className="item item-hide">
             <NewsIcon className="icon-news" />
-            <span>News Management</span>
+            <span>My products</span>
           </Link>
           <Link to="/chat" className="item">
             <ChatIcon className="icon-chat" />
@@ -133,10 +135,20 @@ const Header = () => {
           />
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
-        <Link to="/login" className="log">
-          <LogInIcon className="log-i" />
-          <span>Log in</span>
-        </Link>
+        {accessToken ? (
+          <div className="log">
+            <Image
+              className="log-ava"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
+            />
+            <span>{email}</span>
+          </div>
+        ) : (
+          <Link to="/login" className="log">
+            <LogInIcon className="log-i" />
+            <span>Log in</span>
+          </Link>
+        )}
         <Link to="/signup" className="reg-btn">
           <div className="reg">
             <RegisterIcon className="reg-i" />
