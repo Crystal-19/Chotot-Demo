@@ -21,8 +21,11 @@ const Header = () => {
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
 
-  const accessToken = useSelector(state => state.Profile.accessToken)
+  const accessToken = useSelector(state => state.Auth.accessToken)
   const email = useSelector(state => state.Profile.email)
+  const test = useSelector(state => state.Profile)
+
+console.log('test', test)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
