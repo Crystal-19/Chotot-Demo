@@ -22,7 +22,6 @@ const LogIn = () => {
 
   useEffect(() => {
     if (accessToken) {
-      console.log('yes', accessToken)
       dispatch(profileActions.loadUserProfile())
       navigate('/')
     }

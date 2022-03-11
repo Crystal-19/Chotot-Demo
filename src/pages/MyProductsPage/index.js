@@ -11,7 +11,8 @@ import BreadcrumbCustom from 'components/Breadcrumb'
 import './styles.scss'
 
 const MyProductsPage = () => {
-  const {email, createdAt} = useSelector(state => state.Auth)
+  const email = useSelector(state => state.Profile.userProfile.email)
+  const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   const renderBreadcrumb = () => {
