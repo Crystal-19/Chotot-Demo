@@ -1,19 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {Image, Icon, Divider} from 'semantic-ui-react'
 
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import dayjs from 'dayjs'
 
 import {ReactComponent as PostImage} from 'assets/images/post.svg'
 import BreadcrumbCustom from 'components/Breadcrumb'
+import * as profileActions from 'redux/actions/profileActions'
 
 import './styles.scss'
 
 const MyProductsPage = () => {
+  const dispatch = useDispatch()
   const email = useSelector(state => state.Profile.userProfile.email)
   const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
+  const accessToken = useSelector(state => state.Profile.accessToken)
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(profileActions.loadUserProfile())
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [accessToken])
 
   const renderBreadcrumb = () => {
     const data = [
