@@ -2,7 +2,7 @@ import React from 'react'
 import {Image} from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import * as authActions from 'redux/actions/authActions'
+import * as profileActions from 'redux/actions/profileActions'
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 import './styles.scss'
@@ -10,11 +10,11 @@ import './styles.scss'
 const ContentDropdown = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const accessToken = useSelector(state => state.Auth.accessToken)
+  const accessToken = useSelector(state => state.Profile.accessToken)
 
   const onLogout = () => {
     localStorage.removeItem('accessToken')
-    dispatch(authActions.logout())
+    dispatch(profileActions.logout())
     navigate('/')
   }
 

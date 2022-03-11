@@ -5,17 +5,18 @@ export const getAccessToken = () => ({
   type: authTypes.GET_ACCESS_TOKEN,
 })
 
-export const getAccessTokenSuccess = (userInfo, accessToken, email, createdAt) => ({
+export const getAccessTokenSuccess = (
+  userInfo,
+  accessToken,
+  email,
+  createdAt,
+) => ({
   type: authTypes.GET_ACCESS_TOKEN_SUCCESS,
   payload: {userInfo, accessToken, email, createdAt},
 })
 
 export const getAccessTokenFailure = () => ({
   type: authTypes.GET_ACCESS_TOKEN_FAILURE,
-})
-
-export const logout = () => ({
-  type: authTypes.LOG_OUT
 })
 
 export const postAccessToken = login => async dispatch => {
