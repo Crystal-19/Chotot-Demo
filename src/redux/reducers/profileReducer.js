@@ -25,7 +25,7 @@ const profileReducer = (state = initialState, action) => {
       return {...state, accessToken: payload.userInfo.access_token}
 
     case profileTypes.LOG_OUT:
-      return {...state, accessToken: ''}
+      return {...state, accessToken: '', userProfile: {}}
 
     default:
       return state
