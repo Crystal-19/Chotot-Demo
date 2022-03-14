@@ -19,9 +19,7 @@ const MyProductsPage = () => {
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   useEffect(() => {
-    if (accessToken) {
-      dispatch(profileActions.loadUserProfile())
-    }
+    dispatch(profileActions.loadUserProfile())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken])
 
