@@ -15,13 +15,12 @@ const MyProductsPage = () => {
   const dispatch = useDispatch()
   const email = useSelector(state => state.Profile.userProfile.email)
   const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
-  const accessToken = useSelector(state => state.Profile.accessToken)
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   useEffect(() => {
     dispatch(profileActions.loadUserProfile())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken])
+  })
 
   const renderBreadcrumb = () => {
     const data = [
