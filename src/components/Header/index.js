@@ -137,13 +137,13 @@ const Header = () => {
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
         {accessToken ? (
-          <div className="log">
+          <Link to='/my-products' className="log">
             <Image
               className="log-ava"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
             />
             <span>{email}</span>
-          </div>
+          </Link>
         ) : (
           <Link to="/login" className="log">
             <LogInIcon className="log-i" />
