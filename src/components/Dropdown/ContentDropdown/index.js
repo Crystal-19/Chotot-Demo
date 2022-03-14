@@ -13,7 +13,7 @@ const ContentDropdown = () => {
   const accessToken = useSelector(state => state.Profile.accessToken)
 
   const onLogout = () => {
-    localStorage.removeItem('accessToken')
+    localStorage.clear()
     dispatch(profileActions.logout())
     navigate('/')
   }
