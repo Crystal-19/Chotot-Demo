@@ -20,7 +20,7 @@ const MyProductsPage = () => {
   useEffect(() => {
     dispatch(profileActions.loadUserProfile())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  })
+  }, [])
 
   const renderBreadcrumb = () => {
     const data = [
