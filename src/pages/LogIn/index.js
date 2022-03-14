@@ -4,6 +4,7 @@ import {Image} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
+import * as profileActions from 'redux/actions/profileActions'
 
 import Footer from 'components/Footer'
 
@@ -21,6 +22,7 @@ const LogIn = () => {
 
   useEffect(() => {
     if (accessToken) {
+      dispatch(profileActions.loadUserProfile())
       navigate('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
