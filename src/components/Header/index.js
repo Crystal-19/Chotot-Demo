@@ -12,6 +12,7 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
@@ -21,7 +22,7 @@ const Header = () => {
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
 
-  const accessToken = useSelector(state => state.Profile.accessToken)
+  const accessToken = useAuth()
   const email = useSelector(state => state.Profile.userProfile.email)
 
   const filteredProductsByName = useSelector(
