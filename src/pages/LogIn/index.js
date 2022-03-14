@@ -4,6 +4,7 @@ import {Image} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
+import * as profileActions from 'redux/actions/profileActions'
 
 import Footer from 'components/Footer'
 
@@ -18,10 +19,10 @@ const LogIn = () => {
   const isError = useSelector(state => state.Auth.isError)
   const login = {email, password}
   const accessToken = useSelector(state => state.Profile.accessToken)
-  console.log('isError', isError)
 
   useEffect(() => {
     if (accessToken) {
+      dispatch(profileActions.loadUserProfile())
       navigate('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,6 +34,11 @@ const LogIn = () => {
 
   const setUserPassword = e => {
     setPassword(e.target.value)
+  }
+
+  const onLogin = e => {
+    e.preventDefault()
+    dispatch(authActions.postAccessToken(login))
   }
 
   const renderLoginTitle = () => {
@@ -48,11 +54,6 @@ const LogIn = () => {
         />
       </div>
     )
-  }
-
-  const onLogin = e => {
-    e.preventDefault()
-    dispatch(authActions.postLoginInfo(login))
   }
 
   const renderInputSection = () => {

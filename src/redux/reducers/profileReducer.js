@@ -1,27 +1,31 @@
+import * as profileTypes from '../actionTypes/profileTypes'
 import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
-  userInfo: {},
+  userProfile: {},
 }
 
 const profileReducer = (state = initialState, action) => {
   const {type, payload} = action
 
   switch (type) {
-    case authTypes.GET_LOGIN_INFO:
+    case profileTypes.GET_USER_PROFILE:
       return {...state}
 
-    case authTypes.GET_LOGIN_INFO_SUCCESS:
+    case profileTypes.GET_USER_PROFILE_SUCCESS:
       return {
         ...state,
-        userInfo: payload.userInfo,
-        accessToken: payload.userInfo.access_token,
-        email: payload.userInfo.user.email,
-        createdAt: payload.userInfo.user.createdAt,
+        userProfile: payload.userProfile,
       }
 
-    case authTypes.LOG_OUT:
-      return {...state, accessToken: ''}
+    case profileTypes.GET_USER_PROFILE_FAILURE:
+      return {...state}
+
+    case authTypes.GET_ACCESS_TOKEN_SUCCESS:
+      return {...state, accessToken: payload.userInfo.access_token}
+
+    case profileTypes.LOG_OUT:
+      return {...state, accessToken: '', userProfile: {}}
 
     default:
       return state

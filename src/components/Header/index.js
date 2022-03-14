@@ -22,7 +22,7 @@ const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false)
 
   const accessToken = useSelector(state => state.Profile.accessToken)
-  const email = useSelector(state => state.Profile.email)
+  const email = useSelector(state => state.Profile.userProfile.email)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
