@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image} from 'semantic-ui-react'
+import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
@@ -17,8 +17,10 @@ const LogIn = () => {
   const dispatch = useDispatch()
 
   const isError = useSelector(state => state.Auth.isError)
-  const login = {email, password}
+  const isLoading = useSelector(state => state.Auth.isLoading)
   const accessToken = useSelector(state => state.Profile.accessToken)
+  
+  const login = {email, password}
 
   useEffect(() => {
     if (accessToken) {
@@ -56,6 +58,19 @@ const LogIn = () => {
     )
   }
 
+  const renderLoginButton = () => {
+    return (
+      <button
+        className={email.length > 0 && password.length > 5 ? 'active' : ''}>
+        Log in
+      </button>
+    )
+  }
+
+  const renderLoadingButton = () => {
+    return <Button loading>Loading</Button>
+  }
+
   const renderInputSection = () => {
     return (
       <form onSubmit={onLogin}>
@@ -76,10 +91,7 @@ const LogIn = () => {
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
-        <button
-          className={email.length > 0 && password.length > 5 ? 'active' : ''}>
-          Log in
-        </button>
+        {isLoading ? renderLoadingButton() : renderLoginButton()}
         <div className="register-container">
           <p>No account?</p>
           <Link to="/signup">register now</Link>
