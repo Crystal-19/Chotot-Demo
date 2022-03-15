@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+
+import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
@@ -21,6 +23,7 @@ const LogIn = () => {
   const accessToken = useSelector(state => state.Profile.accessToken)
 
   const login = {email, password}
+  const infoLength = email.length > 0 && password.length > 5
 
   useEffect(() => {
     if (accessToken) {
@@ -58,20 +61,6 @@ const LogIn = () => {
     )
   }
 
-  const renderLoginButton = () => {
-    const infoLength = email.length > 0 && password.length > 5
-    return (
-      <button
-        className={!isError && infoLength ? 'active' : ''}>
-        Log in
-      </button>
-    )
-  }
-
-  const renderLoadingButton = () => {
-    return <Button loading>Loading</Button>
-  }
-
   const renderInputSection = () => {
     return (
       <form onSubmit={onLogin}>
@@ -92,7 +81,13 @@ const LogIn = () => {
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
-        {isLoading ? renderLoadingButton() : renderLoginButton()}
+        <Button
+          className={classNames(
+            {active: !isError && infoLength},
+            {loading: isLoading},
+          )}>
+          Log in
+        </Button>
         <div className="register-container">
           <p>No account?</p>
           <Link to="/signup">register now</Link>
