@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
-import {Image} from 'semantic-ui-react'
+import {Image, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import * as signupActions from 'redux/actions/signupActions'
 import Footer from 'components/Footer'
@@ -16,20 +16,20 @@ const SignUp = () => {
   const [messageStatus, setMessageStatus] = useState('')
 
   const isError = useSelector(state => state.Signup.isError)
-  const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
-  const onSignup = (e) => {
+  const isLoading = useSelector(state => state.Signup.isLoading)
+  console.log('isLoading', isLoading)
+
+  const onSignup = e => {
     e.preventDefault()
 
-    if(!isError){
-      if(password.length < 6){
+    if (!isError) {
+      if (password.length < 6) {
         setPassword('')
         setPasswordConfirm('')
-        return setMessageStatus(
-          'The password must be more than 5 characters',
-        )
+        return setMessageStatus('The password must be more than 5 characters')
       }
 
-      if(passwordConfirm !== password){
+      if (passwordConfirm !== password) {
         setPassword('')
         setPasswordConfirm('')
         return setMessageStatus('The confirm password is incorrect !')
@@ -58,14 +58,27 @@ const SignUp = () => {
     )
   }
 
+  const renderLoadingButton = () => {
+    return <Button loading>Loading</Button>
+  }
+
+  const renderSignupButton = () => {
+    const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
+    return (
+      <button className={!isError && infoLength ? 'active' : ''}>
+        Registration
+      </button>
+    )
+  }
+
   const renderInputSection = () => {
     return (
-      <form onSubmit={(e) => onSignup(e)}>
+      <form onSubmit={e => onSignup(e)}>
         <input
           placeholder="Enter your email"
           onChange={e => setEmail(e.target.value)}
           value={email}
-          type='email'
+          type="email"
           required
         />
         <input
@@ -82,8 +95,8 @@ const SignUp = () => {
           value={passwordConfirm}
           required
         />
-        <p className={isError ? 'red' : 'green'}>{messageStatus}</p>
-        <button className={!isError && infoLength ? 'active' : ''}>Registration</button>
+        <p className={isError ? 'red' : 'green'}>{!isLoading ? messageStatus : ''}</p>
+        {isLoading ? renderLoadingButton() : renderSignupButton()}
         <div className="register-container">
           <p>Do you already have an account?</p>
           <Link to="/login">Log in</Link>
