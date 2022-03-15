@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import * as signupActions from 'redux/actions/signupActions'
+import * as authActions from 'redux/actions/authActions'
 import Footer from 'components/Footer'
 
 import './styles.scss'
@@ -16,8 +16,8 @@ const SignUp = () => {
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [messageStatus, setMessageStatus] = useState('')
 
-  const isError = useSelector(state => state.Signup.isError)
-  const isLoading = useSelector(state => state.Signup.isLoading)
+  const isError = useSelector(state => state.Auth.isError)
+  const isLoading = useSelector(state => state.Auth.isLoading)
 
   const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
 
@@ -43,7 +43,7 @@ const SignUp = () => {
     }
 
     const signupInfo = {email, password}
-    dispatch(signupActions.loadSignupInfo(signupInfo))
+    dispatch(authActions.loadSignupInfo(signupInfo))
     return setMessageStatus('Your account was signed up successfully')
   }
 
@@ -94,7 +94,13 @@ const SignUp = () => {
           required
         />
         {isError ? errorMessage() : successMessage()}
-        <Button className={classNames({active: !isError && infoLength}, {loading: isLoading})}>Registration</Button>
+        <Button
+          className={classNames(
+            {active: !isError && infoLength},
+            {loading: isLoading},
+          )}>
+          Registration
+        </Button>
         <div className="register-container">
           <p>Do you already have an account?</p>
           <Link to="/login">Log in</Link>
