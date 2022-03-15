@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
@@ -17,30 +17,31 @@ const SignUp = () => {
 
   const isError = useSelector(state => state.Signup.isError)
   const isLoading = useSelector(state => state.Signup.isLoading)
-  console.log('isLoading', isLoading)
+
+  useEffect(() => {
+    if (isError) {
+      return setMessageStatus('Your account already exists')
+    }
+  }, [isError])
 
   const onSignup = e => {
     e.preventDefault()
 
-    if (!isError) {
-      if (password.length < 6) {
-        setPassword('')
-        setPasswordConfirm('')
-        return setMessageStatus('The password must be more than 5 characters')
-      }
-
-      if (passwordConfirm !== password) {
-        setPassword('')
-        setPasswordConfirm('')
-        return setMessageStatus('The confirm password is incorrect !')
-      }
-
-      const signupInfo = {email, password}
-      dispatch(signupActions.loadSignupInfo(signupInfo))
-      return setMessageStatus('Your account was signed up successfully')
+    if (password.length < 6) {
+      setPassword('')
+      setPasswordConfirm('')
+      return setMessageStatus('The password must be more than 5 characters')
     }
 
-    return setMessageStatus('Your email or password is invalid')
+    if (passwordConfirm !== password) {
+      setPassword('')
+      setPasswordConfirm('')
+      return setMessageStatus('The confirm password is incorrect !')
+    }
+
+    const signupInfo = {email, password}
+    dispatch(signupActions.loadSignupInfo(signupInfo))
+    return setMessageStatus('Your account was signed up successfully')
   }
 
   const renderSignupTitle = () => {
@@ -71,6 +72,13 @@ const SignUp = () => {
     )
   }
 
+  const errorMessage = () => {
+    return <p className="red">{!isLoading ? messageStatus : ''}</p>
+  }
+
+  const successMessage = () => {
+    return <p className="green">{!isLoading ? messageStatus : ''}</p>
+  }
   const renderInputSection = () => {
     return (
       <form onSubmit={e => onSignup(e)}>
@@ -95,7 +103,7 @@ const SignUp = () => {
           value={passwordConfirm}
           required
         />
-        <p className={isError ? 'red' : 'green'}>{!isLoading ? messageStatus : ''}</p>
+        {isError ? errorMessage() : successMessage()}
         {isLoading ? renderLoadingButton() : renderSignupButton()}
         <div className="register-container">
           <p>Do you already have an account?</p>
