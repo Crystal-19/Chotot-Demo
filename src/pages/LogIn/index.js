@@ -19,7 +19,7 @@ const LogIn = () => {
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
   const accessToken = useSelector(state => state.Profile.accessToken)
-  
+console.log('isError', isError)
   const login = {email, password}
 
   useEffect(() => {
@@ -59,9 +59,10 @@ const LogIn = () => {
   }
 
   const renderLoginButton = () => {
+    const infoLength = email.length > 0 && password.length > 5
     return (
       <button
-        className={email.length > 0 && password.length > 5 ? 'active' : ''}>
+        className={!isError && infoLength ? 'active' : ''}>
         Log in
       </button>
     )
