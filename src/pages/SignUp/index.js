@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
+import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
@@ -17,6 +18,8 @@ const SignUp = () => {
 
   const isError = useSelector(state => state.Signup.isError)
   const isLoading = useSelector(state => state.Signup.isLoading)
+
+  const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
 
   useEffect(() => {
     if (isError) {
@@ -59,19 +62,6 @@ const SignUp = () => {
     )
   }
 
-  const renderLoadingButton = () => {
-    return <Button loading>Loading</Button>
-  }
-
-  const renderSignupButton = () => {
-    const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
-    return (
-      <button className={!isError && infoLength ? 'active' : ''}>
-        Registration
-      </button>
-    )
-  }
-
   const errorMessage = () => {
     return <p className="red">{!isLoading ? messageStatus : ''}</p>
   }
@@ -104,7 +94,7 @@ const SignUp = () => {
           required
         />
         {isError ? errorMessage() : successMessage()}
-        {isLoading ? renderLoadingButton() : renderSignupButton()}
+        <Button className={classNames({active: !isError && infoLength}, {loading: isLoading})}>Registration</Button>
         <div className="register-container">
           <p>Do you already have an account?</p>
           <Link to="/login">Log in</Link>
