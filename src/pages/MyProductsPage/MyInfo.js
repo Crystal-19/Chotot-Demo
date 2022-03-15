@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 const MyInfo = () => {
   const email = useSelector(state => state.Profile.userProfile.email)
   const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
+  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   const renderLeftInfo = () => {
@@ -45,7 +46,13 @@ const MyInfo = () => {
   const renderLastRightItem = () => {
     return (
       <li>
-        <Image src="https://www.chotot.com/user/static/img/check.png" />
+        <Image
+          src={
+            avatarUrl === null
+              ? 'https://www.chotot.com/user/static/img/check.png'
+              : avatarUrl
+          }
+        />
         <h3>
           Provided:
           <Image src="https://www.chotot.com/user/static/img/contact/facebook_active.png" />
@@ -85,7 +92,7 @@ const MyInfo = () => {
       </ul>
     )
   }
-  
+
   return (
     <div className="info-container">
       {renderLeftInfo()}

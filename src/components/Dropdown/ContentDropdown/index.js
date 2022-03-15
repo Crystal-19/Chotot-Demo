@@ -1,7 +1,7 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import * as profileActions from 'redux/actions/profileActions'
 import useAuth from 'hooks/useAuth'
 
@@ -12,6 +12,7 @@ const ContentDropdown = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const accessToken = useAuth()
+  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
 
   const onLogout = () => {
     dispatch(profileActions.logout())
@@ -41,7 +42,11 @@ const ContentDropdown = () => {
     return (
       <>
         <Image
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
+          src={
+            avatarUrl === null
+              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
+              : avatarUrl
+          }
           href="https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2F&_ga=2.190840619.1214802101.1640660618-451603730.1639971106"
           size="tiny"
           className="ava-image"

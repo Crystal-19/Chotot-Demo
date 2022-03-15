@@ -24,6 +24,7 @@ const Header = () => {
 
   const accessToken = useAuth()
   const email = useSelector(state => state.Profile.userProfile.email)
+  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -135,7 +136,11 @@ const Header = () => {
       <Link to="/my-products" className="log">
         <Image
           className="log-ava"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
+          src={
+            avatarUrl === null
+              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
+              : avatarUrl
+          }
         />
         <span>{email}</span>
       </Link>
