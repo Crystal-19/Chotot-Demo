@@ -1,5 +1,6 @@
 import * as authTypes from '../actionTypes/authTypes'
 import * as authRequest from '../api/authApi'
+import * as profileActions from '../actions/profileActions'
 
 export const getAccessToken = () => ({
   type: authTypes.GET_ACCESS_TOKEN,
@@ -20,16 +21,16 @@ export const getAccessTokenFailure = () => ({
 })
 
 export const postSignUpInfo = () => ({
-  type: authTypes.POST_SIGN_UP_INFO
+  type: authTypes.POST_SIGN_UP_INFO,
 })
 
-export const postSignupInfoSuccess = (signInfo) => ({
+export const postSignupInfoSuccess = signupInfo => ({
   type: authTypes.POST_SIGN_UP_INFO_SUCCESS,
-  payload: {signInfo}
+  payload: {signupInfo},
 })
 
 export const postSignupInfoFailure = () => ({
-  type: authTypes.POST_SIGN_UP_INFO_FAILURE
+  type: authTypes.POST_SIGN_UP_INFO_FAILURE,
 })
 
 export const postAccessToken = login => async dispatch => {
@@ -37,22 +38,29 @@ export const postAccessToken = login => async dispatch => {
     dispatch(getAccessToken())
 
     const response = await authRequest.authRequest(login)
+
     dispatch(getAccessTokenSuccess(response.data))
 
     const accessToken = response.data.access_token
+
     localStorage.setItem('accessToken', accessToken)
+
+    dispatch(profileActions.loadUserProfile())
   } catch {
     dispatch(getAccessTokenFailure())
   }
 }
 
-export const loadSignupInfo = (signupInfo) => async dispatch => {
-  try{
+export const loadSignupInfo = signupInfo => async dispatch => {
+  try {
     dispatch(postSignUpInfo())
 
-  const response = await authRequest.signupRequest(signupInfo)
-  dispatch(postSignupInfoSuccess(response.data))
-  }catch{
+    const response = await authRequest.signupRequest(signupInfo)
+
+    dispatch(postSignupInfoSuccess(response.data))
+
+    dispatch(postAccessToken(signupInfo))
+  } catch {
     dispatch(postSignupInfoFailure())
   }
 }

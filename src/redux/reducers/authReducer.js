@@ -1,7 +1,7 @@
 import * as authTypes from '../actionTypes/authTypes'
 
 const initialState = {
-  signInfo: {},
+  signupInfo: {},
   isLoading: false,
   isError: false,
 }
@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isError: false,
-        signInfo: payload.signupInfo,
+        signupInfo: payload.signupInfo,
       }
 
     case authTypes.POST_SIGN_UP_INFO_FAILURE:

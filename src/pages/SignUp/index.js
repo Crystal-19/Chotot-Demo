@@ -1,16 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react'
 
 import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import * as authActions from 'redux/actions/authActions'
 import Footer from 'components/Footer'
-
 import './styles.scss'
 
 const SignUp = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
@@ -18,6 +19,9 @@ const SignUp = () => {
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
+  const id = useSelector(state => state.Auth.signupInfo._id)
+
+  const signupInfo = {email, password}
 
   const infoLength = email.length > 0 && password > 5 && passwordConfirm > 5
 
@@ -25,7 +29,11 @@ const SignUp = () => {
     if (isError) {
       return setMessageStatus('Your account already exists')
     }
-  }, [isError])
+
+    if (id) {
+      navigate('/')
+    }
+  }, [isError, id])
 
   const onSignup = e => {
     e.preventDefault()
@@ -42,7 +50,6 @@ const SignUp = () => {
       return setMessageStatus('The confirm password is incorrect !')
     }
 
-    const signupInfo = {email, password}
     dispatch(authActions.loadSignupInfo(signupInfo))
     return setMessageStatus('Your account was signed up successfully')
   }
