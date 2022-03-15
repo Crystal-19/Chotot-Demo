@@ -12,6 +12,7 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+import useAuth from 'hooks/useAuth'
 
 import './styles.scss'
 
@@ -21,8 +22,9 @@ const Header = () => {
   const [value, setValue] = useState('')
   const [showDropDown, setShowDropDown] = useState(false)
 
-  const accessToken = useSelector(state => state.Profile.accessToken)
+  const accessToken = useAuth()
   const email = useSelector(state => state.Profile.userProfile.email)
+  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -120,6 +122,42 @@ const Header = () => {
     )
   }
 
+  const renderLoginBefore = () => {
+    return (
+      <Link to="/login" className="log">
+        <LogInIcon className="log-i" />
+        <span>Log in</span>
+      </Link>
+    )
+  }
+
+  const renderLoginAfter = () => {
+    return (
+      <Link to="/my-products" className="log">
+        <Image
+          className="log-ava"
+          src={
+            avatarUrl === null
+              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
+              : avatarUrl
+          }
+        />
+        <span>{email}</span>
+      </Link>
+    )
+  }
+
+  const renderRegister = () => {
+    return (
+      <Link to="/signup" className="reg-btn">
+        <div className="reg">
+          <RegisterIcon className="reg-i" />
+          <span>Register</span>
+        </div>
+      </Link>
+    )
+  }
+
   const renderBelowHeader = () => {
     return (
       <div className="header-container header-search-bar">
@@ -135,26 +173,8 @@ const Header = () => {
           />
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
-        {accessToken ? (
-          <div className="log">
-            <Image
-              className="log-ava"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU"
-            />
-            <span>{email}</span>
-          </div>
-        ) : (
-          <Link to="/login" className="log">
-            <LogInIcon className="log-i" />
-            <span>Log in</span>
-          </Link>
-        )}
-        <Link to="/signup" className="reg-btn">
-          <div className="reg">
-            <RegisterIcon className="reg-i" />
-            <span>Register</span>
-          </div>
-        </Link>
+        {accessToken ? renderLoginAfter() : renderLoginBefore()}
+        {!accessToken && renderRegister()}
       </div>
     )
   }
