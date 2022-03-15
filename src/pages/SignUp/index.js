@@ -29,6 +29,10 @@ const renderInputSection = () => {
         placeholder="Create a password with at lease 6 characters"
         type="password"
       />
+      <input
+        placeholder="Please confirm your password"
+        type="password"
+      />
       <button>Registration</button>
       <div className="register-container">
         <p>Do you already have an account?</p>
