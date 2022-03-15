@@ -46,6 +46,19 @@
         font-size: 10pt;
       }
 
+      .red{
+        color: $red;
+      }
+
+      .green{
+        color: $green;
+        font-size: 13px;
+      }
+
+      .active{
+        background: $light_blue;
+      }
+
       button {
         background-color: $button_gray;
         width: 100%;
