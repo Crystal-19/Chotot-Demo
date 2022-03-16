@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import {Divider, Placeholder} from 'semantic-ui-react'
+import {Divider, Placeholder, Icon} from 'semantic-ui-react'
 import {ReactComponent as PostImage} from 'assets/images/post.svg'
 import {useSelector, useDispatch} from 'react-redux'
 import * as productActions from 'redux/actions/productActions'
@@ -10,10 +10,15 @@ const MyPost = () => {
   const dispatch = useDispatch()
   const productPosted = useSelector(state => state.Product.productPosted.data)
   const isLoading = useSelector(state => state.Product.isLoading)
+  const {page, totalPages} = useSelector(state => state.Product.pagination)
 
   useEffect(() => {
     dispatch(productActions.loadProductPosted())
   }, [dispatch])
+
+  const onShowMore = () => {
+    dispatch(productActions.loadProduct(page + 1))
+  }
 
   const renderPlaceholder = () => {
     return (
@@ -75,6 +80,12 @@ const MyPost = () => {
         </div>
         <Divider section />
         {isLoading ? renderProductPlaceholder() : renderMyProductPosted()}
+        <div
+          onClick={onShowMore}
+          className={page < totalPages ? 'see-more' : 'hide-see-more'}>
+          <p>See more</p>
+          <Icon name="angle down" />
+        </div>
       </div>
     )
   }
