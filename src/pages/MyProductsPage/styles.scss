@@ -124,6 +124,11 @@
         margin: 0 10px 0 10px;
       }
 
+      .products-container {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+      }
+      
       .post-content {
         @include flex(column, center, center);
 

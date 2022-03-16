@@ -17,6 +17,9 @@ const initialState = {
   productRelated: [],
   productFilterByCategory: {data: []},
   productFilterByName: {data: []},
+  productPosted: {
+    data: [],
+  },
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -93,6 +96,20 @@ const ProductReducer = (state = initialState, action) => {
 
     case productTypes.GET_PRODUCT_FILTER_BY_NAME_FAILURE:
       return {...state, isLoading: false}
+
+    case productTypes.GET_PRODUCT_POSTED:
+      return {...state, isLoading: true, isError: false}
+
+    case productTypes.GET_PRODUCT_POSTED_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        productPosted: payload.productPosted,
+      }
+
+    case productTypes.GET_PRODUCT_POSTED_FAILURE:
+      return {...state, isError: true, isLoading: false}
 
     default:
       return state
