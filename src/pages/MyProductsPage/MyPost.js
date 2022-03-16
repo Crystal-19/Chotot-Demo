@@ -74,9 +74,15 @@ const MyPost = () => {
   const renderPosts = () => {
     return (
       <div className="posts-container">
-        <div className="post-title">
-          <h3>Posting</h3>
-          <span>Total products - {productPosted.length} {productPosted.length === 1 ? 'product' : 'products'}</span>
+        <div className="title-container">
+          <div className="post-title">
+            <h3>Posting</h3>
+            <span>
+              Total products - {productPosted.length}{' '}
+              {productPosted.length === 1 ? 'product' : 'products'}
+            </span>
+          </div>
+          <button> Post </button>
         </div>
         <Divider section />
         {isLoading ? renderProductPlaceholder() : renderMyProductPosted()}
