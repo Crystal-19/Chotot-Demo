@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import {Divider} from 'semantic-ui-react'
+import {Divider, Placeholder} from 'semantic-ui-react'
 import {ReactComponent as PostImage} from 'assets/images/post.svg'
 import {useSelector, useDispatch} from 'react-redux'
 import * as productActions from 'redux/actions/productActions'
@@ -9,10 +9,33 @@ import ProductCard from 'components/ProductCard'
 const MyPost = () => {
   const dispatch = useDispatch()
   const productPosted = useSelector(state => state.Product.productPosted.data)
+  const isLoading = useSelector(state => state.Product.isLoading)
 
   useEffect(() => {
     dispatch(productActions.loadProductPosted())
   }, [dispatch])
+
+  const renderPlaceholder = () => {
+    return (
+      <Placeholder>
+        <Placeholder.Line length="very long" />
+        <Placeholder.Line length="medium" />
+      </Placeholder>
+    )
+  }
+
+  const renderProductPlaceholder = () => {
+    const productPlaceholder = Array.from({length: 5})
+    return (
+      <div className="products-container">
+        {productPlaceholder.map((_, index) => (
+          <div className="product-container" key={index}>
+            {renderPlaceholder()}
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   const renderProductPosted = () => {
     return (
@@ -37,7 +60,13 @@ const MyPost = () => {
     )
   }
 
-  const renderPosts = (title, news, content, buttonContent) => {
+  const renderMyProductPosted = () => {
+    const checkProductPosted =
+      Array.isArray(productPosted) && productPosted.length === 0
+    return checkProductPosted ? renderProductEmpty() : renderProductPosted()
+  }
+
+  const renderPosts = () => {
     return (
       <div className="posts-container">
         <div className="post-title">
@@ -45,9 +74,7 @@ const MyPost = () => {
           <span>news - {productPosted.length} news</span>
         </div>
         <Divider section />
-        {Array.isArray(productPosted) && productPosted.length === 0
-          ? renderProductEmpty()
-          : renderProductPosted()}
+        {isLoading ? renderProductPlaceholder() : renderMyProductPosted()}
       </div>
     )
   }
