@@ -21,16 +21,16 @@ export const getAccessTokenFailure = () => ({
 })
 
 export const postSignUpInfo = () => ({
-  type: authTypes.POST_SIGN_UP_INFO,
+  type: authTypes.SIGN_UP,
 })
 
 export const postSignupInfoSuccess = signupInfo => ({
-  type: authTypes.POST_SIGN_UP_INFO_SUCCESS,
+  type: authTypes.SIGN_UP_SUCCESS,
   payload: {signupInfo},
 })
 
 export const postSignupInfoFailure = () => ({
-  type: authTypes.POST_SIGN_UP_INFO_FAILURE,
+  type: authTypes.SIGN_UP_FAILURE,
 })
 
 export const postAccessToken = (login) => async dispatch => {
@@ -52,7 +52,7 @@ export const postAccessToken = (login) => async dispatch => {
   }
 }
 
-export const loadSignupInfo = signupInfo => async dispatch => {
+export const handleSignup = signupInfo => async dispatch => {
   try {
     dispatch(postSignUpInfo())
 

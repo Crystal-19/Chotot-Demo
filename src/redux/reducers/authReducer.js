@@ -24,10 +24,10 @@ const authReducer = (state = initialState, action) => {
     case authTypes.GET_ACCESS_TOKEN_FAILURE:
       return {...state, isError: true, isLoading: false}
 
-    case authTypes.POST_SIGN_UP_INFO:
+    case authTypes.SIGN_UP:
       return {...state, isLoading: true, isError: false}
 
-    case authTypes.POST_SIGN_UP_INFO_SUCCESS:
+    case authTypes.SIGN_UP_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -35,7 +35,7 @@ const authReducer = (state = initialState, action) => {
         signupInfo: payload.signupInfo,
       }
 
-    case authTypes.POST_SIGN_UP_INFO_FAILURE:
+    case authTypes.SIGN_UP_FAILURE:
       return {...state, isLoading: false, isError: true}
 
     default:

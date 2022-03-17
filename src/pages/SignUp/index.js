@@ -50,7 +50,7 @@ const SignUp = () => {
       return setMessageStatus('The confirm password is incorrect !')
     }
 
-    dispatch(authActions.loadSignupInfo(signupInfo))
+    dispatch(authActions.handleSignup(signupInfo))
     return setMessageStatus('Your account was signed up successfully')
   }
 
