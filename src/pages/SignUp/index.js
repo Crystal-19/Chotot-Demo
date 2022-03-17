@@ -102,10 +102,9 @@ const SignUp = () => {
         />
         {isError ? errorMessage() : successMessage()}
         <Button
-          className={classNames(
-            {active: !isError && infoLength},
-            {loading: isLoading},
-          )}>
+          className={classNames({active: !isError && infoLength})}
+          disabled={!isError && infoLength ? false : true}
+          loading={isLoading ? true : false}>
           Registration
         </Button>
         <div className="register-container">
