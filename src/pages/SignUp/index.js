@@ -17,8 +17,6 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [messageStatus, setMessageStatus] = useState('')
-  const [visiblePassword, setVisiblePassword] = useState(false)
-  const [visibleConfirm, setVisibleConfirm] = useState(false)
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
@@ -75,6 +73,7 @@ const SignUp = () => {
   const successMessage = () => {
     return <p className="green">{!isLoading ? messageStatus : ''}</p>
   }
+
   const renderInputSection = () => {
     return (
       <form onSubmit={e => onSignup(e)}>
@@ -86,15 +85,11 @@ const SignUp = () => {
           required
         />
         <PasswordInput
-          visiblePassword={visiblePassword}
-          setVisiblePassword={setVisiblePassword}
           password={password}
           setPassword={setPassword}
           placeholder="At lease 6 character"
         />
         <PasswordInput
-          visiblePassword={visibleConfirm}
-          setVisiblePassword={setVisibleConfirm}
           password={passwordConfirm}
           setPassword={setPasswordConfirm}
           placeholder="Please confirm your password"

@@ -15,7 +15,6 @@ import './styles.scss'
 const LogIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [visiblePassword, setVisiblePassword] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -64,8 +63,6 @@ const LogIn = () => {
           required
         />
         <PasswordInput
-          visiblePassword={visiblePassword}
-          setVisiblePassword={setVisiblePassword}
           password={password}
           setPassword={setPassword}
           placeholder="Enter your password"
