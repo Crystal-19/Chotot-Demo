@@ -21,7 +21,7 @@ const LogIn = () => {
   const isLoading = useSelector(state => state.Auth.isLoading)
   const info = useSelector(state => state.Profile.userProfile.email)
 
-  const login = {email, password}
+  const loginInfo = {email, password}
   const infoLength = email.length > 0 && password.length > 5
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const LogIn = () => {
 
   const onLogin = e => {
     e.preventDefault()
-    dispatch(authActions.postAccessToken(login, navigate))
+    dispatch(authActions.handleLogin(loginInfo))
   }
 
   const renderLoginTitle = () => {

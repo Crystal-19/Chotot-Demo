@@ -10,10 +10,10 @@ const authReducer = (state = initialState, action) => {
   const {type, payload} = action
 
   switch (type) {
-    case authTypes.GET_ACCESS_TOKEN:
+    case authTypes.LOG_IN:
       return {...state, isError: false, isLoading: true}
 
-    case authTypes.GET_ACCESS_TOKEN_SUCCESS:
+    case authTypes.LOG_IN_SUCCESS:
       return {
         ...state,
         isError: false,
@@ -21,7 +21,7 @@ const authReducer = (state = initialState, action) => {
         accessToken: payload.userInfo.access_token,
       }
 
-    case authTypes.GET_ACCESS_TOKEN_FAILURE:
+    case authTypes.LOG_IN_FAILURE:
       return {...state, isError: true, isLoading: false}
 
     case authTypes.SIGN_UP:

@@ -2,66 +2,60 @@ import * as authTypes from '../actionTypes/authTypes'
 import * as authRequest from '../api/authApi'
 import * as profileActions from '../actions/profileActions'
 
-export const getAccessToken = () => ({
-  type: authTypes.GET_ACCESS_TOKEN,
+export const login = () => ({
+  type: authTypes.LOG_IN,
 })
 
-export const getAccessTokenSuccess = (
-  userInfo,
-  accessToken,
-  email,
-  createdAt,
-) => ({
-  type: authTypes.GET_ACCESS_TOKEN_SUCCESS,
+export const loginSuccess = (userInfo, accessToken, email, createdAt) => ({
+  type: authTypes.LOG_IN_SUCCESS,
   payload: {userInfo, accessToken, email, createdAt},
 })
 
-export const getAccessTokenFailure = () => ({
-  type: authTypes.GET_ACCESS_TOKEN_FAILURE,
+export const loginFailure = () => ({
+  type: authTypes.LOG_IN_FAILURE,
 })
 
-export const postSignUpInfo = () => ({
+export const signup = () => ({
   type: authTypes.SIGN_UP,
 })
 
-export const postSignupInfoSuccess = signupInfo => ({
+export const signupSuccess = signupInfo => ({
   type: authTypes.SIGN_UP_SUCCESS,
   payload: {signupInfo},
 })
 
-export const postSignupInfoFailure = () => ({
+export const signupFailure = () => ({
   type: authTypes.SIGN_UP_FAILURE,
 })
 
-export const postAccessToken = (login) => async dispatch => {
+export const handleLogin = loginInfo => async dispatch => {
   try {
-    dispatch(getAccessToken())
+    dispatch(login())
 
-    const response = await authRequest.authRequest(login)
+    const response = await authRequest.loginRequest(loginInfo)
 
-    dispatch(getAccessTokenSuccess(response.data))
+    dispatch(loginSuccess(response.data))
 
     const accessToken = response.data.access_token
 
     localStorage.setItem('accessToken', accessToken)
 
     dispatch(profileActions.loadUserProfile())
-
   } catch {
-    dispatch(getAccessTokenFailure())
+    dispatch(loginFailure())
   }
 }
 
 export const handleSignup = signupInfo => async dispatch => {
   try {
-    dispatch(postSignUpInfo())
+    dispatch(signup())
 
     const response = await authRequest.signupRequest(signupInfo)
 
-    dispatch(postSignupInfoSuccess(response.data))
+    dispatch(signupSuccess(response.data))
 
-    dispatch(postAccessToken(signupInfo))
+    dispatch(handleLogin(signupInfo))
   } catch {
-    dispatch(postSignupInfoFailure())
+    dispatch(signupFailure())
   }
 }
