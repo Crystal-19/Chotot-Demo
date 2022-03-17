@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react'
 
 import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image, Button, Icon} from 'semantic-ui-react'
+import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
+import VisiblePassword from 'components/VisiblePassword'
 
 import Footer from 'components/Footer'
 
@@ -35,10 +36,6 @@ const LogIn = () => {
   const onLogin = e => {
     e.preventDefault()
     dispatch(authActions.handleLogin(loginInfo))
-  }
-
-  const handleVisiblePassword = () => {
-    setVisiblePassword(!visiblePassword)
   }
 
   const renderLoginTitle = () => {
@@ -74,9 +71,9 @@ const LogIn = () => {
             onChange={e => setPassword(e.target.value)}
             required
           />
-          <Icon
-            onClick={handleVisiblePassword}
-            name={visiblePassword ? 'eye slash outline' : 'eye'}
+          <VisiblePassword
+            visiblePassword={visiblePassword}
+            setVisiblePassword={setVisiblePassword}
           />
         </div>
         {isError && (
