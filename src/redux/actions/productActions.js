@@ -83,6 +83,19 @@ export const getProductFilterByNameFailure = () => ({
   type: productTypes.GET_PRODUCT_FILTER_BY_NAME_FAILURE,
 })
 
+export const getProductPosted = () => ({
+  type: productTypes.GET_PRODUCT_POSTED,
+})
+
+export const getProductPostedSuccess = productPosted => ({
+  type: productTypes.GET_PRODUCT_POSTED_SUCCESS,
+  payload: {productPosted},
+})
+
+export const getProductPostedFailure = () => ({
+  type: productTypes.GET_PRODUCT_POSTED_FAILURE,
+})
+
 export const loadProduct = pageNumber => async dispatch => {
   try {
     dispatch(getProduct())
@@ -140,5 +153,17 @@ export const loadProductFilterByName = name => async dispatch => {
     dispatch(getProductFilterByNameSuccess(response.data))
   } catch {
     dispatch(getProductFilterByNameFailure())
+  }
+}
+
+export const loadProductPosted = pageNumber => async dispatch => {
+  try {
+    dispatch(getProductPosted())
+
+    const response = await productRequest.getProductPostedRequest(pageNumber)
+
+    dispatch(getProductPostedSuccess(response.data))
+  } catch {
+    dispatch(getProductPostedFailure())
   }
 }

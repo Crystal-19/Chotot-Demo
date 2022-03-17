@@ -106,22 +106,61 @@
       background-color: $white;
       margin: 15px 0 15px 0;
 
-      .post-title {
-        @include flex(row, center, flex-start);
-        margin-right: 10px;
-        padding: 10px;
+      .title-container {
+        @include flex(row, center, space-between);
 
-        h3 {
-          margin: 0 10px 0 0;
+        .post-title {
+          @include flex(row, center, flex-start);
+          margin-right: 10px;
+          padding: 10px;
+
+          h3 {
+            margin: 0 10px 0 0;
+          }
+
+          span {
+            color: $medium_gray;
+          }
         }
 
-        span {
-          color: $medium_gray;
+        button {
+          margin-right: 10px;
+          width: 65px;
+          background: $pink;
+          border: solid 1px $pink;
+          cursor: pointer;
+
+          &:hover {
+            border: solid 2px $black;
+          }
         }
       }
 
       .ui.section.divider {
         margin: 0 10px 0 10px;
+      }
+
+      .products-container {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+      }
+
+      .see-more {
+        @include flex(row, center, center);
+        background-color: $pale_gray;
+        height: 44px;
+        color: $light_blue;
+        font-size: 12pt;
+        cursor: pointer;
+
+        p {
+          margin-bottom: 0;
+          font-weight: bold;
+        }
+      }
+
+      .hide-see-more {
+        display: none;
       }
 
       .post-content {
