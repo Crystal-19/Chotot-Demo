@@ -13,11 +13,10 @@ import './styles.scss'
 dayjs.extend(relativeTime)
 
 const ProductCard = ({product}) => {
-  const {_id, imageUrl, name, price, icon, location, createdAt} = product
+  const {_id, imageUrl, name, price, icon, location, createdAt, author} =
+    product
   const currentTime = dayjs(createdAt).fromNow()
-  const productList = useSelector(state => state.Product.productList)
   const userId = useSelector(state => state.Profile.userProfile._id)
-  const myProducts = productList.filter(pd => pd.author === userId)
 
   const renderDropdown = () => {
     return (
@@ -32,9 +31,7 @@ const ProductCard = ({product}) => {
 
   return (
     <div className="product-container">
-      {myProducts.map(pd => (
-        <div key={pd._id}>{renderDropdown()}</div>
-      ))}
+      {author === userId && renderDropdown()}
       <Link to={`/product/${_id}`}>
         <Image className="product-img" src={imageUrl} />
         <p>{name}</p>
