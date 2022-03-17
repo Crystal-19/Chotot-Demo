@@ -6,7 +6,7 @@ import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
-import VisiblePassword from 'components/VisiblePassword'
+import PasswordInput from 'components/VisiblePassword'
 
 import Footer from 'components/Footer'
 
@@ -63,19 +63,13 @@ const LogIn = () => {
           type="email"
           required
         />
-        <div className="password-input-container">
-          <input
-            value={password}
-            placeholder="Enter your password"
-            type={visiblePassword ? 'text' : 'password'}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-          <VisiblePassword
-            visiblePassword={visiblePassword}
-            setVisiblePassword={setVisiblePassword}
-          />
-        </div>
+        <PasswordInput
+          visiblePassword={visiblePassword}
+          setVisiblePassword={setVisiblePassword}
+          password={password}
+          setPassword={setPassword}
+          placeholder="Enter your password"
+        />
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}

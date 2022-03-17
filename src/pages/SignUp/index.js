@@ -6,7 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 import * as authActions from 'redux/actions/authActions'
-import VisiblePassword from 'components/VisiblePassword'
+import PasswordInput from 'components/VisiblePassword'
 import Footer from 'components/Footer'
 import './styles.scss'
 
@@ -85,32 +85,20 @@ const SignUp = () => {
           type="email"
           required
         />
-        <div className="password-input-container">
-          <input
-            placeholder="At lease 6 characters"
-            type={visiblePassword ? 'text' : 'password'}
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-          <VisiblePassword
-            visiblePassword={visiblePassword}
-            setVisiblePassword={setVisiblePassword}
-          />
-        </div>
-        <div className="password-input-container">
-          <input
-            placeholder="Please confirm your password"
-            type={visibleConfirm ? 'text' : 'password'}
-            onChange={e => setPasswordConfirm(e.target.value)}
-            value={passwordConfirm}
-            required
-          />
-          <VisiblePassword
-            visiblePassword={visibleConfirm}
-            setVisiblePassword={setVisibleConfirm}
-          />
-        </div>
+        <PasswordInput
+          visiblePassword={visiblePassword}
+          setVisiblePassword={setVisiblePassword}
+          password={password}
+          setPassword={setPassword}
+          placeholder="At lease 6 character"
+        />
+        <PasswordInput
+          visiblePassword={visibleConfirm}
+          setVisiblePassword={setVisibleConfirm}
+          password={passwordConfirm}
+          setPassword={setPasswordConfirm}
+          placeholder="Please confirm your password"
+        />
         {isError ? errorMessage() : successMessage()}
         <Button
           className={classNames({active: !isError && infoLength})}
