@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react'
 
 import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image, Button, Icon} from 'semantic-ui-react'
+import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 import * as authActions from 'redux/actions/authActions'
+import VisiblePassword from 'components/VisiblePassword'
 import Footer from 'components/Footer'
 import './styles.scss'
 
@@ -52,14 +53,6 @@ const SignUp = () => {
     return setMessageStatus('Your account was signed up successfully')
   }
 
-  const handleVisiblePassword = () => {
-    setVisiblePassword(!visiblePassword)
-  }
-
-  const handleVisibleConfirm = () => {
-    setVisibleConfirm(!visibleConfirm)
-  }
-
   const renderSignupTitle = () => {
     return (
       <div className="signup-title">
@@ -100,9 +93,9 @@ const SignUp = () => {
             value={password}
             required
           />
-          <Icon
-            onClick={handleVisiblePassword}
-            name={visiblePassword ? 'eye slash outline' : 'eye'}
+          <VisiblePassword
+            visiblePassword={visiblePassword}
+            setVisiblePassword={setVisiblePassword}
           />
         </div>
         <div className="password-input-container">
@@ -113,9 +106,9 @@ const SignUp = () => {
             value={passwordConfirm}
             required
           />
-          <Icon
-            onClick={handleVisibleConfirm}
-            name={visibleConfirm ? 'eye slash outline' : 'eye'}
+          <VisiblePassword
+            visiblePassword={visibleConfirm}
+            setVisiblePassword={setVisibleConfirm}
           />
         </div>
         {isError ? errorMessage() : successMessage()}
