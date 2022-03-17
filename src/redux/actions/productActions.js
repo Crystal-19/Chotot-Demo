@@ -156,7 +156,7 @@ export const loadProductFilterByName = name => async dispatch => {
   }
 }
 
-export const loadProductPosted = (pageNumber) => async dispatch => {
+export const loadProductPosted = pageNumber => async dispatch => {
   try {
     dispatch(getProductPosted())
 

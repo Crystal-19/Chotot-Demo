@@ -2,7 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
-// import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Image, Icon, Dropdown} from 'semantic-ui-react'
 
@@ -14,13 +14,10 @@ dayjs.extend(relativeTime)
 
 const ProductCard = ({product}) => {
   const {_id, imageUrl, name, price, icon, location, createdAt} = product
-  // const myProducts = useSelector(state => state.Product.productPosted.data)
-  // const productList = useSelector(state => state.Product.productList)
   const currentTime = dayjs(createdAt).fromNow()
-
-  // const myProductsId = productList.forEach(pd => {
-  //   myProducts.forEach(pds => pd._id === pds._id)
-  // })
+  const productList = useSelector(state => state.Product.productList)
+  const userId = useSelector(state => state.Profile.userProfile._id)
+  const myProducts = productList.filter(pd => pd.author === userId)
 
   const renderDropdown = () => {
     return (
@@ -35,7 +32,9 @@ const ProductCard = ({product}) => {
 
   return (
     <div className="product-container">
-      {renderDropdown()}
+      {myProducts.map(pd => (
+        <div key={pd._id}>{renderDropdown()}</div>
+      ))}
       <Link to={`/product/${_id}`}>
         <Image className="product-img" src={imageUrl} />
         <p>{name}</p>
