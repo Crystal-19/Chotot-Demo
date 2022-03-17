@@ -19,7 +19,7 @@ const SignUp = () => {
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
-  const id = useSelector(state => state.Auth.signupInfo._id)
+  const info = useSelector(state => state.Profile.userProfile.email)
 
   const signupInfo = {email, password}
 
@@ -30,10 +30,10 @@ const SignUp = () => {
       return setMessageStatus('Your account already exists')
     }
 
-    if (id) {
+    if (info) {
       navigate('/')
     }
-  }, [isError, id])
+  }, [isError, info])
 
   const onSignup = e => {
     e.preventDefault()
