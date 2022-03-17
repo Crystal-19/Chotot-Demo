@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image, Button} from 'semantic-ui-react'
+import {Image, Button, Icon} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 import * as authActions from 'redux/actions/authActions'
 import Footer from 'components/Footer'
@@ -16,6 +16,8 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [messageStatus, setMessageStatus] = useState('')
+  const [visiblePassword, setVisiblePassword] = useState(false)
+  const [visibleConfirm, setVisibleConfirm] = useState(false)
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
@@ -39,19 +41,23 @@ const SignUp = () => {
     e.preventDefault()
 
     if (password.length < 6) {
-      setPassword('')
-      setPasswordConfirm('')
       return setMessageStatus('The password must be more than 5 characters')
     }
 
     if (passwordConfirm !== password) {
-      setPassword('')
-      setPasswordConfirm('')
       return setMessageStatus('The confirm password is incorrect !')
     }
 
     dispatch(authActions.handleSignup(signupInfo))
     return setMessageStatus('Your account was signed up successfully')
+  }
+
+  const handleVisiblePassword = () => {
+    setVisiblePassword(!visiblePassword)
+  }
+
+  const handleVisibleConfirm = () => {
+    setVisibleConfirm(!visibleConfirm)
   }
 
   const renderSignupTitle = () => {
@@ -86,20 +92,32 @@ const SignUp = () => {
           type="email"
           required
         />
-        <input
-          placeholder="Create a password with at lease 6 characters"
-          type="password"
-          onChange={e => setPassword(e.target.value)}
-          value={password}
-          required
-        />
-        <input
-          placeholder="Please confirm your password"
-          type="password"
-          onChange={e => setPasswordConfirm(e.target.value)}
-          value={passwordConfirm}
-          required
-        />
+        <div className="password-input-container">
+          <input
+            placeholder="At lease 6 characters"
+            type={visiblePassword ? 'text' : 'password'}
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+          <Icon
+            onClick={handleVisiblePassword}
+            name={visiblePassword ? 'eye slash outline' : 'eye'}
+          />
+        </div>
+        <div className="password-input-container">
+          <input
+            placeholder="Please confirm your password"
+            type={visibleConfirm ? 'text' : 'password'}
+            onChange={e => setPasswordConfirm(e.target.value)}
+            value={passwordConfirm}
+            required
+          />
+          <Icon
+            onClick={handleVisibleConfirm}
+            name={visibleConfirm ? 'eye slash outline' : 'eye'}
+          />
+        </div>
         {isError ? errorMessage() : successMessage()}
         <Button
           className={classNames({active: !isError && infoLength})}
