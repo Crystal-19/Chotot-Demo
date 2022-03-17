@@ -25,7 +25,7 @@ const Header = () => {
   const accessToken = useAuth()
   const email = useSelector(state => state.Profile.userProfile.email)
   const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
-
+console.log('email', email)
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
   )

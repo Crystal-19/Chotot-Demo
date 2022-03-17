@@ -33,7 +33,7 @@ export const postSignupInfoFailure = () => ({
   type: authTypes.POST_SIGN_UP_INFO_FAILURE,
 })
 
-export const postAccessToken = login => async dispatch => {
+export const postAccessToken = (login) => async dispatch => {
   try {
     dispatch(getAccessToken())
 
@@ -46,6 +46,7 @@ export const postAccessToken = login => async dispatch => {
     localStorage.setItem('accessToken', accessToken)
 
     dispatch(profileActions.loadUserProfile())
+
   } catch {
     dispatch(getAccessTokenFailure())
   }

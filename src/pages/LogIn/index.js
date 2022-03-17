@@ -19,21 +19,21 @@ const LogIn = () => {
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
-  const accessToken = useSelector(state => state.Profile.accessToken)
+  const info = useSelector(state => state.Profile.userProfile.email)
 
   const login = {email, password}
   const infoLength = email.length > 0 && password.length > 5
 
   useEffect(() => {
-    if (accessToken) {
+    if (info) {
       navigate('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken])
+  }, [info])
 
   const onLogin = e => {
     e.preventDefault()
-    dispatch(authActions.postAccessToken(login))
+    dispatch(authActions.postAccessToken(login, navigate))
   }
 
   const renderLoginTitle = () => {
