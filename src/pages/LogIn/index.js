@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
-import {Image, Button} from 'semantic-ui-react'
+import {Image, Button, Icon} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
@@ -14,6 +14,7 @@ import './styles.scss'
 const LogIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [visiblePassword, setVisiblePassword] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -34,6 +35,10 @@ const LogIn = () => {
   const onLogin = e => {
     e.preventDefault()
     dispatch(authActions.handleLogin(loginInfo))
+  }
+
+  const handleVisiblePassword = () => {
+    setVisiblePassword(!visiblePassword)
   }
 
   const renderLoginTitle = () => {
@@ -61,13 +66,19 @@ const LogIn = () => {
           type="email"
           required
         />
-        <input
-          value={password}
-          placeholder="Enter your password"
-          type="password"
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
+        <div className="password-input-container">
+          <input
+            value={password}
+            placeholder="Enter your password"
+            type={visiblePassword ? 'text' : 'password'}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+          <Icon
+            onClick={handleVisiblePassword}
+            name={visiblePassword ? 'eye slash outline' : 'eye'}
+          />
+        </div>
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
