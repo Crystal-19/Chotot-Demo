@@ -30,6 +30,16 @@
     cursor: pointer;
     right: 5px;
     top: 195px;
+
+    .edit{
+      span{
+        font-weight: 700;
+      }
+    }
+
+    .remove{
+      color: $remove;
+    }
   }
 
   .product-img {

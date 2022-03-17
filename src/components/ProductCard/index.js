@@ -22,8 +22,14 @@ const ProductCard = ({product}) => {
     return (
       <Dropdown pointing="right" icon="ellipsis vertical" className="vertical">
         <Dropdown.Menu>
-          <Dropdown.Item>Edit</Dropdown.Item>
-          <Dropdown.Item>Delete</Dropdown.Item>
+          <Dropdown.Item className="edit">
+            <Icon name="pencil alternate" />
+            <span>Edit</span>
+          </Dropdown.Item>
+          <Dropdown.Item className="remove">
+            <Icon name="trash" />
+            <span>Remove</span>
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     )
