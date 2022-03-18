@@ -17,6 +17,7 @@ import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
 import ProtectedRoute from 'components/ProtectedRoute'
+import CreateProduct from 'components/CreateProduct'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           element={<ProductFilterByCategory />}
         />
         <Route path="/name/:words/products" element={<ProductFilterByName />} />
+        <Route path="/create-product" element={<CreateProduct />} />
       </Routes>
       <SideNav />
     </BrowserRouter>

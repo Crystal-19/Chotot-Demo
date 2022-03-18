@@ -160,7 +160,7 @@ const Header = () => {
 
   const renderPost = () => {
     return (
-      <Link to="" className="reg-btn">
+      <Link to="/create-product" className="reg-btn">
         <div className="reg">
           <RegisterIcon className="reg-i" />
           <span>Post</span>
@@ -168,7 +168,7 @@ const Header = () => {
       </Link>
     )
   }
-  
+
   const renderBelowHeader = () => {
     return (
       <div className="header-container header-search-bar">
