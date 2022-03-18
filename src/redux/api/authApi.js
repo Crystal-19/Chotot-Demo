@@ -1,3 +1,5 @@
 import API from './API'
 
-export const authRequest = (login) => API.post('/auth/login', login)
+export const loginRequest = loginInfo => API.post('/auth/login', loginInfo)
+
+export const signupRequest = signupInfo => API.post('/users', signupInfo)

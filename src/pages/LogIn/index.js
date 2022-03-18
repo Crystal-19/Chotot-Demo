@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+
+import classNames from 'classnames'
 import {useSelector, useDispatch} from 'react-redux'
 import {Image, Button} from 'semantic-ui-react'
 import {Link, useNavigate} from 'react-router-dom'
 
 import * as authActions from 'redux/actions/authActions'
-import * as profileActions from 'redux/actions/profileActions'
+import PasswordInput from 'components/VisiblePassword'
 
 import Footer from 'components/Footer'
 
@@ -18,29 +20,21 @@ const LogIn = () => {
 
   const isError = useSelector(state => state.Auth.isError)
   const isLoading = useSelector(state => state.Auth.isLoading)
-  const accessToken = useSelector(state => state.Profile.accessToken)
-  
-  const login = {email, password}
+  const info = useSelector(state => state.Profile.userProfile.email)
+
+  const loginInfo = {email, password}
+  const infoLength = email.length > 0 && password.length > 5
 
   useEffect(() => {
-    if (accessToken) {
-      dispatch(profileActions.loadUserProfile())
+    if (info) {
       navigate('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken])
-
-  const setUserName = e => {
-    setEmail(e.target.value)
-  }
-
-  const setUserPassword = e => {
-    setPassword(e.target.value)
-  }
+  }, [info])
 
   const onLogin = e => {
     e.preventDefault()
-    dispatch(authActions.postAccessToken(login))
+    dispatch(authActions.handleLogin(loginInfo))
   }
 
   const renderLoginTitle = () => {
@@ -58,40 +52,30 @@ const LogIn = () => {
     )
   }
 
-  const renderLoginButton = () => {
-    return (
-      <button
-        className={email.length > 0 && password.length > 5 ? 'active' : ''}>
-        Log in
-      </button>
-    )
-  }
-
-  const renderLoadingButton = () => {
-    return <Button loading>Loading</Button>
-  }
-
   const renderInputSection = () => {
     return (
       <form onSubmit={onLogin}>
         <input
           value={email}
           placeholder="Enter your email"
-          onChange={e => setUserName(e)}
+          onChange={e => setEmail(e.target.value)}
           type="email"
           required
         />
-        <input
-          value={password}
+        <PasswordInput
+          password={password}
+          setPassword={setPassword}
           placeholder="Enter your password"
-          type="password"
-          onChange={e => setUserPassword(e)}
-          required
         />
         {isError && (
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
-        {isLoading ? renderLoadingButton() : renderLoginButton()}
+        <Button
+          className={classNames({active: !isError && infoLength})}
+          disabled={!isError && infoLength ? false : true}
+          loading={isLoading ? true : false}>
+          Log in
+        </Button>
         <div className="register-container">
           <p>No account?</p>
           <Link to="/signup">register now</Link>
