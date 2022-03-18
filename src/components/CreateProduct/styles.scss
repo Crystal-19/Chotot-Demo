@@ -142,31 +142,34 @@
         @include flex(row, center, space-between);
         width: 100%;
 
-        button {
+        button.post {
           width: 48%;
           height: 56px;
           font-size: 20px;
           border-radius: 4px;
+          border: solid 2px $orange;
+          background-color: $orange;
+          color: $white;
 
-          &.preview {
-            border: solid 2px $orange;
-            color: $orange;
-            background-color: $white;
-
-            &:hover {
-              background: $light_orange;
-            }
+          &:hover {
+            background-color: $medium_orange;
+            border: solid $medium_orange;
           }
+        }
 
-          &.post {
-            border: solid 2px $orange;
-            background-color: $orange;
-            color: $white;
+        .preview {
+          @include flex(row, center, center);
+          width: 48%;
+          height: 56px;
+          font-size: 20px;
+          border-radius: 4px;
+          border: solid 2px $orange;
+          color: $orange;
+          background-color: $white;
+          text-decoration: none;
 
-            &:hover {
-              background-color: $medium_orange;
-              border: solid $medium_orange;
-            }
+          &:hover {
+            background: $light_orange;
           }
         }
       }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 import {Dropdown, Menu, Modal, Icon, Image} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 
@@ -94,7 +95,7 @@ const CreateProduct = () => {
           {renderTextarea()}
         </form>
         <div className="button-container">
-          <button className="preview">Preview</button>
+          <Link to='/preview-product' className="preview">Preview</Link>
           <button className="post">Post</button>
         </div>
       </div>
