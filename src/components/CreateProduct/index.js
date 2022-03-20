@@ -96,8 +96,8 @@ const CreateProduct = () => {
   const renderInput = ({id, type}) => {
     return (
       <div className="input-container">
-        <input id={id} type={type} required placeholder="hide" />
-        <label htmlFor={id}>Name</label>
+        <input id={id} type={type} placeholder={id} required/>
+        <label htmlFor={id}>{id}</label>
       </div>
     )
   }
@@ -105,7 +105,7 @@ const CreateProduct = () => {
   const renderTextarea = () => {
     return (
       <div className="input-container">
-        <textarea id="description" type="text" required placeholder="hide" />
+        <textarea id="description" type="text" required />
         <label htmlFor="description">Detailed Description</label>
       </div>
     )
@@ -125,9 +125,9 @@ const CreateProduct = () => {
             />
           </Menu>
           <h2>Details</h2>
-          {renderInput('name', 'text')}
-          {renderInput('price', 'number')}
-          {renderInput('location', 'text')}
+          {renderInput({id: 'Name', type: 'text'})}
+          {renderInput({id: 'Price', type: 'number'})}
+          {renderInput({id: 'Location', type: 'text',})}
           {renderTextarea()}
         </form>
         <div className="button-container">
