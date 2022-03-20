@@ -10,6 +10,7 @@ import './styles.scss'
 
 const CreateProduct = () => {
   const [open, setOpen] = useState(true)
+  const [imageUpload, setImageUpload] = useState(null)
 
   const categories = [
     {
@@ -56,6 +57,10 @@ const CreateProduct = () => {
     },
   ]
 
+  const handleImageUpload = e => {
+    setImageUpload(URL.createObjectURL(e.target.files[0]))
+  }
+
   const renderModal = () => {
     return (
       <Modal
@@ -85,7 +90,11 @@ const CreateProduct = () => {
   const renderImageUpload = () => {
     return (
       <div className="image-upload-container">
-        <input type="file" className="file" />
+        <input
+          type="file"
+          className="file"
+          onChange={e => handleImageUpload(e)}
+        />
         <div className="image-upload">
           <CameraIcon />
           <Plus className="plus" />
@@ -123,7 +132,7 @@ const CreateProduct = () => {
           {renderTextarea()}
         </form>
         <div className="button-container">
-          <Link to="/preview-product" className='preview-container'>
+          <Link to="/preview-product" className="preview-container">
             <Button color="orange" className="preview">
               Preview
             </Button>
@@ -140,7 +149,11 @@ const CreateProduct = () => {
     <div className="background-container">
       <div className="create-product-container general-container">
         {renderModal()}
-        {renderImageUpload()}
+        {imageUpload === null ? (
+          renderImageUpload()
+        ) : (
+          <Image className="img-uploaded" src={imageUpload} />
+        )}
         {renderForm()}
       </div>
     </div>
