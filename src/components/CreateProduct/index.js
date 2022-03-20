@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
-import {Dropdown, Menu, Modal, Icon, Image} from 'semantic-ui-react'
+import {Dropdown, Menu, Modal, Icon, Image, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
-import Input from 'components/Input'
+import FloatLabelInput from 'components/FloatLabelInput'
 
 import './styles.scss'
 
@@ -117,16 +117,20 @@ const CreateProduct = () => {
             />
           </Menu>
           <h2>Details</h2>
-          <Input id="Name" type="text" />
-          <Input id="Price" type="number" />
-          <Input id="Location" type="text" />
+          <FloatLabelInput id="Name" type="text" />
+          <FloatLabelInput id="Price" type="number" />
+          <FloatLabelInput id="Location" type="text" />
           {renderTextarea()}
         </form>
         <div className="button-container">
-          <Link to="/preview-product" className="preview">
-            Preview
+          <Link to="/preview-product" className='preview-container'>
+            <Button color="orange" className="preview">
+              Preview
+            </Button>
           </Link>
-          <button className="post">Post</button>
+          <Button color="orange" className="post">
+            Register
+          </Button>
         </div>
       </div>
     )

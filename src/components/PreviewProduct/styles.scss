@@ -49,15 +49,21 @@
     }
 
     .button-container {
-      @include flex(row, center, space-around);
+      @include flex(row, center, space-evenly);
       width: 100%;
-      margin: 20px 0;
+      margin: 30px 0;
 
+      button.correct,
       button.register-now {
-        width: 40%;
+        @include flex(row, center, center);
         height: 40px;
         font-size: 20px;
         border-radius: 4px;
+        border: solid 2px $orange;
+      }
+
+      button.register-now {
+        width: 40%;
         border: solid 2px $orange;
         background-color: $orange;
         color: $white;
@@ -68,19 +74,17 @@
         }
       }
 
-      .correct {
-        @include flex(row, center, center);
+      .correct-container {
         width: 40%;
-        height: 40px;
-        font-size: 20px;
-        border-radius: 4px;
-        border: solid 2px $orange;
-        color: $orange;
-        background-color: $white;
-        text-decoration: none;
 
-        &:hover {
-          background: $light_orange;
+        button.correct {
+          width: 100%;
+          color: $orange;
+          background-color: $white;
+
+          &:hover {
+            background: $light_orange;
+          }
         }
       }
     }
