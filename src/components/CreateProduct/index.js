@@ -4,6 +4,7 @@ import {Dropdown, Menu, Modal, Icon, Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
+import Input from 'components/Input'
 
 import './styles.scss'
 
@@ -93,15 +94,6 @@ const CreateProduct = () => {
     )
   }
 
-  const renderInput = ({id, type}) => {
-    return (
-      <div className="input-container">
-        <input id={id} type={type} placeholder={id} required/>
-        <label htmlFor={id}>{id}</label>
-      </div>
-    )
-  }
-
   const renderTextarea = () => {
     return (
       <div className="input-container">
@@ -125,9 +117,9 @@ const CreateProduct = () => {
             />
           </Menu>
           <h2>Details</h2>
-          {renderInput({id: 'Name', type: 'text'})}
-          {renderInput({id: 'Price', type: 'number'})}
-          {renderInput({id: 'Location', type: 'text',})}
+          <Input id="Name" type="text" />
+          <Input id="Price" type="number" />
+          <Input id="Location" type="text" />
           {renderTextarea()}
         </form>
         <div className="button-container">
