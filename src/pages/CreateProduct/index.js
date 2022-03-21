@@ -1,20 +1,24 @@
 import React, {useState} from 'react'
 
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {Icon, Image, Button} from 'semantic-ui-react'
+
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
+
 import FloatLabelInput from 'components/FloatLabelInput'
 import PreviewProduct from 'components/PreviewProduct'
 import CategoryModal from 'components/CategoryModal'
-import * as productActions from 'redux/actions/productActions'
 
+import * as productActions from 'redux/actions/productActions'
 import API from 'redux/api/API'
 
 import './styles.scss'
 
 const CreateProduct = () => {
   const dispatch = useDispatch()
+  const [open, setOpen] = useState(true)
+  const [categoryName, setCategoryName] = useState('')
   const [imageUpload, setImageUpload] = useState(null)
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
@@ -29,20 +33,31 @@ const CreateProduct = () => {
     setFile(e.target.files[0])
   }
 
-  const onSelect = (id) => {
+  const onSelect = id => {
     setCategory(id)
   }
 
-  const handleFileSubmit = async(e) => {
-    console.log('imageUpload', imageUpload)
+  const handleFileSubmit = async e => {
     e.preventDefault()
-    try{
+    try {
       const formData = new FormData()
       formData.append('file', file)
+
       const response = await API.post('/upload', formData)
+
       const imageUrl = response.data.url
-      dispatch(productActions.handleCreateProduct({name, imageUrl, location, price, description, category}))
-    }catch(error){
+
+      dispatch(
+        productActions.handleCreateProduct({
+          name,
+          imageUrl,
+          location,
+          price,
+          description,
+          category,
+        }),
+      )
+    } catch (error) {
       console.log(error)
     }
   }
@@ -53,6 +68,7 @@ const CreateProduct = () => {
 
   const handlePreview = () => {
     setPreview(!preview)
+    setOpen(false)
   }
 
   const renderImageUpload = () => {
@@ -99,8 +115,14 @@ const CreateProduct = () => {
   const renderForm = () => {
     return (
       <div className="product-info-container">
-        <form onSubmit={(e) => handleFileSubmit(e)}>
-          <CategoryModal onSelect={onSelect} />
+        <form onSubmit={e => handleFileSubmit(e)}>
+          <CategoryModal
+            onSelect={onSelect}
+            open={open}
+            setOpen={setOpen}
+            categoryName={categoryName}
+            setCategoryName={setCategoryName}
+          />
           <h2>Details</h2>
           <FloatLabelInput
             id="Name"
@@ -122,13 +144,13 @@ const CreateProduct = () => {
           />
           {renderTextarea()}
           <div className="button-container">
-          <Button onClick={handlePreview} color="orange" className="preview">
-            Preview
-          </Button>
-          <Button color="orange" className="post" type='submit'>
-            Register
-          </Button>
-        </div>
+            <Button onClick={handlePreview} color="orange" className="preview">
+              Preview
+            </Button>
+            <Button color="orange" className="post" type="submit">
+              Register
+            </Button>
+          </div>
         </form>
       </div>
     )

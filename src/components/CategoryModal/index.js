@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {
@@ -14,10 +14,14 @@ import * as categoryActions from 'redux/actions/categoryActions'
 
 import './styles.scss'
 
-const CategoryModal = ({onSelect}) => {
+const CategoryModal = ({
+  onSelect,
+  open,
+  setOpen,
+  categoryName,
+  setCategoryName,
+}) => {
   const dispatch = useDispatch()
-  const [open, setOpen] = useState(false)
-  const [categoryName, setCategoryName] = useState('')
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
 
@@ -37,8 +41,8 @@ const CategoryModal = ({onSelect}) => {
       <Modal.Content>
         {categoryPlaceholder.map((pl, index) => (
           <Placeholder key={index}>
-              <Placeholder.Line />
-              <Placeholder.Line />
+            <Placeholder.Line />
+            <Placeholder.Line />
           </Placeholder>
         ))}
       </Modal.Content>
