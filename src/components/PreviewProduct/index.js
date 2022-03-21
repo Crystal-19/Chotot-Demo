@@ -2,14 +2,13 @@ import React from 'react'
 // import {useDispatch, useSelector} from 'react-redux'
 // import dayjs from 'dayjs'
 import {Image, Button} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
 
 import {ReactComponent as LocationIcon} from 'assets/images/icons/location.svg'
 import Footer from 'components/Footer'
 
 import './styles.scss'
 
-const PreviewProduct = () => {
+const PreviewProduct = ({handlePreview}) => {
   // const renderImagePlaceholder = () => {
   //   return (
   //     <Placeholder>
@@ -39,11 +38,9 @@ const PreviewProduct = () => {
       <div className="general-container product-detail-container">
         {renderPreviewProduct()}
         <div className="button-container">
-          <Link to="/create-product" className="correct-container">
-            <Button color="orange" className="correct">
-              Correction Text
-            </Button>
-          </Link>
+          <Button onClick={handlePreview} color="orange" className="correct">
+            Correction Text
+          </Button>
           <Button color="orange" className="register-now">
             Register now
           </Button>

@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 
 import {Dropdown, Menu, Modal, Icon, Image, Button} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 import FloatLabelInput from 'components/FloatLabelInput'
+import PreviewProduct from 'components/PreviewProduct'
 
 import './styles.scss'
 
 const CreateProduct = () => {
   const [open, setOpen] = useState(true)
   const [imageUpload, setImageUpload] = useState(null)
+  const [preview, setPreview] = useState(false)
 
   const categories = [
     {
@@ -59,6 +60,10 @@ const CreateProduct = () => {
 
   const handleImageUpload = e => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
+  }
+
+  const handlePreview = () => {
+    setPreview(!preview)
   }
 
   const renderModal = () => {
@@ -132,11 +137,9 @@ const CreateProduct = () => {
           {renderTextarea()}
         </form>
         <div className="button-container">
-          <Link to="/preview-product" className="preview-container">
-            <Button color="orange" className="preview">
-              Preview
-            </Button>
-          </Link>
+          <Button onClick={handlePreview} color="orange" className="preview">
+            Preview
+          </Button>
           <Button color="orange" className="post">
             Register
           </Button>
@@ -145,8 +148,8 @@ const CreateProduct = () => {
     )
   }
 
-  return (
-    <div className="background-container">
+  const renderCreateProduct = () => {
+    return (
       <div className="create-product-container general-container">
         {renderModal()}
         {imageUpload === null ? (
@@ -156,6 +159,16 @@ const CreateProduct = () => {
         )}
         {renderForm()}
       </div>
+    )
+  }
+
+  return (
+    <div className="background-container">
+      {preview ? (
+        <PreviewProduct handlePreview={handlePreview} />
+      ) : (
+        renderCreateProduct()
+      )}
     </div>
   )
 }

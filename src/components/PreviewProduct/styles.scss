@@ -57,13 +57,13 @@
       button.register-now {
         @include flex(row, center, center);
         height: 40px;
+        width: 40%;
         font-size: 20px;
         border-radius: 4px;
         border: solid 2px $orange;
       }
 
       button.register-now {
-        width: 40%;
         border: solid 2px $orange;
         background-color: $orange;
         color: $white;
@@ -74,17 +74,12 @@
         }
       }
 
-      .correct-container {
-        width: 40%;
+      button.correct {
+        color: $orange;
+        background-color: $white;
 
-        button.correct {
-          width: 100%;
-          color: $orange;
-          background-color: $white;
-
-          &:hover {
-            background: $light_orange;
-          }
+        &:hover {
+          background: $light_orange;
         }
       }
     }
