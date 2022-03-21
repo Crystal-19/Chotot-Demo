@@ -20,6 +20,7 @@ const initialState = {
   productPosted: {
     data: [],
   },
+  products: {}
 }
 
 const ProductReducer = (state = initialState, action) => {
@@ -111,6 +112,15 @@ const ProductReducer = (state = initialState, action) => {
     case productTypes.GET_PRODUCT_POSTED_FAILURE:
       return {...state, isError: true, isLoading: false}
 
+    case productTypes.CREATE_PRODUCT:
+      return {...state, isLoading: true, isError: false}
+
+    case productTypes.CREATE_PRODUCT_SUCCESS:
+      return {...state, products: payload.products, isLoading: false, isError: false}
+
+    case productTypes.CREATE_PRODUCT_FAILURE:
+      return {...state, isLoading: false, isError: true}
+      
     default:
       return state
   }
