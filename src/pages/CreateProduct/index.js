@@ -12,7 +12,10 @@ import './styles.scss'
 const CreateProduct = () => {
   const [imageUpload, setImageUpload] = useState(null)
   const [preview, setPreview] = useState(false)
-
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
+  const [location, setLocation] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleImageUpload = e => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
@@ -55,7 +58,13 @@ const CreateProduct = () => {
   const renderTextarea = () => {
     return (
       <div className="input-container">
-        <textarea id="description" type="text" required />
+        <textarea
+          id="description"
+          type="text"
+          required
+          onChange={e => setDescription(e.target.value)}
+          value={description}
+        />
         <label htmlFor="description">Detailed Description</label>
       </div>
     )
@@ -67,9 +76,24 @@ const CreateProduct = () => {
         <form>
           <CategoryModal />
           <h2>Details</h2>
-          <FloatLabelInput id="Name" type="text" />
-          <FloatLabelInput id="Price" type="number" />
-          <FloatLabelInput id="Location" type="text" />
+          <FloatLabelInput
+            id="Name"
+            type="text"
+            setValue={setName}
+            value={name}
+          />
+          <FloatLabelInput
+            id="Price"
+            type="number"
+            setValue={setPrice}
+            value={price}
+          />
+          <FloatLabelInput
+            id="Location"
+            type="text"
+            setValue={setLocation}
+            value={location}
+          />
           {renderTextarea()}
         </form>
         <div className="button-container">
@@ -99,6 +123,10 @@ const CreateProduct = () => {
         <PreviewProduct
           imageUpload={imageUpload}
           handlePreview={handlePreview}
+          name={name}
+          price={price}
+          location={location}
+          description={description}
         />
       ) : (
         renderCreateProduct()

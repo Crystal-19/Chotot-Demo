@@ -11,6 +11,7 @@
       overflow-y: scroll;
       line-height: 1.5rem;
       margin-left: 50px;
+      padding-top: 30px;
 
       .ui.placeholder {
         width: 600px;
@@ -52,6 +53,7 @@
       @include flex(row, center, space-evenly);
       width: 100%;
       margin: 30px 0;
+      padding-bottom: 30px;
 
       button.correct,
       button.register-now {

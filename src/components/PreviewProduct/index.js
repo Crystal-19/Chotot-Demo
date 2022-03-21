@@ -1,33 +1,31 @@
 import React from 'react'
-// import {useDispatch, useSelector} from 'react-redux'
-// import dayjs from 'dayjs'
 import {Image, Button} from 'semantic-ui-react'
 
 import {ReactComponent as LocationIcon} from 'assets/images/icons/location.svg'
+import * as helpers from 'utils/helpers'
+
 import Footer from 'components/Footer'
 
 import './styles.scss'
 
-const PreviewProduct = ({handlePreview, imageUpload}) => {
-  // const renderImagePlaceholder = () => {
-  //   return (
-  //     <Placeholder>
-  //       <Placeholder.Image square />
-  //     </Placeholder>
-  //   )
-  // }
-
+const PreviewProduct = ({
+  handlePreview,
+  imageUpload,
+  name,
+  price,
+  location,
+  description,
+}) => {
   const renderPreviewProduct = () => {
     return (
       <div className="preview-container">
         <Image src={imageUpload} />
-        <h2>Ten chu con meo</h2>
-        <h3>Meo de thuong</h3>
-        <h3 className="price">100.000.000</h3>
-        <p>Meo ngu ngoc va de thuong the best in the world</p>
+        <h2>{name}</h2>
+        <h3 className="price">{helpers.formatPrice(price)}</h3>
+        <p>{description}</p>
         <h2>Area</h2>
         <h3>
-          <LocationIcon /> District 7, HCMC
+          <LocationIcon /> {location}
         </h3>
       </div>
     )

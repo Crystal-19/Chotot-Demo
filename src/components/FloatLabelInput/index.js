@@ -2,10 +2,16 @@ import React from 'react'
 
 import './styles.scss'
 
-const Input = ({id, ...props}) => {
+const Input = ({id, setValue, ...props}) => {
   return (
     <div className="input-container">
-      <input id={id} placeholder="hide" required {...props} />
+      <input
+        onChange={e => setValue(e.target.value)}
+        id={id}
+        placeholder="hide"
+        required
+        {...props}
+      />
       <label htmlFor={id}>{id}</label>
     </div>
   )
