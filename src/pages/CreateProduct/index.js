@@ -116,8 +116,8 @@ const CreateProduct = () => {
   const renderUploadedImage = () => {
     return (
       <div className="uploaded-img-container">
-        <Icon onClick={handleImageRemove} name='times circle outline' />
-          <Image className="img-uploaded" src={imageUpload} />
+        <Icon onClick={handleImageRemove} name="times circle outline" />
+        <Image className="img-uploaded" src={imageUpload} />
       </div>
     )
   }
@@ -166,11 +166,7 @@ const CreateProduct = () => {
     return (
       <div className="create-product-container general-container">
         {renderModal()}
-        {imageUpload === null ? (
-          renderImageUpload()
-        ) : (
-          renderUploadedImage()
-        )}
+        {imageUpload === null ? renderImageUpload() : renderUploadedImage()}
         {renderForm()}
       </div>
     )
