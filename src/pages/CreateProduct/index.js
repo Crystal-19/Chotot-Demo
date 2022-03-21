@@ -62,6 +62,10 @@ const CreateProduct = () => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
   }
 
+  const handleImageRemove = () => {
+    setImageUpload(null)
+  }
+
   const handlePreview = () => {
     setPreview(!preview)
   }
@@ -105,6 +109,15 @@ const CreateProduct = () => {
           <CameraIcon />
           <Plus className="plus" />
         </div>
+      </div>
+    )
+  }
+
+  const renderUploadedImage = () => {
+    return (
+      <div className="uploaded-img-container">
+        <Icon onClick={handleImageRemove} name='times circle outline' />
+          <Image className="img-uploaded" src={imageUpload} />
       </div>
     )
   }
@@ -156,7 +169,7 @@ const CreateProduct = () => {
         {imageUpload === null ? (
           renderImageUpload()
         ) : (
-          <Image className="img-uploaded" src={imageUpload} />
+          renderUploadedImage()
         )}
         {renderForm()}
       </div>

@@ -11,11 +11,16 @@
     padding-top: 40px;
     height: 100vh;
 
-    .img-uploaded {
-      flex: 0.3;
-      height: 221px;
-    }
+    .uploaded-img-container {
+      i.icon {
+        font-size: 2em;
+      }
 
+      .img-uploaded {
+        flex: 0.3;
+        height: 221px;
+      }
+    }
     .image-upload-container {
       flex: 0.3;
       position: relative;
@@ -110,16 +115,15 @@
           }
         }
 
-          button.preview {
-            width: 48%;
-            color: $orange;
-            background-color: $white;
+        button.preview {
+          width: 48%;
+          color: $orange;
+          background-color: $white;
 
-            &:hover {
-              background: $light_orange;
-            }
+          &:hover {
+            background: $light_orange;
           }
-
+        }
       }
     }
   }
