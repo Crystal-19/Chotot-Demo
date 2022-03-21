@@ -96,6 +96,7 @@ const CreateProduct = () => {
     return (
       <div className="image-upload-container">
         <input
+          accept="image/*"
           type="file"
           className="file"
           onChange={e => handleImageUpload(e)}
@@ -165,7 +166,10 @@ const CreateProduct = () => {
   return (
     <div className="background-container">
       {preview ? (
-        <PreviewProduct imageUpload={imageUpload} handlePreview={handlePreview} />
+        <PreviewProduct
+          imageUpload={imageUpload}
+          handlePreview={handlePreview}
+        />
       ) : (
         renderCreateProduct()
       )}
