@@ -7,10 +7,13 @@ import FloatLabelInput from 'components/FloatLabelInput'
 import PreviewProduct from 'components/PreviewProduct'
 import CategoryModal from 'components/CategoryModal'
 
+import API from 'redux/api/API'
+
 import './styles.scss'
 
 const CreateProduct = () => {
   const [imageUpload, setImageUpload] = useState(null)
+  const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
@@ -19,6 +22,19 @@ const CreateProduct = () => {
 
   const handleImageUpload = e => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
+    setFile(e.target.files[0])
+  }
+
+  const handleFileSubmit = async(e) => {
+    console.log('imageUpload', imageUpload)
+    e.preventDefault()
+    try{
+      const formData = new FormData()
+      formData.append('file', file)
+      const response = await API.post('/upload', formData)
+    }catch(error){
+      console.log(error)
+    }
   }
 
   const handleImageRemove = () => {
@@ -73,7 +89,7 @@ const CreateProduct = () => {
   const renderForm = () => {
     return (
       <div className="product-info-container">
-        <form>
+        <form onSubmit={(e) => handleFileSubmit(e)}>
           <CategoryModal />
           <h2>Details</h2>
           <FloatLabelInput
@@ -95,15 +111,15 @@ const CreateProduct = () => {
             value={location}
           />
           {renderTextarea()}
-        </form>
-        <div className="button-container">
+          <div className="button-container">
           <Button onClick={handlePreview} color="orange" className="preview">
             Preview
           </Button>
-          <Button color="orange" className="post">
+          <Button color="orange" className="post" type='submit'>
             Register
           </Button>
         </div>
+        </form>
       </div>
     )
   }

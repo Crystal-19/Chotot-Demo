@@ -16,7 +16,7 @@ import './styles.scss'
 
 const CategoryModal = () => {
   const dispatch = useDispatch()
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [categoryName, setCategoryName] = useState('')
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
