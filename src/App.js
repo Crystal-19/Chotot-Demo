@@ -8,16 +8,21 @@ import ScrollToTop from 'components/ScrollToTop'
 import Header from 'components/Header'
 import SideNav from 'components/BottomNavigation'
 import ProtectedRoute from 'components/ProtectedRoute'
-import Home from 'pages/Home'
-import News from 'pages/News'
-import NotFound from 'pages/NotFound'
+
+//Auth
 import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
+
+//Products
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
 import CreateProduct from 'pages/CreateProduct'
+
+import Home from 'pages/Home'
+import News from 'pages/News'
+import NotFound from 'pages/NotFound'
 
 function App() {
   return (
