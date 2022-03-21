@@ -181,11 +181,11 @@ export const loadProductPosted = pageNumber => async dispatch => {
   }
 }
 
-export const handleCreateProduct = () => async dispatch => {
+export const handleCreateProduct = (fullInfo) => async dispatch => {
   try{
     dispatch(createProduct())
 
-    const response = await productRequest.createProductRequest()
+    const response = await productRequest.createProductRequest(fullInfo)
     dispatch(createProductSuccess(response.data))
   }catch{
     dispatch(createProductFailure())

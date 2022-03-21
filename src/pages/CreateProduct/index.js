@@ -1,17 +1,20 @@
 import React, {useState} from 'react'
 
+import {useSelector, useDispatch} from 'react-redux'
 import {Icon, Image, Button} from 'semantic-ui-react'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 import FloatLabelInput from 'components/FloatLabelInput'
 import PreviewProduct from 'components/PreviewProduct'
 import CategoryModal from 'components/CategoryModal'
+import * as productActions from 'redux/actions/productActions'
 
 import API from 'redux/api/API'
 
 import './styles.scss'
 
 const CreateProduct = () => {
+  const dispatch = useDispatch()
   const [imageUpload, setImageUpload] = useState(null)
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
@@ -19,10 +22,15 @@ const CreateProduct = () => {
   const [price, setPrice] = useState('')
   const [location, setLocation] = useState('')
   const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('')
 
   const handleImageUpload = e => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
     setFile(e.target.files[0])
+  }
+
+  const onSelect = (id) => {
+    setCategory(id)
   }
 
   const handleFileSubmit = async(e) => {
@@ -32,6 +40,8 @@ const CreateProduct = () => {
       const formData = new FormData()
       formData.append('file', file)
       const response = await API.post('/upload', formData)
+      const imageUrl = response.data.url
+      dispatch(productActions.handleCreateProduct({name, imageUrl, location, price, description, category}))
     }catch(error){
       console.log(error)
     }
@@ -90,7 +100,7 @@ const CreateProduct = () => {
     return (
       <div className="product-info-container">
         <form onSubmit={(e) => handleFileSubmit(e)}>
-          <CategoryModal />
+          <CategoryModal onSelect={onSelect} />
           <h2>Details</h2>
           <FloatLabelInput
             id="Name"

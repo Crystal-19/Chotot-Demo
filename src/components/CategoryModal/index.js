@@ -14,16 +14,17 @@ import * as categoryActions from 'redux/actions/categoryActions'
 
 import './styles.scss'
 
-const CategoryModal = () => {
+const CategoryModal = ({onSelect}) => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
   const [categoryName, setCategoryName] = useState('')
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
 
-  const handleSelectedCategory = name => {
+  const handleSelectedCategory = (name, id) => {
     setCategoryName(name)
     setOpen(false)
+    onSelect(id)
   }
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const CategoryModal = () => {
         {categories.map(cd => (
           <Modal.Description
             key={cd._id}
-            onClick={() => handleSelectedCategory(cd.name)}>
+            onClick={() => handleSelectedCategory(cd.name, cd._id)}>
             <Image src={cd.imageUrl} />
             <h2>{cd.name}</h2>
             <Icon name="chevron right" />

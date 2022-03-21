@@ -2,7 +2,7 @@ import React from 'react'
 
 import './styles.scss'
 
-const Input = ({id, setValue, ...props}) => {
+const FloatLabelInput = ({id, setValue, ...props}) => {
   return (
     <div className="input-container">
       <input
@@ -16,4 +16,4 @@ const Input = ({id, setValue, ...props}) => {
     </div>
   )
 }
-export default Input
+export default FloatLabelInput
