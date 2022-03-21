@@ -129,49 +129,4 @@
   }
 }
 
-.modals.dimmer .ui.modal {
-  .header {
-    @include flex(row, center, center);
-    position: relative;
-    font-size: 2em;
 
-    i.icon {
-      position: absolute;
-      left: 10px;
-      top: 18px;
-      font-size: 1.5em;
-    }
-  }
-
-  .content {
-    .description {
-      @include flex(row, center, flex-start);
-      position: relative;
-      height: 50px;
-      border: 1px solid $medium_gray;
-      border-radius: 4px;
-
-      &:hover {
-        background: $light_gray;
-      }
-
-      img {
-        width: 28px;
-        height: 28px;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-
-      h2 {
-        margin: 0;
-      }
-
-      i.icon {
-        position: absolute;
-        right: 15px;
-        font-size: 2em;
-        color: $medium_gray;
-      }
-    }
-  }
-}
