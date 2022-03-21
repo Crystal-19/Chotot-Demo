@@ -165,7 +165,7 @@ const CreateProduct = () => {
   return (
     <div className="background-container">
       {preview ? (
-        <PreviewProduct handlePreview={handlePreview} />
+        <PreviewProduct imageUpload={imageUpload} handlePreview={handlePreview} />
       ) : (
         renderCreateProduct()
       )}
