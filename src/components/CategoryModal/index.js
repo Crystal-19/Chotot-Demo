@@ -10,7 +10,13 @@ import './styles.scss'
 const CategoryModal = () => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(true)
+  const [categoryName, setCategoryName] = useState('')
   const categories = useSelector(state => state.Category.category)
+
+  const handleSelectedCategory = (name) => {
+    setCategoryName(name)
+    setOpen(false)
+  }
 
   useEffect(() => {
     dispatch(categoryActions.loadCategory())
@@ -20,7 +26,7 @@ const CategoryModal = () => {
     <>
       <Menu vertical>
         <Menu.Item header>List Of Posts</Menu.Item>
-        <Dropdown onClick={() => setOpen(!open)} text="Dropdown" simple item />
+        <Dropdown onClick={() => setOpen(!open)} text={categoryName} simple item />
       </Menu>
       <Modal
         centered={false}
@@ -35,7 +41,7 @@ const CategoryModal = () => {
         </Modal.Header>
         <Modal.Content>
           {categories.map(cd => (
-            <Modal.Description key={cd._id}>
+            <Modal.Description key={cd._id} onClick={() => handleSelectedCategory(cd.name)} >
               <Image src={cd.imageUrl} />
               <h2>{cd.name}</h2>
               <Icon name="chevron right" />
