@@ -1,16 +1,15 @@
 import React, {useState} from 'react'
 
-import {Dropdown, Menu, Icon, Image, Button} from 'semantic-ui-react'
+import {Icon, Image, Button} from 'semantic-ui-react'
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 import FloatLabelInput from 'components/FloatLabelInput'
 import PreviewProduct from 'components/PreviewProduct'
-import CategoryModal from 'components/CategogyModal'
+import CategoryModal from 'components/CategoryModal'
 
 import './styles.scss'
 
 const CreateProduct = () => {
-  const [open, setOpen] = useState(true)
   const [imageUpload, setImageUpload] = useState(null)
   const [preview, setPreview] = useState(false)
 
@@ -66,15 +65,7 @@ const CreateProduct = () => {
     return (
       <div className="product-info-container">
         <form>
-          <Menu vertical>
-            <Menu.Item header>List Of Posts</Menu.Item>
-            <Dropdown
-              onClick={() => setOpen(!open)}
-              text="Dropdown"
-              simple
-              item
-            />
-          </Menu>
+          <CategoryModal />
           <h2>Details</h2>
           <FloatLabelInput id="Name" type="text" />
           <FloatLabelInput id="Price" type="number" />
@@ -96,7 +87,6 @@ const CreateProduct = () => {
   const renderCreateProduct = () => {
     return (
       <div className="create-product-container general-container">
-        <CategoryModal open={open} setOpen={setOpen} />
         {imageUpload === null ? renderImageUpload() : renderUploadedImage()}
         {renderForm()}
       </div>
