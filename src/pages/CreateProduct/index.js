@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
@@ -14,19 +14,22 @@ import * as productActions from 'redux/actions/productActions'
 import API from 'redux/api/API'
 
 import useMergeState from 'hooks/useMergeState'
+import useQuery from 'hooks/useQuery'
 
 import './styles.scss'
 
 const CreateProduct = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const query = useQuery()
+
+  const id = query.get('id')
   const isLoading = useSelector(state => state.Product.isLoading)
 
   const [open, setOpen] = useState(true)
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
-
   const [product, setProduct] = useMergeState({
     name: '',
     price: '',
@@ -43,6 +46,12 @@ const CreateProduct = () => {
   const {imageUpload, file} = image
 
   const {name, price, location, description, category} = product
+
+  useEffect(() => {
+    if(!id) {
+      setOpen(false)
+    }
+  }, [id])
 
   const onSelect = category => {
     setProduct({category})
