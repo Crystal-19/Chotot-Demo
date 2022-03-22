@@ -164,8 +164,7 @@ const CreateProduct = () => {
 
   return (
     <div className="background-container">
-      {loadingImage && renderLoading()}
-      {isLoading && renderLoading()}
+      {(loadingImage || isLoading) && renderLoading()}
       {preview ? (
         <PreviewProduct
           imageUpload={imageUpload}
