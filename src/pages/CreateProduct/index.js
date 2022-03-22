@@ -70,7 +70,7 @@ const CreateProduct = () => {
         ),
       )
     } catch (error) {
-      console.log(error)
+      alert('Failed to create product, please try again')
     }
   }
 

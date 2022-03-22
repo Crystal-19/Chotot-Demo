@@ -100,9 +100,8 @@ export const createProduct = () => ({
   type: productTypes.CREATE_PRODUCT,
 })
 
-export const createProductSuccess = products => ({
+export const createProductSuccess = () => ({
   type: productTypes.CREATE_PRODUCT_SUCCESS,
-  payload: {products},
 })
 
 export const createProductFailure = () => ({
