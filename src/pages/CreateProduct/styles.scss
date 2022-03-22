@@ -13,11 +13,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 
-    .ui.massive.button {
-      font-size: 5em;
+    .ui.inverted.dimmer {
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 

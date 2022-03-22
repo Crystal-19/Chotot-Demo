@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import {Button, Dimmer, Loader} from 'semantic-ui-react'
 
 import FloatLabelInput from 'pages/CreateProduct/components/FloatLabelInput'
 import PreviewProduct from 'pages/CreateProduct/components/PreviewProduct'
@@ -84,7 +84,9 @@ const CreateProduct = () => {
   const renderLoading = () => {
     return (
       <div className="loading-container">
-        <Button loading size="massive" />
+        <Dimmer active inverted>
+          <Loader size="massive"></Loader>
+        </Dimmer>
       </div>
     )
   }
