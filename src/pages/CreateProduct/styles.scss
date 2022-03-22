@@ -12,15 +12,24 @@
     height: 100vh;
 
     .uploaded-img-container {
-      i.icon {
-        font-size: 2em;
+      position: relative;
+
+      .remove-icon {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 0;
+        right: -13px;
+        z-index: 1;
       }
 
       .img-uploaded {
+        margin-top: 15px;
         flex: 0.3;
         height: 221px;
       }
     }
+
     .image-upload-container {
       flex: 0.3;
       position: relative;
@@ -128,5 +137,3 @@
     }
   }
 }
-
-

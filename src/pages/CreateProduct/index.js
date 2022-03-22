@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {Icon, Image, Button} from 'semantic-ui-react'
 
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
+import {ReactComponent as RemoveIcon} from 'assets/images/icons/remove.svg'
 import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 
 import FloatLabelInput from 'components/FloatLabelInput'
@@ -91,7 +92,7 @@ const CreateProduct = () => {
   const renderUploadedImage = () => {
     return (
       <div className="uploaded-img-container">
-        <Icon onClick={handleImageRemove} name="times circle outline" />
+        <RemoveIcon onClick={handleImageRemove} className="remove-icon" />
         <Image className="img-uploaded" src={imageUpload} />
       </div>
     )
