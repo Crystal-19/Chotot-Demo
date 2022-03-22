@@ -97,16 +97,16 @@ export const getProductPostedFailure = () => ({
 })
 
 export const createProduct = () => ({
-  type: productTypes.CREATE_PRODUCT
+  type: productTypes.CREATE_PRODUCT,
 })
 
-export const createProductSuccess = (products) => ({
+export const createProductSuccess = products => ({
   type: productTypes.CREATE_PRODUCT_SUCCESS,
-  payload: {products}
+  payload: {products},
 })
 
 export const createProductFailure = () => ({
-  type: productTypes.CREATE_PRODUCT_FAILURE
+  type: productTypes.CREATE_PRODUCT_FAILURE,
 })
 
 export const loadProduct = pageNumber => async dispatch => {
@@ -181,13 +181,14 @@ export const loadProductPosted = pageNumber => async dispatch => {
   }
 }
 
-export const handleCreateProduct = (fullInfo) => async dispatch => {
-  try{
+export const handleCreateProduct = (fullInfo, navigate) => async dispatch => {
+  try {
     dispatch(createProduct())
 
     const response = await productRequest.createProductRequest(fullInfo)
     dispatch(createProductSuccess(response.data))
-  }catch{
+    navigate('/my-products')
+  } catch {
     dispatch(createProductFailure())
   }
 }

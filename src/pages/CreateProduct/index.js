@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 
-import {useDispatch} from 'react-redux'
-import {Icon, Image, Button} from 'semantic-ui-react'
+import {useSelector, useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {Image, Button} from 'semantic-ui-react'
 
 import {ReactComponent as CameraIcon} from 'assets/images/icons/camera.svg'
 import {ReactComponent as RemoveIcon} from 'assets/images/icons/remove.svg'
@@ -18,6 +19,7 @@ import './styles.scss'
 
 const CreateProduct = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(true)
   const [categoryName, setCategoryName] = useState('')
   const [imageUpload, setImageUpload] = useState(null)
@@ -28,6 +30,9 @@ const CreateProduct = () => {
   const [location, setLocation] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const isLoading = useSelector(state => state.Product.isLoading)
 
   const handleImageUpload = e => {
     setImageUpload(URL.createObjectURL(e.target.files[0]))
@@ -40,6 +45,17 @@ const CreateProduct = () => {
 
   const handleFileSubmit = async e => {
     e.preventDefault()
+
+    setErrorMessage('')
+
+    if (imageUpload === null) {
+      return setErrorMessage('Please upload 1 product image')
+    }
+
+    if (category === '') {
+      return setErrorMessage('Please select 1 category')
+    }
+
     try {
       const formData = new FormData()
       formData.append('file', file)
@@ -49,14 +65,17 @@ const CreateProduct = () => {
       const imageUrl = response.data.url
 
       dispatch(
-        productActions.handleCreateProduct({
-          name,
-          imageUrl,
-          location,
-          price,
-          description,
-          category,
-        }),
+        productActions.handleCreateProduct(
+          {
+            name,
+            imageUrl,
+            location,
+            price,
+            description,
+            category,
+          },
+          navigate,
+        ),
       )
     } catch (error) {
       console.log(error)
@@ -70,6 +89,14 @@ const CreateProduct = () => {
   const handlePreview = () => {
     setPreview(!preview)
     setOpen(false)
+  }
+
+  const renderLoading = () => {
+    return (
+      <div className="loading-container">
+        <Button loading size="massive" />
+      </div>
+    )
   }
 
   const renderImageUpload = () => {
@@ -144,6 +171,7 @@ const CreateProduct = () => {
             value={location}
           />
           {renderTextarea()}
+          <p>{errorMessage}</p>
           <div className="button-container">
             <Button onClick={handlePreview} color="orange" className="preview">
               Preview
@@ -168,6 +196,7 @@ const CreateProduct = () => {
 
   return (
     <div className="background-container">
+      {isLoading && renderLoading()}
       {preview ? (
         <PreviewProduct
           imageUpload={imageUpload}
