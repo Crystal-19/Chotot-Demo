@@ -30,6 +30,7 @@ const CreateProduct = () => {
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [loadingImage, setLoadingImage] = useState(false)
 
   const onSelect = id => {
     setCategory(id)
@@ -39,6 +40,7 @@ const CreateProduct = () => {
     e.preventDefault()
 
     setErrorMessage('')
+    setLoadingImage(true)
 
     if (imageUpload === null) {
       return setErrorMessage('Please upload 1 product image')
@@ -53,7 +55,7 @@ const CreateProduct = () => {
       formData.append('file', file)
 
       const response = await API.post('/upload', formData)
-
+      setLoadingImage(false)
       const imageUrl = response.data.url
 
       dispatch(
@@ -162,6 +164,7 @@ const CreateProduct = () => {
 
   return (
     <div className="background-container">
+      {loadingImage && renderLoading()}
       {isLoading && renderLoading()}
       {preview ? (
         <PreviewProduct
