@@ -6,17 +6,17 @@
   padding-top: 40px;
   position: relative;
 
-  .loading-container{
+  .loading-container {
     @include flex(row, center, center);
     width: 100vw;
     height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 
-    .ui.massive.button{
+    .ui.massive.button {
       font-size: 5em;
     }
   }
@@ -27,53 +27,6 @@
     padding-top: 40px;
     height: 100vh;
 
-    .uploaded-img-container {
-      position: relative;
-
-      .remove-icon {
-        width: 32px;
-        height: 32px;
-        position: absolute;
-        top: 0;
-        right: -13px;
-        z-index: 1;
-      }
-
-      .img-uploaded {
-        margin-top: 15px;
-        flex: 0.3;
-        height: 221px;
-      }
-    }
-
-    .image-upload-container {
-      flex: 0.3;
-      position: relative;
-
-      .file {
-        position: absolute;
-        height: 221px;
-        width: 100%;
-        left: 0;
-        top: 0;
-        opacity: 0;
-      }
-
-      .image-upload {
-        @include flex(row, center, center);
-        border-style: dotted;
-        border-color: $orange;
-        border-radius: 4px;
-        height: 221px;
-        background-color: $gray;
-        cursor: pointer;
-
-        .plus {
-          margin-bottom: 40px;
-        }
-      }
-    }
-
     .product-info-container {
       @include flex(column, flex-start, space-between);
       flex: 0.6;
@@ -82,7 +35,7 @@
         @include flex(column, flex-start, space-between);
         width: 100%;
 
-        p{
+        p {
           font-size: 1.5em;
           text-align: center;
           width: 100%;
