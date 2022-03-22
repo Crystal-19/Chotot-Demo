@@ -8,14 +8,16 @@ import {ReactComponent as Plus} from 'assets/images/icons/plus.svg'
 
 import './styles.scss'
 
-const ImageUpload = ({setFile, setImageUpload, imageUpload}) => {
+const ImageUpload = ({setImage, imageUpload}) => {
   const handleImageUpload = e => {
-    setImageUpload(URL.createObjectURL(e.target.files[0]))
-    setFile(e.target.files[0])
+    setImage({
+      imageUpload: URL.createObjectURL(e.target.files[0]),
+      file: e.target.files[0],
+    })
   }
 
   const handleImageRemove = () => {
-    setImageUpload(null)
+    setImage({imageUpload: null, file: null})
   }
 
   const renderImageUpload = () => {

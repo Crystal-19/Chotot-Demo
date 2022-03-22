@@ -23,8 +23,6 @@ const CreateProduct = () => {
   const isLoading = useSelector(state => state.Product.isLoading)
 
   const [open, setOpen] = useState(true)
-  const [imageUpload, setImageUpload] = useState(null)
-  const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
@@ -34,8 +32,15 @@ const CreateProduct = () => {
     price: '',
     location: '',
     description: '',
-    category: ''
+    category: '',
   })
+
+  const [image, setImage] = useMergeState({
+    imageUpload: null,
+    file: null,
+  })
+
+  const {imageUpload, file} = image
 
   const {name, price, location, description, category} = product
 
@@ -163,9 +168,8 @@ const CreateProduct = () => {
       <div className="create-product-container general-container">
         <ImageUpload
           file={file}
-          setFile={setFile}
+          setImage={setImage}
           imageUpload={imageUpload}
-          setImageUpload={setImageUpload}
         />
         {renderForm()}
       </div>
