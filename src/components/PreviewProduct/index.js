@@ -37,10 +37,7 @@ const PreviewProduct = ({
         {renderPreviewProduct()}
         <div className="button-container">
           <Button onClick={handlePreview} color="orange" className="correct">
-            Correction Text
-          </Button>
-          <Button color="orange" className="register-now">
-            Register now
+            Correct Text
           </Button>
         </div>
       </div>
