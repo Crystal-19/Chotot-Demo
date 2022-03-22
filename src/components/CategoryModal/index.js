@@ -18,15 +18,14 @@ const CategoryModal = ({
   onSelect,
   open,
   setOpen,
-  categoryName,
-  setCategoryName,
+  category
 }) => {
   const dispatch = useDispatch()
   const categories = useSelector(state => state.Category.category)
   const isLoading = useSelector(state => state.Category.isLoading)
+  const categoryName = categories.find(item => item._id ===  category)
 
   const handleSelectedCategory = (name, id) => {
-    setCategoryName(name)
     setOpen(false)
     onSelect(id)
   }
@@ -71,7 +70,7 @@ const CategoryModal = ({
         <Menu.Item header>List Of Posts</Menu.Item>
         <Dropdown
           onClick={() => setOpen(!open)}
-          text={categoryName}
+          text={categoryName?.name}
           simple
           item
         />

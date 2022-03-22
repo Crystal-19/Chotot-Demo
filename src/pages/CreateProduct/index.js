@@ -21,7 +21,6 @@ const CreateProduct = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [open, setOpen] = useState(true)
-  const [categoryName, setCategoryName] = useState('')
   const [imageUpload, setImageUpload] = useState(null)
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
@@ -148,8 +147,7 @@ const CreateProduct = () => {
             onSelect={onSelect}
             open={open}
             setOpen={setOpen}
-            categoryName={categoryName}
-            setCategoryName={setCategoryName}
+            category={category}
           />
           <h2>Details</h2>
           <FloatLabelInput
