@@ -158,6 +158,17 @@ const Header = () => {
     )
   }
 
+  const renderPost = () => {
+    return (
+      <Link to="/create-product" className="reg-btn">
+        <div className="reg">
+          <RegisterIcon className="reg-i" />
+          <span>Post</span>
+        </div>
+      </Link>
+    )
+  }
+
   const renderBelowHeader = () => {
     return (
       <div className="header-container header-search-bar">
@@ -174,7 +185,7 @@ const Header = () => {
           {filteredProductsByName !== undefined && renderSearchDropdown()}
         </div>
         {accessToken ? renderLoginAfter() : renderLoginBefore()}
-        {!accessToken && renderRegister()}
+        {accessToken ? renderPost() : renderRegister()}
       </div>
     )
   }

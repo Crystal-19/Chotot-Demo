@@ -1,0 +1,48 @@
+@import 'assets/scss';
+
+.uploaded-img-container {
+  position: relative;
+
+  .remove-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: -13px;
+    z-index: 1;
+  }
+
+  .img-uploaded {
+    margin-top: 15px;
+    flex: 0.3;
+    height: 221px;
+  }
+}
+
+.image-upload-container {
+  flex: 0.3;
+  position: relative;
+
+  .file {
+    position: absolute;
+    height: 221px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .image-upload {
+    @include flex(row, center, center);
+    border-style: dotted;
+    border-color: $orange;
+    border-radius: 4px;
+    height: 221px;
+    background-color: $gray;
+    cursor: pointer;
+
+    .plus {
+      margin-bottom: 40px;
+    }
+  }
+}

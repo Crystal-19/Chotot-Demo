@@ -1,0 +1,115 @@
+@import 'assets/scss';
+
+.background-container {
+  background-color: $pale_gray;
+  height: 100vh;
+  padding-top: 40px;
+  position: relative;
+
+  .loading-container {
+    @include flex(row, center, center);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    .ui.inverted.dimmer {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .create-product-container {
+    @include flex(row, flex-start, space-around);
+    background-color: $white;
+    padding-top: 40px;
+    height: 100vh;
+
+    .product-info-container {
+      @include flex(column, flex-start, space-between);
+      flex: 0.6;
+
+      form {
+        @include flex(column, flex-start, space-between);
+        width: 100%;
+
+        p {
+          font-size: 1.5em;
+          text-align: center;
+          width: 100%;
+          color: $red;
+          margin-top: 0;
+        }
+
+        .ui.vertical.menu {
+          width: 100%;
+          position: relative;
+
+          .header.item {
+            color: $medium_gray;
+            font-size: 13px;
+
+            &::after {
+              content: '*';
+              color: $red;
+              font-weight: 400;
+            }
+          }
+
+          .item {
+            line-height: 0.2;
+            font-size: 18px;
+
+            &::before {
+              height: 0;
+            }
+
+            .dropdown.icon {
+              position: absolute;
+              top: -10px;
+              right: 5px;
+              font-size: 1.8em;
+              color: $medium_gray;
+            }
+          }
+        }
+      }
+
+      .button-container {
+        @include flex(row, center, space-between);
+        width: 100%;
+
+        button.post,
+        button.preview {
+          height: 56px;
+          font-size: 20px;
+          border-radius: 4px;
+          border: solid 2px $orange;
+        }
+
+        button.post {
+          width: 48%;
+          border: solid 2px $orange;
+          background-color: $orange;
+          color: $white;
+
+          &:hover {
+            background-color: $medium_orange;
+            border: solid $medium_orange;
+          }
+        }
+
+        button.preview {
+          width: 48%;
+          color: $orange;
+          background-color: $white;
+
+          &:hover {
+            background: $light_orange;
+          }
+        }
+      }
+    }
+  }
+}

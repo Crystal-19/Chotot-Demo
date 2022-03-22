@@ -1,0 +1,74 @@
+@import 'assets/scss';
+
+.background-container {
+  background-color: $pale_gray;
+
+  .product-detail-container.general-container {
+    background-color: $white;
+
+    .preview-container {
+      @include flex(column, flex-start, center);
+      overflow-y: scroll;
+      line-height: 1.5rem;
+      margin-left: 50px;
+      padding-top: 30px;
+
+      .ui.placeholder {
+        width: 600px;
+        max-width: 600px;
+        height: 600px;
+      }
+
+      img {
+        width: 600px;
+        height: 600px;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @include multiple-responsive(tablet, mobile) {
+        width: 90%;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      h3 {
+        font-weight: bold;
+
+        &.price {
+          color: $red;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .button-container {
+      @include flex(row, center, flex-start);
+      width: 100%;
+      margin: 30px 0 30px 50px;
+      padding-bottom: 30px;
+
+      button.correct {
+        @include flex(row, center, center);
+        height: 40px;
+        width: 40%;
+        font-size: 20px;
+        border-radius: 4px;
+        border: solid 2px $orange;
+        color: $orange;
+        background-color: $white;
+
+        &:hover {
+          background: $light_orange;
+        }
+      }
+    }
+  }
+}

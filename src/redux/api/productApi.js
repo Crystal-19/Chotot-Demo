@@ -14,3 +14,5 @@ export const getProductFilterByNameRequest = name =>
   API.get(`/products?page=1&name=${name}`)
 
 export const getProductPostedRequest = pageNumber => API.get(`/me/products?page=${pageNumber}`)
+
+export const createProductRequest = (fullInfo) => API.post('/products', fullInfo)

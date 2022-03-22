@@ -6,17 +6,23 @@ import 'assets/scss/global.scss'
 
 import ScrollToTop from 'components/ScrollToTop'
 import Header from 'components/Header'
-import Home from 'pages/Home'
-import News from 'pages/News'
-import NotFound from 'pages/NotFound'
 import SideNav from 'components/BottomNavigation'
+import ProtectedRoute from 'components/ProtectedRoute'
+
+//Auth
 import LogIn from 'pages/LogIn'
 import SignUp from 'pages/SignUp'
+
+//Products
 import ProductDetail from 'pages/ProductDetail'
 import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
-import ProtectedRoute from 'components/ProtectedRoute'
+import CreateProduct from 'pages/CreateProduct'
+
+import Home from 'pages/Home'
+import News from 'pages/News'
+import NotFound from 'pages/NotFound'
 
 function App() {
   return (
@@ -43,6 +49,14 @@ function App() {
           element={<ProductFilterByCategory />}
         />
         <Route path="/name/:words/products" element={<ProductFilterByName />} />
+        <Route
+          path="/create-product"
+          element={
+            <ProtectedRoute>
+              <CreateProduct />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <SideNav />
     </BrowserRouter>
