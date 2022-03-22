@@ -13,6 +13,8 @@ import ImageUpload from './components/ImageUpload'
 import * as productActions from 'redux/actions/productActions'
 import API from 'redux/api/API'
 
+import useMergeState from 'hooks/useMergeState'
+
 import './styles.scss'
 
 const CreateProduct = () => {
@@ -24,23 +26,27 @@ const CreateProduct = () => {
   const [imageUpload, setImageUpload] = useState(null)
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(false)
-  const [name, setName] = useState('')
-  const [price, setPrice] = useState('')
-  const [location, setLocation] = useState('')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
 
-  const onSelect = id => {
-    setCategory(id)
+  const [product, setProduct] = useMergeState({
+    name: '',
+    price: '',
+    location: '',
+    description: '',
+    category: ''
+  })
+
+  const {name, price, location, description, category} = product
+
+  const onSelect = category => {
+    setProduct({category})
   }
 
   const handleFileSubmit = async e => {
     e.preventDefault()
 
     setErrorMessage('')
-    setLoadingImage(true)
 
     if (imageUpload === null) {
       return setErrorMessage('Please upload 1 product image')
@@ -51,6 +57,7 @@ const CreateProduct = () => {
     }
 
     try {
+      setLoadingImage(true)
       const formData = new FormData()
       formData.append('file', file)
 
@@ -72,6 +79,7 @@ const CreateProduct = () => {
         ),
       )
     } catch (error) {
+      setLoadingImage(false)
       alert('Failed to create product, please try again')
     }
   }
@@ -98,7 +106,7 @@ const CreateProduct = () => {
           id="description"
           type="text"
           required
-          onChange={e => setDescription(e.target.value)}
+          onChange={e => setProduct({description: e.target.value})}
           value={description}
         />
         <label htmlFor="description">Detailed Description</label>
@@ -120,19 +128,19 @@ const CreateProduct = () => {
           <FloatLabelInput
             id="Name"
             type="text"
-            setValue={setName}
+            onChange={e => setProduct({name: e.target.value})}
             value={name}
           />
           <FloatLabelInput
             id="Price"
             type="number"
-            setValue={setPrice}
+            onChange={e => setProduct({price: e.target.value})}
             value={price}
           />
           <FloatLabelInput
             id="Location"
             type="text"
-            setValue={setLocation}
+            onChange={e => setProduct({location: e.target.value})}
             value={location}
           />
           {renderTextarea()}

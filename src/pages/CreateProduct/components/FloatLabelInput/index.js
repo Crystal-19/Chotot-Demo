@@ -2,11 +2,11 @@ import React from 'react'
 
 import './styles.scss'
 
-const FloatLabelInput = ({id, setValue, ...props}) => {
+const FloatLabelInput = ({id, onChange, ...props}) => {
   return (
     <div className="input-container">
       <input
-        onChange={e => setValue(e.target.value)}
+        onChange={onChange}
         id={id}
         placeholder="hide"
         required
