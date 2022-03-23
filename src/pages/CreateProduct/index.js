@@ -39,7 +39,7 @@ const CreateProduct = () => {
   )
   const imageUpdate = useSelector(state => state.Product.productDetail.imageUrl)
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(id ? false : true)
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
@@ -69,7 +69,7 @@ const CreateProduct = () => {
 
   useEffect(() => {
     if (id) {
-      setOpen(false)
+      // setOpen(false)
       setProduct({
         name: nameUpdate,
         price: priceUpdate,
@@ -83,6 +83,8 @@ const CreateProduct = () => {
       })
     } else {
       setProduct(productInfo)
+
+      setOpen(true)
 
       setImage({
         imageUpload: null,
