@@ -43,14 +43,14 @@ const CreateProduct = () => {
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
-  const productInfo = {
+  const INIT_PRODUCT_STATE = {
     name: '',
     price: '',
     location: '',
     description: '',
     category: '',
   }
-  const [product, setProduct] = useMergeState(productInfo)
+  const [product, setProduct] = useMergeState(INIT_PRODUCT_STATE)
 
   const [image, setImage] = useMergeState({
     imageUpload: null,
@@ -69,7 +69,6 @@ const CreateProduct = () => {
 
   useEffect(() => {
     if (id) {
-      // setOpen(false)
       setProduct({
         name: nameUpdate,
         price: priceUpdate,
@@ -82,7 +81,7 @@ const CreateProduct = () => {
         imageUpload: imageUpdate,
       })
     } else {
-      setProduct(productInfo)
+      setProduct(INIT_PRODUCT_STATE)
 
       setOpen(true)
 
