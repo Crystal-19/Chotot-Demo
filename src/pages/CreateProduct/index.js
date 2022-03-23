@@ -61,7 +61,9 @@ const CreateProduct = () => {
   const {name, price, location, description, category} = product
 
   useEffect(() => {
-    dispatch(productActions.loadProductDetail(id))
+    if (id) {
+      dispatch(productActions.loadProductDetail(id))
+    }
   }, [dispatch, id])
 
   useEffect(() => {
