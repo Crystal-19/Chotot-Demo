@@ -74,9 +74,21 @@ const CreateProduct = () => {
         description: descriptionUpdate,
         category: categoryIdUpdate,
       })
-      
+
       setImage({
         imageUpload: imageUpdate,
+      })
+    } else {
+      setProduct({
+        name: '',
+        price: '',
+        location: '',
+        description: '',
+        category: '',
+      })
+
+      setImage({
+        imageUpload: null,
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
