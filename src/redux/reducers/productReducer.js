@@ -20,6 +20,7 @@ const initialState = {
   productFilterByName: {data: []},
   productPosted: {
     data: [],
+    pagination: {}
   },
 }
 
@@ -134,11 +135,11 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: true, isError: false}
 
     case productTypes.DELETE_PRODUCT_SUCCESS:
-      return {...state, isLoading: false, isError: false}
+      return {...state, isLoading: false, isError: false, productList: payload.productList}
 
     case productTypes.DELETE_PRODUCT_FAILURE:
       return {...state, isLoading: false, isError: true}
-      
+
     default:
       return state
   }

@@ -89,7 +89,7 @@ export const getProductPosted = () => ({
   type: productTypes.GET_PRODUCT_POSTED,
 })
 
-export const getProductPostedSuccess = productPosted => ({
+export const getProductPostedSuccess = (productPosted) => ({
   type: productTypes.GET_PRODUCT_POSTED_SUCCESS,
   payload: {productPosted},
 })
@@ -123,15 +123,16 @@ export const editProductFailure = () => ({
 })
 
 export const deleteProduct = () => ({
-  type: productTypes.DELETE_PRODUCT
+  type: productTypes.DELETE_PRODUCT,
 })
 
-export const deleteProductSuccess = () => ({
-  type: productTypes.DELETE_PRODUCT_SUCCESS
+export const deleteProductSuccess = (productList, productId) => ({
+  type: productTypes.DELETE_PRODUCT_SUCCESS,
+  payload: {productList: productList.filter(pd => pd._id !== productId)}
 })
 
 export const deleteProductFailure = () => ({
-  type: productTypes.DELETE_PRODUCT_FAILURE
+  type: productTypes.DELETE_PRODUCT_FAILURE,
 })
 
 export const loadProduct = pageNumber => async dispatch => {
@@ -200,6 +201,8 @@ export const loadProductPosted = pageNumber => async dispatch => {
 
     const response = await productRequest.getProductPostedRequest(pageNumber)
 
+    // const {data, pagination} = response.data
+
     dispatch(getProductPostedSuccess(response.data))
   } catch {
     dispatch(getProductPostedFailure())
@@ -228,21 +231,19 @@ export const handleEditProduct =
       dispatch(editProductSuccess(response.data))
 
       navigate('/my-products')
-
     } catch {
       dispatch(editProductFailure())
     }
   }
 
-export const handleDeleteProduct = (productId) => async dispatch => {
-  try{
+export const handleDeleteProduct = productId => async dispatch => {
+  try {
     dispatch(deleteProduct())
 
     const response = await productRequest.deleteProductRequest(productId)
-
-    dispatch(deleteProductSuccess(response.data))
-
-  }catch{
+    dispatch(deleteProductSuccess(response.data.productList, response.data.productId))
+  } catch (error) {
+    console.log('error', error)
     dispatch(deleteProductFailure())
   }
 }
