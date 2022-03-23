@@ -122,14 +122,19 @@ const CreateProduct = () => {
 
     try {
       setLoadingImage(true)
-
       const formData = new FormData()
-
       formData.append('file', file)
+      // const response = await API.post('/upload', formData)
 
-      const response = await API.post('/upload', formData)
+      const image = async () => {
+        if (file) {
+          const response = await API.post('/upload', formData)
+          return response.data.url
+        }
+        return imageUpdate
+      }
 
-      const imageUrl = response.data.url
+      const imageUrl = await image()
 
       setLoadingImage(false)
 
