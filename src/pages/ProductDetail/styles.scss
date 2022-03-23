@@ -2,6 +2,7 @@
 
 .background-container {
   background-color: $pale_gray;
+  height: 100%;
 
   .no-exist {
     @include flex(column, center, center);
