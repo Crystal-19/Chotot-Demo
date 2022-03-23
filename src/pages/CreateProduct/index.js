@@ -43,13 +43,14 @@ const CreateProduct = () => {
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
-  const [product, setProduct] = useMergeState({
+  const productInfo = {
     name: '',
     price: '',
     location: '',
     description: '',
     category: '',
-  })
+  }
+  const [product, setProduct] = useMergeState(productInfo)
 
   const [image, setImage] = useMergeState({
     imageUpload: null,
@@ -81,13 +82,7 @@ const CreateProduct = () => {
         imageUpload: imageUpdate,
       })
     } else {
-      setProduct({
-        name: '',
-        price: '',
-        location: '',
-        description: '',
-        category: '',
-      })
+      setProduct(productInfo)
 
       setImage({
         imageUpload: null,
