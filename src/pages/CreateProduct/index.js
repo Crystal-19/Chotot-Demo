@@ -74,11 +74,11 @@ const CreateProduct = () => {
         description: descriptionUpdate,
         category: categoryIdUpdate,
       })
+      
       setImage({
         imageUpload: imageUpdate,
       })
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     id,
@@ -87,7 +87,6 @@ const CreateProduct = () => {
     locationUpdate,
     descriptionUpdate,
     categoryIdUpdate,
-    category,
   ])
 
   const onSelect = categoryId => {
