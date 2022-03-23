@@ -38,7 +38,7 @@ export const getProductDetailSuccess = ({
     price,
     author,
     category,
-    location
+    location,
   },
 })
 
@@ -108,6 +108,18 @@ export const createProductSuccess = () => ({
 
 export const createProductFailure = () => ({
   type: productTypes.CREATE_PRODUCT_FAILURE,
+})
+
+export const editProduct = () => ({
+  type: productTypes.EDIT_PRODUCT,
+})
+
+export const editProductSuccess = () => ({
+  type: productTypes.EDIT_PRODUCT_SUCCESS,
+})
+
+export const editProductFailure = () => ({
+  type: productTypes.EDIT_PRODUCT_FAILURE,
 })
 
 export const loadProduct = pageNumber => async dispatch => {
@@ -193,3 +205,17 @@ export const handleCreateProduct = (fullInfo, navigate) => async dispatch => {
     dispatch(createProductFailure())
   }
 }
+
+export const handleEditProduct =
+  (id, productInfo, navigate) => async dispatch => {
+    try {
+      dispatch(editProduct())
+
+      const response = await productRequest.editProductRequest(id, productInfo)
+
+      dispatch(editProductSuccess(response.data))
+      navigate('/my-products')
+    } catch {
+      dispatch(editProductFailure())
+    }
+  }

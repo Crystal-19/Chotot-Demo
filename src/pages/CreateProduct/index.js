@@ -109,26 +109,33 @@ const CreateProduct = () => {
 
     try {
       setLoadingImage(true)
+
       const formData = new FormData()
+
       formData.append('file', file)
 
       const response = await API.post('/upload', formData)
-      setLoadingImage(false)
+
       const imageUrl = response.data.url
 
-      dispatch(
-        productActions.handleCreateProduct(
-          {
-            name,
-            imageUrl,
-            location,
-            price,
-            description,
-            category,
-          },
-          navigate,
-        ),
-      )
+      setLoadingImage(false)
+
+      const productInfo = {
+        name,
+        imageUrl,
+        location,
+        price,
+        description,
+        category,
+      }
+
+      if (id) {
+        return dispatch(
+          productActions.handleEditProduct(id, productInfo, navigate),
+        )
+      }
+
+      dispatch(productActions.handleCreateProduct(productInfo, navigate))
     } catch (error) {
       setLoadingImage(false)
       alert('Failed to create product, please try again')
