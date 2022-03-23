@@ -20,3 +20,5 @@ export const createProductRequest = fullInfo => API.post('/products', fullInfo)
 
 export const editProductRequest = (id, productInfo) =>
   API.patch(`products/${id}`, productInfo)
+
+export const deleteProductRequest = productId => API.delete(`/products/${productId}`)

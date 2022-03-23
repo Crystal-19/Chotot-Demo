@@ -130,6 +130,15 @@ const ProductReducer = (state = initialState, action) => {
     case productTypes.EDIT_PRODUCT_FAILURE:
       return {...state, isLoading: false, isError: true}
 
+    case productTypes.DELETE_PRODUCT:
+      return {...state, isLoading: true, isError: false}
+
+    case productTypes.DELETE_PRODUCT_SUCCESS:
+      return {...state, isLoading: false, isError: false}
+
+    case productTypes.DELETE_PRODUCT_FAILURE:
+      return {...state, isLoading: false, isError: true}
+      
     default:
       return state
   }

@@ -122,6 +122,18 @@ export const editProductFailure = () => ({
   type: productTypes.EDIT_PRODUCT_FAILURE,
 })
 
+export const deleteProduct = () => ({
+  type: productTypes.DELETE_PRODUCT
+})
+
+export const deleteProductSuccess = () => ({
+  type: productTypes.DELETE_PRODUCT_SUCCESS
+})
+
+export const deleteProductFailure = () => ({
+  type: productTypes.DELETE_PRODUCT_FAILURE
+})
+
 export const loadProduct = pageNumber => async dispatch => {
   try {
     dispatch(getProduct())
@@ -214,8 +226,23 @@ export const handleEditProduct =
       const response = await productRequest.editProductRequest(id, productInfo)
 
       dispatch(editProductSuccess(response.data))
+
       navigate('/my-products')
+
     } catch {
       dispatch(editProductFailure())
     }
   }
+
+export const handleDeleteProduct = (productId) => async dispatch => {
+  try{
+    dispatch(deleteProduct())
+
+    const response = await productRequest.deleteProductRequest(productId)
+
+    dispatch(deleteProductSuccess(response.data))
+
+  }catch{
+    dispatch(deleteProductFailure())
+  }
+}
