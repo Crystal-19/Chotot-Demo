@@ -162,7 +162,7 @@ const Header = () => {
 
   const renderPost = () => {
     return (
-      <Link to="/create-product?id=test" className="reg-btn">
+      <Link to='/create-product' className="reg-btn">
         <div className="reg">
           <RegisterIcon className="reg-i" />
           <span>Post</span>

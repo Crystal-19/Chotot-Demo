@@ -13,6 +13,7 @@ const initialState = {
     price: 0,
     author: {},
     category: {},
+    location: '',
   },
   productRelated: [],
   productFilterByCategory: {data: []},

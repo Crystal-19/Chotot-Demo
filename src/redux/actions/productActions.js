@@ -27,6 +27,7 @@ export const getProductDetailSuccess = ({
   price,
   author,
   category,
+  location,
 }) => ({
   type: productTypes.GET_PRODUCT_DETAIL_SUCCESS,
   payload: {
@@ -37,6 +38,7 @@ export const getProductDetailSuccess = ({
     price,
     author,
     category,
+    location
   },
 })
 

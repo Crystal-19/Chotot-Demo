@@ -24,7 +24,19 @@ const CreateProduct = () => {
   const query = useQuery()
 
   const id = query.get('id')
+
   const isLoading = useSelector(state => state.Product.isLoading)
+  const nameUpdate = useSelector(state => state.Product.productDetail.name)
+  const priceUpdate = useSelector(state => state.Product.productDetail.price)
+  const locationUpdate = useSelector(
+    state => state.Product.productDetail.location,
+  )
+  const descriptionUpdate = useSelector(
+    state => state.Product.productDetail.description,
+  )
+  const categoryIdUpdate = useSelector(
+    state => state.Product.productDetail.category._id,
+  )
 
   const [open, setOpen] = useState(true)
   const [preview, setPreview] = useState(false)
@@ -48,13 +60,34 @@ const CreateProduct = () => {
   const {name, price, location, description, category} = product
 
   useEffect(() => {
-    if(!id) {
-      setOpen(false)
-    }
-  }, [id])
+    dispatch(productActions.loadProductDetail(id))
+  }, [dispatch, id])
 
-  const onSelect = category => {
-    setProduct({category})
+  useEffect(() => {
+    if (id) {
+      setOpen(false)
+      setProduct({
+        name: nameUpdate,
+        price: priceUpdate,
+        location: locationUpdate,
+        description: descriptionUpdate,
+        category: categoryIdUpdate,
+      })
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    id,
+    nameUpdate,
+    priceUpdate,
+    locationUpdate,
+    descriptionUpdate,
+    categoryIdUpdate,
+    category,
+  ])
+
+  const onSelect = categoryId => {
+    setProduct({category: categoryId})
   }
 
   const handleFileSubmit = async e => {
