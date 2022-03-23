@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
@@ -14,26 +14,43 @@ import * as productActions from 'redux/actions/productActions'
 import API from 'redux/api/API'
 
 import useMergeState from 'hooks/useMergeState'
+import useQuery from 'hooks/useQuery'
 
 import './styles.scss'
 
 const CreateProduct = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const isLoading = useSelector(state => state.Product.isLoading)
+  const query = useQuery()
 
-  const [open, setOpen] = useState(true)
+  const id = query.get('id')
+
+  const isLoading = useSelector(state => state.Product.isLoading)
+  const nameUpdate = useSelector(state => state.Product.productDetail.name)
+  const priceUpdate = useSelector(state => state.Product.productDetail.price)
+  const locationUpdate = useSelector(
+    state => state.Product.productDetail.location,
+  )
+  const descriptionUpdate = useSelector(
+    state => state.Product.productDetail.description,
+  )
+  const categoryIdUpdate = useSelector(
+    state => state.Product.productDetail.category._id,
+  )
+  const imageUpdate = useSelector(state => state.Product.productDetail.imageUrl)
+
+  const [open, setOpen] = useState(id ? false : true)
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [loadingImage, setLoadingImage] = useState(false)
-
-  const [product, setProduct] = useMergeState({
+  const INIT_PRODUCT_STATE = {
     name: '',
     price: '',
     location: '',
     description: '',
     category: '',
-  })
+  }
+  const [product, setProduct] = useMergeState(INIT_PRODUCT_STATE)
 
   const [image, setImage] = useMergeState({
     imageUpload: null,
@@ -44,8 +61,58 @@ const CreateProduct = () => {
 
   const {name, price, location, description, category} = product
 
-  const onSelect = category => {
-    setProduct({category})
+  useEffect(() => {
+    if (id) {
+      dispatch(productActions.loadProductDetail(id))
+    }
+  }, [dispatch, id])
+
+  useEffect(() => {
+    if (id) {
+      setProduct({
+        name: nameUpdate,
+        price: priceUpdate,
+        location: locationUpdate,
+        description: descriptionUpdate,
+        category: categoryIdUpdate,
+      })
+
+      setImage({
+        imageUpload: imageUpdate,
+      })
+    } else {
+      setProduct(INIT_PRODUCT_STATE)
+
+      setOpen(true)
+
+      setImage({
+        imageUpload: null,
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    id,
+    nameUpdate,
+    priceUpdate,
+    locationUpdate,
+    descriptionUpdate,
+    categoryIdUpdate,
+  ])
+
+  const onSelect = categoryId => {
+    setProduct({category: categoryId})
+  }
+
+  const handleFileUpload = async () => {
+    const formData = new FormData()
+    formData.append('file', file)
+
+    if (file) {
+      const response = await API.post('/upload', formData)
+      return response.data.url
+    }
+
+    return imageUpdate
   }
 
   const handleFileSubmit = async e => {
@@ -63,26 +130,27 @@ const CreateProduct = () => {
 
     try {
       setLoadingImage(true)
-      const formData = new FormData()
-      formData.append('file', file)
 
-      const response = await API.post('/upload', formData)
+      const imageUrl = await handleFileUpload()
+
       setLoadingImage(false)
-      const imageUrl = response.data.url
 
-      dispatch(
-        productActions.handleCreateProduct(
-          {
-            name,
-            imageUrl,
-            location,
-            price,
-            description,
-            category,
-          },
-          navigate,
-        ),
-      )
+      const productInfo = {
+        name,
+        imageUrl,
+        location,
+        price,
+        description,
+        category,
+      }
+
+      if (id) {
+        return dispatch(
+          productActions.handleEditProduct(id, productInfo, navigate),
+        )
+      }
+
+      dispatch(productActions.handleCreateProduct(productInfo, navigate))
     } catch (error) {
       setLoadingImage(false)
       alert('Failed to create product, please try again')
@@ -155,7 +223,7 @@ const CreateProduct = () => {
               Preview
             </Button>
             <Button color="orange" className="post" type="submit">
-              Register
+              {id ? 'Update' : 'Create'}
             </Button>
           </div>
         </form>

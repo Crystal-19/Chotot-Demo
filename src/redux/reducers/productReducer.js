@@ -13,6 +13,7 @@ const initialState = {
     price: 0,
     author: {},
     category: {},
+    location: '',
   },
   productRelated: [],
   productFilterByCategory: {data: []},
@@ -118,6 +119,15 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: false, isError: false}
 
     case productTypes.CREATE_PRODUCT_FAILURE:
+      return {...state, isLoading: false, isError: true}
+
+    case productTypes.EDIT_PRODUCT:
+      return {...state, isLoading: true, isError: false}
+
+    case productTypes.EDIT_PRODUCT_SUCCESS:
+      return {...state, isLoading: false, isError: false}
+
+    case productTypes.EDIT_PRODUCT_FAILURE:
       return {...state, isLoading: false, isError: true}
 
     default:

@@ -2,6 +2,7 @@
 
 .background-container {
   background-color: $pale_gray;
+  height: 100%;
 
   .no-exist {
     @include flex(column, center, center);
@@ -15,6 +16,10 @@
   }
 
   .product-detail-container {
+    .ui.breadcrumb {
+      margin-left: 20px;
+    }
+
     .header-container {
       @include flex(row, center, flex-start);
       width: 100%;
@@ -45,7 +50,7 @@
         overflow-y: scroll;
         line-height: 1.5rem;
 
-        .ui.placeholder{
+        .ui.placeholder {
           width: 600px;
           max-width: 600px;
           height: 600px;
@@ -54,6 +59,7 @@
         img {
           width: 600px;
           height: 600px;
+          object-fit: contain;
         }
 
         &::-webkit-scrollbar {

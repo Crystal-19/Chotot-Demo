@@ -31,13 +31,13 @@
     right: 5px;
     top: 195px;
 
-    .edit{
-      span{
+    .edit {
+      span {
         font-weight: 700;
       }
     }
 
-    .remove{
+    .remove {
       color: $remove;
     }
   }
@@ -46,7 +46,7 @@
     width: 100%;
     height: 180px;
     border-radius: 2px;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .price {

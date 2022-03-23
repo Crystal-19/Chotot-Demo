@@ -2,14 +2,14 @@
 
 .background-container {
   background-color: $pale_gray;
-  height: 100vh;
+  height: 100%;
   padding-top: 40px;
   position: relative;
 
   .loading-container {
     @include flex(row, center, center);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;

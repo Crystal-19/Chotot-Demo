@@ -12,7 +12,9 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+
 import useAuth from 'hooks/useAuth'
+
 
 import './styles.scss'
 
@@ -160,7 +162,7 @@ const Header = () => {
 
   const renderPost = () => {
     return (
-      <Link to="/create-product" className="reg-btn">
+      <Link to='/create-product' className="reg-btn">
         <div className="reg">
           <RegisterIcon className="reg-i" />
           <span>Post</span>
