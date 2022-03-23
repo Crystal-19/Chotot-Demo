@@ -103,6 +103,18 @@ const CreateProduct = () => {
     setProduct({category: categoryId})
   }
 
+  const handleFileUpload = async () => {
+    const formData = new FormData()
+    formData.append('file', file)
+
+    if (file) {
+      const response = await API.post('/upload', formData)
+      return response.data.url
+    }
+
+    return imageUpdate
+  }
+
   const handleFileSubmit = async e => {
     e.preventDefault()
 
@@ -114,17 +126,6 @@ const CreateProduct = () => {
 
     if (category === '') {
       return setErrorMessage('Please select 1 category')
-    }
-
-    const formData = new FormData()
-    formData.append('file', file)
-
-    const handleFileUpload = async () => {
-      if (file) {
-        const response = await API.post('/upload', formData)
-        return response.data.url
-      }
-      return imageUpdate
     }
 
     try {
