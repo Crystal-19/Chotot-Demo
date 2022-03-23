@@ -37,6 +37,7 @@ const CreateProduct = () => {
   const categoryIdUpdate = useSelector(
     state => state.Product.productDetail.category._id,
   )
+  const imageUpdate = useSelector(state => state.Product.productDetail.imageUrl)
 
   const [open, setOpen] = useState(true)
   const [preview, setPreview] = useState(false)
@@ -72,6 +73,9 @@ const CreateProduct = () => {
         location: locationUpdate,
         description: descriptionUpdate,
         category: categoryIdUpdate,
+      })
+      setImage({
+        imageUpload: imageUpdate,
       })
     }
 
