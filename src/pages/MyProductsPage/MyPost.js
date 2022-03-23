@@ -10,11 +10,13 @@ const MyPost = () => {
   const dispatch = useDispatch()
   const productPosted = useSelector(state => state.Product.productPosted.data)
   const isLoading = useSelector(state => state.Product.isLoading)
-  const {page, totalPages} = useSelector(state => state.Product.productPosted.pagination)
+  const {page, totalPages} = useSelector(
+    state => state.Product.productPosted.pagination,
+  )
 
   useEffect(() => {
-    dispatch(productActions.loadProductPosted(page))
-  }, [dispatch, page])
+    dispatch(productActions.loadProductPosted(1))
+  }, [dispatch])
 
   const onShowMore = () => {
     dispatch(productActions.loadProductPosted(page + 1))

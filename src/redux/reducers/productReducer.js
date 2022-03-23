@@ -138,18 +138,17 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: false, isError: true}
 
     case productTypes.DELETE_PRODUCT:
-      return {...state, isLoading: true, isError: false}
+      return {...state, isError: false}
 
     case productTypes.DELETE_PRODUCT_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         isError: false,
-        productList: payload.productList,
+        productPosted: {...state.productPosted, data: payload.productPosted},
       }
 
     case productTypes.DELETE_PRODUCT_FAILURE:
-      return {...state, isLoading: false, isError: true}
+      return {...state, isError: true}
 
     default:
       return state

@@ -4,15 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom'
-import {
-  Image,
-  Icon,
-  Dropdown,
-  Button,
-  Modal,
-  Loader,
-  Dimmer,
-} from 'semantic-ui-react'
+import {Image, Icon, Dropdown, Button, Modal} from 'semantic-ui-react'
 
 import * as productActions from 'redux/actions/productActions'
 
@@ -31,7 +23,7 @@ const ProductCard = ({product}) => {
     product
   const currentTime = dayjs(createdAt).fromNow()
   const userId = useSelector(state => state.Profile.userProfile._id)
-  const isLoading = useSelector(state => state.Product.isLoading)
+  const {page} = useSelector(state => state.Product.productPosted.pagination)
 
   const handleEdit = () => {
     navigate(`/create-product?id=${_id}`)
@@ -43,14 +35,7 @@ const ProductCard = ({product}) => {
 
   const handleDelete = () => {
     setConfirmModal(false)
-    dispatch(productActions.handleDeleteProduct(_id))
-  }
-  const renderLoader = () => {
-    return (
-      <Dimmer active>
-        <Loader size="massive">Loading</Loader>
-      </Dimmer>
-    )
+    dispatch(productActions.handleDeleteProduct(_id, page))
   }
 
   const renderContentModal = () => {
@@ -79,7 +64,7 @@ const ProductCard = ({product}) => {
         open={confirmModal}
         onClose={() => setConfirmModal(false)}
         onOpen={() => setConfirmModal(true)}>
-        {isLoading ? renderLoader() : renderContentModal()}
+        {renderContentModal()}
       </Modal>
     )
   }
