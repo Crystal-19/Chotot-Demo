@@ -124,7 +124,6 @@ const CreateProduct = () => {
       setLoadingImage(true)
       const formData = new FormData()
       formData.append('file', file)
-      // const response = await API.post('/upload', formData)
 
       const image = async () => {
         if (file) {
@@ -226,7 +225,7 @@ const CreateProduct = () => {
               Preview
             </Button>
             <Button color="orange" className="post" type="submit">
-              Register
+              {id ? 'Update' : 'Create'}
             </Button>
           </div>
         </form>
