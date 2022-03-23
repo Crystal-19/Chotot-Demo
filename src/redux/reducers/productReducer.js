@@ -20,7 +20,7 @@ const initialState = {
   productFilterByName: {data: []},
   productPosted: {
     data: [],
-    pagination: {}
+    pagination: {},
   },
 }
 
@@ -107,7 +107,13 @@ const ProductReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isError: false,
-        productPosted: payload.productPosted,
+        productPosted: {
+          data:
+            payload.pagination.page !== 1
+              ? state.productPosted.data.concat(payload.productPosted)
+              : payload.productPosted,
+          pagination: payload.pagination,
+        },
       }
 
     case productTypes.GET_PRODUCT_POSTED_FAILURE:
@@ -135,7 +141,12 @@ const ProductReducer = (state = initialState, action) => {
       return {...state, isLoading: true, isError: false}
 
     case productTypes.DELETE_PRODUCT_SUCCESS:
-      return {...state, isLoading: false, isError: false, productList: payload.productList}
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        productList: payload.productList,
+      }
 
     case productTypes.DELETE_PRODUCT_FAILURE:
       return {...state, isLoading: false, isError: true}

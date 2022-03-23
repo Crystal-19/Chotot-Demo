@@ -89,9 +89,9 @@ export const getProductPosted = () => ({
   type: productTypes.GET_PRODUCT_POSTED,
 })
 
-export const getProductPostedSuccess = (productPosted) => ({
+export const getProductPostedSuccess = (productPosted, pagination) => ({
   type: productTypes.GET_PRODUCT_POSTED_SUCCESS,
-  payload: {productPosted},
+  payload: {productPosted, pagination},
 })
 
 export const getProductPostedFailure = () => ({
@@ -128,7 +128,7 @@ export const deleteProduct = () => ({
 
 export const deleteProductSuccess = (productList, productId) => ({
   type: productTypes.DELETE_PRODUCT_SUCCESS,
-  payload: {productList: productList.filter(pd => pd._id !== productId)}
+  payload: {productList: productList.filter(pd => pd._id !== productId)},
 })
 
 export const deleteProductFailure = () => ({
@@ -201,9 +201,9 @@ export const loadProductPosted = pageNumber => async dispatch => {
 
     const response = await productRequest.getProductPostedRequest(pageNumber)
 
-    // const {data, pagination} = response.data
-
-    dispatch(getProductPostedSuccess(response.data))
+    const {data, pagination} = response.data
+    
+    dispatch(getProductPostedSuccess(data, pagination))
   } catch {
     dispatch(getProductPostedFailure())
   }
@@ -241,7 +241,9 @@ export const handleDeleteProduct = productId => async dispatch => {
     dispatch(deleteProduct())
 
     const response = await productRequest.deleteProductRequest(productId)
-    dispatch(deleteProductSuccess(response.data.productList, response.data.productId))
+    dispatch(
+      deleteProductSuccess(response.data.productList, response.data.productId),
+    )
   } catch (error) {
     console.log('error', error)
     dispatch(deleteProductFailure())
