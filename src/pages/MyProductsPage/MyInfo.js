@@ -30,9 +30,6 @@ const MyInfo = () => {
             <Link to="/dashboard/profile-update">
               <button>Edit profile</button>
             </Link>
-            <button className="three-dot-container">
-              <Icon name="ellipsis horizontal" />
-            </button>
           </div>
         </div>
       </div>

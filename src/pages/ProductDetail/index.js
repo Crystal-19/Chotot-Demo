@@ -47,41 +47,6 @@ const ProductDetail = () => {
     return <BreadCrumb data={data} />
   }
 
-  // const renderInfoList = () => {
-  //   return (
-  //     <div className="info-list-container">
-  //       <div className="list-container">
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_brand.png" />
-  //           <span>Brand: Samsung</span>
-  //         </div>
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_condition.png" />
-  //           <span>Condition: Used</span>
-  //         </div>
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_capacity.png" />
-  //           <span>Capacity: 16GB</span>
-  //         </div>
-  //       </div>
-  //       <div className="list-container">
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_model.png" />
-  //           <span>Model: Galaxy</span>
-  //         </div>
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_warranty.png" />
-  //           <span>Warranty status: Out of warranty</span>
-  //         </div>
-  //         <div className="item-container">
-  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_screen_size.png" />
-  //           <span>Screen size: 8 inches</span>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
   const renderImagePlaceholder = () => {
     return (
       <Placeholder>
@@ -96,7 +61,6 @@ const ProductDetail = () => {
         <h3>{name}</h3>
         <h3 className="price">{helpers.formatPrice(price)}</h3>
         <p>{description}</p>
-        {/* {renderInfoList()} */}
       </>
     )
   }
@@ -175,7 +139,7 @@ const ProductDetail = () => {
       <div className="ava-container">
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
-          <h4>{userName ? userName : email}</h4>
+          <h4>{userName || email}</h4>
           <p>Join date: {joinDate}</p>
         </div>
       </div>
