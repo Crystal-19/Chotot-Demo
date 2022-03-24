@@ -22,15 +22,18 @@ const BottomNav = () => {
 
   return (
     <nav className="nav-container">
-      <Link to="/" className="items-container active">
+      <Link
+        to="/"
+        className="items-container active"
+        onClick={toggleVisibleSideNav}>
         <BottomHomeIcon className="icon-home" />
         <p>Home Page</p>
       </Link>
-      <Link to="/my-products" className="items-container">
+      <Link to="/my-products" className="items-container" onClick={() => {setVisibleSideNav(false)}} >
         <NewsIcon className="icon-news" />
         <p>Profile</p>
       </Link>
-      <Link to="/create-product" className="items-container post">
+      <Link to="/create-product" className="items-container post" onClick={() => {setVisibleSideNav(false)}} >
         <Image
           className="top-rounder"
           src="https://static.chotot.com/storage/default/combined-shape.svg"
@@ -40,7 +43,7 @@ const BottomNav = () => {
           <p>Post</p>
         </div>
       </Link>
-      <Link to="/notify" className="items-container">
+      <Link to="/notify" className="items-container" onClick={() => {setVisibleSideNav(false)}} >
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
       </Link>
