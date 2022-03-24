@@ -1,36 +1,65 @@
 @import 'assets/scss';
 
-.background-container{
+.background-container {
   height: 100%;
 
-  .profile-edit-container{
+  .profile-edit-container {
     background-color: $white;
     height: 100vh;
 
-    .header-profile-edit-container{
+    .header-profile-edit-container {
       margin-left: 30px;
     }
 
-    h2{
+    h2 {
       margin-left: 30px;
     }
 
-    .profile-edit-container{
+    .profile-edit-container {
       @include flex(row, flex-start, space-evenly);
       height: auto;
 
-      .img-edit-container{
+      .img-edit-container {
         flex: 0.3;
+        position: relative;
 
-        img{
+        .img-input-update {
+          position: absolute;
+          height: 250px;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          opacity: 0;
+        }
+
+        img {
           border-radius: 50%;
           width: 250px;
           height: 250px;
           object-fit: cover;
         }
+
+        .camera-icon-container {
+          background-color: $main_gray;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          position: absolute;
+          font-size: 2.5em;
+          right: 50px;
+          bottom: 0;
+          border: solid 2px $white;
+
+          i.icon {
+            position: absolute;
+            left: 12px;
+            top: 22px;
+            color: $white;
+          }
+        }
       }
 
-      .personal-info-edit-container{
+      .personal-info-edit-container {
         flex: 0.6;
       }
     }
