@@ -212,7 +212,7 @@
           }
         }
 
-        button.contact-container {
+        .contact-container {
           @include flex(row, center, space-between);
           background-color: $green;
           padding: 10px 10px;

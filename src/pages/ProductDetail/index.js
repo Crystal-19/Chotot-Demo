@@ -214,10 +214,10 @@ const ProductDetail = () => {
       <div className="right-section-container">
         {renderUserInfo()}
         {renderRateInfo()}
-        <button className="contact-container">
+        <a href={`tel: ${phone} || No phone to display`} className="contact-container">
           <Image src="https://static.chotot.com/storage/chotot-icons/svg/white-phone.svg" />
-          <span>{phone ? phone : 'No phone to display'}</span>
-        </button>
+          <span>{phone || 'No phone to display'}</span>
+        </a>
         <button className="contact-container chat-container">
           <Image src="https://static.chotot.com/storage/chotot-icons/png/chat_green.png" />
           <span>Chat with seller</span>
