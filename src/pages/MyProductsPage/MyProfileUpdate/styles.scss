@@ -64,12 +64,6 @@
         flex: 0.6;
 
         .input-container{
-          input.email-input{
-            &:focus{
-              outline: none;
-            }
-          }
-
           label{
             &::after{
               content: '';

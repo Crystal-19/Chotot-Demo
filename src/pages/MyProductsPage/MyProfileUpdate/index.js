@@ -15,6 +15,10 @@ const MyProfileUpdate = () => {
   ]
 
   const [imageUpdate, setImageUpdate] = useState(null)
+  const [nameUpdate, setNameUpdate] = useState('')
+  const [phoneUpdate, setPhoneUpdate] = useState('')
+  const [addressUpdate, setAddressUpdate] = useState('')
+
   const userEmail = useSelector(state => state.Profile.userProfile.email)
 
   const handleImageUpdate = e => {
@@ -57,10 +61,28 @@ const MyProfileUpdate = () => {
               value={userEmail}
               disabled
             />
-            <FloatLabelInput id="Name" type="text" />
-            <FloatLabelInput id="Phone number" type="tel" />
-            <FloatLabelInput id="Address" type="text" />
-            <FloatLabelInput id="Date of birth" type="date" />
+            <FloatLabelInput
+              onChange={e => setNameUpdate(e.target.value)}
+              value={nameUpdate}
+              id="Name"
+              type="text"
+            />
+            <FloatLabelInput
+              onChange={e => setPhoneUpdate(e.target.value)}
+              value={phoneUpdate}
+              id="Phone number"
+              type="tel"
+            />
+            <FloatLabelInput
+              onChange={e => setAddressUpdate(e.target.value)}
+              value={addressUpdate}
+              id="Address"
+              type="text"
+            />
+            <FloatLabelInput
+              id="Date of birth"
+              type="date"
+            />
             <Button inverted color="orange">
               Update
             </Button>
