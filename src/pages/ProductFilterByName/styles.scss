@@ -5,6 +5,10 @@
     font-size: 1.5em;
     margin-top: 1em;
 
+    @include responsive(mobile) {
+      margin-left: 10px;
+    }
+
     span {
       font-weight: bold;
     }
