@@ -23,6 +23,11 @@
   flex: 0.3;
   position: relative;
 
+  @include responsive(mobile) {
+    width: 74%;
+    margin-bottom: 30px;
+  }
+
   .file {
     position: absolute;
     height: 221px;
