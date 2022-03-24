@@ -44,7 +44,7 @@ const ContentDropdown = () => {
         <Image
           src={
             avatarUrl === null
-              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
+              ? 'https://www.chotot.com/user/static/img/avatar.svg'
               : avatarUrl
           }
           href="https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2F&_ga=2.190840619.1214802101.1640660618-451603730.1639971106"

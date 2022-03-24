@@ -26,7 +26,7 @@ const MyProfileUpdate = () => {
         <div className="profile-edit-container">
           <div className="img-edit-container">
             <input accept="image/*" type="file" className="img-input-update" />
-            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU" />
+            <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
             <div className="camera-icon-container">
               <Icon name="camera retro" className="update-ava" />
             </div>

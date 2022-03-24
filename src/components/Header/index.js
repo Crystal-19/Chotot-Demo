@@ -140,7 +140,7 @@ const Header = () => {
           className="log-ava"
           src={
             avatarUrl === null
-              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
+              ? 'https://www.chotot.com/user/static/img/avatar.svg'
               : avatarUrl
           }
         />
