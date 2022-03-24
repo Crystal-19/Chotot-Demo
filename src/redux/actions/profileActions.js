@@ -22,9 +22,8 @@ export const updateProfile = () => ({
   type: profileTypes.UPDATE_PROFILE,
 })
 
-export const updateProfileSuccess = (avatarUpdate) => ({
+export const updateProfileSuccess = () => ({
   type: profileTypes.UPDATE_PROFILE_SUCCESS,
-  payload: {avatarUpdate}
 })
 
 export const updateProfileFailure = () => ({
@@ -42,13 +41,13 @@ export const loadUserProfile = () => async dispatch => {
   }
 }
 
-export const handleUpdateProfile = (infoUpdate, navigate, avatarUpdate) => async dispatch => {
+export const handleUpdateProfile = (infoUpdate, navigate) => async dispatch => {
   try {
     dispatch(updateProfile())
 
     await profileRequest.profileUpdateRequest(infoUpdate)
 
-    dispatch(updateProfileSuccess(avatarUpdate))
+    dispatch(updateProfileSuccess())
 
     navigate('/my-products')
   } catch {

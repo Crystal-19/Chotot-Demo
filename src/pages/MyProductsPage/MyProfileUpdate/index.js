@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 
+import dayjs from 'dayjs'
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {Image, Icon, Button} from 'semantic-ui-react'
@@ -25,12 +26,17 @@ const MyProfileUpdate = () => {
   const userEmail = useSelector(state => state.Profile.userProfile.email)
   const userName = useSelector(state => state.Profile.userProfile.name)
   const userPhone = useSelector(state => state.Profile.userProfile.phone)
+  const avaImage = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const dOb = useSelector(state => state.Profile.userProfile.dateOfBirth)
 
   const [file, setFile] = useState(null)
-  const [imageUpdate, setImageUpdate] = useState(null)
+  const [imageUpdate, setImageUpdate] = useState(avaImage)
   const [name, setName] = useState(userName)
   const [phone, setPhone] = useState(userPhone)
   const [address, setAddress] = useState('')
+  const [dateOfBirth, setDateOfBirth] = useState(
+    dayjs(dOb).format('YYYY-MM-DD'),
+  )
 
   const handleImageUpdate = e => {
     setImageUpdate(URL.createObjectURL(e.target.files[0]))
@@ -49,11 +55,11 @@ const MyProfileUpdate = () => {
     return imageUpdate
   }
 
-  const handleUpdateProfile = async (e) => {
+  const handleUpdateProfile = async e => {
     e.preventDefault()
-    const avatarUpdate = await handleFileUpload()
-    const infoUpdate = {name, phone}
-    dispatch(profileActions.handleUpdateProfile(infoUpdate, navigate, avatarUpdate))
+    const avatarUrl = await handleFileUpload()
+    const infoUpdate = {avatarUrl, name, phone, dateOfBirth}
+    dispatch(profileActions.handleUpdateProfile(infoUpdate, navigate))
   }
 
   return (
@@ -85,7 +91,7 @@ const MyProfileUpdate = () => {
             </div>
           </div>
           <form
-            onSubmit={(e) => handleUpdateProfile(e)}
+            onSubmit={e => handleUpdateProfile(e)}
             className="personal-info-edit-container">
             <FloatLabelInput
               className="email-input"
@@ -99,12 +105,14 @@ const MyProfileUpdate = () => {
               value={name}
               id="Name"
               type="text"
+              required={false}
             />
             <FloatLabelInput
               onChange={e => setPhone(e.target.value)}
               value={phone}
               id="Phone number"
               type="tel"
+              required={false}
             />
             <FloatLabelInput
               onChange={e => setAddress(e.target.value)}
@@ -113,7 +121,13 @@ const MyProfileUpdate = () => {
               type="text"
               required={false}
             />
-            <FloatLabelInput required={false} id="Date of birth" type="date" />
+            <FloatLabelInput
+              onChange={e => setDateOfBirth(e.target.value)}
+              value={dateOfBirth}
+              required={false}
+              id="Date of birth"
+              type="date"
+            />
             <Button inverted color="orange">
               Update
             </Button>

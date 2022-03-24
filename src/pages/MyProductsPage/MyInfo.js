@@ -7,16 +7,23 @@ import {useSelector} from 'react-redux'
 import dayjs from 'dayjs'
 
 const MyInfo = () => {
-  const {email, name, createdAt, avatarUrl, address} = useSelector(
+  const {email, name, createdAt, avatarUrl, address, dateOfBirth} = useSelector(
     state => state.Profile.userProfile,
   )
-  console.log('myproductpage', avatarUrl)
+
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
+  const dOb = dayjs(dateOfBirth).format('DD-MM-YYYY')
 
   const renderLeftInfo = () => {
     return (
       <div className="left-info-container">
-        <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
+        <Image
+          src={
+            avatarUrl
+              ? avatarUrl
+              : 'https://www.chotot.com/user/static/img/avatar.svg'
+          }
+        />
         <div className="personal-info-container">
           <h2>{name ? name : email}</h2>
           <div className="follow-container">
@@ -50,13 +57,7 @@ const MyInfo = () => {
   const renderLastRightItem = () => {
     return (
       <li>
-        <Image
-          src={
-            !avatarUrl
-              ? 'https://www.chotot.com/user/static/img/check.png'
-              : avatarUrl
-          }
-        />
+        <Image src="https://www.chotot.com/user/static/img/check.png" />
         <h3>
           Provided:
           <Image src="https://www.chotot.com/user/static/img/contact/facebook_active.png" />
@@ -88,9 +89,9 @@ const MyInfo = () => {
           address ? address : 'No provided yet',
         )}
         {renderRightItem(
-          'https://www.chotot.com/user/static/img/chat.png',
-          'Chat feedback',
-          'No information',
+          'https://www.chotot.com/user/static/img/calendar.png',
+          'Date of birth',
+          dateOfBirth ? dOb : 'No information',
         )}
         {renderLastRightItem()}
       </ul>

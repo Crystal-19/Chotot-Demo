@@ -34,10 +34,6 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         isError: false,
-        userProfile: {
-          ...state.userProfile,
-          avatarUrl: payload.avatarUpdate,
-        },
       }
 
     case profileTypes.UPDATE_PROFILE_FAILURE:
