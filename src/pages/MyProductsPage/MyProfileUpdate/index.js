@@ -1,5 +1,6 @@
 import React from 'react'
 
+import {useSelector} from 'react-redux'
 import {Image} from 'semantic-ui-react'
 
 import Breadcrumb from 'components/Breadcrumb'
@@ -12,6 +13,9 @@ const MyProfileUpdate = () => {
     {title: 'Good Market', link: '/'},
     {title: 'Personal Information', link: ''},
   ]
+
+  const userEmail = useSelector(state => state.Profile.userProfile.email)
+
   return (
     <div className="background-container">
       <div className="profile-edit-container general-container">
@@ -27,11 +31,9 @@ const MyProfileUpdate = () => {
             <FloatLabelInput
               id="First and last name"
               type="text"
-              // onChange={e => setProduct({location: e.target.value})}
-              // value={location}
             />
             <FloatLabelInput id="Add phone number" type="tel" />
-            <FloatLabelInput id="email" type="email" />
+            <FloatLabelInput id="email" type="email" value={userEmail} />
             <FloatLabelInput id="Address" type="text" />
             <FloatLabelInput id="Date of birth" type="date" />
             <FloatLabelInput id="Password" type="password" />
