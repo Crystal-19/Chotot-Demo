@@ -1,10 +1,12 @@
 import React from 'react'
 
+import {useSelector} from 'react-redux'
+import dayjs from 'dayjs'
+
 import {Image, Icon} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-import {useSelector} from 'react-redux'
-import dayjs from 'dayjs'
+import * as helpers from 'utils/helpers'
 
 const MyInfo = () => {
   const {email, name, createdAt, avatarUrl, address, dateOfBirth} = useSelector(
@@ -21,7 +23,7 @@ const MyInfo = () => {
           src={
             avatarUrl
               ? avatarUrl
-              : 'https://www.chotot.com/user/static/img/avatar.svg'
+              : helpers.DEFAULT_AVATAR
           }
         />
         <div className="personal-info-container">

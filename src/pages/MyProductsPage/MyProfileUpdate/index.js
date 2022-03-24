@@ -9,6 +9,7 @@ import Breadcrumb from 'components/Breadcrumb'
 import FloatLabelInput from 'components/FloatLabelInput'
 
 import * as profileActions from 'redux/actions/profileActions'
+import * as helpers from 'utils/helpers'
 
 import API from 'redux/api/API'
 
@@ -82,7 +83,7 @@ const MyProfileUpdate = () => {
             <Image
               src={
                 !imageUpdate
-                  ? 'https://www.chotot.com/user/static/img/avatar.svg'
+                  ? helpers.DEFAULT_AVATAR
                   : imageUpdate
               }
             />

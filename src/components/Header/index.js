@@ -12,6 +12,7 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+import * as helpers from 'utils/helpers'
 
 import useAuth from 'hooks/useAuth'
 
@@ -139,7 +140,7 @@ const Header = () => {
           className="log-ava"
           src={
             !avatarUrl
-              ? 'https://www.chotot.com/user/static/img/avatar.svg'
+              ? helpers.DEFAULT_AVATAR
               : avatarUrl
           }
         />

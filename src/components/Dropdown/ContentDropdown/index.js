@@ -1,9 +1,14 @@
 import React from 'react'
+
 import {Image} from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+
 import * as profileActions from 'redux/actions/profileActions'
+import * as helpers from 'utils/helpers'
+
 import useAuth from 'hooks/useAuth'
+
 
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 import './styles.scss'
@@ -46,7 +51,7 @@ const ContentDropdown = () => {
         <Image
           src={
             avatarUrl === null
-              ? 'https://www.chotot.com/user/static/img/avatar.svg'
+              ? helpers.DEFAULT_AVATAR
               : avatarUrl
           }
           href="https://accounts.chotot.com/login?continue=https%3A%2F%2Fwww.chotot.com%2F&_ga=2.190840619.1214802101.1640660618-451603730.1639971106"
