@@ -244,7 +244,6 @@ export const handleDeleteProduct = productId => async (dispatch) => {
 
     dispatch(deleteProductSuccess(productId))
   } catch (error) {
-    console.log('error', error)
     dispatch(deleteProductFailure())
   }
 }
