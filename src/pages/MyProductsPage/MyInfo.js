@@ -19,15 +19,9 @@ const MyInfo = () => {
   const renderLeftInfo = () => {
     return (
       <div className="left-info-container">
-        <Image
-          src={
-            avatarUrl
-              ? avatarUrl
-              : helpers.DEFAULT_AVATAR
-          }
-        />
+        <Image src={avatarUrl || helpers.DEFAULT_AVATAR} />
         <div className="personal-info-container">
-          <h2>{name ? name : email}</h2>
+          <h2>{name || email}</h2>
           <div className="follow-container">
             <span className="follower">0 Followers</span>
             <span>0 Following</span>

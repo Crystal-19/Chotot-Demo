@@ -80,13 +80,7 @@ const MyProfileUpdate = () => {
               type="file"
               className="img-input-update"
             />
-            <Image
-              src={
-                !imageUpdate
-                  ? helpers.DEFAULT_AVATAR
-                  : imageUpdate
-              }
-            />
+            <Image src={imageUpdate || helpers.DEFAULT_AVATAR} />
             <div className="camera-icon-container">
               <Icon name="camera retro" className="update-ava" />
             </div>
