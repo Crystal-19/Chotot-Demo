@@ -29,11 +29,21 @@ const BottomNav = () => {
         <BottomHomeIcon className="icon-home" />
         <p>Home Page</p>
       </Link>
-      <Link to="/my-products" className="items-container" onClick={() => {setVisibleSideNav(false)}} >
+      <Link
+        to="/my-products"
+        className="items-container"
+        onClick={() => {
+          setVisibleSideNav(false)
+        }}>
         <NewsIcon className="icon-news" />
         <p>Profile</p>
       </Link>
-      <Link to="/create-product" className="items-container post" onClick={() => {setVisibleSideNav(false)}} >
+      <Link
+        to="/create-product"
+        className="items-container post"
+        onClick={() => {
+          setVisibleSideNav(false)
+        }}>
         <Image
           className="top-rounder"
           src="https://static.chotot.com/storage/default/combined-shape.svg"
@@ -43,7 +53,12 @@ const BottomNav = () => {
           <p>Post</p>
         </div>
       </Link>
-      <Link to="/notify" className="items-container" onClick={() => {setVisibleSideNav(false)}} >
+      <Link
+        to="/notify"
+        className="items-container"
+        onClick={() => {
+          setVisibleSideNav(false)
+        }}>
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
       </Link>
@@ -51,7 +66,10 @@ const BottomNav = () => {
         <MoreIcon className="icon-more" />
         <p>More</p>
       </div>
-      <SideNav visibleSideNav={visibleSideNav} />
+      <SideNav
+        visibleSideNav={visibleSideNav}
+        setVisibleSideNav={setVisibleSideNav}
+      />
     </nav>
   )
 }
