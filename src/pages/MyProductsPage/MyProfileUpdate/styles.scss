@@ -40,21 +40,22 @@
         }
 
         .camera-icon-container {
-          background-color: $main_gray;
+          @include flex(row, center, center);
+          background-color: $grey_icon;
           width: 70px;
           height: 70px;
           border-radius: 50%;
           position: absolute;
-          font-size: 2.5em;
+
           right: 50px;
           bottom: 0;
           border: solid 2px $white;
 
           i.icon {
-            position: absolute;
-            left: 12px;
-            top: 22px;
+            font-size: 2.25em;
             color: $white;
+            margin-right: 0;
+            margin-top: 0.25em;
           }
         }
       }
