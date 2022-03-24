@@ -14,15 +14,14 @@ import './styles.scss'
 
 dayjs.extend(relativeTime)
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, visibleDropdown}) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [confirmModal, setConfirmModal] = useState(false)
 
-  const {_id, imageUrl, name, price, icon, location, createdAt, author} =
+  const {_id, imageUrl, name, price, icon, location, createdAt} =
     product
   const currentTime = dayjs(createdAt).fromNow()
-  const userId = useSelector(state => state.Profile.userProfile._id)
   const {page} = useSelector(state => state.Product.productPosted.pagination)
 
   const handleEdit = () => {
@@ -88,7 +87,7 @@ const ProductCard = ({product}) => {
 
   return (
     <div className="product-container">
-      {author === userId && renderDropdown()}
+      {visibleDropdown && renderDropdown()}
       {confirmModal && renderConfirmModal()}
       <Link to={`/product/${_id}`}>
         <Image className="product-img" src={imageUrl} />

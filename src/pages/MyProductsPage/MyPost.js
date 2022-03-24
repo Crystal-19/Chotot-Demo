@@ -48,7 +48,7 @@ console.log('productPost', productPosted)
     return (
       <div className="products-container">
         {productPosted.map(pd => (
-          <ProductCard key={pd._id} product={pd} />
+          <ProductCard key={pd._id} product={pd} visibleDropdown={true}/>
         ))}
       </div>
     )
