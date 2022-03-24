@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {useSelector} from 'react-redux'
 import {Image, Icon, Button} from 'semantic-ui-react'
@@ -14,7 +14,12 @@ const MyProfileUpdate = () => {
     {title: 'Personal Information', link: ''},
   ]
 
+  const [imageUpdate, setImageUpdate] = useState(null)
   const userEmail = useSelector(state => state.Profile.userProfile.email)
+
+  const handleImageUpdate = e => {
+    setImageUpdate(URL.createObjectURL(e.target.files[0]))
+  }
 
   return (
     <div className="background-container">
@@ -25,14 +30,27 @@ const MyProfileUpdate = () => {
         <h2>Personal Information</h2>
         <div className="profile-edit-container">
           <div className="img-edit-container">
-            <input accept="image/*" type="file" className="img-input-update" />
-            <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
+            <input
+              onChange={e => {
+                handleImageUpdate(e)
+              }}
+              accept="image/*"
+              type="file"
+              className="img-input-update"
+            />
+            <Image
+              src={
+                imageUpdate === null
+                  ? 'https://www.chotot.com/user/static/img/avatar.svg'
+                  : imageUpdate
+              }
+            />
             <div className="camera-icon-container">
               <Icon name="camera retro" className="update-ava" />
             </div>
           </div>
           <form className="personal-info-edit-container">
-          <FloatLabelInput
+            <FloatLabelInput
               className="email-input"
               id="email"
               type="email"
@@ -43,7 +61,9 @@ const MyProfileUpdate = () => {
             <FloatLabelInput id="Phone number" type="tel" />
             <FloatLabelInput id="Address" type="text" />
             <FloatLabelInput id="Date of birth" type="date" />
-            <Button inverted color='orange'>Update</Button>
+            <Button inverted color="orange">
+              Update
+            </Button>
           </form>
         </div>
       </div>
