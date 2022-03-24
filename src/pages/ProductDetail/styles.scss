@@ -18,6 +18,10 @@
   .product-detail-container {
     .ui.breadcrumb {
       margin-left: 20px;
+
+      a {
+        font-size: 0.875em;
+      }
     }
 
     .header-container {
