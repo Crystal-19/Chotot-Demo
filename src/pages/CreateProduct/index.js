@@ -120,11 +120,11 @@ const CreateProduct = () => {
 
     setErrorMessage('')
 
-    if (imageUpload === null) {
+    if (!imageUpload) {
       return setErrorMessage('Please upload 1 product image')
     }
 
-    if (category === '') {
+    if (!category) {
       return setErrorMessage('Please select 1 category')
     }
 
