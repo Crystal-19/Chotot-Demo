@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {Image, Icon} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 import {useSelector} from 'react-redux'
 import dayjs from 'dayjs'
@@ -22,7 +23,9 @@ const MyInfo = () => {
             <span>0 Following</span>
           </div>
           <div className="edit-container">
-            <button>Edit profile</button>
+            <Link to="/dashboard/profile-update">
+              <button>Edit profile</button>
+            </Link>
             <button className="three-dot-container">
               <Icon name="ellipsis horizontal" />
             </button>
