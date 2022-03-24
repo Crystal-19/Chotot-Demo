@@ -18,6 +18,18 @@ export const logout = () => ({
   type: profileTypes.LOG_OUT,
 })
 
+export const updateProfile = () => ({
+  type: profileTypes.UPDATE_PROFILE,
+})
+
+export const updateProfileSuccess = () => ({
+  type: profileTypes.UPDATE_PROFILE_SUCCESS,
+})
+
+export const updateProfileFailure = () => ({
+  type: profileTypes.UPDATE_PROFILE_FAILURE,
+})
+
 export const loadUserProfile = () => async dispatch => {
   try {
     dispatch(getUserProfile())
@@ -26,5 +38,19 @@ export const loadUserProfile = () => async dispatch => {
     dispatch(getUserProfileSuccess(response.data))
   } catch {
     dispatch(getUserProfileFailure())
+  }
+}
+
+export const handleUpdateProfile = (infoUpdate, navigate) => async dispatch => {
+  try {
+    dispatch(updateProfile())
+
+    const response = await profileRequest.profileUpdateRequest(infoUpdate)
+
+    dispatch(updateProfileSuccess(response.data))
+
+    navigate('/my-products')
+  } catch {
+    dispatch(updateProfileFailure())
   }
 }

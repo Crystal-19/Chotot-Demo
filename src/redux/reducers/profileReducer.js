@@ -27,6 +27,15 @@ const profileReducer = (state = initialState, action) => {
     case profileTypes.LOG_OUT:
       return {...state, accessToken: '', userProfile: {}}
 
+    case profileTypes.UPDATE_PROFILE:
+      return {...state, isLoading: true, isError: false}
+
+    case profileTypes.UPDATE_PROFILE_SUCCESS:
+      return {...state, isLoading: false, isError: false}
+
+    case profileTypes.UPDATE_PROFILE_FAILURE:
+      return {...state, isLoading: false, isError: true}
+      
     default:
       return state
   }
