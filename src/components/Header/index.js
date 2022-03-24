@@ -12,9 +12,9 @@ import {ReactComponent as LogInIcon} from 'assets/images/icons/logIn.svg'
 import {ReactComponent as RegisterIcon} from 'assets/images/icons/register.svg'
 import HeaderDropdown from 'components/Dropdown/HeaderDropdown'
 import * as productActions from 'redux/actions/productActions'
+import * as helpers from 'utils/helpers'
 
 import useAuth from 'hooks/useAuth'
-
 
 import './styles.scss'
 
@@ -25,8 +25,9 @@ const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false)
 
   const accessToken = useAuth()
-  const email = useSelector(state => state.Profile.userProfile.email)
-  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const {email, avatarUrl, name} = useSelector(
+    state => state.Profile.userProfile,
+  )
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -136,15 +137,8 @@ const Header = () => {
   const renderLoginAfter = () => {
     return (
       <Link to="/my-products" className="log">
-        <Image
-          className="log-ava"
-          src={
-            avatarUrl === null
-              ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlVuC9HTggrhVG9Nr-djhhRPNAoGYwkUcpZxwk8yXFxtW6yUqSAjzz8foq6IY__zi20BU&usqp=CAU'
-              : avatarUrl
-          }
-        />
-        <span>{email}</span>
+        <Image className="log-ava" src={avatarUrl || helpers.DEFAULT_AVATAR} />
+        <span>{name || email}</span>
       </Link>
     )
   }
@@ -162,7 +156,7 @@ const Header = () => {
 
   const renderPost = () => {
     return (
-      <Link to='/create-product' className="reg-btn">
+      <Link to="/create-product" className="reg-btn">
         <div className="reg">
           <RegisterIcon className="reg-i" />
           <span>Post</span>

@@ -1,28 +1,35 @@
 import React from 'react'
 
-import {Image, Icon} from 'semantic-ui-react'
-
 import {useSelector} from 'react-redux'
 import dayjs from 'dayjs'
 
+import {Image, Icon} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+
+import * as helpers from 'utils/helpers'
+
 const MyInfo = () => {
-  const email = useSelector(state => state.Profile.userProfile.email)
-  const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
-  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const {email, name, createdAt, avatarUrl, address, dateOfBirth} = useSelector(
+    state => state.Profile.userProfile,
+  )
+
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
+  const dOb = dayjs(dateOfBirth).format('DD-MM-YYYY')
 
   const renderLeftInfo = () => {
     return (
       <div className="left-info-container">
-        <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
+        <Image src={avatarUrl || helpers.DEFAULT_AVATAR} />
         <div className="personal-info-container">
-          <h2>{email}</h2>
+          <h2>{name || email}</h2>
           <div className="follow-container">
             <span className="follower">0 Followers</span>
             <span>0 Following</span>
           </div>
           <div className="edit-container">
-            <button>Edit profile</button>
+            <Link to="/dashboard/profile-update">
+              <button>Edit profile</button>
+            </Link>
             <button className="three-dot-container">
               <Icon name="ellipsis horizontal" />
             </button>
@@ -46,13 +53,7 @@ const MyInfo = () => {
   const renderLastRightItem = () => {
     return (
       <li>
-        <Image
-          src={
-            avatarUrl === null
-              ? 'https://www.chotot.com/user/static/img/check.png'
-              : avatarUrl
-          }
-        />
+        <Image src="https://www.chotot.com/user/static/img/check.png" />
         <h3>
           Provided:
           <Image src="https://www.chotot.com/user/static/img/contact/facebook_active.png" />
@@ -81,12 +82,12 @@ const MyInfo = () => {
         {renderRightItem(
           'https://www.chotot.com/user/static/img/location.png',
           'Address',
-          'No provided yet',
+          address ? address : 'No provided yet',
         )}
         {renderRightItem(
-          'https://www.chotot.com/user/static/img/chat.png',
-          'Chat feedback',
-          'No information',
+          'https://www.chotot.com/user/static/img/calendar.png',
+          'Date of birth',
+          dateOfBirth ? dOb : 'No information',
         )}
         {renderLastRightItem()}
       </ul>

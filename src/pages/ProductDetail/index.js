@@ -16,6 +16,9 @@ const ProductDetail = () => {
   const {id} = useParams()
 
   const productRelated = useSelector(state => state.Product.productRelated)
+  const userName = useSelector(state => state.Profile.userProfile.name)
+  const phone = useSelector(state => state.Profile.userProfile.phone)
+
   const {imageUrl, name, price, description, author, category} = useSelector(
     state => state.Product.productDetail,
   )
@@ -44,40 +47,40 @@ const ProductDetail = () => {
     return <BreadCrumb data={data} />
   }
 
-  const renderInfoList = () => {
-    return (
-      <div className="info-list-container">
-        <div className="list-container">
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_brand.png" />
-            <span>Brand: Samsung</span>
-          </div>
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_condition.png" />
-            <span>Condition: Used</span>
-          </div>
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_capacity.png" />
-            <span>Capacity: 16GB</span>
-          </div>
-        </div>
-        <div className="list-container">
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_model.png" />
-            <span>Model: Galaxy</span>
-          </div>
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_warranty.png" />
-            <span>Warranty status: Out of warranty</span>
-          </div>
-          <div className="item-container">
-            <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_screen_size.png" />
-            <span>Screen size: 8 inches</span>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  // const renderInfoList = () => {
+  //   return (
+  //     <div className="info-list-container">
+  //       <div className="list-container">
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_brand.png" />
+  //           <span>Brand: Samsung</span>
+  //         </div>
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_condition.png" />
+  //           <span>Condition: Used</span>
+  //         </div>
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_capacity.png" />
+  //           <span>Capacity: 16GB</span>
+  //         </div>
+  //       </div>
+  //       <div className="list-container">
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_model.png" />
+  //           <span>Model: Galaxy</span>
+  //         </div>
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/elt_warranty.png" />
+  //           <span>Warranty status: Out of warranty</span>
+  //         </div>
+  //         <div className="item-container">
+  //           <Image src="https://static.chotot.com/storage/icons/logos/ad-param/tablet_screen_size.png" />
+  //           <span>Screen size: 8 inches</span>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   const renderImagePlaceholder = () => {
     return (
@@ -93,7 +96,7 @@ const ProductDetail = () => {
         <h3>{name}</h3>
         <h3 className="price">{helpers.formatPrice(price)}</h3>
         <p>{description}</p>
-        {renderInfoList()}
+        {/* {renderInfoList()} */}
       </>
     )
   }
@@ -172,7 +175,7 @@ const ProductDetail = () => {
       <div className="ava-container">
         <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
         <div className="name-container">
-          <h4>{email}</h4>
+          <h4>{userName ? userName : email}</h4>
           <p>Join date: {joinDate}</p>
         </div>
       </div>
@@ -213,7 +216,7 @@ const ProductDetail = () => {
         {renderRateInfo()}
         <button className="contact-container">
           <Image src="https://static.chotot.com/storage/chotot-icons/svg/white-phone.svg" />
-          <span>01234*** Click to display numbers</span>
+          <span>{phone ? phone : 'No phone to display'}</span>
         </button>
         <button className="contact-container chat-container">
           <Image src="https://static.chotot.com/storage/chotot-icons/png/chat_green.png" />

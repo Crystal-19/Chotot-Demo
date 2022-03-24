@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {Button, Dimmer, Loader} from 'semantic-ui-react'
 
-import FloatLabelInput from 'pages/CreateProduct/components/FloatLabelInput'
+import FloatLabelInput from 'components/FloatLabelInput'
 import PreviewProduct from 'pages/CreateProduct/components/PreviewProduct'
 import CategoryModal from 'pages/CreateProduct/components/CategoryModal'
 

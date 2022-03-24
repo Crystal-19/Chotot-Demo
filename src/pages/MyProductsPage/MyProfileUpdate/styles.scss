@@ -1,0 +1,77 @@
+@import 'assets/scss';
+
+.background-container {
+  height: 100%;
+
+  .profile-edit-container {
+    background-color: $white;
+    height: 100vh;
+
+    .header-profile-edit-container {
+      margin-left: 30px;
+    }
+
+    h2 {
+      margin-left: 30px;
+    }
+
+    .profile-edit-container {
+      @include flex(row, flex-start, space-evenly);
+      height: auto;
+
+      .img-edit-container {
+        flex: 0.3;
+        position: relative;
+
+        .img-input-update {
+          position: absolute;
+          height: 250px;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          opacity: 0;
+        }
+
+        img {
+          border-radius: 50%;
+          width: 250px;
+          height: 250px;
+          object-fit: cover;
+        }
+
+        .camera-icon-container {
+          @include flex(row, center, center);
+          background-color: $grey_icon;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          position: absolute;
+
+          right: 50px;
+          bottom: 0;
+          border: solid 2px $white;
+
+          i.icon {
+            font-size: 2.25em;
+            color: $white;
+            margin-right: 0;
+            margin-top: 0.25em;
+          }
+        }
+      }
+
+      .personal-info-edit-container {
+        flex: 0.6;
+
+        .input-container{
+          label{
+            &::after{
+              content: '';
+              color: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

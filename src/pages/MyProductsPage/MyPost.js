@@ -13,7 +13,7 @@ const MyPost = () => {
   const {page, totalPages} = useSelector(
     state => state.Product.productPosted.pagination,
   )
-console.log('productPost', productPosted)
+
   useEffect(() => {
     dispatch(productActions.loadProductPosted(1))
   }, [dispatch])
@@ -84,7 +84,6 @@ console.log('productPost', productPosted)
               {productPosted.length === 1 ? 'product' : 'products'}
             </span>
           </div>
-          <button> Post </button>
         </div>
         <Divider section />
         {isLoading ? renderProductPlaceholder() : renderMyProductPosted()}

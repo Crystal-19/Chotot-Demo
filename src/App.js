@@ -19,6 +19,7 @@ import MyProductPage from 'pages/MyProductsPage'
 import ProductFilterByCategory from 'pages/ProductFilterByCategory'
 import ProductFilterByName from 'pages/ProductFilterByName'
 import CreateProduct from 'pages/CreateProduct'
+import MyProfileUpdate from 'pages/MyProductsPage/MyProfileUpdate'
 
 import Home from 'pages/Home'
 import News from 'pages/News'
@@ -54,6 +55,14 @@ function App() {
           element={
             <ProtectedRoute>
               <CreateProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/profile-update"
+          element={
+            <ProtectedRoute>
+              <MyProfileUpdate />
             </ProtectedRoute>
           }
         />
