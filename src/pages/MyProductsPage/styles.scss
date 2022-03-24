@@ -4,6 +4,12 @@
   background-color: $pale_gray;
 
   .general-container {
+    .ui.breadcrumb {
+      @include responsive(mobile) {
+        font-size: 0.75em;
+      }
+    }
+
     .info-container {
       @include flex(row, flex-start, flex-start);
       background: $white;
@@ -69,6 +75,10 @@
         flex: 1;
         padding-top: 15px;
         margin-top: 0;
+
+        @include responsive(mobile) {
+          padding-left: 20px;
+        }
 
         li {
           @include flex(row, center, flex-start);
