@@ -28,14 +28,21 @@ const profileReducer = (state = initialState, action) => {
       return {...state, accessToken: '', userProfile: {}}
 
     case profileTypes.UPDATE_PROFILE:
-      return {...state, isLoading: true, isError: false}
+      return {...state, isError: false}
 
     case profileTypes.UPDATE_PROFILE_SUCCESS:
-      return {...state, isLoading: false, isError: false}
+      return {
+        ...state,
+        isError: false,
+        userProfile: {
+          ...state.userProfile,
+          avatarUrl: payload.avatarUpdate,
+        },
+      }
 
     case profileTypes.UPDATE_PROFILE_FAILURE:
-      return {...state, isLoading: false, isError: true}
-      
+      return {...state, isError: true}
+
     default:
       return state
   }

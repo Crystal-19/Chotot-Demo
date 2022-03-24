@@ -10,6 +10,7 @@ const MyInfo = () => {
   const {email, name, createdAt, avatarUrl, address} = useSelector(
     state => state.Profile.userProfile,
   )
+  console.log('myproductpage', avatarUrl)
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   const renderLeftInfo = () => {
@@ -51,7 +52,7 @@ const MyInfo = () => {
       <li>
         <Image
           src={
-            avatarUrl === null
+            !avatarUrl
               ? 'https://www.chotot.com/user/static/img/check.png'
               : avatarUrl
           }

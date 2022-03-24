@@ -25,9 +25,7 @@ const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false)
 
   const accessToken = useAuth()
-  const email = useSelector(state => state.Profile.userProfile.email)
-  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
-  const name = useSelector(state => state.Profile.userProfile.name)
+  const {email, avatarUrl, name} = useSelector(state => state.Profile.userProfile)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -140,7 +138,7 @@ const Header = () => {
         <Image
           className="log-ava"
           src={
-            avatarUrl === null
+            !avatarUrl
               ? 'https://www.chotot.com/user/static/img/avatar.svg'
               : avatarUrl
           }

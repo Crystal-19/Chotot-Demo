@@ -9,6 +9,8 @@ import FloatLabelInput from 'components/FloatLabelInput'
 
 import * as profileActions from 'redux/actions/profileActions'
 
+import API from 'redux/api/API'
+
 import './styles.scss'
 
 const MyProfileUpdate = () => {
@@ -20,21 +22,38 @@ const MyProfileUpdate = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [imageUpdate, setImageUpdate] = useState(null)
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [address, setAddress] = useState('')
-
   const userEmail = useSelector(state => state.Profile.userProfile.email)
+  const userName = useSelector(state => state.Profile.userProfile.name)
+  const userPhone = useSelector(state => state.Profile.userProfile.phone)
+
+  const [file, setFile] = useState(null)
+  const [imageUpdate, setImageUpdate] = useState(null)
+  const [name, setName] = useState(userName)
+  const [phone, setPhone] = useState(userPhone)
+  const [address, setAddress] = useState('')
 
   const handleImageUpdate = e => {
     setImageUpdate(URL.createObjectURL(e.target.files[0]))
+    setFile(e.target.files[0])
   }
 
-  const handleUpdateProfile = (e) => {
+  const handleFileUpload = async () => {
+    const formData = new FormData()
+    formData.append('file', file)
+
+    if (file) {
+      const response = await API.post('/upload', formData)
+      return response.data.url
+    }
+
+    return imageUpdate
+  }
+
+  const handleUpdateProfile = async (e) => {
     e.preventDefault()
+    const avatarUpdate = await handleFileUpload()
     const infoUpdate = {name, phone}
-    dispatch(profileActions.handleUpdateProfile(infoUpdate, navigate))
+    dispatch(profileActions.handleUpdateProfile(infoUpdate, navigate, avatarUpdate))
   }
 
   return (
@@ -56,7 +75,7 @@ const MyProfileUpdate = () => {
             />
             <Image
               src={
-                imageUpdate === null
+                !imageUpdate
                   ? 'https://www.chotot.com/user/static/img/avatar.svg'
                   : imageUpdate
               }
