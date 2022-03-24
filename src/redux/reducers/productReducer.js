@@ -144,7 +144,12 @@ const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         isError: false,
-        productPosted: {...state.productPosted, data: payload.productPosted},
+        productPosted: {
+          ...state.productPosted,
+          data: state.productPosted.data.filter(
+            dt => dt._id !== payload.productId,
+          ),
+        },
       }
 
     case productTypes.DELETE_PRODUCT_FAILURE:

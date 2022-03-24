@@ -126,9 +126,9 @@ export const deleteProduct = () => ({
   type: productTypes.DELETE_PRODUCT,
 })
 
-export const deleteProductSuccess = (productPosted, productId) => ({
+export const deleteProductSuccess = productId => ({
   type: productTypes.DELETE_PRODUCT_SUCCESS,
-  payload: {productPosted: productPosted.filter(pd => pd._id !== productId)},
+  payload: {productId},
 })
 
 export const deleteProductFailure = () => ({
@@ -236,19 +236,15 @@ export const handleEditProduct =
     }
   }
 
-export const handleDeleteProduct = (productId, pageNumber) => async (dispatch, getState) => {
+export const handleDeleteProduct = productId => async (dispatch) => {
   try {
     dispatch(deleteProduct())
 
-    
-    const productPosted = getState().Product.productPosted.data
-
     await productRequest.deleteProductRequest(productId)
 
-    dispatch(
-      deleteProductSuccess(productPosted, productId),
-    )
+    dispatch(deleteProductSuccess(productId))
   } catch (error) {
+    console.log('error', error)
     dispatch(deleteProductFailure())
   }
 }

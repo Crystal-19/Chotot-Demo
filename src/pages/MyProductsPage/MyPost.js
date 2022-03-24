@@ -13,7 +13,7 @@ const MyPost = () => {
   const {page, totalPages} = useSelector(
     state => state.Product.productPosted.pagination,
   )
-
+console.log('productPost', productPosted)
   useEffect(() => {
     dispatch(productActions.loadProductPosted(1))
   }, [dispatch])
