@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {useSelector} from 'react-redux'
-import {Image, Icon} from 'semantic-ui-react'
+import {Image, Icon, Button} from 'semantic-ui-react'
 
 import Breadcrumb from 'components/Breadcrumb'
 import FloatLabelInput from 'components/FloatLabelInput'
@@ -31,7 +31,7 @@ const MyProfileUpdate = () => {
               <Icon name="camera retro" className="update-ava" />
             </div>
           </div>
-          <div className="personal-info-edit-container">
+          <form className="personal-info-edit-container">
           <FloatLabelInput
               className="email-input"
               id="email"
@@ -43,7 +43,8 @@ const MyProfileUpdate = () => {
             <FloatLabelInput id="Phone number" type="tel" />
             <FloatLabelInput id="Address" type="text" />
             <FloatLabelInput id="Date of birth" type="date" />
-          </div>
+            <Button inverted color='orange'>Update</Button>
+          </form>
         </div>
       </div>
     </div>
