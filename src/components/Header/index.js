@@ -27,6 +27,7 @@ const Header = () => {
   const accessToken = useAuth()
   const email = useSelector(state => state.Profile.userProfile.email)
   const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const name = useSelector(state => state.Profile.userProfile.name)
 
   const filteredProductsByName = useSelector(
     state => state.Product.productFilterByName.data,
@@ -144,7 +145,7 @@ const Header = () => {
               : avatarUrl
           }
         />
-        <span>{email}</span>
+        <span>{name ? name : email}</span>
       </Link>
     )
   }

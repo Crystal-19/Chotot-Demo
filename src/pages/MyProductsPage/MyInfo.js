@@ -7,9 +7,9 @@ import {useSelector} from 'react-redux'
 import dayjs from 'dayjs'
 
 const MyInfo = () => {
-  const email = useSelector(state => state.Profile.userProfile.email)
-  const createdAt = useSelector(state => state.Profile.userProfile.createdAt)
-  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const {email, name, createdAt, avatarUrl, address} = useSelector(
+    state => state.Profile.userProfile,
+  )
   const joinedDate = dayjs(createdAt).format('MM-YYYY')
 
   const renderLeftInfo = () => {
@@ -17,7 +17,7 @@ const MyInfo = () => {
       <div className="left-info-container">
         <Image src="https://www.chotot.com/user/static/img/avatar.svg" />
         <div className="personal-info-container">
-          <h2>{email}</h2>
+          <h2>{name ? name : email}</h2>
           <div className="follow-container">
             <span className="follower">0 Followers</span>
             <span>0 Following</span>
@@ -84,7 +84,7 @@ const MyInfo = () => {
         {renderRightItem(
           'https://www.chotot.com/user/static/img/location.png',
           'Address',
-          'No provided yet',
+          address ? address : 'No provided yet',
         )}
         {renderRightItem(
           'https://www.chotot.com/user/static/img/chat.png',

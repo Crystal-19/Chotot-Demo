@@ -13,6 +13,8 @@ const ContentDropdown = () => {
   const dispatch = useDispatch()
   const accessToken = useAuth()
   const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
+  const name = useSelector(state => state.Profile.userProfile.name)
+  const email = useSelector(state => state.Profile.userProfile.email)
 
   const onLogout = () => {
     dispatch(profileActions.logout())
@@ -51,7 +53,10 @@ const ContentDropdown = () => {
           size="tiny"
           className="ava-image"
         />
-        <span onClick={onLogout}>Log out</span>
+        <span>
+          <h2>{name ? name : email}</h2>
+          <button onClick={onLogout}>Log out</button>
+        </span>
       </>
     )
   }
