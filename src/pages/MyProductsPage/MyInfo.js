@@ -3,7 +3,7 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import dayjs from 'dayjs'
 
-import {Image, Icon} from 'semantic-ui-react'
+import {Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import * as helpers from 'utils/helpers'
