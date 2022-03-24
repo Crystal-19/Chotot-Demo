@@ -28,7 +28,7 @@ const BottomNav = () => {
       </Link>
       <Link to="/my-products" className="items-container">
         <NewsIcon className="icon-news" />
-        <p>Products</p>
+        <p>Profile</p>
       </Link>
       <Link to="/create-product" className="items-container post">
         <Image
