@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 
+import {Link} from 'react-router-dom'
 import {Image} from 'semantic-ui-react'
 
-import {ReactComponent as BottomHomeIcon} from 'assets/images/icons/bottom_home.svg'
 import {ReactComponent as NewsIcon} from 'assets/images/icons/news.svg'
+import {ReactComponent as BottomHomeIcon} from 'assets/images/icons/bottom_home.svg'
 import {ReactComponent as PostIcon} from 'assets/images/icons/post.svg'
 import {ReactComponent as NotiIcon} from 'assets/images/icons/noti.svg'
 import {ReactComponent as MoreIcon} from 'assets/images/icons/more.svg'
@@ -21,15 +22,15 @@ const BottomNav = () => {
 
   return (
     <nav className="nav-container">
-      <a className="items-container active" href="/">
+      <Link to="/" className="items-container active">
         <BottomHomeIcon className="icon-home" />
-        <p>Home</p>
-      </a>
-      <a className="items-container" href="/news">
+        <p>Home Page</p>
+      </Link>
+      <Link to="/my-products" className="items-container">
         <NewsIcon className="icon-news" />
-        <p>News</p>
-      </a>
-      <a className="items-container post" href="/post">
+        <p>Products</p>
+      </Link>
+      <Link to="/create-product" className="items-container post">
         <Image
           className="top-rounder"
           src="https://static.chotot.com/storage/default/combined-shape.svg"
@@ -38,11 +39,11 @@ const BottomNav = () => {
           <PostIcon className="icon-post" />
           <p>Post</p>
         </div>
-      </a>
-      <a className="items-container" href="/notify">
+      </Link>
+      <Link to="/notify" className="items-container">
         <NotiIcon className="icon-noti" />
         <p>Notify</p>
-      </a>
+      </Link>
       <div onClick={() => toggleVisibleSideNav()} className="items-container">
         <MoreIcon className="icon-more" />
         <p>More</p>
