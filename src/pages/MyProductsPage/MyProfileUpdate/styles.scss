@@ -1,0 +1,38 @@
+@import 'assets/scss';
+
+.background-container{
+  height: 100%;
+
+  .profile-edit-container{
+    background-color: $white;
+    height: 100vh;
+
+    .header-profile-edit-container{
+      margin-left: 30px;
+    }
+
+    h2{
+      margin-left: 30px;
+    }
+
+    .profile-edit-container{
+      @include flex(row, flex-start, space-evenly);
+      height: auto;
+
+      .img-edit-container{
+        flex: 0.3;
+
+        img{
+          border-radius: 50%;
+          width: 250px;
+          height: 250px;
+          object-fit: cover;
+        }
+      }
+
+      .personal-info-edit-container{
+        flex: 0.6;
+      }
+    }
+  }
+}
