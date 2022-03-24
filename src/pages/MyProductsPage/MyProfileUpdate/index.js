@@ -32,12 +32,17 @@ const MyProfileUpdate = () => {
             </div>
           </div>
           <div className="personal-info-edit-container">
-            <FloatLabelInput id="First and last name" type="text" />
-            <FloatLabelInput id="Add phone number" type="tel" />
-            <FloatLabelInput id="email" type="email" value={userEmail} />
+          <FloatLabelInput
+              className="email-input"
+              id="email"
+              type="email"
+              value={userEmail}
+              disabled
+            />
+            <FloatLabelInput id="Name" type="text" />
+            <FloatLabelInput id="Phone number" type="tel" />
             <FloatLabelInput id="Address" type="text" />
             <FloatLabelInput id="Date of birth" type="date" />
-            <FloatLabelInput id="Password" type="password" />
           </div>
         </div>
       </div>
