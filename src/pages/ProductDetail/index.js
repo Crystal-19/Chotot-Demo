@@ -18,6 +18,7 @@ const ProductDetail = () => {
   const productRelated = useSelector(state => state.Product.productRelated)
   const userName = useSelector(state => state.Profile.userProfile.name)
   const phone = useSelector(state => state.Profile.userProfile.phone)
+  const avatarUrl = useSelector(state => state.Profile.userProfile.avatarUrl)
 
   const {imageUrl, name, price, description, author, category} = useSelector(
     state => state.Product.productDetail,
@@ -137,7 +138,7 @@ const ProductDetail = () => {
   const renderUserInfo = () => {
     return (
       <div className="ava-container">
-        <Image src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" />
+        <Image src={avatarUrl || helpers.DEFAULT_AVATAR} />
         <div className="name-container">
           <h4>{userName || email}</h4>
           <p>Join date: {joinDate}</p>
