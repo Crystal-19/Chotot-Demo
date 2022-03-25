@@ -13,6 +13,10 @@
       margin-left: 50px;
       padding-top: 30px;
 
+      @include responsive(mobile) {
+        width: unset;
+      }
+
       .ui.placeholder {
         width: 600px;
         max-width: 600px;
@@ -23,6 +27,11 @@
         width: 600px;
         height: 600px;
         object-fit: cover;
+
+        @include responsive(mobile) {
+          width: 300px;
+          height: 300px;
+        }
       }
 
       &::-webkit-scrollbar {
@@ -56,6 +65,10 @@
       margin: 30px 0 30px 50px;
       padding-bottom: 30px;
 
+      @include responsive(mobile) {
+        width: unset;
+      }
+
       button.correct {
         @include flex(row, center, center);
         height: 40px;
@@ -65,6 +78,10 @@
         border: solid 2px $orange;
         color: $orange;
         background-color: $white;
+
+        @include responsive(mobile) {
+          width: 60%;
+        }
 
         &:hover {
           background: $light_orange;

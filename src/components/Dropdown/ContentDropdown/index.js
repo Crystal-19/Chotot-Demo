@@ -12,7 +12,7 @@ import useAuth from 'hooks/useAuth'
 import {iconsMix, iconsGold, iconsGray, iconsGreen} from './data'
 import './styles.scss'
 
-const ContentDropdown = () => {
+const ContentDropdown = ({setVisibleSideNav}) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const accessToken = useAuth()
@@ -24,10 +24,12 @@ const ContentDropdown = () => {
     dispatch(profileActions.logout())
     localStorage.clear()
     navigate('/')
+    setVisibleSideNav(false)
   }
 
   const onLogin = () => {
     navigate('login')
+    setVisibleSideNav(false)
   }
 
   const renderLoginInfoBefore = () => {

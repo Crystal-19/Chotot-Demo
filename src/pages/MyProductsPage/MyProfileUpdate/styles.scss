@@ -13,15 +13,27 @@
 
     h2 {
       margin-left: 30px;
+
+      @include responsive(mobile) {
+        text-align: center;
+      }
     }
 
     .profile-edit-container {
       @include flex(row, flex-start, space-evenly);
       height: auto;
 
+      @include responsive(mobile) {
+        @include flex(column, center, flex-start);
+      }
+
       .img-edit-container {
         flex: 0.3;
         position: relative;
+
+        @include responsive(mobile) {
+          margin-bottom: 30px;
+        }
 
         .img-input-update {
           position: absolute;
@@ -63,9 +75,9 @@
       .personal-info-edit-container {
         flex: 0.6;
 
-        .input-container{
-          label{
-            &::after{
+        .input-container {
+          label {
+            &::after {
               content: '';
               color: unset;
             }

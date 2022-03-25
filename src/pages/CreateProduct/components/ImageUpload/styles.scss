@@ -3,6 +3,10 @@
 .uploaded-img-container {
   position: relative;
 
+  @include responsive(mobile) {
+    margin-bottom: 30px;
+  }
+
   .remove-icon {
     width: 32px;
     height: 32px;
@@ -22,6 +26,11 @@
 .image-upload-container {
   flex: 0.3;
   position: relative;
+
+  @include responsive(mobile) {
+    width: 74%;
+    margin-bottom: 30px;
+  }
 
   .file {
     position: absolute;
