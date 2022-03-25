@@ -72,8 +72,8 @@ const LogIn = () => {
         )}
         <Button
           className={classNames({active: infoLength})}
-          disabled={infoLength ? false : true}
-          loading={isLoading ? true : false}>
+          disabled={!infoLength}
+          loading={isLoading}>
           Log in
         </Button>
         <div className="register-container">
