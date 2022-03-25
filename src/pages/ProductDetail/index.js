@@ -178,7 +178,9 @@ const ProductDetail = () => {
       <div className="right-section-container">
         {renderUserInfo()}
         {renderRateInfo()}
-        <a href={`tel: ${phone} || No phone to display`} className="contact-container">
+        <a
+          href={`tel: ${phone} || No phone to display`}
+          className="contact-container">
           <Image src="https://static.chotot.com/storage/chotot-icons/svg/white-phone.svg" />
           <span>{phone || 'No phone to display'}</span>
         </a>
