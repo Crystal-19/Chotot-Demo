@@ -48,7 +48,7 @@ const MyPost = () => {
     return (
       <div className="products-container">
         {productPosted.map(pd => (
-          <ProductCard key={pd._id} product={pd} visibleDropdown={true}/>
+          <ProductCard key={pd._id} product={pd} visibleDropdown={true} />
         ))}
       </div>
     )
@@ -86,7 +86,8 @@ const MyPost = () => {
           </div>
         </div>
         <Divider section />
-        {isLoading ? renderProductPlaceholder() : renderMyProductPosted()}
+        {renderMyProductPosted()}
+        {isLoading && renderProductPlaceholder()}
         <div
           onClick={onShowMore}
           className={page < totalPages ? 'see-more' : 'hide-see-more'}>
