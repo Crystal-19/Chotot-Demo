@@ -49,21 +49,49 @@
       background-color: $white;
       margin: 0;
 
+      @include responsive(mobile) {
+        @include flex(column, center, center);
+      }
+
       .left-section-container {
         width: 60%;
         overflow-y: scroll;
         line-height: 1.5rem;
 
+        @include responsive(tablet) {
+          margin-left: 10px;
+        }
+
         .ui.placeholder {
           width: 600px;
           max-width: 600px;
           height: 600px;
+
+          @include responsive(tablet) {
+            width: 390px;
+            height: 390px;
+          }
+
+          @include responsive(mobile) {
+            width: 100%;
+            height: 300px;
+          }
         }
 
         img {
           width: 600px;
           height: 600px;
-          object-fit: contain;
+          object-fit: cover;
+
+          @include responsive(tablet) {
+            width: 390px;
+            height: 390px;
+          }
+
+          @include responsive(mobile) {
+            width: 100%;
+            height: 300px;
+          }
         }
 
         &::-webkit-scrollbar {
@@ -163,7 +191,8 @@
         border-top: solid 1px $medium_gray;
 
         @include multiple-responsive(tablet, mobile) {
-          display: none;
+          width: 90%;
+          margin-top: 20px;
         }
 
         .ava-container {

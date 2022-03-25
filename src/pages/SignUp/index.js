@@ -96,8 +96,8 @@ const SignUp = () => {
         />
         {isError ? errorMessage() : successMessage()}
         <Button
-          className={classNames({active: !isError && infoLength})}
-          disabled={!isError && infoLength ? false : true}
+          className={classNames({active: infoLength})}
+          disabled={infoLength ? false : true}
           loading={isLoading ? true : false}>
           Registration
         </Button>

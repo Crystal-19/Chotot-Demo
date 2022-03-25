@@ -71,9 +71,9 @@ const LogIn = () => {
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
         <Button
-          className={classNames({active: !isError && infoLength})}
-          disabled={!isError && infoLength ? false : true}
-          loading={isLoading ? true : false}>
+          className={classNames({active: infoLength})}
+          disabled={!infoLength}
+          loading={isLoading}>
           Log in
         </Button>
         <div className="register-container">
