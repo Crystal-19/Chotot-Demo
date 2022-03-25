@@ -25,7 +25,7 @@ const BottomNav = () => {
       <Link
         to="/"
         className="items-container active"
-        onClick={toggleVisibleSideNav}>
+        onClick={() => setVisibleSideNav(false)}>
         <BottomHomeIcon className="icon-home" />
         <p>Home Page</p>
       </Link>
