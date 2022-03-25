@@ -55,22 +55,21 @@ const MyPost = () => {
   }
 
   const renderProductEmpty = () => {
-    return (
-      <div className="post-content">
-        <PostImage />
-        <p>
-          You don&#8217;t have any personal listings for sale, try posting them
-          now.
-        </p>
-        <button>POST</button>
-      </div>
-    )
-  }
-
-  const renderMyProductPosted = () => {
     const checkProductPosted =
       Array.isArray(productPosted) && productPosted.length === 0
-    return checkProductPosted ? renderProductEmpty() : renderProductPosted()
+
+    if (checkProductPosted) {
+      return (
+        <div className="post-content">
+          <PostImage />
+          <p>
+            You don&#8217;t have any personal listings for sale, try posting
+            them now.
+          </p>
+          <button>POST</button>
+        </div>
+      )
+    }
   }
 
   const renderPosts = () => {
@@ -86,7 +85,8 @@ const MyPost = () => {
           </div>
         </div>
         <Divider section />
-        {renderMyProductPosted()}
+        {renderProductPosted()}
+        {!isLoading && renderProductEmpty()}
         {isLoading && renderProductPlaceholder()}
         <div
           onClick={onShowMore}
