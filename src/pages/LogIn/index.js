@@ -71,8 +71,8 @@ const LogIn = () => {
           <p className="wrong-info">Your email or password is incorrect</p>
         )}
         <Button
-          className={classNames({active: !isError && infoLength})}
-          disabled={!isError && infoLength ? false : true}
+          className={classNames({active: infoLength})}
+          disabled={infoLength ? false : true}
           loading={isLoading ? true : false}>
           Log in
         </Button>
